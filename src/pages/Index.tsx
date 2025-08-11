@@ -4,7 +4,6 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatHero from "@/components/HeartbeatHero";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
 import BaySignalSection from "@/components/BaySignalSection";
-import RevenueUnlockSection from "@/components/RevenueUnlockSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProgramsSection from "@/components/ProgramsSection";
 import FAQSection from "@/components/FAQSection";
@@ -65,7 +64,6 @@ const Index = () => {
         <HeartbeatHero />
         <TechnologyCarousel />
         <BaySignalSection />
-        <RevenueUnlockSection />
         <GrowthPlansSection />
         <TestimonialsSection />
         <FAQSection />
