@@ -26,12 +26,12 @@ const HeartbeatFooter = () => {
             >
               Terms and Conditions
             </Link>
-            <a 
-              href="/privacy-policy" 
+            <Link 
+              to="/privacy-policy" 
               className="text-gray-300 hover:text-white transition-colors"
             >
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
         
