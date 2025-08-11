@@ -2,15 +2,33 @@ import React, { useState } from "react";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 const ConnectSection = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    areaOfInterest: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", { email, message });
-    setEmail("");
-    setMessage("");
+    console.log("Form submitted:", formData);
+    setFormData({
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      areaOfInterest: "",
+      message: ""
+    });
   };
 
   return (
@@ -109,22 +127,75 @@ const ConnectSection = () => {
 
             {/* Contact Form */}
             <div>
-              <h3 className="text-2xl font-bold mb-6">Stay Informed with Our Latest Updates</h3>
+              <h3 className="text-2xl font-bold mb-6">Contact Us</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">
+                    Full Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email*
+                    Email Address*
                   </label>
                   <input
                     type="email"
                     id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     placeholder="Your email address"
                   />
+                </div>
+
+                <div>
+                  <label htmlFor="phoneNumber" className="block text-sm font-medium mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="areaOfInterest" className="block text-sm font-medium mb-2">
+                    Area of Interest
+                  </label>
+                  <select
+                    id="areaOfInterest"
+                    name="areaOfInterest"
+                    value={formData.areaOfInterest}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  >
+                    <option value="" className="text-gray-900">Select an area of interest</option>
+                    <option value="digital-marketing" className="text-gray-900">Digital Marketing</option>
+                    <option value="web-development" className="text-gray-900">Web Development</option>
+                    <option value="ai-automation" className="text-gray-900">AI Automation</option>
+                    <option value="crm-solutions" className="text-gray-900">CRM Solutions</option>
+                    <option value="consultation" className="text-gray-900">Consultation</option>
+                    <option value="other" className="text-gray-900">Other</option>
+                  </select>
                 </div>
 
                 <div>
@@ -133,12 +204,13 @@ const ConnectSection = () => {
                   </label>
                   <textarea
                     id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     required
                     rows={4}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Your message"
+                    placeholder="Tell us about your project or inquiry"
                   />
                 </div>
 
@@ -146,7 +218,7 @@ const ConnectSection = () => {
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  Submit
+                  Send Message
                 </button>
               </form>
             </div>
