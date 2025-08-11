@@ -8,7 +8,7 @@ const AboutUs = () => {
       <HeartbeatNavbar />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/10 to-background pt-20 pb-4">
+        <section className="pt-20 pb-4" style={{ backgroundColor: '#d1e8ff' }}>
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
