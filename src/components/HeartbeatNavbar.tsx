@@ -23,12 +23,12 @@ const HeartbeatNavbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a 
-                href="#home" 
+              <Link 
+                to="/" 
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 Home
-              </a>
+              </Link>
               <Link 
                 to="/about" 
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
@@ -59,13 +59,13 @@ const HeartbeatNavbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white rounded-lg mt-2 shadow-lg">
-              <a 
-                href="#home" 
+              <Link 
+                to="/" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
-              </a>
+              </Link>
               <Link 
                 to="/about" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
