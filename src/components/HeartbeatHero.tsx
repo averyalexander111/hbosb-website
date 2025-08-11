@@ -20,7 +20,7 @@ const HeartbeatHero = () => {
           {/* Hero Content Image */}
           <div className="mb-8 md:mb-12 px-4 md:px-0">
             <img 
-              src="/lovable-uploads/f089cffc-7dc8-48cd-bc68-e6d74de312a4.png" 
+              src="/lovable-uploads/c6e90bf7-f523-4273-b90c-0c5fded91f96.png" 
               alt="AI is transforming Business - Stay Ahead & Scale Faster" 
               className="w-full max-w-6xl mx-auto h-auto object-contain"
             />
