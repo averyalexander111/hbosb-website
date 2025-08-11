@@ -14,7 +14,7 @@ const TechnologyCarousel = () => {
     },
     {
       name: "Gradient Heart",
-      icon: "/lovable-uploads/6b4a2f6b-2193-419c-9cc0-145cc7b0e003.png"
+      icon: "/lovable-uploads/a9488bc1-c20b-4ebd-81a3-dab6badda94e.png"
     },
     {
       name: "Network",
