@@ -14,6 +14,15 @@ const HeartbeatHero = () => {
     >
 
       <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Hero Content Image - Full Width */}
+        <div className="mb-16 md:mb-20">
+          <img 
+            src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
+            alt="AI is transforming Business - Stay Ahead & Scale Faster" 
+            className="w-full max-w-none h-auto object-cover object-center sm:object-center md:object-center lg:object-center"
+          />
+        </div>
+
         {/* Main Hero Content */}
         <div className="max-w-4xl mx-auto">
           {/* Complimentary Consultation Button */}
@@ -30,15 +39,6 @@ const HeartbeatHero = () => {
               </button>
             </a>
           </div>
-        </div>
-
-        {/* Hero Content Image - Full Width */}
-        <div className="mb-16 md:mb-20">
-          <img 
-            src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
-            alt="AI is transforming Business - Stay Ahead & Scale Faster" 
-            className="w-full max-w-none h-auto object-cover object-center sm:object-center md:object-center lg:object-center"
-          />
         </div>
       </div>
 
