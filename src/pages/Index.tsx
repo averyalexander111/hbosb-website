@@ -5,7 +5,7 @@ import HeartbeatHero from "@/components/HeartbeatHero";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
 import BaySignalSection from "@/components/BaySignalSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ProgramsSection from "@/components/ProgramsSection";
+
 import FAQSection from "@/components/FAQSection";
 import GrowthPlansSection from "@/components/GrowthPlansSection";
 import RevenueUnlockSection from "@/components/RevenueUnlockSection";
@@ -68,7 +68,7 @@ const Index = () => {
         <GrowthPlansSection />
         <TestimonialsSection />
         <FAQSection />
-        <ProgramsSection />
+        
         <RevenueUnlockSection />
         <ConnectSection />
       </main>
