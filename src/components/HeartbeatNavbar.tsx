@@ -13,7 +13,7 @@ const HeartbeatNavbar = () => {
             <img 
               src="/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png" 
               alt="Heartbeat of South Bay" 
-              className="h-8 w-8"
+              className="h-12 w-12"
             />
             <span className="ml-2 text-xl font-bold text-foreground">
             </span>
