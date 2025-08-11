@@ -27,7 +27,7 @@ const HeartbeatHero = () => {
           </div>
 
           {/* Complimentary Consultation Button */}
-          <div className="mb-8 mt-96 md:mt-[30rem]">
+          <div className="mb-8 mt-72 md:mt-96">
             <a 
               href="https://cal.com/hbosb/30min" 
               target="_blank" 
