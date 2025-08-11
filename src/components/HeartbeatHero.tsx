@@ -24,7 +24,7 @@ const HeartbeatHero = () => {
         </div>
 
         {/* Main Hero Content - Consistent positioning */}
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4 md:-mt-8 lg:-mt-12">
           {/* Complimentary Consultation Button - Consistent sizing */}
           <div className="flex justify-center">
             <a 
