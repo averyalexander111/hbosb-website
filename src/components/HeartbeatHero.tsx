@@ -41,12 +41,6 @@ const HeartbeatHero = () => {
             </a>
           </div>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed opacity-90">
-            Recover lost bookings and win back idle clients with BaySignal AI. Our plug-and-play 
-            automations automatically re-engage no-shows, streamline your workflow, and deliver 
-            targeted leads—so you can scale without extra hires.
-          </p>
         </div>
       </div>
 
