@@ -5,7 +5,7 @@ const HeartbeatHero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-no-repeat sm:bg-cover md:bg-cover lg:bg-cover"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('/lovable-uploads/fc3ff7b6-e1d6-4b4f-a93b-773156f6b8dd.png')`,
         backgroundSize: 'cover',
@@ -15,17 +15,17 @@ const HeartbeatHero = () => {
     >
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        {/* Hero Content Image - Larger on mobile for readability */}
-        <div className="mb-0 sm:mb-2 md:mb-0 lg:mb-0 flex justify-center items-center">
+        {/* Hero Content Image - Mobile optimized */}
+        <div className="mb-4 sm:mb-6 md:mb-8 flex justify-center items-center">
           <LazyImage 
             src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
             alt="AI is transforming Business - Stay Ahead & Scale Faster" 
-            className="h-auto object-contain object-center max-w-full scale-110 sm:scale-100 md:scale-75 lg:scale-75"
+            className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
           />
         </div>
 
-        {/* Main Hero Content - Consistent positioning */}
-        <div className="max-w-4xl mx-auto px-4 md:-mt-8 lg:-mt-12">
+        {/* Main Hero Content - Mobile optimized spacing */}
+        <div className="max-w-4xl mx-auto px-4 mt-2 sm:mt-4 md:-mt-8 lg:-mt-12">
           {/* Complimentary Consultation Button - Consistent sizing */}
           <div className="flex justify-center">
             <a 
