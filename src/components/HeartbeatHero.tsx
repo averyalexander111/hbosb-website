@@ -17,7 +17,7 @@ const HeartbeatHero = () => {
         {/* Hero Content Image - Full Width */}
         <div className="mb-16 md:mb-20">
           <img 
-            src="/lovable-uploads/a228af68-954c-401f-8dd0-2155a09135a4.png" 
+            src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
             alt="AI is transforming Business - Stay Ahead & Scale Faster" 
             className="w-full h-auto object-cover"
           />
