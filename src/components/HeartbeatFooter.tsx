@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeartbeatFooter = () => {
   return (
@@ -19,12 +20,12 @@ const HeartbeatFooter = () => {
           </div>
           
           <div className="flex space-x-6 text-sm">
-            <a 
-              href="/terms-and-conditions" 
+            <Link 
+              to="/terms-and-conditions" 
               className="text-gray-300 hover:text-white transition-colors"
             >
               Terms and Conditions
-            </a>
+            </Link>
             <a 
               href="/privacy-policy" 
               className="text-gray-300 hover:text-white transition-colors"
