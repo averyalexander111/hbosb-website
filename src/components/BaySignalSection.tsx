@@ -37,7 +37,7 @@ const BaySignalSection = () => {
             BaySignal AI powers smarter client engagement so you can focus on running your business.
           </p>
 
-          <div className="space-y-4 text-left max-w-2xl mx-auto">
+          <div className="space-y-4 text-center max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
