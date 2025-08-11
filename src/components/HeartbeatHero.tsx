@@ -6,7 +6,7 @@ const HeartbeatHero = () => {
       id="home" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: `url('/lovable-uploads/7213f4c9-5919-433e-96a4-24587c376e42.png')`,
+        backgroundImage: `url('/lovable-uploads/fc3ff7b6-e1d6-4b4f-a93b-773156f6b8dd.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
