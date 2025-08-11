@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeartbeatNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,12 +29,12 @@ const HeartbeatNavbar = () => {
               >
                 Home
               </a>
-              <a 
-                href="/about" 
+              <Link 
+                to="/about" 
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 About Us
-              </a>
+              </Link>
               <a 
                 href="#consultation" 
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
@@ -65,13 +66,13 @@ const HeartbeatNavbar = () => {
               >
                 Home
               </a>
-              <a 
-                href="/about" 
+              <Link 
+                to="/about" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About Us
-              </a>
+              </Link>
               <a 
                 href="#consultation" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
