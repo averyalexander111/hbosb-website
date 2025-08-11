@@ -64,10 +64,10 @@ const Index = () => {
         <HeartbeatHero />
         <TechnologyCarousel />
         <BaySignalSection />
+        <GrowthPlansSection />
         <TestimonialsSection />
         <ProgramsSection />
         <FAQSection />
-        <GrowthPlansSection />
         <ConnectSection />
       </main>
       <HeartbeatFooter />
