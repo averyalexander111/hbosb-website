@@ -22,7 +22,7 @@ const AboutUs = () => {
         </section>
 
         {/* About Content */}
-        <section className="py-16">
+        <section className="py-16" style={{ backgroundColor: '#d1e8ff' }}>
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-12">
               
