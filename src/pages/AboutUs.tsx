@@ -1,6 +1,7 @@
 import React from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
+import ConnectSection from "@/components/ConnectSection";
 
 const AboutUs = () => {
   return (
@@ -166,6 +167,7 @@ const AboutUs = () => {
           </div>
         </section>
       </main>
+      <ConnectSection />
       <HeartbeatFooter />
     </>
   );
