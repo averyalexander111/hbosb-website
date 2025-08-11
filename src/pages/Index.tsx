@@ -1,16 +1,15 @@
 
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import HumanoidSection from "@/components/HumanoidSection";
-import SpecsSection from "@/components/SpecsSection";
-import DetailsSection from "@/components/DetailsSection";
-import ImageShowcaseSection from "@/components/ImageShowcaseSection";
-import Features from "@/components/Features";
-import Testimonials from "@/components/Testimonials";
-import Newsletter from "@/components/Newsletter";
-import MadeByHumans from "@/components/MadeByHumans";
-import Footer from "@/components/Footer";
+import HeartbeatNavbar from "@/components/HeartbeatNavbar";
+import HeartbeatHero from "@/components/HeartbeatHero";
+import TechnologyCarousel from "@/components/TechnologyCarousel";
+import BaySignalSection from "@/components/BaySignalSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ProgramsSection from "@/components/ProgramsSection";
+import FAQSection from "@/components/FAQSection";
+import GrowthPlansSection from "@/components/GrowthPlansSection";
+import ConnectSection from "@/components/ConnectSection";
+import HeartbeatFooter from "@/components/HeartbeatFooter";
 
 const Index = () => {
   // Initialize intersection observer to detect when elements enter viewport
@@ -60,19 +59,18 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <main className="space-y-4 sm:space-y-8"> {/* Reduced space on mobile */}
-        <Hero />
-        <HumanoidSection />
-        <SpecsSection />
-        <DetailsSection />
-        <ImageShowcaseSection />
-        <Features />
-        <Testimonials />
-        <Newsletter />
-        <MadeByHumans />
+      <HeartbeatNavbar />
+      <main>
+        <HeartbeatHero />
+        <TechnologyCarousel />
+        <BaySignalSection />
+        <TestimonialsSection />
+        <ProgramsSection />
+        <FAQSection />
+        <GrowthPlansSection />
+        <ConnectSection />
       </main>
-      <Footer />
+      <HeartbeatFooter />
     </div>
   );
 };
