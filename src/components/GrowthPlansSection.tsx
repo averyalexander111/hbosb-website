@@ -1,6 +1,6 @@
 import React from "react";
 
-const GrowthPlansSection = () => {
+const GrowthPlansSection = React.memo(() => {
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(45deg, #007bff, #16324f)" }}>
       {/* Pricing Header and Plans Section */}
@@ -302,6 +302,8 @@ const GrowthPlansSection = () => {
       </div>
     </div>
   );
-};
+});
+
+GrowthPlansSection.displayName = "GrowthPlansSection";
 
 export default GrowthPlansSection;

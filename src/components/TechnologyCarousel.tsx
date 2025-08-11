@@ -5,8 +5,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-auto-scroll";
+import LazyImage from "@/components/LazyImage";
 
-const TechnologyCarousel = () => {
+const TechnologyCarousel = React.memo(() => {
   const technologies = [
     {
       name: "Supabase",
@@ -59,7 +60,7 @@ const TechnologyCarousel = () => {
             {[...technologies, ...technologies, ...technologies].map((tech, index) => (
               <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/6">
                 <div className="flex justify-center items-center p-4">
-                  <img
+                  <LazyImage
                     src={tech.icon}
                     alt={tech.name}
                     className={`object-contain filter hover:scale-110 transition-transform duration-300 ${
@@ -76,6 +77,8 @@ const TechnologyCarousel = () => {
       </div>
     </section>
   );
-};
+});
+
+TechnologyCarousel.displayName = "TechnologyCarousel";
 
 export default TechnologyCarousel;

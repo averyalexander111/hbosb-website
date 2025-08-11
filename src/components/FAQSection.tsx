@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const FAQSection = () => {
+const FAQSection = React.memo(() => {
   const faqs = [
     {
       question: "I don't have time to set this up.",
@@ -58,6 +58,8 @@ const FAQSection = () => {
       </div>
     </section>
   );
-};
+});
+
+FAQSection.displayName = "FAQSection";
 
 export default FAQSection;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const RevenueUnlockSection = () => {
+const RevenueUnlockSection = React.memo(() => {
   return (
     <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
       <div className="container mx-auto px-4">
@@ -39,6 +39,8 @@ const RevenueUnlockSection = () => {
       </div>
     </section>
   );
-};
+});
+
+RevenueUnlockSection.displayName = "RevenueUnlockSection";
 
 export default RevenueUnlockSection;

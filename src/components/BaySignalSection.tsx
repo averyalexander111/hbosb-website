@@ -1,7 +1,7 @@
 import React from "react";
 import { CheckCircle } from "lucide-react";
 
-const BaySignalSection = () => {
+const BaySignalSection = React.memo(() => {
   const benefits = [
     "Recover missed revenue from no-shows & ghosted leads",
     "Automate follow-ups & reminders without lifting a finger", 
@@ -49,6 +49,8 @@ const BaySignalSection = () => {
       </div>
     </section>
   );
-};
+});
+
+BaySignalSection.displayName = "BaySignalSection";
 
 export default BaySignalSection;

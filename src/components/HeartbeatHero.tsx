@@ -1,4 +1,5 @@
 import React from "react";
+import LazyImage from "@/components/LazyImage";
 
 const HeartbeatHero = () => {
   return (
@@ -16,7 +17,7 @@ const HeartbeatHero = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         {/* Hero Content Image - Larger on mobile for readability */}
         <div className="mb-0 sm:mb-2 md:mb-0 lg:mb-0 flex justify-center items-center">
-          <img 
+          <LazyImage 
             src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
             alt="AI is transforming Business - Stay Ahead & Scale Faster" 
             className="h-auto object-contain object-center max-w-full scale-110 sm:scale-100 md:scale-75 lg:scale-75"

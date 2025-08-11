@@ -1,7 +1,7 @@
 import React from "react";
 import { Star } from "lucide-react";
 
-const TestimonialsSection = () => {
+const TestimonialsSection = React.memo(() => {
   const testimonials = [
     {
       name: "James Norris",
@@ -88,6 +88,8 @@ const TestimonialsSection = () => {
       </div>
     </section>
   );
-};
+});
+
+TestimonialsSection.displayName = "TestimonialsSection";
 
 export default TestimonialsSection;

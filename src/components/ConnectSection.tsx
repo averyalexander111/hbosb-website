@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
-const ConnectSection = () => {
+const ConnectSection = React.memo(() => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -228,6 +228,8 @@ const ConnectSection = () => {
       </div>
     </section>
   );
-};
+});
+
+ConnectSection.displayName = "ConnectSection";
 
 export default ConnectSection;
