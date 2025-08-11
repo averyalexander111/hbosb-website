@@ -125,6 +125,10 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'wave': {
+					'0%': { transform: 'translate(-50%, -75%) rotate(0deg)' },
+					'100%': { transform: 'translate(-50%, -75%) rotate(360deg)' }
 				}
 			},
 			animation: {
