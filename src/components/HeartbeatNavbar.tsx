@@ -16,7 +16,6 @@ const HeartbeatNavbar = () => {
               className="h-8 w-8"
             />
             <span className="ml-2 text-xl font-bold text-foreground">
-              Heartbeat of South Bay
             </span>
           </div>
 
