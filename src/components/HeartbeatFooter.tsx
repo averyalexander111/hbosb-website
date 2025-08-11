@@ -15,7 +15,6 @@ const HeartbeatFooter = () => {
               className="h-12 w-12"
             />
             <span className="ml-2 text-lg font-bold">
-              Heartbeat of South Bay
             </span>
           </div>
           
