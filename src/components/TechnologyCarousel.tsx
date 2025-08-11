@@ -35,7 +35,7 @@ const TechnologyCarousel = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
           Built with technology you love
