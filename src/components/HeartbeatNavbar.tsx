@@ -29,7 +29,7 @@ const HeartbeatNavbar = () => {
                 Home
               </a>
               <a 
-                href="#about" 
+                href="/about" 
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 About Us
@@ -66,7 +66,7 @@ const HeartbeatNavbar = () => {
                 Home
               </a>
               <a 
-                href="#about" 
+                href="/about" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
