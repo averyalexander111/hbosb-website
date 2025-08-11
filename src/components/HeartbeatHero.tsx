@@ -6,16 +6,16 @@ const HeartbeatHero = () => {
       id="home" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        background: `linear-gradient(135deg, hsl(var(--hero-light)), hsl(var(--hero-dark)))`
+        background: `linear-gradient(135deg, #4A9FCC, #2E7B8F)`
       }}
     >
-      {/* Background decorative elements */}
+      {/* Background decorative elements - Palm tree graphic */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-20">
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-[600px] h-[600px] opacity-30">
           <img 
             src="/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png" 
             alt="" 
-            className="w-full h-full object-contain filter blur-sm"
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
@@ -29,7 +29,7 @@ const HeartbeatHero = () => {
             className="mx-auto mb-8 max-w-full h-auto"
           />
           
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-shadow-lg">
             Stay Ahead & Scale Faster!
           </h2>
 
@@ -41,15 +41,14 @@ const HeartbeatHero = () => {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <button className="complimentary-consultation-btn relative overflow-hidden px-8 py-4 text-white bg-blue-600 rounded-2xl font-medium text-lg tracking-wider hover:bg-blue-700 transition-colors duration-300">
-                <span className="relative z-10">Complimentary Consultation</span>
-                <div className="wave absolute -top-24 left-0 w-full h-60 bg-gradient-to-r from-purple-600 to-blue-400 transition-all duration-500"></div>
+              <button className="px-8 py-4 text-white bg-blue-800 hover:bg-blue-900 rounded-full font-semibold text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Complimentary Consultation
               </button>
             </a>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed opacity-90">
             Recover lost bookings and win back idle clients with BaySignal AI. Our plug-and-play 
             automations automatically re-engage no-shows, streamline your workflow, and deliver 
             targeted leads—so you can scale without extra hires.
