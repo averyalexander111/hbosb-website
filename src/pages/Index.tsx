@@ -66,8 +66,8 @@ const Index = () => {
         <BaySignalSection />
         <GrowthPlansSection />
         <TestimonialsSection />
-        <ProgramsSection />
         <FAQSection />
+        <ProgramsSection />
         <ConnectSection />
       </main>
       <HeartbeatFooter />
