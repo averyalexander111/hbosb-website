@@ -39,7 +39,7 @@ const BaySignalSection = () => {
 
           <div className="space-y-4 text-center max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start space-x-3">
+              <div key={index} className="flex items-center justify-center space-x-3">
                 <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700 font-medium">{benefit}</span>
               </div>
