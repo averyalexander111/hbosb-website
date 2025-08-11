@@ -10,7 +10,7 @@ const HeartbeatNavbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#d1e8ff' }}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png" 
               alt="Heartbeat of South Bay" 
@@ -18,7 +18,7 @@ const HeartbeatNavbar = () => {
             />
             <span className="ml-2 text-xl font-bold text-foreground">
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
