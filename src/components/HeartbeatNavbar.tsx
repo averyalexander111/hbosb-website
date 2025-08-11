@@ -36,7 +36,9 @@ const HeartbeatNavbar = () => {
                 About Us
               </Link>
               <a 
-                href="#consultation" 
+                href="https://cal.com/hbosb/30min" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 Consultation
@@ -74,7 +76,9 @@ const HeartbeatNavbar = () => {
                 About Us
               </Link>
               <a 
-                href="#consultation" 
+                href="https://cal.com/hbosb/30min" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
