@@ -1,5 +1,11 @@
 import React from "react";
 import { Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -64,27 +70,42 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
-                  {testimonial.initial}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <div className="flex mt-1">
-                    {renderStars(testimonial.rating)}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: false,
+            })
+          ]}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {/* Duplicate testimonials for seamless loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                      {testimonial.initial}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                      <div className="flex mt-1">
+                        {renderStars(testimonial.rating)}
+                      </div>
+                    </div>
                   </div>
+                  <p className="text-gray-700 leading-relaxed">{testimonial.text}</p>
                 </div>
-              </div>
-              <p className="text-gray-700 leading-relaxed">{testimonial.text}</p>
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
