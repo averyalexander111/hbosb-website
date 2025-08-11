@@ -2,7 +2,7 @@ import React from "react";
 
 const RevenueUnlockSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg">
