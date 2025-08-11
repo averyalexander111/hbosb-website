@@ -26,7 +26,7 @@ const HeartbeatHero = () => {
           <img 
             src="/lovable-uploads/54d1279c-1109-4d86-a8be-29c5ac06e1d8.png" 
             alt="AI is Transforming Business" 
-            className="mx-auto mb-8 max-w-full h-auto"
+            className="mx-auto mb-4 max-w-full h-auto"
           />
           
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-shadow-lg">
