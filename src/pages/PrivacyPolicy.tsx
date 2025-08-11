@@ -1,5 +1,6 @@
 import React from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
+import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 
 const PrivacyPolicy = () => {
@@ -100,6 +101,7 @@ const PrivacyPolicy = () => {
           </div>
         </section>
       </main>
+      <ConnectSection />
       <HeartbeatFooter />
     </>
   );

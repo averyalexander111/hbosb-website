@@ -1,5 +1,6 @@
 import React from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
+import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 
 const TermsAndConditions = () => {
@@ -116,6 +117,7 @@ const TermsAndConditions = () => {
           </div>
         </section>
       </main>
+      <ConnectSection />
       <HeartbeatFooter />
     </>
   );
