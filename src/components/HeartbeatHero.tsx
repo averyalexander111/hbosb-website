@@ -4,13 +4,12 @@ const HeartbeatHero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-no-repeat sm:bg-cover md:bg-cover lg:bg-cover"
       style={{
         backgroundImage: `url('/lovable-uploads/fc3ff7b6-e1d6-4b4f-a93b-773156f6b8dd.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'scroll'
+        backgroundRepeat: 'no-repeat'
       }}
     >
 
