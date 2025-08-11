@@ -12,16 +12,6 @@ const HeartbeatHero = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Background decorative elements - Palm tree graphic */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-[600px] h-[600px] opacity-30">
-          <img 
-            src="/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png" 
-            alt="" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
         {/* Main Hero Content */}
