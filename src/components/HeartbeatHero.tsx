@@ -14,12 +14,12 @@ const HeartbeatHero = () => {
     >
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        {/* Hero Content Image - Consistent across all devices */}
+        {/* Hero Content Image - Larger on mobile for readability */}
         <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           <img 
             src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
             alt="AI is transforming Business - Stay Ahead & Scale Faster" 
-            className="w-full h-auto object-contain object-center mx-auto max-w-full"
+            className="w-full h-auto object-contain object-center mx-auto max-w-full scale-110 sm:scale-100 md:scale-100 lg:scale-100"
           />
         </div>
 
