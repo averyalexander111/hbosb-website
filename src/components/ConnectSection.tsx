@@ -150,24 +150,6 @@ const ConnectSection = () => {
             </div>
           </div>
 
-          {/* Additional Content */}
-          <div className="mt-16 text-center">
-            <div className="bg-white/10 rounded-lg p-8 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">
-                Unlock Hidden Revenue with BaySignal AI
-              </h3>
-              <p className="text-lg text-gray-200 leading-relaxed">
-                Every no-show, ghosted lead, or drop-off is money left on the table. BaySignal AI's 
-                plug-and-play automations re-engage quiet clients, trigger smart follow-ups, and surface 
-                fresh, targeted leads—all without a single line of code.
-              </p>
-              <p className="text-lg text-gray-200 mt-4">
-                👉 <strong>Built for service businesses</strong> (coaches, clinics, salons, advisors), 
-                BaySignal AI scales your client outreach, automates routine work, and fuels sustainable 
-                growth—no extra hires required.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
