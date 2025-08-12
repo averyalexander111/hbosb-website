@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const ConnectSection = React.memo(() => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -9,6 +12,7 @@ const ConnectSection = React.memo(() => {
     areaOfInterest: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -18,17 +22,49 @@ const ConnectSection = React.memo(() => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    setFormData({
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      areaOfInterest: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from("HBOSB Contact Form")
+        .insert({
+          full_name: formData.fullName,
+          email_address: formData.email,
+          phone_number: formData.phoneNumber,
+          area_of_interest: formData.areaOfInterest,
+          message: formData.message
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      // Reset form on success
+      setFormData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        areaOfInterest: "",
+        message: ""
+      });
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error sending message",
+        description: "There was a problem submitting your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -145,9 +181,10 @@ const ConnectSection = React.memo(() => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
