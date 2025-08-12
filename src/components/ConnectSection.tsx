@@ -115,11 +115,14 @@ const ConnectSection = React.memo(() => {
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
                   >
                     <option value="" className="text-gray-900">Select an area of interest</option>
-                    <option value="digital-marketing" className="text-gray-900">Digital Marketing</option>
-                    <option value="web-development" className="text-gray-900">Web Development</option>
-                    <option value="ai-automation" className="text-gray-900">AI Automation</option>
-                    <option value="crm-solutions" className="text-gray-900">CRM Solutions</option>
-                    <option value="consultation" className="text-gray-900">Consultation</option>
+                    <option value="crm-ai-automations" className="text-gray-900">Set up CRM & AI automations (BaySignal AI)</option>
+                    <option value="leads-bookings" className="text-gray-900">Get more leads & bookings</option>
+                    <option value="re-engage-customers" className="text-gray-900">Re-engage past customers</option>
+                    <option value="online-reviews" className="text-gray-900">Improve online reviews</option>
+                    <option value="website-design" className="text-gray-900">Build/Redesign website</option>
+                    <option value="dashboards-reporting" className="text-gray-900">Dashboards & reporting</option>
+                    <option value="managed-hosting" className="text-gray-900">Managed hosting & maintenance (SiteCare)</option>
+                    <option value="strategy-consultation" className="text-gray-900">Strategy consultation</option>
                     <option value="other" className="text-gray-900">Other</option>
                   </select>
                 </div>
