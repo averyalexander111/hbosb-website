@@ -126,17 +126,6 @@ const ROICalculator = () => {
         `}
       </style>
       
-      <div style={{ 
-        background: 'rgba(22,50,79,0.08)', 
-        color: '#16324f', 
-        textAlign: 'center', 
-        padding: '14px 20px', 
-        fontFamily: 'Montserrat, sans-serif', 
-        fontSize: '22px', 
-        fontWeight: 600 
-      }}>
-        ROI Calculator
-      </div>
 
       <div style={{ 
         maxWidth: '640px', 
