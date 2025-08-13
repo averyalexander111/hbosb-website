@@ -11,6 +11,196 @@
     <meta name="author" content="Heartbeat AI" />
     <meta property="og:image" content="/lovable-uploads/72f8c969-3149-4fbe-b2f1-104ba80febd2.png" />
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://heartbeatofsouthbay.com/#business",
+      "name": "Heartbeat of South Bay",
+      "url": "https://heartbeatofsouthbay.com/",
+      "description": "AI automation, CRM, and high-converting websites for local brands.",
+      "areaServed": ["South Bay", "Los Angeles County", "California"],
+      "telephone": "+1-424-488-3774",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "20700 Avalon Blvd Ste 116, PO Box 11812",
+        "addressLocality": "Carson",
+        "addressRegion": "CA",
+        "postalCode": "90746",
+        "addressCountry": "US"
+      }
+    },
+
+    {
+      "@type": "Service",
+      "@id": "https://heartbeatofsouthbay.com/#service-baysignal-core",
+      "name": "BaySignal AI — Core",
+      "provider": { "@id": "https://heartbeatofsouthbay.com/#business" },
+      "serviceType": "AI automation & CRM",
+      "description": "Essential follow-ups after missed calls or no-bookings, past-client reactivation, lead finder, meeting note summaries, client memory, essentials dashboard.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "597",
+        "name": "Core Monthly",
+        "category": "subscription",
+        "additionalProperty": [
+          { "@type": "PropertyValue", "name": "Setup fee", "value": "$749" },
+          { "@type": "PropertyValue", "name": "GPT tokens / mo", "value": "50,000" },
+          { "@type": "PropertyValue", "name": "Voice minutes / mo", "value": "200" },
+          { "@type": "PropertyValue", "name": "Messages (SMS/Email) / mo", "value": "500" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://heartbeatofsouthbay.com/#service-baysignal-plus",
+      "name": "BaySignal AI — Plus",
+      "provider": { "@id": "https://heartbeatofsouthbay.com/#business" },
+      "serviceType": "AI automation & CRM",
+      "description": "Everything in Core plus personalized journeys, advanced notes, branded PDF proposals, monthly competitor snapshot, enhanced review flows, monthly strategy call, deeper reports, AI-driven tweaks.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "1297",
+        "name": "Plus Monthly",
+        "category": "subscription",
+        "additionalProperty": [
+          { "@type": "PropertyValue", "name": "Setup fee", "value": "$1,499" },
+          { "@type": "PropertyValue", "name": "GPT tokens / mo", "value": "150,000" },
+          { "@type": "PropertyValue", "name": "Voice minutes / mo", "value": "600" },
+          { "@type": "PropertyValue", "name": "Messages (SMS/Email) / mo", "value": "1,500" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://heartbeatofsouthbay.com/#service-baysignal-pro",
+      "name": "BaySignal AI — Pro",
+      "provider": { "@id": "https://heartbeatofsouthbay.com/#business" },
+      "serviceType": "AI automation & CRM",
+      "description": "Everything in Plus plus full CRM integration with roles, interactive proposals & payments, AI Voice Agent, expanded client memory, weekly competitor watch, market research, real-time analytics, behavior triggers, priority support.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "2497",
+        "name": "Pro Monthly",
+        "category": "subscription",
+        "additionalProperty": [
+          { "@type": "PropertyValue", "name": "Setup fee", "value": "$2,999" },
+          { "@type": "PropertyValue", "name": "GPT tokens / mo", "value": "300,000" },
+          { "@type": "PropertyValue", "name": "Voice minutes / mo", "value": "1,500" },
+          { "@type": "PropertyValue", "name": "Messages (SMS/Email) / mo", "value": "5,000" }
+        ]
+      }
+    },
+
+    {
+      "@type": "Service",
+      "@id": "https://heartbeatofsouthbay.com/#service-launchpad",
+      "name": "Heartbeat Launchpad",
+      "provider": { "@id": "https://heartbeatofsouthbay.com/#business" },
+      "serviceType": "Landing page design & launch",
+      "areaServed": "Los Angeles",
+      "description": "Lean, high-impact landing pages on lovable.dev with hero, problem/solution, social proof, and clear CTA—built to convert and pave the way into BaySignal AI.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "500",
+        "name": "Launchpad Setup"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://heartbeatofsouthbay.com/#service-sitecare",
+      "name": "Heartbeat SiteCare",
+      "provider": { "@id": "https://heartbeatofsouthbay.com/#business" },
+      "serviceType": "Managed hosting & maintenance",
+      "description": "Managed hosting via lovable.dev, SSL renewals, daily backups & security, one monthly content change, monthly performance report.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "50",
+        "name": "SiteCare Monthly",
+        "category": "subscription",
+        "additionalProperty": [
+          { "@type": "PropertyValue", "name": "Annual prepay", "value": "$500/yr" }
+        ]
+      }
+    },
+
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://heartbeatofsouthbay.com/#catalog",
+      "name": "BaySignal AI Plans",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@id": "https://heartbeatofsouthbay.com/#service-baysignal-core" } },
+        { "@type": "Offer", "itemOffered": { "@id": "https://heartbeatofsouthbay.com/#service-baysignal-plus" } },
+        { "@type": "Offer", "itemOffered": { "@id": "https://heartbeatofsouthbay.com/#service-baysignal-pro" } }
+      ]
+    },
+
+    {
+      "@type": "FAQPage",
+      "@id": "https://heartbeatofsouthbay.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "I don't have time to set this up.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We handle the setup for you. Our team configures everything—automations, messaging flows, and reporting—so you can start seeing results without slowing down your day-to-day operations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I'm not sure if this will really work for my business.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BaySignal AI is built for service-based businesses just like yours, and we customize each implementation based on your needs. You'll also get early performance check-ins so you can see real results in the first 30 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I already have a CRM—why do I need BaySignal AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional CRMs store client data. BaySignal AI goes further, proactively re-engaging idle clients, recovering lost revenue, and automating follow-ups so you make more money without extra manual work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "It seems expensive.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "What you pay for BaySignal AI often comes back many times over in recovered revenue, reactivated clients, and time saved. Compared to hiring additional staff, BaySignal AI is a fraction of the cost—and it never takes a day off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I'm worried about learning yet another tool.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We train you and your team, and we provide ongoing support so you're never left figuring it out alone. Plus, many workflows run quietly in the background, requiring little day-to-day interaction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will this replace my team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BaySignal AI doesn't replace people—it gives your team superpowers. Free them from repetitive tasks so they can focus on delivering outstanding service and growing your business."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJKZ8FP5YP"></script>
     <script>
