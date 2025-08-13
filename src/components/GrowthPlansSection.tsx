@@ -237,12 +237,15 @@ const GrowthPlansSection = React.memo(() => {
             className="overflow-x-auto rounded-lg shadow-lg" 
             style={{ 
               WebkitOverflowScrolling: "touch",
-              background: "white"
+              background: "hsl(210, 100%, 90%)"
             }}
           >
             <table 
-              className="w-full border-collapse bg-white"
-              style={{ minWidth: "600px" }}
+              className="w-full border-collapse"
+              style={{ 
+                minWidth: "600px",
+                background: "white"
+              }}
             >
               <thead>
                 <tr>
