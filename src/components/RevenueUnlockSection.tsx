@@ -6,7 +6,7 @@ const RevenueUnlockSection = React.memo(() => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
               Unlock Hidden Revenue with BaySignal AI
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
