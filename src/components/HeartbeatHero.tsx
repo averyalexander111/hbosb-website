@@ -21,6 +21,7 @@ const HeartbeatHero = () => {
             src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
             alt="AI is transforming Business - Stay Ahead & Scale Faster" 
             className="w-full max-w-[480px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
+            priority={true}
           />
         </div>
 

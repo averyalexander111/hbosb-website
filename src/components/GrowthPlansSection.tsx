@@ -48,7 +48,7 @@ const GrowthPlansSection = React.memo(() => {
                   <div className="text-5xl font-bold leading-tight mb-2">
                     <span className="text-sm align-top">$</span>597<span className="text-sm italic ml-2">/ month</span>
                   </div>
-                  <h3 className="text-xs uppercase tracking-widest font-bold">Core</h3>
+                  <p className="text-xs uppercase tracking-widest font-bold">Core</p>
                 </div>
               </div>
               

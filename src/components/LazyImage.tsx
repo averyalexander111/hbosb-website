@@ -5,14 +5,20 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   placeholder?: string;
   className?: string;
+  priority?: boolean;
 }
 
-const LazyImage = React.memo(({ src, alt, placeholder, className, ...props }: LazyImageProps) => {
+const LazyImage = React.memo(({ src, alt, placeholder, className, priority = false, ...props }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    if (priority) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -28,7 +34,7 @@ const LazyImage = React.memo(({ src, alt, placeholder, className, ...props }: La
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [priority]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -48,7 +54,8 @@ const LazyImage = React.memo(({ src, alt, placeholder, className, ...props }: La
             className={`transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             } ${className}`}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
             {...props}
           />
         </>
