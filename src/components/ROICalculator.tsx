@@ -119,7 +119,7 @@ const ROICalculator = () => {
   };
 
   return (
-    <div style={{ background: '#d1e8ff', color: '#16324f', fontFamily: 'Arial, sans-serif' }}>
+    <div style={{ background: '#16324f', color: '#ffffff', fontFamily: 'Arial, sans-serif' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
