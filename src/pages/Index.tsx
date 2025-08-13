@@ -3,7 +3,8 @@ import React, { useEffect, lazy, Suspense } from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatHero from "@/components/HeartbeatHero";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
-import { preloadCriticalImages } from "@/utils/preloadImages";
+import { preloadCriticalImages, preloadFonts } from "@/utils/preloadImages";
+import { usePerformanceOptimization } from "@/hooks/usePerformanceOptimization";
 
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
@@ -16,9 +17,12 @@ const RevenueUnlockSection = lazy(() => import("@/components/RevenueUnlockSectio
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
 const Index = () => {
-  // Preload critical images on component mount
+  // Enable performance optimizations
+  usePerformanceOptimization();
+  // Preload critical images and fonts for better performance
   useEffect(() => {
     preloadCriticalImages();
+    preloadFonts();
   }, []);
 
   // Initialize intersection observer to detect when elements enter viewport
