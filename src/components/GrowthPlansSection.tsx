@@ -231,7 +231,7 @@ const GrowthPlansSection = React.memo(() => {
       </div>
 
       {/* Comparison Table Section */}
-      <div className="bg-white py-16">
+      <div className="py-16" style={{ backgroundColor: "hsl(210, 100%, 90%)" }}>
         <div className="container mx-auto px-4">
           <div 
             className="overflow-x-auto rounded-lg shadow-lg" 
