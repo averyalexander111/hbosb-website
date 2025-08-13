@@ -7,7 +7,7 @@ const HeartbeatNavbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 backdrop-blur-sm border-b border-gray-200" style={{ backgroundColor: '#d1e8ff' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#d1e8ff' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4" style={{ backgroundColor: '#d1e8ff' }}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
