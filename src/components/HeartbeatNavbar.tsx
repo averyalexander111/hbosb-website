@@ -62,7 +62,7 @@ const HeartbeatNavbar = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white rounded-lg mt-2 shadow-lg">
+            <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3 bg-white rounded-lg mt-2 shadow-lg">
               <Link 
                 to="/" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
