@@ -45,6 +45,30 @@ const BaySignalSection = React.memo(() => {
               </div>
             ))}
           </div>
+
+          {/* LaunchPad & SiteCare Section */}
+          <div className="mt-16 max-w-3xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+              No website? Low conversions?
+            </h3>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              We can spin up a fast, conversion-first LaunchPad in 7 days and keep it secure with SiteCare—then plug BaySignal AI right in.
+            </p>
+            <div className="space-y-3 text-left max-w-lg mx-auto">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Built to convert cold traffic</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">SSL, backups, updates</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Ready for automation</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
