@@ -244,21 +244,21 @@ const GrowthPlansSection = React.memo(() => {
               className="w-full border-collapse"
               style={{ 
                 minWidth: "600px",
-                background: "white"
+                background: "hsl(210, 100%, 90%)"
               }}
             >
               <thead>
                 <tr>
-                  <th className="text-left font-montserrat text-gray-800 bg-gray-50 p-4 border-b-2 border-gray-300 font-bold">
+                  <th className="text-left font-montserrat text-gray-800 p-4 border-b-2 border-gray-300 font-bold" style={{ backgroundColor: "hsl(210, 100%, 85%)" }}>
                     Feature
                   </th>
-                  <th className="text-center font-montserrat text-gray-800 bg-gray-50 p-4 border-b-2 border-gray-300 font-bold">
+                  <th className="text-center font-montserrat text-gray-800 p-4 border-b-2 border-gray-300 font-bold" style={{ backgroundColor: "hsl(210, 100%, 85%)" }}>
                     Core
                   </th>
-                  <th className="text-center font-montserrat text-gray-800 bg-gray-50 p-4 border-b-2 border-gray-300 font-bold">
+                  <th className="text-center font-montserrat text-gray-800 p-4 border-b-2 border-gray-300 font-bold" style={{ backgroundColor: "hsl(210, 100%, 85%)" }}>
                     Plus
                   </th>
-                  <th className="text-center font-montserrat text-gray-800 bg-gray-50 p-4 border-b-2 border-gray-300 font-bold">
+                  <th className="text-center font-montserrat text-gray-800 p-4 border-b-2 border-gray-300 font-bold" style={{ backgroundColor: "hsl(210, 100%, 85%)" }}>
                     Pro
                   </th>
                 </tr>
@@ -332,7 +332,7 @@ const GrowthPlansSection = React.memo(() => {
                     pro: "Priority support + quarterly reviews"
                   }
                 ].map((row, index) => (
-                  <tr key={index} className="hover:bg-gray-50">
+                  <tr key={index} style={{ backgroundColor: "hsl(210, 100%, 90%)" }} className="hover:bg-opacity-80">
                     <td className="font-medium text-gray-800 font-raleway p-3 border-b border-gray-200">
                       {row.feature}
                     </td>
