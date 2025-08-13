@@ -8,6 +8,7 @@ import { preloadCriticalImages } from "@/utils/preloadImages";
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
 const BaySignalSection = lazy(() => import("@/components/BaySignalSection"));
+const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const GrowthPlansSection = lazy(() => import("@/components/GrowthPlansSection"));
@@ -95,6 +96,9 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <GrowthPlansSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <ROICalculator />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <TestimonialsSection />
