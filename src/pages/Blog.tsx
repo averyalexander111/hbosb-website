@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Search, Calendar, User, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 
 interface BlogPost {
   id: string;
@@ -89,6 +90,7 @@ const Blog = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
+        <HeartbeatNavbar />
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
