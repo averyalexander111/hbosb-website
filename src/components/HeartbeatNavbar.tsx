@@ -35,8 +35,14 @@ const HeartbeatNavbar = () => {
               >
                 About Us
               </Link>
+              <Link 
+                to="/blog" 
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+              >
+                Blog
+              </Link>
               <a 
-                href="https://cal.com/hbosb/30min" 
+                href="https://cal.com/hbosb/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
@@ -77,8 +83,15 @@ const HeartbeatNavbar = () => {
               >
                 About Us
               </Link>
+              <Link 
+                to="/blog" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
               <a 
-                href="https://cal.com/hbosb/30min" 
+                href="https://cal.com/hbosb/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
