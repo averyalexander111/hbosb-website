@@ -2,10 +2,18 @@ import React from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import ConnectSection from "@/components/ConnectSection";
+import SEOHead from "@/components/SEOHead";
 
 const AboutUs = () => {
   return (
     <>
+      <SEOHead 
+        title="About Us - Heartbeat of South Bay | AI Automation Experts"
+        description="Learn about Heartbeat of South Bay's mission to empower local businesses with AI automation, CRM solutions, and digital marketing expertise in the South Bay area."
+        ogTitle="About Us - Heartbeat of South Bay | AI Automation Experts"
+        ogDescription="Learn about Heartbeat of South Bay's mission to empower local businesses with AI automation, CRM solutions, and digital marketing expertise in the South Bay area."
+        canonicalUrl={`${window.location.origin}/about-us`}
+      />
       <HeartbeatNavbar />
       <main className="pt-16">
         {/* Hero Section */}

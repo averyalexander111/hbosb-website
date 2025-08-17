@@ -2,10 +2,18 @@ import React from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
+import SEOHead from "@/components/SEOHead";
 
 const PrivacyPolicy = () => {
   return (
     <>
+      <SEOHead 
+        title="Privacy Policy - Heartbeat of South Bay"
+        description="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
+        ogTitle="Privacy Policy - Heartbeat of South Bay"
+        ogDescription="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
+        canonicalUrl={`${window.location.origin}/privacy-policy`}
+      />
       <HeartbeatNavbar />
       <main className="pt-16">
         {/* Hero Section */}

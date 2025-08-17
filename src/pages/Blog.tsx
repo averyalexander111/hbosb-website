@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Search, Calendar, User, ArrowRight } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 
 interface BlogPost {
@@ -80,14 +80,13 @@ const Blog = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blog - BaySignal AI | Digital Marketing Insights & Tips</title>
-        <meta name="description" content="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team." />
-        <meta property="og:title" content="Blog - BaySignal AI | Digital Marketing Insights & Tips" />
-        <meta property="og:description" content="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href={`${window.location.origin}/blog`} />
-      </Helmet>
+      <SEOHead 
+        title="Blog - BaySignal AI | Digital Marketing Insights & Tips"
+        description="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team."
+        ogTitle="Blog - BaySignal AI | Digital Marketing Insights & Tips"
+        ogDescription="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team."
+        canonicalUrl={`${window.location.origin}/blog`}
+      />
 
       <div className="min-h-screen" style={{ backgroundColor: '#d1e8ff' }}>
         <HeartbeatNavbar />
