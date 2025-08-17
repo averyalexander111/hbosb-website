@@ -89,7 +89,7 @@ const Blog = () => {
         <link rel="canonical" href={`${window.location.origin}/blog`} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen" style={{ backgroundColor: '#d1e8ff' }}>
         <HeartbeatNavbar />
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4">
