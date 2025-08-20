@@ -126,8 +126,24 @@ const ROICalculator = () => {
         `}
       </style>
       
-
       <div style={{ 
+        textAlign: 'center', 
+        marginBottom: '30px',
+        maxWidth: '640px',
+        margin: '0 auto 30px auto',
+        padding: '0 20px'
+      }}>
+        <p style={{ 
+          fontSize: '18px', 
+          color: '#e1ecff', 
+          margin: '0',
+          lineHeight: '1.4'
+        }}>
+          Calculate your potential ROI and see how AI can accelerate your growth.
+        </p>
+      </div>
+
+      <div style={{
         maxWidth: '640px', 
         margin: '20px auto', 
         background: '#ffffff', 
