@@ -82,7 +82,7 @@ const Index = () => {
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
-        <div data-animation="slide-up">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <TechnologyCarousel />
           </Suspense>
@@ -92,32 +92,32 @@ const Index = () => {
             <BaySignalSection />
           </Suspense>
         </div>
-        <div data-animation="slide-left">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <GrowthPlansSection />
           </Suspense>
         </div>
-        <div data-animation="scale-in">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <ROICalculator />
           </Suspense>
         </div>
-        <div data-animation="slide-right">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <TestimonialsSection />
           </Suspense>
         </div>
-        <div data-animation="blur-in">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <FAQSection />
           </Suspense>
         </div>
-        <div data-animation="rotate-in">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <RevenueUnlockSection />
           </Suspense>
         </div>
-        <div data-animation="scale-in-bounce">
+        <div data-animation="fade-in">
           <Suspense fallback={<SectionLoader />}>
             <ConnectSection />
           </Suspense>
