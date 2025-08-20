@@ -133,6 +133,15 @@ const ROICalculator = () => {
         margin: '0 auto 30px auto',
         padding: '0 20px'
       }}>
+        <h2 style={{ 
+          fontSize: '36px', 
+          fontWeight: '600',
+          color: '#ffffff', 
+          margin: '0 0 16px 0',
+          lineHeight: '1.2'
+        }}>
+          ROI Calculator
+        </h2>
         <p style={{ 
           fontSize: '18px', 
           color: '#e1ecff', 
