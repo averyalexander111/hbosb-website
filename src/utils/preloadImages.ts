@@ -13,7 +13,7 @@ const preloadImage = (src: string, priority: "high" | "low" = "low"): Promise<vo
 // Critical images that should be preloaded immediately
 const criticalImages = [
   "/lovable-uploads/fc3ff7b6-e1d6-4b4f-a93b-773156f6b8dd.png", // Hero background
-  "/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png", // Hero image
+  "/lovable-uploads/1521df51-c111-449d-b980-f28d3edb8812.png", // Hero image
   "/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png", // Logo
   "/Header-background.webp", // Header background
   // Technology carousel icons

@@ -18,8 +18,8 @@ const HeartbeatHero = () => {
         {/* Hero Content Image - Mobile optimized */}
         <div className="mb-4 sm:mb-6 md:mb-8 flex justify-center items-center">
           <LazyImage 
-            src="/lovable-uploads/f09434ec-e31e-4a1b-8ea9-9028469da094.png" 
-            alt="AI is transforming Business - Stay Ahead & Scale Faster" 
+            src="/lovable-uploads/1521df51-c111-449d-b980-f28d3edb8812.png" 
+            alt="AI is Transforming Business - Stay Ahead & Scale Faster" 
             className="w-full max-w-[480px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
             priority={true}
           />
