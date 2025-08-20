@@ -144,6 +144,9 @@ const ROICalculator = () => {
         }}>
           Estimate Your ROI
         </h1>
+        <p style={{ margin: '0 0 8px 0', color: '#34577a', fontSize: '18px', fontWeight: 500 }}>
+          Calculate your potential ROI and see how AI can accelerate your growth.
+        </p>
         <p style={{ margin: '0 0 18px 0', color: '#34577a' }}>
           Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
         </p>
