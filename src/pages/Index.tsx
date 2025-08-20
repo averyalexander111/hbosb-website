@@ -5,7 +5,6 @@ import HeartbeatHero from "@/components/HeartbeatHero";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import { preloadCriticalImages, preloadFonts } from "@/utils/preloadImages";
 import { usePerformanceOptimization } from "@/hooks/usePerformanceOptimization";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import SEOHead from "@/components/SEOHead";
 
 // Lazy load non-critical components
@@ -21,19 +20,32 @@ const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 const Index = () => {
   // Enable performance optimizations
   usePerformanceOptimization();
-  
-  // Initialize enhanced scroll animations
-  useScrollAnimations({
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px',
-    staggerDelay: 150,
-    enableReducedMotion: true
-  });
-  
   // Preload critical images and fonts for better performance
   useEffect(() => {
     preloadCriticalImages();
     preloadFonts();
+  }, []);
+
+  // Initialize intersection observer to detect when elements enter viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    elements.forEach((el) => observer.observe(el));
+    
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   useEffect(() => {
@@ -82,46 +94,30 @@ const Index = () => {
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <TechnologyCarousel />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <BaySignalSection />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <GrowthPlansSection />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <ROICalculator />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <TestimonialsSection />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <FAQSection />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <RevenueUnlockSection />
-          </Suspense>
-        </div>
-        <div data-animation="fade-in">
-          <Suspense fallback={<SectionLoader />}>
-            <ConnectSection />
-          </Suspense>
-        </div>
+        <Suspense fallback={<SectionLoader />}>
+          <TechnologyCarousel />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <BaySignalSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <GrowthPlansSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <ROICalculator />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <TestimonialsSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <FAQSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <RevenueUnlockSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <ConnectSection />
+        </Suspense>
       </main>
       <HeartbeatFooter />
     </div>
