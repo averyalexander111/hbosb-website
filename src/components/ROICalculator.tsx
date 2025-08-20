@@ -143,14 +143,15 @@ const ROICalculator = () => {
         </p>
       </div>
 
-      <div style={{
-        maxWidth: '640px', 
+      <div style={{ 
+        maxWidth: '900px', 
         margin: '20px auto', 
         background: '#ffffff', 
         color: '#16324f', 
-        padding: '20px', 
+        padding: '30px', 
         borderRadius: '10px', 
-        boxShadow: '0 4px 10px rgba(0,0,0,0.08)' 
+        boxShadow: '0 4px 10px rgba(0,0,0,0.08)',
+        width: '90%'
       }}>
         <h1 style={{ 
           fontFamily: 'Montserrat, sans-serif', 
