@@ -29,7 +29,11 @@ const queryClient = new QueryClient({
 // Loading component for Suspense
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    <img 
+      src="/lovable-uploads/761ad773-d059-47f2-a526-d397fba4f668.png" 
+      alt="Loading..." 
+      className="w-16 h-16 animate-pulse"
+    />
   </div>
 );
 
