@@ -14,7 +14,6 @@ const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const GrowthPlansSection = lazy(() => import("@/components/GrowthPlansSection"));
-const PreROICTA = lazy(() => import("@/components/PreROICTA"));
 const RevenueUnlockSection = lazy(() => import("@/components/RevenueUnlockSection"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
@@ -103,9 +102,6 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <GrowthPlansSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <PreROICTA />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <ROICalculator />
