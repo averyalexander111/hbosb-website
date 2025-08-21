@@ -12,8 +12,9 @@ const BaySignalSection = React.memo(() => {
 
   return (
     <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 space-y-8">
+        {/* Introducing BaySignal AI Box */}
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Introducing BaySignal AI
           </h2>
@@ -24,11 +25,14 @@ const BaySignalSection = React.memo(() => {
             relationships—automatically.
           </p>
           
-          <p className="text-lg text-gray-700 mb-12 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed">
             Built for service-based businesses ready to grow, BaySignal AI combines smart automations 
             with personalized client communication, letting you scale without hiring more staff.
           </p>
+        </div>
 
+        {/* Why Choose BaySignal AI Box */}
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Why Choose BaySignal AI?
           </h3>
@@ -45,28 +49,28 @@ const BaySignalSection = React.memo(() => {
               </div>
             ))}
           </div>
+        </div>
 
-          {/* LaunchPad & SiteCare Section */}
-          <div className="mt-16 max-w-3xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-              No website? Low conversions?
-            </h3>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              We can spin up a fast, conversion-first LaunchPad in 7 days and keep it secure with SiteCare—then plug BaySignal AI right in.
-            </p>
-            <div className="space-y-3 text-center max-w-lg mx-auto">
-              <div className="flex items-center justify-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">Built to convert cold traffic</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">SSL, backups, updates</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">Ready for automation</span>
-              </div>
+        {/* LaunchPad & SiteCare Box */}
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+            No website? Low conversions?
+          </h3>
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            We can spin up a fast, conversion-first LaunchPad in 7 days and keep it secure with SiteCare—then plug BaySignal AI right in.
+          </p>
+          <div className="space-y-3 text-center max-w-lg mx-auto">
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700">Built to convert cold traffic</span>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700">SSL, backups, updates</span>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700">Ready for automation</span>
             </div>
           </div>
         </div>
