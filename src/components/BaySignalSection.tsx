@@ -41,11 +41,11 @@ const BaySignalSection = React.memo(() => {
             BaySignal AI powers smarter client engagement so you can focus on running your business.
           </p>
 
-          <div className="space-y-4 text-center max-w-2xl mx-auto">
+          <div className="space-y-4 max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center justify-center space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">{benefit}</span>
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 font-medium text-left">{benefit}</span>
               </div>
             ))}
           </div>
