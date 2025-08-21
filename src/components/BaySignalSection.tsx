@@ -43,9 +43,9 @@ const BaySignalSection = React.memo(() => {
 
           <div className="space-y-4 max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 font-medium text-left">{benefit}</span>
+              <div key={index} className="flex items-center justify-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700 font-medium">{benefit}</span>
               </div>
             ))}
           </div>
@@ -60,17 +60,17 @@ const BaySignalSection = React.memo(() => {
             We can spin up a fast, conversion-first LaunchPad in 7 days and keep it secure with SiteCare—then plug BaySignal AI right in.
           </p>
           <div className="space-y-4 max-w-lg mx-auto">
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 font-medium text-left">Built to convert cold traffic</span>
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700 font-medium">Built to convert cold traffic</span>
             </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 font-medium text-left">SSL, backups, updates</span>
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700 font-medium">SSL, backups, updates</span>
             </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 font-medium text-left">Ready for automation</span>
+            <div className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+              <span className="text-gray-700 font-medium">Ready for automation</span>
             </div>
           </div>
         </div>
