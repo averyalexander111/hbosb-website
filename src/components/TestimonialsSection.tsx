@@ -68,7 +68,7 @@ const TestimonialsSection = React.memo(() => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
