@@ -14,7 +14,7 @@ const BaySignalSection = React.memo(() => {
     <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
       <div className="container mx-auto px-4 space-y-8">
         {/* Introducing BaySignal AI Box */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
+        <div className="max-w-4xl mx-auto bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Introducing BaySignal AI
           </h2>
@@ -32,7 +32,7 @@ const BaySignalSection = React.memo(() => {
         </div>
 
         {/* Why Choose BaySignal AI Box */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
+        <div className="max-w-4xl mx-auto bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Why Choose BaySignal AI?
           </h3>
@@ -52,7 +52,7 @@ const BaySignalSection = React.memo(() => {
         </div>
 
         {/* LaunchPad & SiteCare Box */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-elegant p-8 text-center">
+        <div className="max-w-4xl mx-auto bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             No website? Low conversions?
           </h3>
