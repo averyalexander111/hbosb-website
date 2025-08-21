@@ -175,11 +175,7 @@ const ROICalculator = () => {
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Plan Preset
@@ -232,11 +228,7 @@ const ROICalculator = () => {
             </div>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Current Monthly Revenue ($)
@@ -283,11 +275,7 @@ const ROICalculator = () => {
             </div>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Avg Spend per Customer ($)
@@ -334,11 +322,7 @@ const ROICalculator = () => {
             </div>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Missed Calls per Month
@@ -385,11 +369,7 @@ const ROICalculator = () => {
             </div>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Retention Increase (%)
@@ -436,11 +416,7 @@ const ROICalculator = () => {
             </div>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: window.innerWidth > 600 ? '1fr 1fr' : '1fr', 
-            gap: '12px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
                 Time Savings from Automation (%)
