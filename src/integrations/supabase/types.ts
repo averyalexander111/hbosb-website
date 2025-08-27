@@ -95,21 +95,6 @@ export type Database = {
         }
         Relationships: []
       }
-      heartbeat: {
-        Row: {
-          id: number
-          ts: string | null
-        }
-        Insert: {
-          id?: number
-          ts?: string | null
-        }
-        Update: {
-          id?: number
-          ts?: string | null
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
