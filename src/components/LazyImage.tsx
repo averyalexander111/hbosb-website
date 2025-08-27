@@ -8,7 +8,7 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   priority?: boolean;
 }
 
-const LazyImage = React.memo(({ src, alt, placeholder, className, priority = false, fetchPriority, ...props }: LazyImageProps) => {
+const LazyImage = React.memo(({ src, alt, placeholder, className, priority = false, ...props }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
