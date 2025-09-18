@@ -67,11 +67,7 @@ const TechnologyCarousel = React.memo(() => {
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className={`${
-                      tech.name === "ElevenLabs" 
-                        ? "w-12 h-12 md:w-16 md:h-16" 
-                        : "w-16 h-16 md:w-20 md:h-20"
-                    } object-contain filter hover:scale-110 transition-transform duration-300`}
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain filter hover:scale-110 transition-transform duration-300"
                     loading="eager"
                     fetchPriority="high"
                   />
