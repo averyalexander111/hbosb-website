@@ -26,12 +26,12 @@ const TechnologyCarousel = React.memo(() => {
       icon: "/lovable-uploads/d12e40d6-2664-4b67-9258-3bd483100057.png"
     },
     {
-      name: "Notion",
-      icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png"
-    },
-    {
       name: "ElevenLabs",
       icon: "/lovable-uploads/elevenlabs-icon.png"
+    },
+    {
+      name: "Notion",
+      icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png"
     },
     {
       name: "Google",
