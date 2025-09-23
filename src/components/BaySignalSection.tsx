@@ -133,7 +133,7 @@ const BaySignalSection = React.memo(() => {
             </div>
 
             {/* Right Column */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* How it works */}
               <div>
                 <h4 className="text-xl font-bold text-foreground mb-4">How it works:</h4>
@@ -158,7 +158,7 @@ const BaySignalSection = React.memo(() => {
               </div>
 
               {/* Micro-proof points */}
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 rounded-lg mt-4">
                 <div className="space-y-2 text-sm text-gray-600">
                   <p><strong>Typical first win:</strong> response times cut from hours to minutes</p>
                   <p><strong>Common lift:</strong> more reviews + better follow-through on quotes</p>
