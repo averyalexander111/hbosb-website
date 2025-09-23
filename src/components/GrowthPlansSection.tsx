@@ -356,13 +356,80 @@ const GrowthPlansSection = React.memo(() => {
             <p className="text-lg text-gray-600 mb-6 font-raleway">
               Ready to transform your business growth?
             </p>
-            <button 
-              className="px-8 py-4 text-lg text-white font-bold rounded-full transition-all duration-300 font-raleway"
-              style={{ background: "linear-gradient(135deg, hsl(207, 100%, 50%), hsl(201, 100%, 15%))" }}
-              onClick={() => window.open("https://cal.com/hbosb/30min", "_blank")}
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                @keyframes wave {
+                  0% {
+                    transform: translate(-50%, -75%) rotate(0deg);
+                  }
+                  100% {
+                    transform: translate(-50%, -75%) rotate(360deg);
+                  }
+                }
+                .wave-button-growth {
+                  font-size: 16px;
+                  font-weight: 400;
+                  letter-spacing: 2px;
+                  padding: 15px 30px;
+                  text-align: center;
+                  color: #ffffff;
+                  background-color: #007bff;
+                  border: none;
+                  border-radius: 15px;
+                  position: relative;
+                  overflow: hidden;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                }
+                .wave-button-growth:hover {
+                  background-color: #0056b3;
+                }
+                .wave-button-growth span {
+                  position: relative;
+                  z-index: 1;
+                }
+                .wave-growth {
+                  position: absolute;
+                  top: -100px;
+                  left: 0;
+                  width: 100%;
+                  height: 250px;
+                  background: linear-gradient(45deg, #4f00bc, #29abe2);
+                  transition: 0.5s ease;
+                }
+                .wave-growth::after,
+                .wave-growth::before {
+                  content: '';
+                  position: absolute;
+                  width: 200%;
+                  height: 200%;
+                  top: -10px;
+                  left: 50%;
+                  transform: translate(-50%, -75%);
+                  transition: 0.5s ease;
+                }
+                .wave-growth::before {
+                  border-radius: 40%;
+                  background: rgba(1, 1, 1, 0.5);
+                  animation: wave 7s linear infinite;
+                }
+                .wave-growth::after {
+                  border-radius: 45%;
+                  background: transparent;
+                  animation: wave 12s linear infinite;
+                }
+              `
+            }} />
+            <a 
+              href="https://cal.com/hbosb/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Schedule Your Strategy Call
-            </button>
+              <button className="wave-button-growth">
+                <span>Complimentary Consultation</span>
+                <div className="wave-growth"></div>
+              </button>
+            </a>
           </div>
         </div>
       </div>
