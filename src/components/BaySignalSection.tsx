@@ -165,87 +165,87 @@ const BaySignalSection = React.memo(() => {
                   <p><strong>Most clients</strong> start lean, then layer on features over 30–60 days</p>
                 </div>
               </div>
+
+              {/* CTA Button in right column */}
+              <div className="text-center mt-6">
+                <style dangerouslySetInnerHTML={{
+                  __html: `
+                    @keyframes wave {
+                      0% {
+                        transform: translate(-50%, -75%) rotate(0deg);
+                      }
+                      100% {
+                        transform: translate(-50%, -75%) rotate(360deg);
+                      }
+                    }
+                    .wave-button {
+                      font-size: 16px;
+                      font-weight: 400;
+                      letter-spacing: 2px;
+                      padding: 15px 30px;
+                      text-align: center;
+                      color: #ffffff;
+                      background-color: #007bff;
+                      border: none;
+                      border-radius: 15px;
+                      position: relative;
+                      overflow: hidden;
+                      cursor: pointer;
+                      transition: background-color 0.3s ease;
+                    }
+                    .wave-button:hover {
+                      background-color: #0056b3;
+                    }
+                    .wave-button span {
+                      position: relative;
+                      z-index: 1;
+                    }
+                    .wave {
+                      position: absolute;
+                      top: -100px;
+                      left: 0;
+                      width: 100%;
+                      height: 250px;
+                      background: linear-gradient(45deg, #4f00bc, #29abe2);
+                      transition: 0.5s ease;
+                    }
+                    .wave::after,
+                    .wave::before {
+                      content: '';
+                      position: absolute;
+                      width: 200%;
+                      height: 200%;
+                      top: -10px;
+                      left: 50%;
+                      transform: translate(-50%, -75%);
+                      transition: 0.5s ease;
+                    }
+                    .wave::before {
+                      border-radius: 40%;
+                      background: rgba(1, 1, 1, 0.5);
+                      animation: wave 7s linear infinite;
+                    }
+                    .wave::after {
+                      border-radius: 45%;
+                      background: transparent;
+                      animation: wave 12s linear infinite;
+                    }
+                  `
+                }} />
+                <a 
+                  href="https://cal.com/hbosb/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <button className="wave-button">
+                    <span>Complimentary Consultation</span>
+                    <div className="wave"></div>
+                  </button>
+                </a>
+                <p className="text-sm text-gray-500 mt-2">Free 30-min call. No pressure—just clarity on your best first win.</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Centered CTA Button at bottom */}
-        <div className="text-center mt-8">
-          <style dangerouslySetInnerHTML={{
-            __html: `
-              @keyframes wave {
-                0% {
-                  transform: translate(-50%, -75%) rotate(0deg);
-                }
-                100% {
-                  transform: translate(-50%, -75%) rotate(360deg);
-                }
-              }
-              .wave-button {
-                font-size: 16px;
-                font-weight: 400;
-                letter-spacing: 2px;
-                padding: 15px 30px;
-                text-align: center;
-                color: #ffffff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 15px;
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-              }
-              .wave-button:hover {
-                background-color: #0056b3;
-              }
-              .wave-button span {
-                position: relative;
-                z-index: 1;
-              }
-              .wave {
-                position: absolute;
-                top: -100px;
-                left: 0;
-                width: 100%;
-                height: 250px;
-                background: linear-gradient(45deg, #4f00bc, #29abe2);
-                transition: 0.5s ease;
-              }
-              .wave::after,
-              .wave::before {
-                content: '';
-                position: absolute;
-                width: 200%;
-                height: 200%;
-                top: -10px;
-                left: 50%;
-                transform: translate(-50%, -75%);
-                transition: 0.5s ease;
-              }
-              .wave::before {
-                border-radius: 40%;
-                background: rgba(1, 1, 1, 0.5);
-                animation: wave 7s linear infinite;
-              }
-              .wave::after {
-                border-radius: 45%;
-                background: transparent;
-                animation: wave 12s linear infinite;
-              }
-            `
-          }} />
-          <a 
-            href="https://cal.com/hbosb/30min" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <button className="wave-button">
-              <span>Complimentary Consultation</span>
-              <div className="wave"></div>
-            </button>
-          </a>
-          <p className="text-sm text-gray-500 mt-2">Free 30-min call. No pressure—just clarity on your best first win.</p>
         </div>
       </div>
     </section>
