@@ -165,6 +165,24 @@ const BaySignalSection = React.memo(() => {
                   <p><strong>Most clients</strong> start lean, then layer on features over 30–60 days</p>
                 </div>
               </div>
+
+              {/* What you get */}
+              <div>
+                <h4 className="text-xl font-bold text-foreground mb-4">What you get:</h4>
+                <div className="space-y-3">
+                  {[
+                    "Custom-built for your specific workflow",
+                    "Works with your existing tools & team",
+                    "Ongoing support & optimization",
+                    "Transparent pricing, no hidden fees"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
