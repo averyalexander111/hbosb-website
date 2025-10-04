@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User, Share2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import DOMPurify from "dompurify";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 
 interface BlogPost {
@@ -72,6 +73,15 @@ const BlogPost = () => {
       day: "numeric",
     });
   };
+
+  // Sanitize HTML content to prevent XSS attacks
+  const sanitizedContent = useMemo(() => {
+    if (!post?.content) return '';
+    return DOMPurify.sanitize(post.content, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre'],
+      ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class'],
+    });
+  }, [post?.content]);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -225,7 +235,7 @@ const BlogPost = () => {
           <div className="prose prose-lg max-w-none mb-16">
             <div 
               className="blog-content text-foreground text-lg"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizedContent }}
             />
           </div>
 
