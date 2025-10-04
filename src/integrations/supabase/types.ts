@@ -32,7 +32,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
-          author?: string
+          author: string
           content: string
           created_at?: string
           excerpt?: string | null
@@ -92,6 +92,21 @@ export type Database = {
           id?: number
           message?: string
           phone_number?: string
+        }
+        Relationships: []
+      }
+      heartbeat: {
+        Row: {
+          id: number
+          ts: string | null
+        }
+        Insert: {
+          id?: number
+          ts?: string | null
+        }
+        Update: {
+          id?: number
+          ts?: string | null
         }
         Relationships: []
       }
