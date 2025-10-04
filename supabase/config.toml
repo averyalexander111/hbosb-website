@@ -1,1 +1,4 @@
 project_id = "gdmjszxcqqfwhkxxoqlp"
+
+[functions.sync-to-airtable]
+verify_jwt = false
