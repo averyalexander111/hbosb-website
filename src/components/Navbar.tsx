@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +26,26 @@ const Navbar = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Close mobile menu if open
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.style.overflow = '';
+    }
+  };
+
+  const handleNavClick = (hash: string) => {
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+    }
     
     // Close mobile menu if open
     if (isMenuOpen) {
@@ -73,8 +92,30 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a 
+            href={location.pathname === '/' ? '#features' : '/#features'} 
+            className="nav-link"
+            onClick={(e) => {
+              if (location.pathname !== '/') {
+                e.preventDefault();
+                handleNavClick('#features');
+              }
+            }}
+          >
+            About
+          </a>
+          <a 
+            href={location.pathname === '/' ? '#details' : '/#details'} 
+            className="nav-link"
+            onClick={(e) => {
+              if (location.pathname !== '/') {
+                e.preventDefault();
+                handleNavClick('#details');
+              }
+            }}
+          >
+            Contact
+          </a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -99,28 +140,36 @@ const Navbar = () => {
             onClick={(e) => {
               e.preventDefault();
               scrollToTop();
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
             }}
           >
             Home
           </a>
           <a 
-            href="#features" 
+            href={location.pathname === '/' ? '#features' : '/#features'}
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={() => {
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
+            onClick={(e) => {
+              if (location.pathname !== '/') {
+                e.preventDefault();
+                handleNavClick('#features');
+              } else {
+                setIsMenuOpen(false);
+                document.body.style.overflow = '';
+              }
             }}
           >
             About
           </a>
           <a 
-            href="#details" 
+            href={location.pathname === '/' ? '#details' : '/#details'}
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={() => {
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
+            onClick={(e) => {
+              if (location.pathname !== '/') {
+                e.preventDefault();
+                handleNavClick('#details');
+              } else {
+                setIsMenuOpen(false);
+                document.body.style.overflow = '';
+              }
             }}
           >
             Contact

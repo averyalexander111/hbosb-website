@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User, Share2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 
 interface BlogPost {
   id: string;
@@ -132,6 +133,8 @@ const BlogPost = () => {
 
   return (
     <>
+      <Navbar />
+      
       <Helmet>
         <title>{post.seo_title || post.title} | BaySignal AI Blog</title>
         <meta name="description" content={post.meta_description || post.excerpt} />
