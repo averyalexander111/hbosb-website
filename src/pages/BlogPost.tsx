@@ -221,7 +221,7 @@ const BlogPost = () => {
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-16">
             <div 
-              className="text-foreground leading-relaxed"
+              className="blog-content text-foreground text-lg"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
