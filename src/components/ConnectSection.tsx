@@ -22,39 +22,12 @@ const ConnectSection = React.memo(() => {
     }));
   };
 
-  const syncToAirtable = async (record: any, retryCount = 0): Promise<boolean> => {
-    try {
-      console.log(`🔄 Attempting Airtable sync for record ID: ${record.id}`, { retryCount });
-      
-      const { data, error } = await supabase.functions.invoke('sync-to-airtable', {
-        body: { record }
-      });
-
-      if (error) throw error;
-      
-      console.log('✅ Airtable sync successful:', data);
-      return true;
-    } catch (error) {
-      console.error('❌ Airtable sync failed:', error);
-      
-      // Retry once after 2 seconds
-      if (retryCount === 0) {
-        console.log('⏳ Retrying Airtable sync in 2 seconds...');
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        return syncToAirtable(record, retryCount + 1);
-      }
-      
-      console.error('❌ Airtable sync failed after retry');
-      return false;
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("HBOSB Contact Form")
         .insert({
           full_name: formData.fullName,
@@ -62,9 +35,7 @@ const ConnectSection = React.memo(() => {
           phone_number: formData.phoneNumber,
           area_of_interest: formData.areaOfInterest,
           message: formData.message
-        })
-        .select()
-        .single();
+        });
 
       if (error) {
         throw error;
@@ -83,14 +54,6 @@ const ConnectSection = React.memo(() => {
         title: "Message sent successfully!",
         description: "Thank you for contacting us. We'll get back to you soon.",
       });
-
-      // Sync to Airtable in the background (non-blocking)
-      if (data) {
-        syncToAirtable(data).catch(err => {
-          // Silent failure - already logged in syncToAirtable
-          console.error('Background Airtable sync error:', err);
-        });
-      }
 
     } catch (error) {
       console.error("Error submitting form:", error);
