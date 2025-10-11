@@ -27,18 +27,33 @@ const ConnectSection = React.memo(() => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from("HBOSB Contact Form")
-        .insert({
+      const { data, error } = await supabase.functions.invoke('submit-contact-form', {
+        body: {
           full_name: formData.fullName,
           email_address: formData.email,
           phone_number: formData.phoneNumber,
           area_of_interest: formData.areaOfInterest,
-          message: formData.message
-        });
+          message: formData.message,
+        },
+      });
 
       if (error) {
-        throw error;
+        console.error("Error submitting form:", error);
+        toast({
+          title: "Error sending message",
+          description: "There was a problem submitting your message. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!data?.success) {
+        toast({
+          title: "Validation Error",
+          description: data?.error || "Please check your form inputs.",
+          variant: "destructive",
+        });
+        return;
       }
 
       // Reset form on success
