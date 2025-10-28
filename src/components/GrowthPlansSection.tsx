@@ -57,7 +57,7 @@ const GrowthPlansSection = React.memo(() => {
                 {/* Price */}
                 <div className="relative z-10">
                   <div className="text-5xl font-bold leading-tight mb-2 font-montserrat">
-                    <span className="text-sm align-top">$</span>597<span className="text-sm italic ml-2">/ month</span>
+                    <span className="text-sm align-top">$</span>997<span className="text-sm italic ml-2">/ month</span>
                   </div>
                   <p className="text-xs uppercase tracking-widest font-bold font-montserrat">Core</p>
                 </div>
@@ -70,7 +70,7 @@ const GrowthPlansSection = React.memo(() => {
                   <li className="py-1 text-sm">• Essential client database & meeting note summaries</li>
                   <li className="py-1 text-sm">• Essential reporting dashboard</li>
                   <li className="py-1 text-sm">• Simple setup—no tech skills needed</li>
-                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $749</li>
+                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $1497</li>
                 </ul>
                 
                 <div className="flex justify-center mt-auto">
