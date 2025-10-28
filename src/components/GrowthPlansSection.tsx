@@ -128,7 +128,7 @@ const GrowthPlansSection = React.memo(() => {
                 {/* Price */}
                 <div className="relative z-10">
                   <div className="text-5xl font-bold leading-tight mb-2 font-montserrat">
-                    <span className="text-sm align-top">$</span>1,297<span className="text-sm italic ml-2">/ month</span>
+                    <span className="text-sm align-top">$</span>2,497<span className="text-sm italic ml-2">/ month</span>
                   </div>
                   <h3 className="text-xs uppercase tracking-widest font-bold font-montserrat">Plus</h3>
                 </div>
@@ -142,7 +142,7 @@ const GrowthPlansSection = React.memo(() => {
                   <li className="py-1 text-sm">• Advanced meeting notes with sales insights</li>
                   <li className="py-1 text-sm">• Competitor snapshots & enhanced review management</li>
                   <li className="py-1 text-sm">• Monthly strategy call</li>
-                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $1,499</li>
+                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $2,997</li>
                 </ul>
                 
                 <div className="flex justify-center mt-auto">
