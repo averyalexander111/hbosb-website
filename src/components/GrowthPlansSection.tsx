@@ -70,7 +70,7 @@ const GrowthPlansSection = React.memo(() => {
                   <li className="py-1 text-sm">• Essential client database & meeting note summaries</li>
                   <li className="py-1 text-sm">• Essential reporting dashboard</li>
                   <li className="py-1 text-sm">• Simple setup—no tech skills needed</li>
-                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $1497</li>
+                  <li className="py-1 text-sm font-bold text-blue-600">• Setup fee: $1,497</li>
                 </ul>
                 
                 <div className="flex justify-center mt-auto">
