@@ -212,7 +212,7 @@ const ROICalculator = () => {
                 type="number"
                 value={formData.aiCost}
                 onChange={(e) => setFormData({ ...formData, aiCost: e.target.value })}
-                placeholder="e.g., 597"
+                placeholder="e.g., 997"
                 style={{
                   marginBottom: '14px',
                   padding: '10px',
