@@ -29,7 +29,7 @@ const ROICalculator = () => {
 
     const presets: any = {
       core: {
-        aiCost: 597,
+        aiCost: 997,
         monthlyCustomers: 200,
         averageSpend: 50,
         adminHours: 6,
@@ -40,7 +40,7 @@ const ROICalculator = () => {
         timeSavings: 30
       },
       plus: {
-        aiCost: 1297,
+        aiCost: 2497,
         monthlyCustomers: 350,
         averageSpend: 60,
         adminHours: 10,
@@ -51,7 +51,7 @@ const ROICalculator = () => {
         timeSavings: 45
       },
       pro: {
-        aiCost: 2497,
+      aiCost: 4997,
         monthlyCustomers: 600,
         averageSpend: 80,
         adminHours: 14,
