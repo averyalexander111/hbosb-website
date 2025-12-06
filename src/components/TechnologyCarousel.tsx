@@ -40,8 +40,15 @@ const TechnologyCarousel = React.memo(() => {
   ];
 
   return (
-    <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
-      <div className="container mx-auto px-4">
+    <section className="py-16 relative">
+      {/* Gradient transition from hero */}
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, #d1e8ff 15%, #d1e8ff 100%)'
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-12">
           Built with technology you love
         </h2>
