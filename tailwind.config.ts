@@ -150,7 +150,8 @@ export default {
 				'display': ['Brockmann', 'SF Pro Display', 'Inter', 'sans-serif'],
 				'brockmann': ['Brockmann', 'serif'],
 				'playfair': ['"Playfair Display"', 'serif'],
-				'montserrat': ['Montserrat', 'sans-serif'],
+				'montserrat': ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+				'open-sans': ['"Open Sans"', 'system-ui', '-apple-system', 'sans-serif'],
 				'raleway': ['Raleway', 'sans-serif'],
 			},
 			boxShadow: {
