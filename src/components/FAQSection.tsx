@@ -9,28 +9,36 @@ import {
 const FAQSection = React.memo(() => {
   const faqs = [
     {
-      question: "I don't have time to set this up.",
-      answer: "We handle the setup for you. Our team configures everything—automations, messaging flows, and reporting—so you can start seeing results without slowing down your day-to-day operations."
+      question: "I do not have time to set this up.",
+      answer: "We do the heavy lifting. We audit your tools and workflows, implement the build, integrate everything, and track performance for you. You also get scheduled reviews so nothing slips."
     },
     {
-      question: "I'm not sure if this will really work for my business.",
-      answer: "BaySignal AI is built for service-based businesses just like yours, and we customize each implementation based on your needs. You'll also get early performance check-ins so you can see real results in the first 30 days."
+      question: "Will this really work for my business?",
+      answer: "Yes, and we set clear targets. Custom AI Ops unifies communication, operations, and data around your goals. ROI targets are set for 30 to 90 days."
     },
     {
-      question: "I already have a CRM—why do I need BaySignal AI?",
-      answer: "Traditional CRMs store client data. BaySignal AI goes further, proactively re-engaging idle clients, recovering lost revenue, and automating follow-ups so you make more money without extra manual work."
+      question: "I already have a CRM. Why do I need Custom AI Ops?",
+      answer: "Keep your CRM. We make it smarter. We automate intake, reminders, reviews, and follow ups, then centralize reporting to reduce no shows and speed response times."
     },
     {
       question: "It seems expensive.",
-      answer: "What you pay for BaySignal AI often comes back many times over in recovered revenue, reactivated clients, and time saved. Compared to hiring additional staff, BaySignal AI is a fraction of the cost—and it never takes a day off."
+      answer: "We pair outcomes with protection. Your investment is covered by our Bulletproof Guarantee, including extra support if targets are missed."
     },
     {
-      question: "I'm worried about learning yet another tool.",
-      answer: "We train you and your team, and we provide ongoing support so you're never left figuring it out alone. Plus, many workflows run quietly in the background, requiring little day-to-day interaction."
+      question: "I am worried about learning another tool.",
+      answer: "We keep the tech invisible. You get clear SOPs, a knowledge base, and ongoing enablement so day to day work stays simple."
     },
     {
       question: "Will this replace my team?",
-      answer: "BaySignal AI doesn't replace people—it gives your team superpowers. Free them from repetitive tasks so they can focus on delivering outstanding service and growing your business."
+      answer: "No, it gives them leverage. Automations handle repetitive work so your people focus on clients and growth."
+    },
+    {
+      question: "How fast will I see results, and how do you measure them?",
+      answer: "Quick wins first, compounding gains next. Expect faster response times and a lift in reviews in 30 to 60 days. We track agreed KPIs in dashboards and review progress on a schedule."
+    },
+    {
+      question: "What data security measures do you use?",
+      answer: "Security by design. We align with recognized standards and privacy regulations, use encryption and access governance, and run continuous monitoring. A Security Overview and policy summaries are available under NDA."
     }
   ];
 
