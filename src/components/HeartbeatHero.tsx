@@ -6,34 +6,34 @@ const HeartbeatHero = () => {
       id="home" 
       className="min-h-screen flex items-center relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('/lovable-uploads/fc3ff7b6-e1d6-4b4f-a93b-773156f6b8dd.png')`,
+        backgroundImage: `url('/hero-background.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/80 to-slate-900" />
+      {/* Subtle left-side gradient for text readability without covering the logo */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 relative z-10">
         <div className="max-w-3xl">
-          <h1 className="font-montserrat font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight text-white">
+          <h1 className="font-montserrat font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight text-slate-800">
             An integrated AI operating system for your team
           </h1>
-          <p className="font-open-sans mt-5 text-lg sm:text-xl text-slate-300 max-w-2xl">
+          <p className="font-open-sans mt-5 text-lg sm:text-xl text-slate-600 max-w-2xl">
             Replace scattered tools with a secure, unified system for intake, follow ups, and reporting. Built for multi location and high growth teams.
           </p>
 
           {/* Proof bar */}
-          <ul className="font-open-sans mt-6 grid gap-3 sm:grid-cols-3 text-sm text-slate-300">
-            <li className="flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-white" /> Minutes not hours
+          <ul className="font-open-sans mt-6 grid gap-3 sm:grid-cols-3 text-sm text-slate-700">
+            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
+              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> Minutes not hours
             </li>
-            <li className="flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-white" /> More reviews, better follow through
+            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
+              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> More reviews, better follow through
             </li>
-            <li className="flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-white" /> Security by design
+            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
+              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> Security by design
             </li>
           </ul>
 
@@ -110,7 +110,7 @@ const HeartbeatHero = () => {
           </div>
 
           {/* Trust strip */}
-          <div className="font-open-sans mt-6 text-xs text-slate-400">
+          <div className="font-open-sans mt-6 text-xs text-slate-500">
             We do not sell data. Request our Security Overview.
           </div>
         </div>
