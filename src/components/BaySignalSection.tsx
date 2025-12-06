@@ -175,7 +175,7 @@ const BaySignalSection = React.memo(() => {
             rel="noopener noreferrer"
           >
             <button className="wave-button">
-              <span>Complimentary Consultation</span>
+              <span>Start My Assessment</span>
               <div className="wave"></div>
             </button>
           </a>
