@@ -39,25 +39,61 @@ const HeartbeatHero = () => {
 
           {/* CTA Button with Wave Animation */}
           <style>{`
-            @keyframes wave {
-              0% { transform: translateX(-100%) skewX(-15deg); }
-              100% { transform: translateX(100%) skewX(-15deg); }
-            }
             .wave-button {
+              font-size: 16px;
+              font-weight: 400;
+              letter-spacing: 2px;
+              padding: 15px 30px;
+              text-align: center;
+              color: #ffffff;
+              background-color: #007bff;
+              border: none;
+              border-radius: 15px;
               position: relative;
               overflow: hidden;
-              background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-              border: none;
               cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            .wave-button:hover {
+              background-color: #0056b3;
+            }
+            .wave-button span {
+              position: relative;
+              z-index: 1;
             }
             .wave-button .wave {
               position: absolute;
-              top: 0;
+              top: -100px;
               left: 0;
               width: 100%;
-              height: 100%;
-              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-              animation: wave 2s infinite;
+              height: 250px;
+              background: linear-gradient(45deg, #4f00bc, #29abe2);
+              transition: 0.5s ease;
+            }
+            .wave-button .wave::after,
+            .wave-button .wave::before {
+              content: '';
+              position: absolute;
+              width: 200%;
+              height: 200%;
+              top: -10px;
+              left: 50%;
+              transform: translate(-50%, -75%);
+              transition: 0.5s ease;
+            }
+            .wave-button .wave::before {
+              border-radius: 40%;
+              background: rgba(1, 1, 1, 0.5);
+              animation: wave 7s linear infinite;
+            }
+            .wave-button .wave::after {
+              border-radius: 45%;
+              background: transparent;
+              animation: wave 12s linear infinite;
+            }
+            @keyframes wave {
+              0% { transform: translate(-50%, -75%) rotate(0deg); }
+              100% { transform: translate(-50%, -75%) rotate(360deg); }
             }
           `}</style>
           <div className="mt-8">
@@ -65,10 +101,11 @@ const HeartbeatHero = () => {
               href="https://cal.com/hbosb/30min" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="wave-button font-montserrat inline-flex items-center justify-center rounded-2xl px-8 py-4 text-lg font-semibold text-white focus:outline-none focus:ring-2 focus:ring-primary/60 transition-colors"
             >
-              <span className="relative z-10">Complimentary Consultation</span>
-              <div className="wave"></div>
+              <button className="wave-button font-open-sans">
+                <span>Complimentary Consultation</span>
+                <div className="wave"></div>
+              </button>
             </a>
           </div>
 
