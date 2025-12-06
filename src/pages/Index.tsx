@@ -9,12 +9,9 @@ import SEOHead from "@/components/SEOHead";
 
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
-const BaySignalSection = lazy(() => import("@/components/BaySignalSection"));
 const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
-const GrowthPlansSection = lazy(() => import("@/components/GrowthPlansSection"));
-const RevenueUnlockSection = lazy(() => import("@/components/RevenueUnlockSection"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
 const Index = () => {
@@ -98,12 +95,6 @@ const Index = () => {
           <TechnologyCarousel />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
-          <BaySignalSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <GrowthPlansSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
           <ROICalculator />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
@@ -111,9 +102,6 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <FAQSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <RevenueUnlockSection />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <ConnectSection />
