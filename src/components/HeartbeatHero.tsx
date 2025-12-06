@@ -37,21 +37,38 @@ const HeartbeatHero = () => {
             </li>
           </ul>
 
-          {/* CTA Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="font-montserrat inline-flex items-center justify-center rounded-2xl px-5 py-3 text-base font-semibold bg-white text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white/60 transition-colors"
-            >
-              Talk to an expert
-            </a>
+          {/* CTA Button with Wave Animation */}
+          <style>{`
+            @keyframes wave {
+              0% { transform: translateX(-100%) skewX(-15deg); }
+              100% { transform: translateX(100%) skewX(-15deg); }
+            }
+            .wave-button {
+              position: relative;
+              overflow: hidden;
+              background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+              border: none;
+              cursor: pointer;
+            }
+            .wave-button .wave {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+              animation: wave 2s infinite;
+            }
+          `}</style>
+          <div className="mt-8">
             <a 
               href="https://cal.com/hbosb/30min" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-montserrat inline-flex items-center justify-center rounded-2xl px-5 py-3 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60 transition-colors"
+              className="wave-button font-montserrat inline-flex items-center justify-center rounded-2xl px-8 py-4 text-lg font-semibold text-white focus:outline-none focus:ring-2 focus:ring-primary/60 transition-colors"
             >
-              Complimentary Consultation
+              <span className="relative z-10">Complimentary Consultation</span>
+              <div className="wave"></div>
             </a>
           </div>
 
