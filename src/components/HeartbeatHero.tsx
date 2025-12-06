@@ -119,7 +119,7 @@ const HeartbeatHero = () => {
 
           {/* Trust strip */}
           <div className="font-open-sans mt-6 text-xs text-slate-500">
-            We do not sell data. Request our Security Overview.
+            Complimentary. Get your fastest first win.
           </div>
         </div>
       </div>
