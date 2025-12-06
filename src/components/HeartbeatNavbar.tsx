@@ -47,7 +47,7 @@ const HeartbeatNavbar = () => {
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
-                Consultation
+                Assessment
               </a>
             </div>
           </div>
