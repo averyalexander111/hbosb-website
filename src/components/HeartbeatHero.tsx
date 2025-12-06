@@ -14,6 +14,14 @@ const HeartbeatHero = () => {
     >
       {/* Subtle left-side gradient for text readability without covering the logo */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
+      
+      {/* Bottom fade to blend into next section */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, #d1e8ff 100%)'
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 relative z-10">
         <div className="max-w-3xl">
