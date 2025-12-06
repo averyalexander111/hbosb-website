@@ -21,9 +21,9 @@ const ConnectSection = React.memo(() => {
             </p>
           </div>
 
-          {/* Contact Information - Centered */}
-          <div className="max-w-md mx-auto">
-            <h3 className="text-2xl font-bold mb-6 text-center">Get in Touch</h3>
+          {/* Contact Information - Left aligned */}
+          <div className="max-w-md">
+            <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
