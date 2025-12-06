@@ -93,6 +93,9 @@ const BaySignalSection = React.memo(() => {
                   <p><strong>Typical first win:</strong> response times cut from hours to minutes</p>
                   <p><strong>Common lift:</strong> more reviews + better follow-through on quotes</p>
                   <p><strong>Most clients</strong> start lean, then layer on features over 30–60 days</p>
+                  <p><strong>Early revenue win:</strong> reactivated clients generate booked work in the first 30 days</p>
+                  <p><strong>Fewer no-shows:</strong> automated confirmations and reminders lift attendance and follow-through</p>
+                  <p><strong>Unified view:</strong> one dashboard shows pipeline, performance KPIs, and next actions</p>
                 </div>
               </div>
 
