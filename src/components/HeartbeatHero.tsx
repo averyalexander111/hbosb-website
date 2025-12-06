@@ -111,7 +111,7 @@ const HeartbeatHero = () => {
               rel="noopener noreferrer"
             >
               <button className="wave-button font-open-sans">
-                <span>Complimentary Consultation</span>
+                <span>Start My Assessment</span>
                 <div className="wave"></div>
               </button>
             </a>
