@@ -106,7 +106,7 @@ const HeartbeatHero = () => {
           `}</style>
           <div className="mt-8">
             <a 
-              href="https://cal.com/hbosb/30min" 
+              href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
               target="_blank" 
               rel="noopener noreferrer"
             >
