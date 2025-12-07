@@ -33,7 +33,7 @@ const ConnectSection = React.memo(() => {
                   <h4 className="font-semibold">Address</h4>
                 </div>
                 <p className="text-gray-300 text-sm">
-                  20700 Avalon Blvd Ste 116<br />
+                  20700 Avalon Blvd Ste 116, PO Box 11812<br />
                   Carson, CA 90746
                 </p>
               </div>
