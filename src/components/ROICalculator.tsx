@@ -499,69 +499,6 @@ const ROICalculator = () => {
             </p>
           </div>
         )}
-
-        {/* CTA Section */}
-        <div style={{ 
-          textAlign: 'center', 
-          marginTop: '40px',
-          paddingTop: '30px'
-        }}>
-          <style>{`
-            .roi-wave-button {
-              position: relative;
-              padding: 18px 48px;
-              font-size: 18px;
-              font-weight: 600;
-              color: #16324f;
-              background: #90c9ff;
-              border: none;
-              border-radius: 9999px;
-              cursor: pointer;
-              overflow: hidden;
-              transition: transform 0.2s ease;
-            }
-            .roi-wave-button:hover {
-              transform: scale(1.02);
-            }
-            .roi-wave-button span {
-              position: relative;
-              z-index: 1;
-            }
-            .roi-wave-button .wave {
-              position: absolute;
-              bottom: 0;
-              left: 50%;
-              width: 200%;
-              height: 200%;
-              background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 70%);
-              border-radius: 40%;
-              transform: translate(-50%, -75%) rotate(0deg);
-              animation: roi-wave 12s linear infinite;
-            }
-            @keyframes roi-wave {
-              0% { transform: translate(-50%, -75%) rotate(0deg); }
-              100% { transform: translate(-50%, -75%) rotate(360deg); }
-            }
-          `}</style>
-          <a 
-            href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            <button className="roi-wave-button">
-              <span>Start My Assessment</span>
-              <div className="wave"></div>
-            </button>
-          </a>
-          <p style={{ 
-            marginTop: '16px', 
-            fontSize: '14px', 
-            color: '#b8d4f0' 
-          }}>
-            Complimentary. Get your fastest first win.
-          </p>
-        </div>
       </div>
     </div>
   );
