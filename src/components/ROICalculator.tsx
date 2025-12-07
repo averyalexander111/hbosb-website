@@ -500,6 +500,81 @@ const ROICalculator = () => {
           </div>
         )}
       </div>
+
+      {/* CTA Button */}
+      <div style={{ textAlign: 'center', marginTop: '40px' }}>
+        <style>
+          {`
+            .roi-wave-button {
+              font-size: 16px;
+              font-weight: 400;
+              letter-spacing: 2px;
+              padding: 15px 30px;
+              text-align: center;
+              color: #ffffff;
+              background-color: #007bff;
+              border: none;
+              border-radius: 15px;
+              position: relative;
+              overflow: hidden;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            .roi-wave-button:hover {
+              background-color: #0056b3;
+            }
+            .roi-wave-button span {
+              position: relative;
+              z-index: 1;
+            }
+            .roi-wave-button .wave {
+              position: absolute;
+              top: -100px;
+              left: 0;
+              width: 100%;
+              height: 250px;
+              background: linear-gradient(45deg, #4f00bc, #29abe2);
+              transition: 0.5s ease;
+            }
+            .roi-wave-button .wave::after,
+            .roi-wave-button .wave::before {
+              content: '';
+              position: absolute;
+              width: 200%;
+              height: 200%;
+              top: -10px;
+              left: 50%;
+              transform: translate(-50%, -75%);
+              transition: 0.5s ease;
+            }
+            .roi-wave-button .wave::before {
+              border-radius: 40%;
+              background: rgba(1, 1, 1, 0.5);
+              animation: roiWave 7s linear infinite;
+            }
+            .roi-wave-button .wave::after {
+              border-radius: 45%;
+              background: transparent;
+              animation: roiWave 12s linear infinite;
+            }
+            @keyframes roiWave {
+              0% { transform: translate(-50%, -75%) rotate(0deg); }
+              100% { transform: translate(-50%, -75%) rotate(360deg); }
+            }
+          `}
+        </style>
+        <a 
+          href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          <button className="roi-wave-button">
+            <span>Start My Assessment</span>
+            <div className="wave"></div>
+          </button>
+        </a>
+      </div>
     </div>
   );
 };
