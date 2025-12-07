@@ -63,82 +63,82 @@ const FAQSection = React.memo(() => {
             ))}
           </Accordion>
           
-          {/* CTA Button */}
+          {/* CTA Button with Wave Animation */}
+          <style>{`
+            .faq-wave-button {
+              font-size: 16px;
+              font-weight: 400;
+              letter-spacing: 2px;
+              padding: 15px 30px;
+              text-align: center;
+              color: #ffffff;
+              background-color: #007bff;
+              border: none;
+              border-radius: 15px;
+              position: relative;
+              overflow: hidden;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            .faq-wave-button:hover {
+              background-color: #0056b3;
+            }
+            .faq-wave-button span {
+              position: relative;
+              z-index: 1;
+            }
+            .faq-wave-button .wave {
+              position: absolute;
+              top: -100px;
+              left: 0;
+              width: 100%;
+              height: 250px;
+              background: linear-gradient(45deg, #4f00bc, #29abe2);
+              transition: 0.5s ease;
+            }
+            .faq-wave-button .wave::after,
+            .faq-wave-button .wave::before {
+              content: '';
+              position: absolute;
+              width: 200%;
+              height: 200%;
+              top: -10px;
+              left: 50%;
+              transform: translate(-50%, -75%);
+              transition: 0.5s ease;
+            }
+            .faq-wave-button .wave::before {
+              border-radius: 40%;
+              background: rgba(1, 1, 1, 0.5);
+              animation: faqWave 7s linear infinite;
+            }
+            .faq-wave-button .wave::after {
+              border-radius: 45%;
+              background: transparent;
+              animation: faqWave 12s linear infinite;
+            }
+            @keyframes faqWave {
+              0% { transform: translate(-50%, -75%) rotate(0deg); }
+              100% { transform: translate(-50%, -75%) rotate(360deg); }
+            }
+          `}</style>
           <div className="mt-12 text-center">
             <a 
               href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <button className="faq-wave-button">
+              <button className="faq-wave-button font-open-sans">
                 <span>Start My Assessment</span>
                 <div className="wave"></div>
               </button>
             </a>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-6 text-sm text-slate-500">
               Complimentary. Get your fastest first win.
             </p>
           </div>
         </div>
       </div>
-      
-      <style>{`
-        .faq-wave-button {
-          position: relative;
-          display: inline-block;
-          padding: 15px 30px;
-          font-size: 16px;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          color: white;
-          background-color: #007bff;
-          border: none;
-          border-radius: 15px;
-          cursor: pointer;
-          overflow: hidden;
-          transition: all 0.3s ease;
-        }
-        
-        .faq-wave-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
-        }
-        
-        .faq-wave-button span {
-          position: relative;
-          z-index: 1;
-        }
-        
-        .faq-wave-button::before,
-        .faq-wave-button::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 150%;
-          height: 150%;
-          background: linear-gradient(45deg, #4f00bc, #29abe2);
-          transform: translate(-50%, -50%);
-          border-radius: 40%;
-          animation: faqRotate 7s linear infinite;
-          z-index: 0;
-        }
-        
-        .faq-wave-button::after {
-          animation-duration: 12s;
-          border-radius: 45%;
-          opacity: 0.5;
-        }
-        
-        @keyframes faqRotate {
-          0% {
-            transform: translate(-50%, -50%) rotate(0deg);
-          }
-          100% {
-            transform: translate(-50%, -50%) rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 });
