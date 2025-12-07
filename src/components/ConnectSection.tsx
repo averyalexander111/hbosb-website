@@ -21,83 +21,87 @@ const ConnectSection = React.memo(() => {
             </p>
           </div>
 
-          {/* Contact Information - Left aligned */}
-          <div className="max-w-md">
-            <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+          {/* Contact Information - Responsive Grid */}
+          <div className="w-full">
+            <h3 className="text-2xl font-bold mb-8 text-center">Get in Touch</h3>
             
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 mt-1 text-blue-300" />
-                <div>
-                  <h4 className="font-semibold mb-1">Address</h4>
-                  <p className="text-gray-300">
-                    20700 Avalon Blvd Ste 116, PO Box 11812<br />
-                    Carson, CA 90746
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Address */}
+              <div className="flex flex-col items-center text-center md:items-start md:text-left">
+                <div className="flex items-center space-x-3 mb-2">
+                  <MapPin className="w-5 h-5 text-blue-300" />
+                  <h4 className="font-semibold">Address</h4>
                 </div>
+                <p className="text-gray-300">
+                  20700 Avalon Blvd Ste 116, PO Box 11812<br />
+                  Carson, CA 90746
+                </p>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <Phone className="w-6 h-6 mt-1 text-blue-300" />
+              {/* Phone & Email */}
+              <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-4">
                 <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <Phone className="w-5 h-5 text-blue-300" />
+                    <h4 className="font-semibold">Phone</h4>
+                  </div>
                   <p className="text-gray-300">424-488-3774</p>
                 </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <Mail className="w-6 h-6 mt-1 text-blue-300" />
                 <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <Mail className="w-5 h-5 text-blue-300" />
+                    <h4 className="font-semibold">Email</h4>
+                  </div>
                   <p className="text-gray-300">info@heartbeatofsouthbay.com</p>
                 </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold mb-2">Hours</h4>
-                <div className="text-gray-300 space-y-1">
-                  <p>Mon-Fri: 8:30am-7:00pm</p>
-                  <p>Sat: 9:30am-3:30pm</p>
+              {/* Hours & Social */}
+              <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-4">
+                <div>
+                  <h4 className="font-semibold mb-2">Hours</h4>
+                  <div className="text-gray-300 space-y-1">
+                    <p>Mon-Fri: 8:30am-7:00pm</p>
+                    <p>Sat: 9:30am-3:30pm</p>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-4">Social Media</h4>
-                <div className="flex space-x-4">
-                  <a 
-                    href="https://www.facebook.com/profile.php?id=61552716923245&mibextid=LQQJ4d" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
-                    aria-label="Visit our Facebook page"
-                  >
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a 
-                    href="https://instagram.com/heartbeatofsouthbay?igshid=OGQ5ZDc2ODk2ZA==" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
-                    aria-label="Visit our Instagram page"
-                  >
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                  <a 
-                    href="https://twitter.com/HeartbeatSBay" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
-                    aria-label="Visit our Twitter page"
-                  >
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                    </svg>
-                  </a>
+                <div>
+                  <h4 className="font-semibold mb-3">Social Media</h4>
+                  <div className="flex space-x-4 justify-center md:justify-start">
+                    <a 
+                      href="https://www.facebook.com/profile.php?id=61552716923245&mibextid=LQQJ4d" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-300 hover:text-white transition-colors"
+                      aria-label="Visit our Facebook page"
+                    >
+                      <Facebook className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href="https://instagram.com/heartbeatofsouthbay?igshid=OGQ5ZDc2ODk2ZA==" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-300 hover:text-white transition-colors"
+                      aria-label="Visit our Instagram page"
+                    >
+                      <Instagram className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href="https://twitter.com/HeartbeatSBay" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-300 hover:text-white transition-colors"
+                      aria-label="Visit our Twitter page"
+                    >
+                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
