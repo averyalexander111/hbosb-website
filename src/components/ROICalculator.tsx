@@ -499,28 +499,6 @@ const ROICalculator = () => {
             </p>
           </div>
         )}
-        <a
-          href="https://cal.com/hbosb/ai-readiness-assessment-complimentary"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            marginTop: '24px',
-            padding: '12px 24px',
-            fontSize: '16px',
-            fontWeight: 700,
-            background: '#28a745',
-            color: '#fff',
-            border: 0,
-            borderRadius: '8px',
-            cursor: 'pointer',
-            textDecoration: 'none'
-          }}
-          onMouseOver={(e) => e.currentTarget.style.filter = 'brightness(0.95)'}
-          onMouseOut={(e) => e.currentTarget.style.filter = 'brightness(1)'}
-        >
-          Start My Assessment
-        </a>
       </div>
     </div>
   );
