@@ -3,6 +3,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import ConnectSection from "@/components/ConnectSection";
 import SEOHead from "@/components/SEOHead";
+import averyAlexander from "@/assets/avery-alexander.jpg";
 
 const AboutUs = () => {
   return (
@@ -130,7 +131,7 @@ const AboutUs = () => {
                   <div className="lg:w-1/3">
                     <div className="relative w-64 h-64 mx-auto">
                       <img 
-                        src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=328,h=264,fit=crop/mjE251NMPDUr2okv/headshot1-YD06ovrxP1Sz8jBw.jpg" 
+                        src={averyAlexander} 
                         alt="Avery Alexander - Founder / CEO" 
                         className="w-full h-full object-cover rounded-2xl shadow-lg"
                       />
