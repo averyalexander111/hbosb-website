@@ -574,6 +574,9 @@ const ROICalculator = () => {
             <div className="wave"></div>
           </button>
         </a>
+        <p style={{ marginTop: '16px', fontSize: '14px', color: '#94a3b8' }}>
+          Complimentary. Get your fastest first win.
+        </p>
       </div>
     </div>
   );
