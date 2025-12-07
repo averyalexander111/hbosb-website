@@ -109,11 +109,10 @@ const HeartbeatHero = () => {
               href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="wave-button font-open-sans inline-block"
             >
-              <button className="wave-button font-open-sans">
-                <span>Start My Assessment</span>
-                <div className="wave"></div>
-              </button>
+              <span>Start My Assessment</span>
+              <div className="wave"></div>
             </a>
           </div>
 
