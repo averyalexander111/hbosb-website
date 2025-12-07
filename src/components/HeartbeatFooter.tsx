@@ -9,14 +9,12 @@ const HeartbeatFooter = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center mb-4 md:mb-0">
+          <div className="flex items-center justify-center w-full md:w-auto mb-4 md:mb-0">
             <img 
               src="/lovable-uploads/12a9d3c2-5a34-4ec2-982b-4ee2dc3c99eb.png" 
               alt="Heartbeat of South Bay" 
               className="h-16 w-16"
             />
-            <span className="ml-2 text-lg font-bold">
-            </span>
           </div>
           
           <div className="flex space-x-6 text-sm">
