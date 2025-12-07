@@ -62,8 +62,71 @@ const FAQSection = React.memo(() => {
               </AccordionItem>
             ))}
           </Accordion>
+          
+          {/* CTA Button */}
+          <div className="mt-12 text-center">
+            <a 
+              href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button className="faq-wave-button">
+                <span>Start My Assessment</span>
+                <div className="wave"></div>
+              </button>
+            </a>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Complimentary. Get your fastest first win.
+            </p>
+          </div>
         </div>
       </div>
+      
+      <style>{`
+        .faq-wave-button {
+          position: relative;
+          padding: 16px 48px;
+          font-size: 18px;
+          font-weight: 600;
+          color: white;
+          background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .faq-wave-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .faq-wave-button span {
+          position: relative;
+          z-index: 1;
+        }
+        
+        .faq-wave-button .wave {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.1) 100%);
+          animation: faqWave 2s ease-in-out infinite;
+        }
+        
+        @keyframes faqWave {
+          0%, 100% {
+            transform: translateY(100%);
+          }
+          50% {
+            transform: translateY(0%);
+          }
+        }
+      `}</style>
     </section>
   );
 });
