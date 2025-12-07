@@ -179,7 +179,7 @@ const BaySignalSection = React.memo(() => {
               <div className="wave"></div>
             </button>
           </a>
-          <p className="text-sm text-gray-500 mt-4">Complimentary. Get your fastest first win.</p>
+          <p className="mt-6 text-sm text-slate-500">Complimentary. Get your fastest first win.</p>
         </div>
       </div>
     </section>
