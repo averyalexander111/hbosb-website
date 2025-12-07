@@ -117,9 +117,9 @@ const HeartbeatHero = () => {
           </div>
 
           {/* Trust strip */}
-          <div className="font-open-sans mt-6 text-sm text-slate-500">
+          <p className="mt-6 text-sm text-slate-500">
             Complimentary. Get your fastest first win.
-          </div>
+          </p>
         </div>
       </div>
     </section>
