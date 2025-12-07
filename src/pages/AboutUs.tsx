@@ -132,12 +132,12 @@ const AboutUs = () => {
                     <div className="relative w-64 h-64 mx-auto">
                       <img 
                         src={averyAlexander} 
-                        alt="Dr. James Norris - Founder / CEO" 
+                        alt="Avery Alexander - Founder / CEO" 
                         className="w-full h-full object-cover rounded-2xl shadow-lg"
                       />
                     </div>
                     <div className="text-center mt-4">
-                      <h3 className="text-xl font-bold text-foreground">Dr. James Norris</h3>
+                      <h3 className="text-xl font-bold text-foreground">Avery Alexander</h3>
                       <p className="text-primary font-semibold">Founder / CEO</p>
                     </div>
                   </div>
