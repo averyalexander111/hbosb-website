@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 const TestimonialsSection = React.memo(() => {
   const testimonials = [
     {
-      name: "James Norris",
+      name: "Dr. James Norris",
       initial: "J",
       rating: 5,
       text: "Heartbeat of South Bay did excellent work for my business. I will definitely use them again and refer them to other people."
