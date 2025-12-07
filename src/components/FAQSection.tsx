@@ -127,11 +127,10 @@ const FAQSection = React.memo(() => {
               href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="faq-wave-button font-open-sans inline-block"
             >
-              <button className="faq-wave-button font-open-sans">
-                <span>Start My Assessment</span>
-                <div className="wave"></div>
-              </button>
+              <span>Start My Assessment</span>
+              <div className="wave"></div>
             </a>
             <p className="mt-6 text-sm text-slate-500">
               Complimentary. Get your fastest first win.
