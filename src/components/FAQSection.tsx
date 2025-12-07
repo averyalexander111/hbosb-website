@@ -85,22 +85,23 @@ const FAQSection = React.memo(() => {
       <style>{`
         .faq-wave-button {
           position: relative;
-          padding: 16px 48px;
-          font-size: 18px;
-          font-weight: 600;
+          display: inline-block;
+          padding: 15px 30px;
+          font-size: 16px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
           color: white;
-          background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+          background-color: #007bff;
           border: none;
-          border-radius: 50px;
+          border-radius: 15px;
           cursor: pointer;
           overflow: hidden;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
         
         .faq-wave-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+          box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
         }
         
         .faq-wave-button span {
@@ -108,22 +109,33 @@ const FAQSection = React.memo(() => {
           z-index: 1;
         }
         
-        .faq-wave-button .wave {
+        .faq-wave-button::before,
+        .faq-wave-button::after {
+          content: '';
           position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.1) 100%);
-          animation: faqWave 2s ease-in-out infinite;
+          top: 50%;
+          left: 50%;
+          width: 150%;
+          height: 150%;
+          background: linear-gradient(45deg, #4f00bc, #29abe2);
+          transform: translate(-50%, -50%);
+          border-radius: 40%;
+          animation: faqRotate 7s linear infinite;
+          z-index: 0;
         }
         
-        @keyframes faqWave {
-          0%, 100% {
-            transform: translateY(100%);
+        .faq-wave-button::after {
+          animation-duration: 12s;
+          border-radius: 45%;
+          opacity: 0.5;
+        }
+        
+        @keyframes faqRotate {
+          0% {
+            transform: translate(-50%, -50%) rotate(0deg);
           }
-          50% {
-            transform: translateY(0%);
+          100% {
+            transform: translate(-50%, -50%) rotate(360deg);
           }
         }
       `}</style>
