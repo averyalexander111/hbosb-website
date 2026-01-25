@@ -564,7 +564,7 @@ const ROICalculator = () => {
           `}
         </style>
         <a 
-          href="https://cal.com/hbosb/ai-readiness-assessment-complimentary" 
+          href="https://cal.com/hbosb/heartbeat-audit" 
           target="_blank" 
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}
