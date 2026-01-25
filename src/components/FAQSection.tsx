@@ -124,7 +124,7 @@ const FAQSection = React.memo(() => {
           `}</style>
           <div className="mt-12 text-center">
             <a 
-              href="https://cal.com/hbosb/heartbeat-audit" 
+              href="https://ai-audit-zeta.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="faq-wave-button font-open-sans inline-block"
