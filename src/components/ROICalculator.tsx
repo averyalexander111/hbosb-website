@@ -564,8 +564,8 @@ const ROICalculator = () => {
           `}
         </style>
         <a 
-          href="https://ai-audit-zeta.vercel.app/" 
-          target="_blank" 
+          href="https://audit.heartbeatofsouthbay.com/" 
+          target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}
         >

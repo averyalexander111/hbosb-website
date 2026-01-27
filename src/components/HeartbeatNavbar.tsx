@@ -49,7 +49,7 @@ const HeartbeatNavbar = () => {
                 Blog
               </Link>
               <a 
-                href="https://ai-audit-zeta.vercel.app/"
+                href="https://audit.heartbeatofsouthbay.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
@@ -98,7 +98,7 @@ const HeartbeatNavbar = () => {
                 Blog
               </Link>
               <a 
-                href="https://ai-audit-zeta.vercel.app/"
+                href="https://audit.heartbeatofsouthbay.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"

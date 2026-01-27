@@ -106,8 +106,8 @@ const HeartbeatHero = () => {
           `}</style>
           <div className="mt-8">
             <a 
-              href="https://ai-audit-zeta.vercel.app/" 
-              target="_blank" 
+              href="https://audit.heartbeatofsouthbay.com/" 
+              target="_blank"
               rel="noopener noreferrer"
               className="wave-button font-open-sans inline-block"
             >
