@@ -6,6 +6,7 @@ import HeartbeatFooter from "@/components/HeartbeatFooter";
 import { preloadCriticalImages, preloadFonts } from "@/utils/preloadImages";
 import { usePerformanceOptimization } from "@/hooks/usePerformanceOptimization";
 import SEOHead from "@/components/SEOHead";
+import AnimatedSection from "@/components/AnimatedSection";
 
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
@@ -92,24 +93,36 @@ const Index = () => {
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
-        <Suspense fallback={<SectionLoader />}>
-          <TechnologyCarousel />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <BaySignalSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <TestimonialsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ROICalculator />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <FAQSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ConnectSection />
-        </Suspense>
+        <AnimatedSection>
+          <Suspense fallback={<SectionLoader />}>
+            <TechnologyCarousel />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Suspense fallback={<SectionLoader />}>
+            <BaySignalSection />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Suspense fallback={<SectionLoader />}>
+            <TestimonialsSection />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Suspense fallback={<SectionLoader />}>
+            <ROICalculator />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Suspense fallback={<SectionLoader />}>
+            <FAQSection />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Suspense fallback={<SectionLoader />}>
+            <ConnectSection />
+          </Suspense>
+        </AnimatedSection>
       </main>
       <HeartbeatFooter />
     </div>
