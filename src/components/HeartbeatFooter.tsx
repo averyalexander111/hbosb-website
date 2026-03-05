@@ -25,7 +25,7 @@ const HeartbeatFooter = () => {
               Terms and Conditions
             </Link>
             <a 
-              href="https://heartbeatofsouthbay.com/privacy"
+              href="/privacy"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-colors"
