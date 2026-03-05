@@ -99,10 +99,10 @@ const Index = () => {
           <BaySignalSection />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
-          <ROICalculator />
+          <TestimonialsSection />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
-          <TestimonialsSection />
+          <ROICalculator />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <FAQSection />
