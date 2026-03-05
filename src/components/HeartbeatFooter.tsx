@@ -19,7 +19,7 @@ const HeartbeatFooter = () => {
           
           <div className="flex space-x-6 text-sm">
             <Link 
-              to="/terms-and-conditions" 
+              to="/terms" 
               className="text-gray-300 hover:text-white transition-colors"
             >
               Terms and Conditions
