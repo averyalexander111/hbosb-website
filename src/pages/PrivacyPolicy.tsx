@@ -83,6 +83,14 @@ const PrivacyPolicy = () => {
                     Additionally, if you are a European resident, we note that we are processing your information in order to fulfill contracts we might have with you (for example, if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information might be transferred outside of Europe, including Canada and the United States.
                   </p>
 
+                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communication</h2>
+                  <p className="text-base leading-relaxed mb-4">
+                    Heartbeat of South Bay may send SMS messages to individuals who opt in through our website forms. These messages may include appointment confirmations, reminders, follow-ups, and service-related information.
+                  </p>
+                  <p className="text-base leading-relaxed mb-8">
+                    Users can opt out at any time by replying STOP.
+                  </p>
+
                   <h2 className="text-2xl font-bold mb-4 text-primary">Links to Other Websites</h2>
                   <p className="text-base leading-relaxed mb-8">
                     Our website may contain links to other websites that are not owned or controlled by us. Please be aware that we are not responsible for such other websites or third parties' privacy practices. We encourage you to be aware when you leave our website and read the privacy statements of each website that may collect personal information.
