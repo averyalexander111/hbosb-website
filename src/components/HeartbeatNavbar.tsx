@@ -56,6 +56,13 @@ const HeartbeatNavbar = () => {
               >
                 Assessment
               </a>
+              <Link 
+                to="/contact" 
+                onClick={handleNavClick}
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+              >
+                Contact
+              </Link>
             </div>
           </div>
 
@@ -106,6 +113,13 @@ const HeartbeatNavbar = () => {
               >
                 Assessment
               </a>
+              <Link 
+                to="/contact" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                onClick={() => { handleNavClick(); setIsMenuOpen(false); }}
+              >
+                Contact
+              </Link>
             </div>
           </div>
         )}
