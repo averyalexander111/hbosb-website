@@ -16,6 +16,7 @@ const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
 const Auth = lazy(() => import("./pages/Auth"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Import AdminGuard (not lazy loaded)
