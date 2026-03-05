@@ -12,7 +12,7 @@ const TermsAndConditions = () => {
         description="Read the terms and conditions for using Heartbeat of South Bay's AI automation and CRM services for local businesses."
         ogTitle="Terms and Conditions - Heartbeat of South Bay"
         ogDescription="Read the terms and conditions for using Heartbeat of South Bay's AI automation and CRM services for local businesses."
-        canonicalUrl={`${window.location.origin}/terms-and-conditions`}
+        canonicalUrl={`${window.location.origin}/terms`}
       />
       <HeartbeatNavbar />
       <main className="pt-16">
