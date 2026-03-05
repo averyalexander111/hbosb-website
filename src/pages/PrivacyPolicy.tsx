@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
         description="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
         ogTitle="Privacy Policy - Heartbeat of South Bay"
         ogDescription="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
-        canonicalUrl={`${window.location.origin}/privacy-policy`}
+        canonicalUrl={`${window.location.origin}/privacy`}
       />
       <HeartbeatNavbar />
       <main className="pt-16">
