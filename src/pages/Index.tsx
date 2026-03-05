@@ -6,6 +6,7 @@ import HeartbeatFooter from "@/components/HeartbeatFooter";
 import { preloadCriticalImages, preloadFonts } from "@/utils/preloadImages";
 import { usePerformanceOptimization } from "@/hooks/usePerformanceOptimization";
 import SEOHead from "@/components/SEOHead";
+import AnimatedSection from "@/components/AnimatedSection";
 
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
