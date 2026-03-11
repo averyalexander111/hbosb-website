@@ -42,7 +42,7 @@ const TechnologyCarousel = React.memo(() => {
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-80 hover:opacity-100 hover:scale-110 hover:brightness-125 transition-all duration-300"
                     loading="eager"
                   />
                 </div>
