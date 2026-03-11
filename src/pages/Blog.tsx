@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Search, Calendar, User, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
+import SubpageHero from "@/components/SubpageHero";
 
 interface BlogPost {
   id: string;
