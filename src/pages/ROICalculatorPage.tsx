@@ -3,6 +3,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import AnimatedSection from "@/components/AnimatedSection";
+import SubpageHero from "@/components/SubpageHero";
 
 const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
