@@ -18,7 +18,6 @@ const Contact = () => {
     email_address: "",
     phone_number: "",
     message: "",
-    sms_consent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
