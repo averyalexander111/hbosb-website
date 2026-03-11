@@ -47,22 +47,24 @@ const AboutUs = () => {
               </AnimatedSection>
 
               {/* Mission Section */}
-              <div className="bg-card p-8 rounded-2xl shadow-elegant">
-                <h2 className="text-3xl font-bold mb-6 text-primary">Our Mission</h2>
-                <div className="space-y-4 text-lg leading-relaxed">
-                  <p>
-                    Our mission is to transform the digital presence of South Bay businesses by delivering customized, high-impact strategies that reflect each client's unique strengths and goals. We are dedicated to harnessing the latest technologies—AI-driven insights, automation, and data analytics—to empower local businesses with tools that were once only accessible to large corporations.
-                  </p>
-                  
-                  <p>
-                    At Heartbeat of South Bay, we believe that every business deserves the opportunity to thrive in today's digital world. Through close collaboration and a deep understanding of our clients' needs, we craft tailored solutions that drive growth, enhance customer engagement, and build brand credibility. Our approach goes beyond digital marketing; we focus on building enduring partnerships that support our clients' long-term success.
-                  </p>
-                  
-                  <p>
-                    We are passionate about helping businesses not only survive but excel in an ever-evolving digital landscape. By focusing on innovation, integrity, and measurable results, our mission is to make a meaningful difference in the lives of the business owners and communities we serve.
-                  </p>
+              <AnimatedSection delay={100}>
+                <div className="bg-card p-8 rounded-2xl shadow-elegant">
+                  <h2 className="text-3xl font-bold mb-6 text-primary">Our Mission</h2>
+                  <div className="space-y-4 text-lg leading-relaxed">
+                    <p>
+                      Our mission is to transform the digital presence of South Bay businesses by delivering customized, high-impact strategies that reflect each client's unique strengths and goals. We are dedicated to harnessing the latest technologies—AI-driven insights, automation, and data analytics—to empower local businesses with tools that were once only accessible to large corporations.
+                    </p>
+                    
+                    <p>
+                      At Heartbeat of South Bay, we believe that every business deserves the opportunity to thrive in today's digital world. Through close collaboration and a deep understanding of our clients' needs, we craft tailored solutions that drive growth, enhance customer engagement, and build brand credibility. Our approach goes beyond digital marketing; we focus on building enduring partnerships that support our clients' long-term success.
+                    </p>
+                    
+                    <p>
+                      We are passionate about helping businesses not only survive but excel in an ever-evolving digital landscape. By focusing on innovation, integrity, and measurable results, our mission is to make a meaningful difference in the lives of the business owners and communities we serve.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Vision Section */}
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
