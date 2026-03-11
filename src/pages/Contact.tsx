@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
+import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
@@ -21,7 +20,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Inject Cal.com embed script
   useEffect(() => {
     const scriptId = "cal-embed-script";
     if (document.getElementById(scriptId)) return;
@@ -129,26 +127,26 @@ const Contact = () => {
       />
       <HeartbeatNavbar />
 
-      <main className="pt-16 bg-[hsl(210,40%,98%)]">
-        {/* Section 1 — Hero */}
+      <main className="pt-16 bg-background">
+        {/* Hero */}
         <section className="pt-20 pb-12">
           <div className="mx-auto max-w-[1100px] px-4 text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-800 mb-6">
               Schedule a Consultation with Heartbeat of South Bay
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-4">
               Book a quick call to discuss your project, AI automation opportunities, or digital marketing strategy.
             </p>
-            <p className="text-sm text-muted-foreground/70">
+            <p className="text-sm text-slate-500">
               Most consultations are booked within 24 hours.
             </p>
           </div>
         </section>
 
-        {/* Section 2 — Calendar Booking */}
+        {/* Calendar Booking */}
         <section className="pb-16">
           <div className="mx-auto max-w-[1100px] px-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
               Book a 15-Minute Consultation
             </h2>
             <div
@@ -163,18 +161,21 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Section 3 — Contact Form */}
-        <section className="pb-16">
+        {/* Dark navy section: Form + Trust */}
+        <section
+          className="py-16"
+          style={{ backgroundColor: "hsl(var(--connect-bg))" }}
+        >
           <div className="mx-auto max-w-[1100px] px-4">
-            <Separator className="mb-16" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8">
+            {/* Contact Form */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
               Prefer to Send a Message?
             </h2>
-            <div className="max-w-xl mx-auto">
-              <div className="bg-card p-8 rounded-2xl shadow-lg">
+            <div className="max-w-xl mx-auto mb-16">
+              <div className="bg-white/10 backdrop-blur p-8 rounded-2xl">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="full_name">Name *</Label>
+                    <Label htmlFor="full_name" className="text-gray-200">Name *</Label>
                     <Input
                       id="full_name"
                       type="text"
@@ -183,11 +184,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                       maxLength={100}
                       required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="email_address">Email *</Label>
+                    <Label htmlFor="email_address" className="text-gray-200">Email *</Label>
                     <Input
                       id="email_address"
                       type="email"
@@ -196,11 +198,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
                       maxLength={255}
                       required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone_number">Phone Number *</Label>
+                    <Label htmlFor="phone_number" className="text-gray-200">Phone Number *</Label>
                     <Input
                       id="phone_number"
                       type="tel"
@@ -209,11 +212,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                       maxLength={20}
                       required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message" className="text-gray-200">Message *</Label>
                     <Textarea
                       id="message"
                       placeholder="How can we help you?"
@@ -222,14 +226,15 @@ const Contact = () => {
                       maxLength={1000}
                       rows={5}
                       required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                     />
                   </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-gray-400 leading-relaxed">
                     By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                    <Link to="/terms" className="underline text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
+                    <Link to="/terms" className="underline text-blue-300 hover:text-blue-200 transition-colors">Terms of Service</Link>
                     {" "}and{" "}
-                    <Link to="/privacy" className="underline text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>.
+                    <Link to="/privacy" className="underline text-blue-300 hover:text-blue-200 transition-colors">Privacy Policy</Link>.
                   </p>
 
                   <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
@@ -238,39 +243,24 @@ const Contact = () => {
                 </form>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Section 4 — Trust Section */}
-        <section className="pb-16">
-          <div className="mx-auto max-w-[1100px] px-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10">
+            {/* Trust Section */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
               Why Work With Heartbeat of South Bay
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {trustPoints.map((point) => (
-                <div key={point} className="flex items-start gap-3 bg-card p-5 rounded-xl shadow-sm">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                  <span className="text-foreground text-sm font-medium">{point}</span>
+                <div key={point} className="flex items-start gap-3 bg-white/10 backdrop-blur p-5 rounded-xl">
+                  <CheckCircle2 className="w-5 h-5 text-blue-300 mt-0.5 shrink-0" />
+                  <span className="text-gray-200 text-sm font-medium">{point}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
-
-        {/* Section 5 — Footer */}
-        <footer className="py-8 border-t border-border">
-          <div className="mx-auto max-w-[1100px] px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <span className="hidden sm:inline">·</span>
-            <Link to="/terms" className="hover:text-foreground transition-colors">
-              Terms & Conditions
-            </Link>
-          </div>
-        </footer>
       </main>
+
+      <HeartbeatFooter />
     </>
   );
 };
