@@ -212,20 +212,6 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="sms_consent"
-                      checked={formData.sms_consent}
-                      onCheckedChange={(checked) => setFormData(prev => ({ ...prev, sms_consent: checked === true }))}
-                    />
-                    <Label htmlFor="sms_consent" className="text-xs leading-relaxed text-muted-foreground cursor-pointer">
-                      By checking this box, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                      <Link to="/terms" className="underline text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
-                      {" "}and{" "}
-                      <Link to="/privacy" className="underline text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>.
-                    </Label>
-                  </div>
-
                   <div className="space-y-1.5">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
