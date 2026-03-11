@@ -136,7 +136,7 @@ const ROICalculator = () => {
         <h2 style={{ 
           fontSize: '36px', 
           fontWeight: '600',
-          color: '#ffffff', 
+          color: '#1e293b', 
           margin: '0 0 16px 0',
           lineHeight: '1.2'
         }}>
