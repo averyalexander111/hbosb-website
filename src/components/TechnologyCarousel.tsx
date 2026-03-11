@@ -19,12 +19,12 @@ const TechnologyCarousel = React.memo(() => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-[#0a1628]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-3">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
           Built With Technology You Already Trust
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto">
           We integrate seamlessly with the tools your business already relies on.
         </p>
 
