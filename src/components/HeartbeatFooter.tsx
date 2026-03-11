@@ -34,7 +34,7 @@ const HeartbeatFooter = () => {
         </div>
         
         <div className="mt-8 text-center text-gray-300 text-sm">
-          <p>&copy; 2025 Heartbeat of South Bay. All rights reserved.</p>
+          <p>&copy; 2026 Heartbeat of South Bay. All rights reserved.</p>
         </div>
       </div>
     </footer>
