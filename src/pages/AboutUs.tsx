@@ -30,19 +30,21 @@ const AboutUs = () => {
             <div className="max-w-4xl mx-auto space-y-12">
               
               {/* Introduction */}
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg leading-relaxed mb-6">
-                  Founded in August 2023, our agency combines innovative digital strategies with a personal touch, ensuring every client receives customized solutions that align with their specific goals.
-                </p>
-                
-                <p className="text-lg leading-relaxed mb-6">
-                  We specialize in AI-powered services designed to enhance your online presence, optimize operations, and drive sustainable growth. Our team understands the challenges and opportunities that local businesses face, which is why we're committed to helping you stand out and succeed in a competitive market.
-                </p>
-                
-                <p className="text-lg leading-relaxed">
-                  Our core focus is building partnerships based on trust, transparency, and tangible results. From comprehensive digital marketing and web development to CRM solutions and AI automation, Heartbeat of South Bay offers the tools and expertise to support your business at every stage of growth.
-                </p>
-              </div>
+              <AnimatedSection>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-lg leading-relaxed mb-6">
+                    Founded in August 2023, our agency combines innovative digital strategies with a personal touch, ensuring every client receives customized solutions that align with their specific goals.
+                  </p>
+                  
+                  <p className="text-lg leading-relaxed mb-6">
+                    We specialize in AI-powered services designed to enhance your online presence, optimize operations, and drive sustainable growth. Our team understands the challenges and opportunities that local businesses face, which is why we're committed to helping you stand out and succeed in a competitive market.
+                  </p>
+                  
+                  <p className="text-lg leading-relaxed">
+                    Our core focus is building partnerships based on trust, transparency, and tangible results. From comprehensive digital marketing and web development to CRM solutions and AI automation, Heartbeat of South Bay offers the tools and expertise to support your business at every stage of growth.
+                  </p>
+                </div>
+              </AnimatedSection>
 
               {/* Mission Section */}
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
