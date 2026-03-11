@@ -57,7 +57,7 @@ const results = [
 
 const BaySignalSection = React.memo(() => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20" style={{ backgroundColor: '#d1e8ff' }}>
       <div className="container mx-auto px-4 max-w-6xl space-y-16">
 
         {/* Hero Header */}
