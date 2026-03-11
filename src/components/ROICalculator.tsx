@@ -144,7 +144,7 @@ const ROICalculator = () => {
         </h2>
         <p style={{ 
           fontSize: '18px', 
-          color: '#e1ecff', 
+          color: '#475569', 
           margin: '0',
           lineHeight: '1.4'
         }}>
