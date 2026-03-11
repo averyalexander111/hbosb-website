@@ -1,7 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ConnectSection = React.memo(() => {
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email_address: "",
+    phone_number: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.full_name.trim() || !formData.email_address.trim() || !formData.phone_number.trim() || !formData.message.trim()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from("HBOSB Contact Form").insert({
+        full_name: formData.full_name.trim(),
+        email_address: formData.email_address.trim(),
+        phone_number: formData.phone_number.trim(),
+        message: formData.message.trim(),
+        area_of_interest: "Homepage Inquiry",
+      });
+      if (error) throw error;
+      toast.success("Thank you! Your message has been sent successfully.");
+      setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section 
       id="consultation" 
@@ -19,6 +59,78 @@ const ConnectSection = React.memo(() => {
               At Heartbeat of South Bay, we design Custom AI Ops tailored to your workflows, improving client intake, follow ups, and reporting. 
               The result is a stronger online presence, smoother operations, and sustainable growth backed by measurable ROI.
             </p>
+          </div>
+
+          {/* Contact Form */}
+          <div className="mb-12">
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="home_full_name" className="text-gray-200">Name *</Label>
+                    <Input
+                      id="home_full_name"
+                      type="text"
+                      placeholder="Your full name"
+                      value={formData.full_name}
+                      onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
+                      maxLength={100}
+                      required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="home_email" className="text-gray-200">Email *</Label>
+                    <Input
+                      id="home_email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email_address}
+                      onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
+                      maxLength={255}
+                      required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="home_phone" className="text-gray-200">Phone Number *</Label>
+                  <Input
+                    id="home_phone"
+                    type="tel"
+                    placeholder="(555) 123-4567"
+                    value={formData.phone_number}
+                    onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
+                    maxLength={20}
+                    required
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="home_message" className="text-gray-200">Message *</Label>
+                  <Textarea
+                    id="home_message"
+                    placeholder="How can we help you?"
+                    value={formData.message}
+                    onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                    maxLength={1000}
+                    rows={4}
+                    required
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                  <Link to="/terms" className="underline text-blue-300 hover:text-white transition-colors">Terms of Service</Link>
+                  {" "}and{" "}
+                  <Link to="/privacy" className="underline text-blue-300 hover:text-white transition-colors">Privacy Policy</Link>.
+                </p>
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </div>
           </div>
 
           {/* Contact Information - Single Row Layout */}
