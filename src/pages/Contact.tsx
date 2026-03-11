@@ -90,11 +90,6 @@ const Contact = () => {
       return;
     }
 
-    if (!formData.sms_consent) {
-      toast.error("Please agree to the SMS consent to submit the form.");
-      return;
-    }
-
     setIsSubmitting(true);
     try {
       const { error } = await supabase.from("HBOSB Contact Form").insert({
