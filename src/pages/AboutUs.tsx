@@ -67,22 +67,24 @@ const AboutUs = () => {
               </AnimatedSection>
 
               {/* Vision Section */}
-              <div className="bg-card p-8 rounded-2xl shadow-elegant">
-                <h2 className="text-3xl font-bold mb-6 text-primary">Our Vision</h2>
-                <div className="space-y-4 text-lg leading-relaxed">
-                  <p>
-                    Our vision is to create a vibrant community of thriving businesses that are not only equipped with powerful digital tools but are also empowered to lead and shape the future of their industries. We envision a landscape where businesses of all sizes, especially local enterprises, have access to cutting-edge technology, strategic insights, and the resources needed to compete with confidence in the digital age.
-                  </p>
-                  
-                  <p>
-                    We are committed to breaking down barriers to digital success, making advanced marketing and automation tools accessible to every business that wants to grow. By fostering a supportive environment and championing innovation, we aim to drive economic growth within our community, helping businesses not only survive but excel in an increasingly competitive world.
-                  </p>
-                  
-                  <p>
-                    At Heartbeat of South Bay, we believe that when local businesses flourish, the entire community benefits. Our vision is to be the driving force behind that success—building a future where every business, from startups to established enterprises, has the opportunity to achieve its full potential online.
-                  </p>
+              <AnimatedSection delay={100}>
+                <div className="bg-card p-8 rounded-2xl shadow-elegant">
+                  <h2 className="text-3xl font-bold mb-6 text-primary">Our Vision</h2>
+                  <div className="space-y-4 text-lg leading-relaxed">
+                    <p>
+                      Our vision is to create a vibrant community of thriving businesses that are not only equipped with powerful digital tools but are also empowered to lead and shape the future of their industries. We envision a landscape where businesses of all sizes, especially local enterprises, have access to cutting-edge technology, strategic insights, and the resources needed to compete with confidence in the digital age.
+                    </p>
+                    
+                    <p>
+                      We are committed to breaking down barriers to digital success, making advanced marketing and automation tools accessible to every business that wants to grow. By fostering a supportive environment and championing innovation, we aim to drive economic growth within our community, helping businesses not only survive but excel in an increasingly competitive world.
+                    </p>
+                    
+                    <p>
+                      At Heartbeat of South Bay, we believe that when local businesses flourish, the entire community benefits. Our vision is to be the driving force behind that success—building a future where every business, from startups to established enterprises, has the opportunity to achieve its full potential online.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Values Section */}
               <div>
