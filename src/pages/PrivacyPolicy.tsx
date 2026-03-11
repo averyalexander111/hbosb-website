@@ -3,6 +3,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
+import SubpageHero from "@/components/SubpageHero";
 
 const PrivacyPolicy = () => {
   return (
