@@ -1,185 +1,160 @@
 import React from "react";
-import { CheckCircle } from "lucide-react";
+import { Phone, Calendar, BarChart3, Clock, TrendingUp, Users, ArrowRight } from "lucide-react";
+
+const stats = [
+  { icon: Clock, label: "Minutes, Not Hours", desc: "Average lead response time" },
+  { icon: TrendingUp, label: "30-Day Results", desc: "See impact in your first month" },
+  { icon: BarChart3, label: "One Dashboard", desc: "Everything in one place" },
+  { icon: Users, label: "24/7 Coverage", desc: "AI handles calls & messages around the clock" },
+];
+
+const features = [
+  {
+    icon: Phone,
+    title: "AI Receptionist",
+    desc: "Answers calls, texts, and website chats instantly. Captures leads, routes them to your team, and follows up automatically.",
+  },
+  {
+    icon: Calendar,
+    title: "Automated Scheduling & Follow-Ups",
+    desc: "Books appointments, sends quotes, and follows up with reminders — so nothing falls through the cracks.",
+  },
+  {
+    icon: BarChart3,
+    title: "Performance Dashboard",
+    desc: "See your bookings, revenue, reviews, and pipeline health in one simple view.",
+  },
+];
+
+const steps = [
+  { step: "Assess", desc: "We map your tools and find the bottlenecks" },
+  { step: "Design", desc: "We propose the simplest setup that fits your budget" },
+  { step: "Build", desc: "You get a working system in 2–4 weeks" },
+  { step: "Grow", desc: "We add features as your business scales" },
+];
+
+const results = [
+  "Response times drop from hours to minutes",
+  "Clients rebook and leave more reviews",
+  "Your team reclaims hours every week",
+];
 
 const BaySignalSection = React.memo(() => {
   return (
-    <section className="py-16" style={{ backgroundColor: "#d1e8ff" }}>
-      <div className="container mx-auto px-4 space-y-8">
-        {/* Custom AI Ops Section */}
-        <div className="max-w-4xl mx-auto bg-white/80 rounded-lg p-8 backdrop-blur-sm shadow-lg">
-          <div className="text-center mb-8">
-            <span className="inline-block text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
-              Custom AI Ops
-            </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Build an AI-powered operating system around <em>your</em> workflow
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              We replace Frankenstacks with a clean, integrated setup—so leads get handled, clients stay engaged, and your team spends less time on busywork.
-            </p>
-          </div>
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-6xl space-y-16">
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Left Column */}
-            <div className="space-y-6">
-              {/* What we build */}
-              <div>
-                <h4 className="text-xl font-bold text-foreground mb-4">What we build (tailored to your tools):</h4>
-                <div className="space-y-3">
-                  {[
-                    "AI receptionist for calls, SMS, and website chat (lead capture, routing, follow-ups)",
-                    "Automated intake, quotes/proposals, and scheduling", 
-                    "CRM workflows with reminders, pipelines, and reputation boosts",
-                    "RAG knowledge base for accurate answers from your docs and SOPs",
-                    "Post-visit journeys: reviews, reactivation, membership/maintenance nudges",
-                    "Dashboards: bookings, ROAS/ROI, pipeline, and ops health"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Hero Header */}
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="inline-block text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+            Custom AI Ops
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Your Business, Running Smarter&nbsp;with&nbsp;AI
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We build a clean, connected system so leads get answered, clients stay engaged, and your team spends less time on busywork.
+          </p>
+        </div>
 
-              {/* Why it helps */}
-              <div>
-                <h4 className="text-xl font-bold text-foreground mb-4">Why it helps:</h4>
-                <div className="space-y-3">
-                  {[
-                    "Faster response times → more booked jobs",
-                    "Fewer no-shows and better show rates",
-                    "Clearer notes and less admin time", 
-                    "Higher repeat business and reviews",
-                    "One source of truth across apps"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Stats Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="bg-card rounded-2xl p-6 text-center shadow-sm border border-border/50 hover:shadow-md transition-shadow"
+            >
+              <s.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+              <p className="font-bold text-foreground text-lg">{s.label}</p>
+              <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
             </div>
+          ))}
+        </div>
 
-            {/* Right Column */}
-            <div className="space-y-6">
-              {/* How it works */}
-              <div>
-                <h4 className="text-xl font-bold text-foreground mb-4">How it works:</h4>
-                <div className="space-y-3">
-                  {[
-                    { step: "Assess", desc: "Map your current tools and bottlenecks" },
-                    { step: "Design", desc: "Propose the cleanest stack that fits your budget" },
-                    { step: "Pilot", desc: "Ship a working slice in ~2–4 weeks" },
-                    { step: "Scale", desc: "Add channels, automations, and dashboards" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
-                        {index + 1}
-                      </div>
-                      <div>
-                        <span className="font-semibold text-gray-900">{item.step}</span>
-                        <span className="text-gray-700"> — {item.desc}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        {/* Feature Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {features.map((f) => (
+            <div
+              key={f.title}
+              className="bg-card rounded-2xl p-8 shadow-sm border border-border/50 hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <f.icon className="w-6 h-6 text-primary" />
               </div>
-
-              {/* Micro-proof points */}
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <div className="space-y-2 text-sm text-gray-600">
-                  <p><strong>Typical first win:</strong> response times cut from hours to minutes</p>
-                  <p><strong>Common lift:</strong> more reviews + better follow-through on quotes</p>
-                  <p><strong>Most clients</strong> start lean, then layer on features over 30–60 days</p>
-                  <p><strong>Early revenue win:</strong> reactivated clients generate booked work in the first 30 days</p>
-                  <p><strong>Fewer no-shows:</strong> automated confirmations and reminders lift attendance and follow-through</p>
-                  <p><strong>Unified view:</strong> one dashboard shows pipeline, performance KPIs, and next actions</p>
-                </div>
-              </div>
-
+              <h3 className="text-xl font-bold text-foreground mb-3">{f.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
             </div>
+          ))}
+        </div>
+
+        {/* How It Works */}
+        <div className="text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-10">How It Works</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {steps.map((s, i) => (
+              <div key={s.step} className="relative flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold mb-3">
+                  {i + 1}
+                </div>
+                <p className="font-semibold text-foreground">{s.step}</p>
+                <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
+                {i < steps.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute top-3 -right-3 w-5 h-5 text-primary/40" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* CTA - Centered below the card */}
-        <div className="text-center mt-12">
+        {/* Results Highlights */}
+        <div className="grid md:grid-cols-3 gap-4">
+          {results.map((r) => (
+            <div
+              key={r}
+              className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20"
+            >
+              <p className="font-semibold text-foreground">{r}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
           <style dangerouslySetInnerHTML={{
             __html: `
               @keyframes wave {
-                0% {
-                  transform: translate(-50%, -75%) rotate(0deg);
-                }
-                100% {
-                  transform: translate(-50%, -75%) rotate(360deg);
-                }
+                0% { transform: translate(-50%, -75%) rotate(0deg); }
+                100% { transform: translate(-50%, -75%) rotate(360deg); }
               }
               .wave-button {
-                font-size: 16px;
-                font-weight: 400;
-                letter-spacing: 2px;
-                padding: 15px 30px;
-                text-align: center;
-                color: #ffffff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 15px;
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
+                font-size: 16px; font-weight: 400; letter-spacing: 2px;
+                padding: 15px 30px; text-align: center; color: #ffffff;
+                background-color: hsl(207, 57%, 50%); border: none; border-radius: 15px;
+                position: relative; overflow: hidden; cursor: pointer;
                 transition: background-color 0.3s ease;
               }
-              .wave-button:hover {
-                background-color: #0056b3;
-              }
-              .wave-button span {
-                position: relative;
-                z-index: 1;
-              }
-              .wave {
-                position: absolute;
-                top: -100px;
-                left: 0;
-                width: 100%;
-                height: 250px;
-                background: linear-gradient(45deg, #4f00bc, #29abe2);
-                transition: 0.5s ease;
-              }
-              .wave::after,
-              .wave::before {
-                content: '';
-                position: absolute;
-                width: 200%;
-                height: 200%;
-                top: -10px;
-                left: 50%;
-                transform: translate(-50%, -75%);
-                transition: 0.5s ease;
-              }
-              .wave::before {
-                border-radius: 40%;
-                background: rgba(1, 1, 1, 0.5);
-                animation: wave 7s linear infinite;
-              }
-              .wave::after {
-                border-radius: 45%;
-                background: transparent;
-                animation: wave 12s linear infinite;
-              }
+              .wave-button:hover { background-color: hsl(207, 57%, 40%); }
+              .wave-button span { position: relative; z-index: 1; }
+              .wave { position: absolute; top: -100px; left: 0; width: 100%; height: 250px;
+                background: linear-gradient(45deg, hsl(207, 57%, 35%), hsl(200, 70%, 50%));
+                transition: 0.5s ease; }
+              .wave::after, .wave::before {
+                content: ''; position: absolute; width: 200%; height: 200%;
+                top: -10px; left: 50%; transform: translate(-50%, -75%);
+                transition: 0.5s ease; }
+              .wave::before { border-radius: 40%; background: rgba(1,1,1,0.5);
+                animation: wave 7s linear infinite; }
+              .wave::after { border-radius: 45%; background: transparent;
+                animation: wave 12s linear infinite; }
             `
           }} />
-          <a 
-            href="https://audit.heartbeatofsouthbay.com/" 
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://audit.heartbeatofsouthbay.com/" target="_blank" rel="noopener noreferrer">
             <button className="wave-button">
               <span>Start My Assessment</span>
               <div className="wave"></div>
             </button>
           </a>
-          <p className="mt-6 text-sm text-slate-500">Complimentary. Get your fastest first win.</p>
+          <p className="mt-6 text-sm text-muted-foreground">Complimentary. Get your fastest first win.</p>
         </div>
       </div>
     </section>
