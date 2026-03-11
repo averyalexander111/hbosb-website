@@ -133,31 +133,33 @@ const AboutUs = () => {
               </AnimatedSection>
 
               {/* Team Section */}
-              <div className="bg-card p-8 rounded-2xl shadow-elegant">
-                <h2 className="text-3xl font-bold mb-8 text-center text-primary">Our Team</h2>
-                
-                <div className="flex flex-col lg:flex-row items-center gap-8">
-                  <div className="lg:w-1/3">
-                    <div className="relative w-64 h-64 mx-auto">
-                      <img 
-                        src={averyAlexander} 
-                        alt="Avery Alexander - Founder / CEO" 
-                        className="w-full h-full object-cover rounded-2xl shadow-lg"
-                      />
-                    </div>
-                    <div className="text-center mt-4">
-                      <h3 className="text-xl font-bold text-foreground">Avery Alexander</h3>
-                      <p className="text-primary font-semibold">Founder / CEO</p>
-                    </div>
-                  </div>
+              <AnimatedSection delay={100}>
+                <div className="bg-card p-8 rounded-2xl shadow-elegant">
+                  <h2 className="text-3xl font-bold mb-8 text-center text-primary">Our Team</h2>
                   
-                  <div className="lg:w-2/3">
-                    <p className="text-lg leading-relaxed">
-                      Avery Alexander is the visionary behind Heartbeat of South Bay, combining creative entrepreneurship and project management expertise with an innovative approach to digital growth. Through a unique tech stack blending AI-powered infrastructure, marketing, design, and technology, Avery delivers tailored solutions that empower clients to enhance their online presence and achieve lasting success.
-                    </p>
+                  <div className="flex flex-col lg:flex-row items-center gap-8">
+                    <div className="lg:w-1/3">
+                      <div className="relative w-64 h-64 mx-auto">
+                        <img 
+                          src={averyAlexander} 
+                          alt="Avery Alexander - Founder / CEO" 
+                          className="w-full h-full object-cover rounded-2xl shadow-lg"
+                        />
+                      </div>
+                      <div className="text-center mt-4">
+                        <h3 className="text-xl font-bold text-foreground">Avery Alexander</h3>
+                        <p className="text-primary font-semibold">Founder / CEO</p>
+                      </div>
+                    </div>
+                    
+                    <div className="lg:w-2/3">
+                      <p className="text-lg leading-relaxed">
+                        Avery Alexander is the visionary behind Heartbeat of South Bay, combining creative entrepreneurship and project management expertise with an innovative approach to digital growth. Through a unique tech stack blending AI-powered infrastructure, marketing, design, and technology, Avery delivers tailored solutions that empower clients to enhance their online presence and achieve lasting success.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Contact CTA */}
               <div className="text-center bg-primary/5 p-8 rounded-2xl">
