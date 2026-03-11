@@ -3,6 +3,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatHero from "@/components/HeartbeatHero";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const ProblemSection = lazy(() => import("@/components/ProblemSection"));
 const AIOperatingSystem = lazy(() => import("@/components/AIOperatingSystem"));
