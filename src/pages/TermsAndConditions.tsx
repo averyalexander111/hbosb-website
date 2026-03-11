@@ -114,6 +114,7 @@ const TermsAndConditions = () => {
                   </p>
                 </div>
               </div>
+              </AnimatedSection>
 
             </div>
           </div>

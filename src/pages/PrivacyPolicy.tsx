@@ -106,6 +106,7 @@ const PrivacyPolicy = () => {
                   </p>
                 </div>
               </div>
+              </AnimatedSection>
 
             </div>
           </div>
