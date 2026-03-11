@@ -1,125 +1,105 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Zap, TrendingUp, Bot } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeartbeatHero = () => {
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url('/hero-background.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Subtle left-side gradient for text readability without covering the logo */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
-      
-      {/* Bottom fade to blend into next section */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+      {/* Gradient mesh background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, #d1e8ff 100%)'
+          backgroundImage: `linear-gradient(hsl(var(--navy-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--navy-foreground)) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 relative z-10">
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
         <div className="max-w-3xl">
-          <h1 className="font-montserrat font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight text-slate-800">
-            An integrated AI operating system for your team
-          </h1>
-          <p className="font-open-sans mt-5 text-lg sm:text-xl text-slate-600 max-w-2xl">
-            Replace scattered tools with a secure, unified system for intake, follow ups, and reporting. Built for multi location and high growth teams.
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-navy-foreground"
+          >
+            Turn Your Business Into an AI-Powered System
+          </motion.h1>
 
-          {/* Proof bar */}
-          <ul className="font-open-sans mt-6 grid gap-3 sm:grid-cols-3 text-sm text-slate-700">
-            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> Minutes not hours
-            </li>
-            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> More reviews, better follow through
-            </li>
-            <li className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full bg-slate-800" /> Security by design
-            </li>
-          </ul>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
+          >
+            Heartbeat of South Bay designs and implements AI-powered business
+            systems that capture leads, automate customer communication, and
+            streamline operations.
+          </motion.p>
 
-          {/* CTA Button with Wave Animation */}
-          <style>{`
-            .wave-button {
-              font-size: 16px;
-              font-weight: 400;
-              letter-spacing: 2px;
-              padding: 15px 30px;
-              text-align: center;
-              color: #ffffff;
-              background-color: #007bff;
-              border: none;
-              border-radius: 15px;
-              position: relative;
-              overflow: hidden;
-              cursor: pointer;
-              transition: background-color 0.3s ease;
-            }
-            .wave-button:hover {
-              background-color: #0056b3;
-            }
-            .wave-button span {
-              position: relative;
-              z-index: 1;
-            }
-            .wave-button .wave {
-              position: absolute;
-              top: -100px;
-              left: 0;
-              width: 100%;
-              height: 250px;
-              background: linear-gradient(45deg, #4f00bc, #29abe2);
-              transition: 0.5s ease;
-            }
-            .wave-button .wave::after,
-            .wave-button .wave::before {
-              content: '';
-              position: absolute;
-              width: 200%;
-              height: 200%;
-              top: -10px;
-              left: 50%;
-              transform: translate(-50%, -75%);
-              transition: 0.5s ease;
-            }
-            .wave-button .wave::before {
-              border-radius: 40%;
-              background: rgba(1, 1, 1, 0.5);
-              animation: wave 7s linear infinite;
-            }
-            .wave-button .wave::after {
-              border-radius: 45%;
-              background: transparent;
-              animation: wave 12s linear infinite;
-            }
-            @keyframes wave {
-              0% { transform: translate(-50%, -75%) rotate(0deg); }
-              100% { transform: translate(-50%, -75%) rotate(360deg); }
-            }
-          `}</style>
-          <div className="mt-8">
-            <a 
-              href="https://audit.heartbeatofsouthbay.com/" 
+          {/* Benefit pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 flex flex-wrap gap-3"
+          >
+            {[
+              { icon: Zap, label: "Reduce manual work" },
+              { icon: TrendingUp, label: "Capture more leads" },
+              { icon: Bot, label: "Automate follow-ups" },
+            ].map((item) => (
+              <span
+                key={item.label}
+                className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm text-navy-foreground/90"
+              >
+                <item.icon className="w-4 h-4 text-primary" />
+                {item.label}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mt-10 flex flex-col sm:flex-row gap-4"
+          >
+            <a
+              href="https://audit.heartbeatofsouthbay.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="wave-button font-open-sans inline-block"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:brightness-110 transition-all duration-200"
             >
-              <span>Start My Assessment</span>
-              <div className="wave"></div>
+              Start Your AI Opportunity Assessment
             </a>
-          </div>
+            <Link
+              to="/roi"
+              className="inline-flex items-center justify-center rounded-lg border border-navy-foreground/20 px-6 py-3.5 text-sm font-semibold text-navy-foreground hover:bg-navy-foreground/5 transition-all duration-200"
+            >
+              Calculate Your Potential ROI
+            </Link>
+          </motion.div>
 
-          {/* Trust strip */}
-          <p className="mt-6 text-sm text-slate-500">
-            Complimentary. Get your fastest first win.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-6 text-sm text-navy-foreground/40"
+          >
+            Complimentary assessment · No commitment required
+          </motion.p>
         </div>
       </div>
     </section>
