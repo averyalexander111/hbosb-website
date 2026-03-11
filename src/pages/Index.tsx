@@ -110,11 +110,6 @@ const Index = () => {
         </AnimatedSection>
         <AnimatedSection delay={100}>
           <Suspense fallback={<SectionLoader />}>
-            <ROICalculator />
-          </Suspense>
-        </AnimatedSection>
-        <AnimatedSection delay={100}>
-          <Suspense fallback={<SectionLoader />}>
             <FAQSection />
           </Suspense>
         </AnimatedSection>
