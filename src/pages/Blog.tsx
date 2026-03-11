@@ -89,19 +89,16 @@ const Blog = () => {
         canonicalUrl={`${window.location.origin}/blog`}
       />
 
-      <div className="min-h-screen" style={{ backgroundColor: '#d1e8ff' }}>
+      <div className="min-h-screen bg-background">
         <HeartbeatNavbar />
-        {/* Hero Section */}
-        <section className="pt-24 pb-16 px-4">
+        <SubpageHero
+          title="The Pulse"
+          subtitle="Expert insights on SEO, digital marketing, and AI automation to grow your business"
+        />
+
+        {/* Search and Filter */}
+        <section className="pt-12 pb-8 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              The Pulse
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Expert insights on SEO, digital marketing, and AI automation to grow your business
-            </p>
-            
-            {/* Search and Filter */}
             <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
