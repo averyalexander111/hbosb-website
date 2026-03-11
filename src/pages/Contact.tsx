@@ -11,6 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
 import SubpageHero from "@/components/SubpageHero";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -134,23 +135,24 @@ const Contact = () => {
           subtitle="Book a quick call to discuss your project, AI automation opportunities, or digital marketing strategy."
         />
 
-        {/* Calendar Booking */}
-        <section className="pb-16">
-          <div className="mx-auto max-w-[1100px] px-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
-              Book a 15-Minute Consultation
-            </h2>
-            <div
-              className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
-              style={{ minHeight: 500 }}
-            >
+        <AnimatedSection>
+          <section className="pb-16">
+            <div className="mx-auto max-w-[1100px] px-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
+                Book a 15-Minute Consultation
+              </h2>
               <div
-                id="my-cal-inline-15min"
-                style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }}
-              />
+                className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
+                style={{ minHeight: 500 }}
+              >
+                <div
+                  id="my-cal-inline-15min"
+                  style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }}
+                />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
 
         {/* Dark navy section: Form + Trust */}
         <section

@@ -4,6 +4,7 @@ import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import SubpageHero from "@/components/SubpageHero";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const TermsAndConditions = () => {
   return (
@@ -27,6 +28,7 @@ const TermsAndConditions = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-8">
               
+              <AnimatedSection>
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg leading-relaxed mb-6">
@@ -112,6 +114,7 @@ const TermsAndConditions = () => {
                   </p>
                 </div>
               </div>
+              </AnimatedSection>
 
             </div>
           </div>

@@ -10,6 +10,7 @@ import { Search, Calendar, User, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import SubpageHero from "@/components/SubpageHero";
+import AnimatedSection from "@/components/AnimatedSection";
 
 interface BlogPost {
   id: string;
@@ -97,6 +98,7 @@ const Blog = () => {
         />
 
         {/* Search and Filter */}
+        <AnimatedSection>
         <section className="pt-12 pb-8 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
@@ -137,6 +139,7 @@ const Blog = () => {
             )}
           </div>
         </section>
+        </AnimatedSection>
 
         {/* Blog Posts */}
         <section className="pb-16 px-4">
