@@ -57,6 +57,13 @@ const HeartbeatNavbar = () => {
                 Assessment
               </a>
               <Link 
+                to="/roi" 
+                onClick={handleNavClick}
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+              >
+                ROI Calculator
+              </Link>
+              <Link 
                 to="/contact" 
                 onClick={handleNavClick}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
