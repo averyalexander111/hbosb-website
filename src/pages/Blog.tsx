@@ -139,6 +139,7 @@ const Blog = () => {
             )}
           </div>
         </section>
+        </AnimatedSection>
 
         {/* Blog Posts */}
         <section className="pb-16 px-4">

@@ -162,26 +162,28 @@ const AboutUs = () => {
               </AnimatedSection>
 
               {/* Contact CTA */}
-              <div className="text-center bg-primary/5 p-8 rounded-2xl">
-                <h2 className="text-3xl font-bold mb-4 text-primary">Ready to Get Started?</h2>
-                <p className="text-lg mb-6 text-muted-foreground">
-                  Let's discuss how we can help transform your business's digital presence.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="mailto:info@heartbeatofsouthbay.com" 
-                    className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                  >
-                    Email Us
-                  </a>
-                  <a 
-                    href="tel:424-488-3774" 
-                    className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors"
-                  >
-                    Call Us
-                  </a>
+              <AnimatedSection delay={100}>
+                <div className="text-center bg-primary/5 p-8 rounded-2xl">
+                  <h2 className="text-3xl font-bold mb-4 text-primary">Ready to Get Started?</h2>
+                  <p className="text-lg mb-6 text-muted-foreground">
+                    Let's discuss how we can help transform your business's digital presence.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a 
+                      href="mailto:info@heartbeatofsouthbay.com" 
+                      className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    >
+                      Email Us
+                    </a>
+                    <a 
+                      href="tel:424-488-3774" 
+                      className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors"
+                    >
+                      Call Us
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
             </div>
           </div>
