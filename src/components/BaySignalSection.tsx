@@ -1,5 +1,21 @@
 import React from "react";
 import { Phone, Calendar, BarChart3, Clock, TrendingUp, Users, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
 
 const stats = [
   { icon: Clock, label: "Minutes, Not Hours", desc: "Average lead response time" },
@@ -45,7 +61,13 @@ const BaySignalSection = React.memo(() => {
       <div className="container mx-auto px-4 max-w-6xl space-y-16">
 
         {/* Hero Header */}
-        <div className="text-center max-w-3xl mx-auto">
+        <motion.div
+          className="text-center max-w-3xl mx-auto"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-widest mb-3">
             Custom AI Ops
           </span>
@@ -55,27 +77,41 @@ const BaySignalSection = React.memo(() => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             We build a clean, connected system so leads get answered, clients stay engaged, and your team spends less time on busywork.
           </p>
-        </div>
+        </motion.div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {stats.map((s) => (
-            <div
+            <motion.div
               key={s.label}
+              variants={item}
               className="bg-card rounded-2xl p-6 text-center shadow-sm border border-border/50 hover:shadow-md transition-shadow"
             >
               <s.icon className="w-8 h-8 text-primary mx-auto mb-3" />
               <p className="font-bold text-foreground text-lg">{s.label}</p>
               <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {features.map((f) => (
-            <div
+            <motion.div
               key={f.title}
+              variants={item}
               className="bg-card rounded-2xl p-8 shadow-sm border border-border/50 hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
@@ -83,16 +119,28 @@ const BaySignalSection = React.memo(() => {
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">{f.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* How It Works */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-10">How It Works</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             {steps.map((s, i) => (
-              <div key={s.step} className="relative flex flex-col items-center">
+              <motion.div key={s.step} variants={item} className="relative flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold mb-3">
                   {i + 1}
                 </div>
@@ -101,25 +149,38 @@ const BaySignalSection = React.memo(() => {
                 {i < steps.length - 1 && (
                   <ArrowRight className="hidden md:block absolute top-3 -right-3 w-5 h-5 text-primary/40" />
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Results Highlights */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <motion.div
+          className="grid md:grid-cols-3 gap-4"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {results.map((r) => (
-            <div
+            <motion.div
               key={r}
+              variants={item}
               className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20"
             >
               <p className="font-semibold text-foreground">{r}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           <style dangerouslySetInnerHTML={{
             __html: `
               @keyframes wave {
@@ -155,7 +216,7 @@ const BaySignalSection = React.memo(() => {
             </button>
           </a>
           <p className="mt-6 text-sm text-muted-foreground">Complimentary. Get your fastest first win.</p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

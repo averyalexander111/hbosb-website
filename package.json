@@ -49,6 +49,7 @@
     "dompurify": "^3.2.7",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.3.0",
+    "framer-motion": "^12.35.2",
     "input-otp": "^1.2.4",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.462.0",
