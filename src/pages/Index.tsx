@@ -40,6 +40,7 @@ const Index = () => {
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
         <Suspense fallback={<Loader />}><ConnectSection /></Suspense>
       </main>
+      <ScrollToTopButton />
       <HeartbeatFooter />
     </div>
   );
