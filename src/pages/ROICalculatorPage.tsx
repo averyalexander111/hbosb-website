@@ -16,7 +16,11 @@ const ROICalculatorPage = () => {
         description="Calculate the return on investment for AI automation and CRM solutions for your local business."
       />
       <HeartbeatNavbar />
-      <main className="pt-16">
+      <main>
+        <SubpageHero
+          title="ROI Calculator"
+          subtitle="Calculate your potential ROI and see how AI can accelerate your growth."
+        />
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
           <ROICalculator />
         </Suspense>

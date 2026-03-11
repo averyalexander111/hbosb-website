@@ -128,21 +128,11 @@ const Contact = () => {
       />
       <HeartbeatNavbar />
 
-      <main className="pt-16 bg-background">
-        {/* Hero */}
-        <section className="pt-20 pb-12">
-          <div className="mx-auto max-w-[1100px] px-4 text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-800 mb-6">
-              Schedule a Consultation with Heartbeat of South Bay
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-4">
-              Book a quick call to discuss your project, AI automation opportunities, or digital marketing strategy.
-            </p>
-            <p className="text-sm text-slate-500">
-              Most consultations are booked within 24 hours.
-            </p>
-          </div>
-        </section>
+      <main className="bg-background">
+        <SubpageHero
+          title="Schedule a Consultation"
+          subtitle="Book a quick call to discuss your project, AI automation opportunities, or digital marketing strategy."
+        />
 
         {/* Calendar Booking */}
         <section className="pb-16">

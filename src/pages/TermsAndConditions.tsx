@@ -16,23 +16,14 @@ const TermsAndConditions = () => {
         canonicalUrl={`${window.location.origin}/terms`}
       />
       <HeartbeatNavbar />
-      <main className="pt-16">
-        {/* Hero Section */}
-        <section className="pt-20 pb-4" style={{ backgroundColor: '#d1e8ff' }}>
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-                Terms and Conditions
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-8">
-                Welcome to Heartbeat of South Bay!
-              </p>
-            </div>
-          </div>
-        </section>
+      <main>
+        <SubpageHero
+          title="Terms and Conditions"
+          subtitle="Welcome to Heartbeat of South Bay!"
+        />
 
         {/* Terms Content */}
-        <section className="py-16" style={{ backgroundColor: '#d1e8ff' }}>
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-8">
               

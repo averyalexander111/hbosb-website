@@ -119,38 +119,12 @@ const ROICalculator = () => {
   };
 
   return (
-    <div style={{ background: '#d1e8ff', color: '#1e293b', fontFamily: 'Arial, sans-serif', paddingTop: '60px', paddingBottom: '60px' }}>
+    <div className="bg-background" style={{ color: '#1e293b', fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
         `}
       </style>
-      
-      <div style={{ 
-        textAlign: 'center', 
-        marginBottom: '30px',
-        maxWidth: '640px',
-        margin: '0 auto 30px auto',
-        padding: '0 20px'
-      }}>
-        <h2 style={{ 
-          fontSize: '36px', 
-          fontWeight: '600',
-          color: '#1e293b', 
-          margin: '0 0 16px 0',
-          lineHeight: '1.2'
-        }}>
-          ROI Calculator
-        </h2>
-        <p style={{ 
-          fontSize: '18px', 
-          color: '#475569', 
-          margin: '0',
-          lineHeight: '1.4'
-        }}>
-          Calculate your potential ROI and see how AI can accelerate your growth.
-        </p>
-      </div>
 
       <div style={{ 
         maxWidth: '900px', 

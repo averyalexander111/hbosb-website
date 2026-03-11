@@ -17,23 +17,14 @@ const AboutUs = () => {
         canonicalUrl={`${window.location.origin}/about-us`}
       />
       <HeartbeatNavbar />
-      <main className="pt-16">
-        {/* Hero Section */}
-        <section className="pt-20 pb-4" style={{ backgroundColor: '#d1e8ff' }}>
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-                Get to know us
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-8">
-                At Heartbeat of South Bay, we are dedicated to empowering local businesses to thrive in today's digital landscape.
-              </p>
-            </div>
-          </div>
-        </section>
+      <main>
+        <SubpageHero
+          title="Get to know us"
+          subtitle="At Heartbeat of South Bay, we are dedicated to empowering local businesses to thrive in today's digital landscape."
+        />
 
         {/* About Content */}
-        <section className="py-16" style={{ backgroundColor: '#d1e8ff' }}>
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-12">
               
