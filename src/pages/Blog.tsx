@@ -98,6 +98,7 @@ const Blog = () => {
         />
 
         {/* Search and Filter */}
+        <AnimatedSection>
         <section className="pt-12 pb-8 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
