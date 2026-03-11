@@ -5,7 +5,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
@@ -18,7 +18,6 @@ const Contact = () => {
     email_address: "",
     phone_number: "",
     message: "",
-    sms_consent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -91,11 +90,6 @@ const Contact = () => {
       return;
     }
 
-    if (!formData.sms_consent) {
-      toast.error("Please agree to the SMS consent to submit the form.");
-      return;
-    }
-
     setIsSubmitting(true);
     try {
       const { error } = await supabase.from("HBOSB Contact Form").insert({
@@ -109,7 +103,7 @@ const Contact = () => {
       if (error) throw error;
 
       toast.success("Thank you! Your message has been sent successfully.");
-      setFormData({ full_name: "", email_address: "", phone_number: "", message: "", sms_consent: false });
+      setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
     } catch (err) {
       toast.error("Something went wrong. Please try again later.");
     } finally {
@@ -218,20 +212,6 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="sms_consent"
-                      checked={formData.sms_consent}
-                      onCheckedChange={(checked) => setFormData(prev => ({ ...prev, sms_consent: checked === true }))}
-                    />
-                    <Label htmlFor="sms_consent" className="text-xs leading-relaxed text-muted-foreground cursor-pointer">
-                      By checking this box, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                      <Link to="/terms" className="underline text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
-                      {" "}and{" "}
-                      <Link to="/privacy" className="underline text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>.
-                    </Label>
-                  </div>
-
                   <div className="space-y-1.5">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
@@ -244,6 +224,13 @@ const Contact = () => {
                       required
                     />
                   </div>
+
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                    <Link to="/terms" className="underline text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
+                    {" "}and{" "}
+                    <Link to="/privacy" className="underline text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>.
+                  </p>
 
                   <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
