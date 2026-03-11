@@ -87,40 +87,50 @@ const AboutUs = () => {
               </AnimatedSection>
 
               {/* Values Section */}
-              <div>
-                <h2 className="text-3xl font-bold mb-8 text-center text-primary">Our Values</h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                  
-                  <div className="bg-card p-6 rounded-xl shadow-elegant">
-                    <h3 className="text-xl font-bold mb-4 text-foreground">Commitment</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      We are dedicated to the success of our clients and our community. Our commitment means going above and beyond to ensure that every project reflects the highest standards, delivering value and lasting impact. We see ourselves as partners in your growth journey and are here to support you every step of the way.
-                    </p>
+              <AnimatedSection delay={100}>
+                <div>
+                  <h2 className="text-3xl font-bold mb-8 text-center text-primary">Our Values</h2>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    
+                    <AnimatedSection delay={0}>
+                      <div className="bg-card p-6 rounded-xl shadow-elegant">
+                        <h3 className="text-xl font-bold mb-4 text-foreground">Commitment</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          We are dedicated to the success of our clients and our community. Our commitment means going above and beyond to ensure that every project reflects the highest standards, delivering value and lasting impact. We see ourselves as partners in your growth journey and are here to support you every step of the way.
+                        </p>
+                      </div>
+                    </AnimatedSection>
+                    
+                    <AnimatedSection delay={100}>
+                      <div className="bg-card p-6 rounded-xl shadow-elegant">
+                        <h3 className="text-xl font-bold mb-4 text-foreground">Innovation</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          In a fast-evolving digital landscape, we prioritize staying ahead of the curve. Through AI-driven solutions, creative problem-solving, and a proactive approach, we bring fresh perspectives and advanced strategies that keep our clients competitive. Innovation isn't just a value—it's the foundation of everything we do.
+                        </p>
+                      </div>
+                    </AnimatedSection>
+                    
+                    <AnimatedSection delay={200}>
+                      <div className="bg-card p-6 rounded-xl shadow-elegant">
+                        <h3 className="text-xl font-bold mb-4 text-foreground">Integrity</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          We believe in transparency, honesty, and ethical practices. Trust is the cornerstone of our client relationships, and we are committed to clear communication and accountable actions. Integrity means we'll always provide honest insights, even if it means having tough conversations, because we value long-term partnerships built on trust.
+                        </p>
+                      </div>
+                    </AnimatedSection>
+                    
+                    <AnimatedSection delay={300}>
+                      <div className="bg-card p-6 rounded-xl shadow-elegant">
+                        <h3 className="text-xl font-bold mb-4 text-foreground">Excellence</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Excellence drives us to deliver outstanding results. We hold ourselves to high standards in every project, ensuring meticulous attention to detail and consistent performance. Excellence isn't a one-time achievement; it's a continuous pursuit to refine our skills, improve our services, and exceed expectations.
+                        </p>
+                      </div>
+                    </AnimatedSection>
+                    
                   </div>
-                  
-                  <div className="bg-card p-6 rounded-xl shadow-elegant">
-                    <h3 className="text-xl font-bold mb-4 text-foreground">Innovation</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      In a fast-evolving digital landscape, we prioritize staying ahead of the curve. Through AI-driven solutions, creative problem-solving, and a proactive approach, we bring fresh perspectives and advanced strategies that keep our clients competitive. Innovation isn't just a value—it's the foundation of everything we do.
-                    </p>
-                  </div>
-                  
-                  <div className="bg-card p-6 rounded-xl shadow-elegant">
-                    <h3 className="text-xl font-bold mb-4 text-foreground">Integrity</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      We believe in transparency, honesty, and ethical practices. Trust is the cornerstone of our client relationships, and we are committed to clear communication and accountable actions. Integrity means we'll always provide honest insights, even if it means having tough conversations, because we value long-term partnerships built on trust.
-                    </p>
-                  </div>
-                  
-                  <div className="bg-card p-6 rounded-xl shadow-elegant">
-                    <h3 className="text-xl font-bold mb-4 text-foreground">Excellence</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Excellence drives us to deliver outstanding results. We hold ourselves to high standards in every project, ensuring meticulous attention to detail and consistent performance. Excellence isn't a one-time achievement; it's a continuous pursuit to refine our skills, improve our services, and exceed expectations.
-                    </p>
-                  </div>
-                  
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Team Section */}
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
