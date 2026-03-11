@@ -93,14 +93,14 @@ const Index = () => {
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
-        <AnimatedSection>
-          <Suspense fallback={<SectionLoader />}>
-            <TechnologyCarousel />
-          </Suspense>
-        </AnimatedSection>
         <AnimatedSection delay={100}>
           <Suspense fallback={<SectionLoader />}>
             <BaySignalSection />
+          </Suspense>
+        </AnimatedSection>
+        <AnimatedSection>
+          <Suspense fallback={<SectionLoader />}>
+            <TechnologyCarousel />
           </Suspense>
         </AnimatedSection>
         <AnimatedSection delay={100}>
