@@ -28,8 +28,8 @@ const TermsAndConditions = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-8">
               
+              <AnimatedSection>
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
-                <div className="prose prose-lg max-w-none">
                   <p className="text-lg leading-relaxed mb-6">
                     These terms and conditions outline the rules and regulations for the use of Heartbeat of South Bay's Website, located at <a href="https://heartbeatofsouthbay.com" className="text-primary hover:underline">https://heartbeatofsouthbay.com</a>.
                   </p>
