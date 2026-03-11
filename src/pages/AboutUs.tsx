@@ -3,6 +3,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import ConnectSection from "@/components/ConnectSection";
 import SEOHead from "@/components/SEOHead";
+import SubpageHero from "@/components/SubpageHero";
 import averyAlexander from "@/assets/avery-alexander.jpg";
 
 const AboutUs = () => {
