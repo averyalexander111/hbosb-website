@@ -11,7 +11,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 // Lazy load non-critical components
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
 const BaySignalSection = lazy(() => import("@/components/BaySignalSection"));
-const ROICalculator = lazy(() => import("@/components/ROICalculator"));
+
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
@@ -106,11 +106,6 @@ const Index = () => {
         <AnimatedSection delay={100}>
           <Suspense fallback={<SectionLoader />}>
             <TestimonialsSection />
-          </Suspense>
-        </AnimatedSection>
-        <AnimatedSection delay={100}>
-          <Suspense fallback={<SectionLoader />}>
-            <ROICalculator />
           </Suspense>
         </AnimatedSection>
         <AnimatedSection delay={100}>
