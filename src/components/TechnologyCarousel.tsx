@@ -19,12 +19,12 @@ const TechnologyCarousel = React.memo(() => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-[#0a1628]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-3">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
           Built With Technology You Already Trust
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto">
           We integrate seamlessly with the tools your business already relies on.
         </p>
 
@@ -42,7 +42,7 @@ const TechnologyCarousel = React.memo(() => {
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-80 hover:opacity-100 hover:scale-110 hover:brightness-125 transition-all duration-300"
                     loading="eager"
                   />
                 </div>
