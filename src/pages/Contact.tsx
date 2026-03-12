@@ -57,15 +57,15 @@ const Contact = () => {
         };
       })(window, "https://app.cal.com/embed/embed.js", "init");
 
-      Cal("init", "15min", { origin: "https://app.cal.com" });
+      Cal("init", "ai-opportunity-assessment", { origin: "https://app.cal.com" });
 
-      Cal.ns["15min"]("inline", {
-        elementOrSelector: "#my-cal-inline-15min",
+      Cal.ns["ai-opportunity-assessment"]("inline", {
+        elementOrSelector: "#my-cal-inline-ai-opportunity-assessment",
         config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-        calLink: "hbosb/15min",
+        calLink: "hbosb/ai-opportunity-assessment",
       });
 
-      Cal.ns["15min"]("ui", {
+      Cal.ns["ai-opportunity-assessment"]("ui", {
         "cssVarsPerTheme": {
           "light": { "cal-brand": "#4a91c4" },
           "dark": { "cal-brand": "#fafafa" }
@@ -139,14 +139,14 @@ const Contact = () => {
           <section className="pb-16">
             <div className="mx-auto max-w-[1100px] px-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
-                Book a 15-Minute Consultation
+                Book a 30-Minute AI Opportunity Assessment
               </h2>
               <div
                 className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
                 style={{ minHeight: 500 }}
               >
                 <div
-                  id="my-cal-inline-15min"
+                  id="my-cal-inline-ai-opportunity-assessment"
                   style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }}
                 />
               </div>
