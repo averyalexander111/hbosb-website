@@ -29,6 +29,7 @@ const Index = () => {
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
+        <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
         <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
