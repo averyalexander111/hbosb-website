@@ -35,7 +35,6 @@ const Index = () => {
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
         <Suspense fallback={<Loader />}><ResultsSection /></Suspense>
         <Suspense fallback={<Loader />}><ImplementationSection /></Suspense>
-        <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
         <Suspense fallback={<Loader />}><FAQSection /></Suspense>
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
