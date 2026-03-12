@@ -134,7 +134,7 @@
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .feature-item:hover {
