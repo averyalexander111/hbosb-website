@@ -38,7 +38,7 @@ const TestimonialsSection = React.memo(() => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="bg-card rounded-2xl p-9 border border-border shadow-elegant hover:shadow-elegant-hover hover:-translate-y-1 transition-all duration-300"
+              className="bg-card rounded-2xl p-9 border border-border shadow-elegant hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
               <div className="flex items-center mb-5">
                 <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm mr-4">
