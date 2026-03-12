@@ -19,12 +19,12 @@ const TechnologyCarousel = React.memo(() => {
   ];
 
   return (
-    <section className="py-20 bg-[#0a1628]">
+    <section className="py-24 bg-[hsl(var(--navy))]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-navy-foreground mb-3">
           Built With Technology You Already Trust
         </h2>
-        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto">
+        <p className="text-center text-navy-foreground/50 mb-14 max-w-xl mx-auto">
           We integrate seamlessly with the tools your business already relies on.
         </p>
 
@@ -35,16 +35,19 @@ const TechnologyCarousel = React.memo(() => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-2 md:-ml-4">
+          <CarouselContent className="-ml-3 md:-ml-5">
             {[...technologies, ...technologies, ...technologies].map((tech, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/6">
-                <div className="flex justify-center items-center p-4">
+              <CarouselItem key={index} className="pl-3 md:pl-5 basis-1/3 md:basis-1/4 lg:basis-1/6">
+                <div className="group flex flex-col items-center justify-center p-5 rounded-xl bg-navy-foreground/[0.04] border border-navy-foreground/[0.08] hover:bg-navy-foreground/[0.08] hover:shadow-[0_0_20px_hsl(var(--navy-foreground)/0.05)] transition-all duration-300">
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-80 hover:opacity-100 hover:scale-110 hover:brightness-125 transition-all duration-300"
+                    className="w-14 h-14 md:w-18 md:h-18 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     loading="eager"
                   />
+                  <span className="mt-3 text-xs text-navy-foreground/0 group-hover:text-navy-foreground/50 transition-all duration-300 font-medium">
+                    {tech.name}
+                  </span>
                 </div>
               </CarouselItem>
             ))}

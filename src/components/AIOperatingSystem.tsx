@@ -62,9 +62,9 @@ const AIOperatingSystem = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/30 transition-colors duration-300"
+                className="group flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stage.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-navy-foreground mb-2">
@@ -74,7 +74,12 @@ const AIOperatingSystem = () => {
               </motion.div>
               {i < stages.length - 1 && (
                 <div className="hidden lg:flex items-center justify-center">
-                  <ChevronRight className="w-5 h-5 text-navy-foreground/20" />
+                  <motion.div
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ChevronRight className="w-5 h-5 text-primary/40" />
+                  </motion.div>
                 </div>
               )}
             </React.Fragment>

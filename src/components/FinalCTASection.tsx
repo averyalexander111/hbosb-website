@@ -10,7 +10,9 @@ const bullets = [
 
 const FinalCTASection = () => {
   return (
-    <section className="py-20 bg-navy relative overflow-hidden">
+    <section className="py-28 bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden">
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -41,15 +43,18 @@ const FinalCTASection = () => {
             ))}
           </ul>
 
-          <div className="mt-10">
+          <div className="mt-12">
             <a
               href="https://audit.heartbeatofsouthbay.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:brightness-110 transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
-              Book Your Strategy Call
+              Book Your AI Opportunity Assessment
             </a>
+            <p className="mt-4 text-sm text-navy-foreground/40">
+              Discover where automation can create the biggest impact in your business.
+            </p>
           </div>
         </motion.div>
       </div>

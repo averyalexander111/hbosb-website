@@ -19,32 +19,35 @@ const FAQSection = React.memo(() => {
   ];
 
   return (
-    <section className="py-20 bg-navy">
+    <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <h2 className="section-title text-navy-foreground">
             Frequently Asked Questions
           </h2>
+          <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
+            Everything you need to know about working with us.
+          </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full space-y-3">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-navy-foreground/10"
+                className="border border-navy-foreground/10 rounded-lg px-5 data-[state=open]:border-l-[3px] data-[state=open]:border-l-primary data-[state=open]:bg-primary/[0.04] transition-all duration-200"
               >
-                <AccordionTrigger className="text-left font-semibold text-navy-foreground hover:text-primary transition-colors">
+                <AccordionTrigger className="text-left font-semibold text-navy-foreground hover:text-primary transition-colors py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-navy-foreground/60 leading-relaxed">
+                <AccordionContent className="text-navy-foreground/60 leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
