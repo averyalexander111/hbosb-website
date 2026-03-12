@@ -5,6 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-auto-scroll";
+import logoGreenGeometric from "@/assets/logo-green-geometric.png";
 
 const TechnologyCarousel = React.memo(() => {
   const technologies = [
@@ -15,6 +16,7 @@ const TechnologyCarousel = React.memo(() => {
     { name: "ElevenLabs", icon: "/lovable-uploads/elevenlabs-icon.png" },
     { name: "Notion", icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png" },
     { name: "Google", icon: "/lovable-uploads/508bd167-4c17-4f66-9bc4-1194b4df23e9.png" },
+    { name: "Green Geometric", icon: logoGreenGeometric },
     { name: "Google Antigravity", icon: "/lovable-uploads/google-antigravity-icon.png" },
   ];
 
