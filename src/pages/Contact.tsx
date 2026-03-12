@@ -139,7 +139,7 @@ const Contact = () => {
           <section className="pb-16">
             <div className="mx-auto max-w-[1100px] px-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
-                Book a 15-Minute Consultation
+                Book a 30-Minute AI Opportunity Assessment
               </h2>
               <div
                 className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
