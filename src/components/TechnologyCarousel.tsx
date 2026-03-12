@@ -38,16 +38,13 @@ const TechnologyCarousel = React.memo(() => {
           <CarouselContent className="-ml-3 md:-ml-5">
             {[...technologies, ...technologies, ...technologies].map((tech, index) => (
               <CarouselItem key={index} className="pl-3 md:pl-5 basis-1/3 md:basis-1/4 lg:basis-1/6">
-                <div className="group flex flex-col items-center justify-center p-5 rounded-xl bg-navy-foreground/[0.04] border border-navy-foreground/[0.08] hover:bg-navy-foreground/[0.08] hover:shadow-[0_0_20px_hsl(var(--navy-foreground)/0.05)] transition-all duration-300">
+                <div className="group flex items-center justify-center p-5">
                   <img
                     src={tech.icon}
                     alt={tech.name}
                     className="w-14 h-14 md:w-18 md:h-18 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     loading="eager"
                   />
-                  <span className="mt-3 text-xs text-navy-foreground/0 group-hover:text-navy-foreground/50 transition-all duration-300 font-medium">
-                    {tech.name}
-                  </span>
                 </div>
               </CarouselItem>
             ))}
