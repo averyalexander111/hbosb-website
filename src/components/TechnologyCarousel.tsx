@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-auto-scroll";
 import logoGreenGeometric from "@/assets/logo-green-geometric.png";
+import twilioLogo from "@/assets/twilio-logo.png";
+import airtableLogo from "@/assets/airtable-logo.png";
 
 const TechnologyCarousel = React.memo(() => {
   const technologies = [
