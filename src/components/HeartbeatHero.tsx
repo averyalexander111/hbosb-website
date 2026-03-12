@@ -75,8 +75,10 @@ const HeartbeatHero = () => {
         }}
       />
 
-      {/* Animated workflow nodes */}
-      <FloatingNodes />
+      {/* Animated workflow nodes — hidden on mobile for performance */}
+      <div className="hidden md:block">
+        <FloatingNodes />
+      </div>
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />

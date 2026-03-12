@@ -62,7 +62,7 @@ const AIOperatingSystem = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-[border-color,box-shadow] duration-300"
+                className="group flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 lg:hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-[border-color,box-shadow,transform] duration-300"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stage.icon className="w-6 h-6 text-primary" />
