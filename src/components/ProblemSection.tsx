@@ -45,8 +45,8 @@ const ProblemSection = () => {
             <motion.div
               key={item.title}
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                hidden: { opacity: 0, scale: 0.9 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
               }}
               className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-all duration-300"
             >

@@ -58,8 +58,8 @@ const AIOperatingSystem = () => {
           {stages.map((stage, i) => (
             <React.Fragment key={stage.title}>
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="group flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-all duration-300"

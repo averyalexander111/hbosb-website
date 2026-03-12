@@ -34,8 +34,8 @@ const TestimonialsSection = React.memo(() => {
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
               className="bg-card rounded-2xl p-9 border border-border shadow-elegant hover:shadow-elegant-hover hover:-translate-y-1 transition-all duration-300"
