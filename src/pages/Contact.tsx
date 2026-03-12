@@ -57,15 +57,15 @@ const Contact = () => {
         };
       })(window, "https://app.cal.com/embed/embed.js", "init");
 
-      Cal("init", "15min", { origin: "https://app.cal.com" });
+      Cal("init", "ai-opportunity-assessment", { origin: "https://app.cal.com" });
 
-      Cal.ns["15min"]("inline", {
-        elementOrSelector: "#my-cal-inline-15min",
+      Cal.ns["ai-opportunity-assessment"]("inline", {
+        elementOrSelector: "#my-cal-inline-ai-opportunity-assessment",
         config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-        calLink: "hbosb/15min",
+        calLink: "hbosb/ai-opportunity-assessment",
       });
 
-      Cal.ns["15min"]("ui", {
+      Cal.ns["ai-opportunity-assessment"]("ui", {
         "cssVarsPerTheme": {
           "light": { "cal-brand": "#4a91c4" },
           "dark": { "cal-brand": "#fafafa" }
