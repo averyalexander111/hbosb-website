@@ -45,7 +45,7 @@ const ConnectSection = React.memo(() => {
   return (
     <section 
       id="consultation" 
-      className="relative overflow-hidden py-24 bg-gradient-to-br from-navy via-navy-light to-navy"
+      className="relative overflow-hidden py-24 bg-navy"
     >
       {/* Decorative glow orbs */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/6 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />

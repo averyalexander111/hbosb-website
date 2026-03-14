@@ -4,7 +4,7 @@ import { Facebook, Instagram } from "lucide-react";
 
 const HeartbeatFooter = () => {
   return (
-    <footer className="py-16 bg-navy border-t-2 border-navy-foreground/15">
+    <footer className="py-16 bg-navy border-t border-navy-foreground/8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-14 items-start">
           {/* Brand */}
