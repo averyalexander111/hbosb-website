@@ -108,7 +108,7 @@ const ConnectSection = React.memo(() => {
                     onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                     maxLength={20}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                     className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
                 <div className="space-y-1.5">
