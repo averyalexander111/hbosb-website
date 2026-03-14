@@ -66,9 +66,18 @@ const monthlyIncludes = [
   "Updates and improvements",
 ];
 
+/* Reusable navy section background with blur orbs */
+const NavySectionBg = () => (
+  <>
+    <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
+    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+  </>
+);
+
 const AILeadResponseSystem = () => {
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       <SEOHead
         title="AI Lead Response System | Heartbeat of South Bay"
         description="Discover how our AI Lead Response System captures inquiries, responds instantly, and organizes leads into a structured pipeline so no opportunity is missed."
@@ -112,9 +121,10 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* The Problem */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      {/* The Problem — navy */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -122,8 +132,8 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center mb-12"
           >
-            <h2 className="section-title text-foreground">Why Businesses Lose Leads</h2>
-            <p className="section-subtitle mx-auto">
+            <h2 className="section-title text-navy-foreground">Why Businesses Lose Leads</h2>
+            <p className="section-subtitle mx-auto text-navy-foreground/60">
               Many businesses receive inquiries but fail to respond quickly. When responses are delayed, potential customers often move on to competitors.
             </p>
           </motion.div>
@@ -139,12 +149,12 @@ const AILeadResponseSystem = () => {
               <motion.div
                 key={p.text}
                 variants={fadeUp}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border"
+                className="flex items-center gap-4 p-5 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
               >
-                <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-destructive/20 flex items-center justify-center flex-shrink-0">
                   <p.icon className="w-5 h-5 text-destructive" />
                 </div>
-                <span className="text-sm font-medium text-foreground">{p.text}</span>
+                <span className="text-sm font-medium text-navy-foreground">{p.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -193,9 +203,10 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* What the System Includes */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* What the System Includes — navy */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -203,7 +214,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center mb-14"
           >
-            <h2 className="section-title text-foreground">What the System Includes</h2>
+            <h2 className="section-title text-navy-foreground">What the System Includes</h2>
           </motion.div>
 
           <motion.div
@@ -217,13 +228,13 @@ const AILeadResponseSystem = () => {
               <motion.div
                 key={f.title}
                 variants={fadeUp}
-                className="group p-8 rounded-2xl bg-card border border-border hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+                className="group p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/25 transition-colors">
                   <f.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{f.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                <h3 className="text-lg font-semibold text-navy-foreground mb-2">{f.title}</h3>
+                <p className="text-sm text-navy-foreground/60 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -295,9 +306,10 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* Why Businesses Install */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      {/* Why Businesses Install — navy */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -305,22 +317,22 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center"
           >
-            <h2 className="section-title text-foreground">Why Businesses Install This System</h2>
+            <h2 className="section-title text-navy-foreground">Why Businesses Install This System</h2>
             <div className="mt-8 space-y-6">
-              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <TrendingUp className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Recovering just <span className="font-semibold text-foreground">one additional customer per month</span> often covers the entire system cost, making this a self-funding investment from day one.
+                <p className="text-navy-foreground/70 leading-relaxed">
+                  Recovering just <span className="font-semibold text-navy-foreground">one additional customer per month</span> often covers the entire system cost, making this a self-funding investment from day one.
                 </p>
               </div>
-              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Layers className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  The AI Lead Response System becomes the <span className="font-semibold text-foreground">foundation of an automated business workflow</span>, connecting lead capture, follow-up, scheduling, and reporting into one seamless system.
+                <p className="text-navy-foreground/70 leading-relaxed">
+                  The AI Lead Response System becomes the <span className="font-semibold text-navy-foreground">foundation of an automated business workflow</span>, connecting lead capture, follow-up, scheduling, and reporting into one seamless system.
                 </p>
               </div>
             </div>
@@ -362,7 +374,7 @@ const AILeadResponseSystem = () => {
       </section>
 
       <HeartbeatFooter />
-    </div>
+    </main>
   );
 };
 
