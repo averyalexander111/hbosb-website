@@ -45,16 +45,20 @@ const ConnectSection = React.memo(() => {
   return (
     <section 
       id="consultation" 
-      className="py-16 text-white"
-      style={{ backgroundColor: "hsl(var(--connect-bg))" }}
+      className="relative overflow-hidden py-24 bg-gradient-to-br from-navy via-navy-light to-navy"
     >
-      <div className="container mx-auto px-4">
+      {/* Decorative glow orbs */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/6 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-primary/4 rounded-full blur-[100px] -mr-32 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy-foreground">
               Connect with Us
             </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg text-navy-foreground/60 max-w-3xl mx-auto">
               Learn how we can help your business thrive in today's competitive digital landscape. 
               At Heartbeat of South Bay, we design Custom AI Ops tailored to your workflows, improving client intake, follow ups, and reporting. 
               The result is a stronger online presence, smoother operations, and sustainable growth backed by measurable ROI.
@@ -64,11 +68,11 @@ const ConnectSection = React.memo(() => {
           {/* Contact Form */}
           <div className="mb-12">
             <div className="bg-white/10 backdrop-blur rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center text-navy-foreground">Send Us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_full_name" className="text-gray-200">Name *</Label>
+                    <Label htmlFor="home_full_name" className="text-navy-foreground/70">Name *</Label>
                     <Input
                       id="home_full_name"
                       type="text"
@@ -77,11 +81,11 @@ const ConnectSection = React.memo(() => {
                       onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                       maxLength={100}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                       className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_email" className="text-gray-200">Email *</Label>
+                    <Label htmlFor="home_email" className="text-navy-foreground/70">Email *</Label>
                     <Input
                       id="home_email"
                       type="email"
@@ -90,12 +94,12 @@ const ConnectSection = React.memo(() => {
                       onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
                       maxLength={255}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                       className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_phone" className="text-gray-200">Phone Number *</Label>
+                  <Label htmlFor="home_phone" className="text-navy-foreground/70">Phone Number *</Label>
                   <Input
                     id="home_phone"
                     type="tel"
@@ -104,11 +108,11 @@ const ConnectSection = React.memo(() => {
                     onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                     maxLength={20}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                     className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_message" className="text-gray-200">Message *</Label>
+                  <Label htmlFor="home_message" className="text-navy-foreground/70">Message *</Label>
                   <Textarea
                     id="home_message"
                     placeholder="How can we help you?"
@@ -117,14 +121,14 @@ const ConnectSection = React.memo(() => {
                     maxLength={1000}
                     rows={4}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                  <Link to="/terms" className="underline text-blue-300 hover:text-white transition-colors">Terms of Service</Link>
-                  {" "}and{" "}
-                  <Link to="/privacy" className="underline text-blue-300 hover:text-white transition-colors">Privacy Policy</Link>.
+                 <p className="text-xs text-navy-foreground/40 leading-relaxed">
+                   By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                   <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
+                   {" "}and{" "}
+                   <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                 </p>
                 <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -135,16 +139,16 @@ const ConnectSection = React.memo(() => {
 
           {/* Contact Information - Single Row Layout */}
           <div className="w-full">
-            <h3 className="text-2xl font-bold mb-8 text-center">Get in Touch</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center text-navy-foreground">Get in Touch</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {/* Address */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center space-x-2 mb-2">
-                  <MapPin className="w-5 h-5 text-blue-300" />
-                  <h4 className="font-semibold">Address</h4>
+                  <MapPin className="w-5 h-5 text-primary" />
+                  <h4 className="font-semibold text-navy-foreground">Address</h4>
                 </div>
-                <p className="text-gray-300 text-sm">
+                 <p className="text-navy-foreground/60 text-sm">
                   20700 Avalon Blvd Ste 116, PO Box 11812<br />
                   Carson, CA 90746
                 </p>
@@ -153,25 +157,25 @@ const ConnectSection = React.memo(() => {
               {/* Phone */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Phone className="w-5 h-5 text-blue-300" />
-                  <h4 className="font-semibold">Phone</h4>
+                  <Phone className="w-5 h-5 text-primary" />
+                  <h4 className="font-semibold text-navy-foreground">Phone</h4>
                 </div>
-                <p className="text-gray-300 text-sm">424-488-3774</p>
+                <p className="text-navy-foreground/60 text-sm">424-488-3774</p>
               </div>
 
               {/* Email */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Mail className="w-5 h-5 text-blue-300" />
-                  <h4 className="font-semibold">Email</h4>
+                  <Mail className="w-5 h-5 text-primary" />
+                  <h4 className="font-semibold text-navy-foreground">Email</h4>
                 </div>
-                <p className="text-gray-300 text-sm break-all">info@heartbeatofsouthbay.com</p>
+                <p className="text-navy-foreground/60 text-sm break-all">info@heartbeatofsouthbay.com</p>
               </div>
 
               {/* Hours */}
               <div className="flex flex-col items-center text-center">
-                <h4 className="font-semibold mb-2">Hours</h4>
-                <div className="text-gray-300 text-sm space-y-1">
+                 <h4 className="font-semibold mb-2 text-navy-foreground">Hours</h4>
+                 <div className="text-navy-foreground/60 text-sm space-y-1">
                   <p>Mon-Fri: 8:30am-7pm</p>
                   <p>Sat: 9:30am-3:30pm</p>
                 </div>
@@ -179,13 +183,13 @@ const ConnectSection = React.memo(() => {
 
               {/* Social Media */}
               <div className="flex flex-col items-center text-center">
-                <h4 className="font-semibold mb-3">Social</h4>
+                <h4 className="font-semibold mb-3 text-navy-foreground">Social</h4>
                 <div className="flex space-x-4">
                   <a 
                     href="https://www.facebook.com/profile.php?id=61552716923245&mibextid=LQQJ4d" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                     className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Facebook page"
                   >
                     <Facebook className="w-6 h-6" />
@@ -194,7 +198,7 @@ const ConnectSection = React.memo(() => {
                     href="https://instagram.com/heartbeatofsouthbay?igshid=OGQ5ZDc2ODk2ZA==" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                     className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Instagram page"
                   >
                     <Instagram className="w-6 h-6" />
@@ -203,7 +207,7 @@ const ConnectSection = React.memo(() => {
                     href="https://twitter.com/HeartbeatSBay" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                    className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Twitter page"
                   >
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
