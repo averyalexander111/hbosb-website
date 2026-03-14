@@ -19,7 +19,7 @@ const HeartbeatFooter = () => {
                 Heartbeat of South&nbsp;Bay
               </span>
             </div>
-            <p className="text-sm text-navy-foreground/60">
+            <p className="text-sm text-navy-foreground/60 whitespace-nowrap">
               AI Systems for Modern Businesses.
             </p>
           </div>
