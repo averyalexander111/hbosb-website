@@ -70,7 +70,7 @@ const AboutUs = () => {
       <main>
         {/* 1. Hero */}
         <SubpageHero
-          title="About Heartbeat of South Bay"
+          title="About Heartbeat of South&nbsp;Bay"
           subtitle="Modern Businesses Deserve Systems That Work as Hard as They Do"
         />
 
