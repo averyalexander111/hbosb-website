@@ -189,7 +189,7 @@ const ConnectSection = React.memo(() => {
                     href="https://www.facebook.com/profile.php?id=61552716923245&mibextid=LQQJ4d" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                     className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Facebook page"
                   >
                     <Facebook className="w-6 h-6" />
