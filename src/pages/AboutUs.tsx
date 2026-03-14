@@ -168,7 +168,7 @@ const AboutUs = () => {
             <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="section-title text-navy-foreground">The Heartbeat Philosophy</h2>
               <p className="mt-4 text-navy-foreground/60 text-lg">
-                At Heartbeat of South Bay, we believe the future of business operations lies in intelligent systems.
+                At <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span>, we believe the future of business operations lies in intelligent systems.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
