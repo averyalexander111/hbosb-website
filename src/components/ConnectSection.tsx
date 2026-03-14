@@ -157,7 +157,7 @@ const ConnectSection = React.memo(() => {
               {/* Phone */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Phone className="w-5 h-5 text-blue-300" />
+                  <Phone className="w-5 h-5 text-primary" />
                   <h4 className="font-semibold">Phone</h4>
                 </div>
                 <p className="text-gray-300 text-sm">424-488-3774</p>
