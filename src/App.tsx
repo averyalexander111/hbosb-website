@@ -18,6 +18,7 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ROICalculatorPage = lazy(() => import("./pages/ROICalculatorPage"));
+const AILeadResponseSystem = lazy(() => import("./pages/AILeadResponseSystem"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Import AdminGuard (not lazy loaded)

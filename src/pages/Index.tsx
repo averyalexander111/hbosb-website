@@ -13,6 +13,7 @@ const ImplementationSection = lazy(() => import("@/components/ImplementationSect
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AILeadResponseSection = lazy(() => import("@/components/AILeadResponseSection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
