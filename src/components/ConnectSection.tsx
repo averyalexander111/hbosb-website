@@ -148,7 +148,7 @@ const ConnectSection = React.memo(() => {
                   <MapPin className="w-5 h-5 text-primary" />
                   <h4 className="font-semibold text-navy-foreground">Address</h4>
                 </div>
-                <p className="text-gray-300 text-sm">
+                 <p className="text-navy-foreground/60 text-sm">
                   20700 Avalon Blvd Ste 116, PO Box 11812<br />
                   Carson, CA 90746
                 </p>
