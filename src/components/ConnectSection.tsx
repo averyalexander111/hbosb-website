@@ -207,7 +207,7 @@ const ConnectSection = React.memo(() => {
                     href="https://twitter.com/HeartbeatSBay" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                    className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Twitter page"
                   >
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
