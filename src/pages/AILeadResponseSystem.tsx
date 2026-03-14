@@ -56,6 +56,15 @@ const steps = [
   { icon: CalendarCheck, label: "Appointment or Sale" },
 ];
 
+const workflowSteps = [
+  { icon: User, text: "Website Visitor" },
+  { icon: FileText, text: "Lead Capture Form" },
+  { icon: Bot, text: "Instant Automated Response" },
+  { icon: MailCheck, text: "Automated Follow-Up" },
+  { icon: FolderKanban, text: "Lead Organized in CRM" },
+  { icon: Handshake, text: "Appointment Booking or Sale" },
+];
+
 const features = [
   { icon: Zap, title: "Custom Lead Capture Page or Form", desc: "Branded intake forms designed to convert visitors into qualified leads." },
   { icon: MessageSquare, title: "Automated SMS Response", desc: "Instant text replies the moment a lead submits an inquiry." },
