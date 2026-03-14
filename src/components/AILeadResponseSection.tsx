@@ -30,7 +30,7 @@ const AILeadResponseSection = () => {
           <p className="mt-4 text-lg text-muted-foreground">
             We design AI-powered lead response systems that capture inquiries, respond instantly, and organize leads into a structured pipeline so no opportunity is missed.
           </p>
-          <p className="mt-4 text-lg text-navy-foreground/60">
+          <p className="mt-4 text-lg text-muted-foreground">
             These systems ensure every inquiry receives an immediate response and structured follow-up, helping businesses convert more leads into customers.
           </p>
         </motion.div>
