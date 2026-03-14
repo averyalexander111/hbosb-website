@@ -45,16 +45,20 @@ const ConnectSection = React.memo(() => {
   return (
     <section 
       id="consultation" 
-      className="py-16 text-white"
-      style={{ backgroundColor: "hsl(var(--connect-bg))" }}
+      className="relative overflow-hidden py-24 bg-gradient-to-br from-navy via-navy-light to-navy"
     >
-      <div className="container mx-auto px-4">
+      {/* Decorative glow orbs */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/6 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-primary/4 rounded-full blur-[100px] -mr-32 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy-foreground">
               Connect with Us
             </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg text-navy-foreground/60 max-w-3xl mx-auto">
               Learn how we can help your business thrive in today's competitive digital landscape. 
               At Heartbeat of South Bay, we design Custom AI Ops tailored to your workflows, improving client intake, follow ups, and reporting. 
               The result is a stronger online presence, smoother operations, and sustainable growth backed by measurable ROI.
