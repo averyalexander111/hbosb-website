@@ -19,6 +19,12 @@ import {
   CheckCircle2,
   TrendingUp,
   Layers,
+  User,
+  FileText,
+  Bot,
+  MailCheck,
+  FolderKanban,
+  Handshake,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
