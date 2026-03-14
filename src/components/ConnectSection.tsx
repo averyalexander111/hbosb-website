@@ -198,7 +198,7 @@ const ConnectSection = React.memo(() => {
                     href="https://instagram.com/heartbeatofsouthbay?igshid=OGQ5ZDc2ODk2ZA==" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-300 hover:text-white transition-colors"
+                     className="text-primary hover:text-navy-foreground transition-colors"
                     aria-label="Visit our Instagram page"
                   >
                     <Instagram className="w-6 h-6" />
