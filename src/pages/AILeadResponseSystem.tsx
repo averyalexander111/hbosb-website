@@ -391,7 +391,7 @@ const AILeadResponseSystem = () => {
             </p>
             <div className="mt-12">
               <a
-                href="https://audit.heartbeatofsouthbay.com/"
+                href="https://cal.com/hbosb/lead-system-install"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
