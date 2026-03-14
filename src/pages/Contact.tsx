@@ -155,10 +155,9 @@ const Contact = () => {
         </AnimatedSection>
 
         {/* Dark navy section: Form + Trust */}
-        <section
-          className="py-16"
-          style={{ backgroundColor: "hsl(var(--connect-bg))" }}
-        >
+        <section className="py-16 bg-navy relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
           <div className="mx-auto max-w-[1100px] px-4">
             {/* Contact Form */}
             <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
