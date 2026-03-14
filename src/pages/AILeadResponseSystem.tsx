@@ -162,44 +162,77 @@ const AILeadResponseSystem = () => {
       </section>
 
       {/* The Solution — Process Diagram */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <section
+        className="py-20 bg-background relative overflow-hidden"
+        style={{
+          backgroundImage: "radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-14"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
           >
             <h2 className="section-title text-foreground">How the AI Lead Response System Works</h2>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="flex flex-col items-center gap-3"
-          >
-            {steps.map((step, i) => (
-              <React.Fragment key={step.label}>
+          <div className="relative">
+            {/* Animated vertical connector line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-px flex items-stretch">
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="w-full origin-top bg-gradient-to-b from-primary/40 via-primary/20 to-primary/5"
+              />
+            </div>
+
+            <div className="space-y-12">
+              {steps.map((step, i) => (
                 <motion.div
-                  variants={fadeUp}
-                  className="flex items-center gap-4 w-full max-w-md p-5 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-shadow duration-300"
+                  key={step.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, delay: i * 0.15 }}
+                  className={`relative flex items-center gap-6 md:gap-10 ${
+                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
                 >
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <step.icon className="w-5 h-5 text-primary" />
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden md:block flex-1" />
+
+                  {/* Glowing node on the timeline */}
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
+                    <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
+                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-primary/40 animate-ping" />
                   </div>
-                  <span className="font-semibold text-foreground">{step.label}</span>
+
+                  {/* Card */}
+                  <div className="flex-1 ml-14 md:ml-0">
+                    <div className="relative group p-6 rounded-2xl bg-card border border-border hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-0.5 transition-[box-shadow,transform] duration-300">
+                      {/* Large step number */}
+                      <span className="absolute -top-3 -right-2 text-7xl font-extrabold text-primary/[0.05] select-none leading-none pointer-events-none">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+
+                      <div className="flex items-center gap-4 relative z-10">
+                        <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                          <step.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="font-semibold text-foreground text-lg">{step.label}</span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
-                {i < steps.length - 1 && (
-                  <motion.div variants={fadeUp}>
-                    <ArrowDown className="w-5 h-5 text-primary/40" />
-                  </motion.div>
-                )}
-              </React.Fragment>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
