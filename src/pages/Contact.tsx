@@ -160,7 +160,7 @@ const Contact = () => {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
           <div className="mx-auto max-w-[1100px] px-4">
             {/* Contact Form */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-8">
               Prefer to Send a Message?
             </h2>
             <div className="max-w-xl mx-auto mb-16">
