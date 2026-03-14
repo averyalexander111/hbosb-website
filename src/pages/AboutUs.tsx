@@ -242,7 +242,7 @@ const AboutUs = () => {
                 </div>
                 <div className="lg:w-2/3 space-y-4">
                   <p className="text-navy-foreground/80 leading-relaxed">
-                    Heartbeat of South Bay was founded by Avery Alexander Palmer, a Certified Project Manager, Creative Entrepreneur, and AI Consultant, with a mission to help businesses modernize how they operate through intelligent systems and automation.
+                    <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> was founded by Avery Alexander Palmer, a Certified Project Manager, Creative Entrepreneur, and AI Consultant, with a mission to help businesses modernize how they operate through intelligent systems and automation.
                   </p>
                   <p className="text-navy-foreground/80 leading-relaxed">
                     Avery combines expertise in project management, digital strategy, and AI-powered automation to design operational systems that improve how businesses capture opportunities, communicate with customers, and manage internal workflows.
