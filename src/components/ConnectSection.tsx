@@ -183,7 +183,7 @@ const ConnectSection = React.memo(() => {
 
               {/* Social Media */}
               <div className="flex flex-col items-center text-center">
-                <h4 className="font-semibold mb-3">Social</h4>
+                <h4 className="font-semibold mb-3 text-navy-foreground">Social</h4>
                 <div className="flex space-x-4">
                   <a 
                     href="https://www.facebook.com/profile.php?id=61552716923245&mibextid=LQQJ4d" 
