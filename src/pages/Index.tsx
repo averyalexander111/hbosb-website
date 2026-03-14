@@ -13,6 +13,7 @@ const ImplementationSection = lazy(() => import("@/components/ImplementationSect
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AILeadResponseSection = lazy(() => import("@/components/AILeadResponseSection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
@@ -37,6 +38,7 @@ const Index = () => {
         <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
         <Suspense fallback={<Loader />}><FAQSection /></Suspense>
+        <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
         <Suspense fallback={<Loader />}><ConnectSection /></Suspense>
       </main>
