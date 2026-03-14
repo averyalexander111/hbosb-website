@@ -222,11 +222,11 @@ const Contact = () => {
                     />
                   </div>
 
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <p className="text-xs text-navy-foreground/40 leading-relaxed">
                     By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                    <Link to="/terms" className="underline text-blue-300 hover:text-blue-200 transition-colors">Terms of Service</Link>
+                    <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                     {" "}and{" "}
-                    <Link to="/privacy" className="underline text-blue-300 hover:text-blue-200 transition-colors">Privacy Policy</Link>.
+                    <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                   </p>
 
                   <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
