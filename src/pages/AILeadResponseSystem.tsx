@@ -280,6 +280,18 @@ const AILeadResponseSystem = () => {
               </ul>
             </motion.div>
           </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="mt-10 max-w-2xl mx-auto text-center"
+          >
+            <p className="text-muted-foreground leading-relaxed">
+              For many businesses, recovering just one additional customer per month can cover the cost of the system. By ensuring every inquiry receives an immediate response and structured follow-up, the AI Lead Response System helps businesses capture opportunities that would otherwise be lost.
+            </p>
+          </motion.div>
         </div>
       </section>
 
