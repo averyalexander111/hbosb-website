@@ -174,8 +174,8 @@ const ConnectSection = React.memo(() => {
 
               {/* Hours */}
               <div className="flex flex-col items-center text-center">
-                <h4 className="font-semibold mb-2">Hours</h4>
-                <div className="text-gray-300 text-sm space-y-1">
+                 <h4 className="font-semibold mb-2 text-navy-foreground">Hours</h4>
+                 <div className="text-navy-foreground/60 text-sm space-y-1">
                   <p>Mon-Fri: 8:30am-7pm</p>
                   <p>Sat: 9:30am-3:30pm</p>
                 </div>
