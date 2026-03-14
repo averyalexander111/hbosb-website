@@ -243,8 +243,8 @@ const Contact = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {trustPoints.map((point) => (
                 <div key={point} className="flex items-start gap-3 bg-white/10 backdrop-blur p-5 rounded-xl">
-                  <CheckCircle2 className="w-5 h-5 text-blue-300 mt-0.5 shrink-0" />
-                  <span className="text-gray-200 text-sm font-medium">{point}</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                   <span className="text-navy-foreground/70 text-sm font-medium">{point}</span>
                 </div>
               ))}
             </div>

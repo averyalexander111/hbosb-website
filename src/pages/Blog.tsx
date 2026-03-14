@@ -231,6 +231,7 @@ const Blog = () => {
           </div>
         </section>
       </div>
+      <HeartbeatFooter />
     </>
   );
 };
