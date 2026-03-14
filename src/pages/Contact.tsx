@@ -209,7 +209,7 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="message" className="text-gray-200">Message *</Label>
+                    <Label htmlFor="message" className="text-navy-foreground/70">Message *</Label>
                     <Textarea
                       id="message"
                       placeholder="How can we help you?"
@@ -218,7 +218,7 @@ const Contact = () => {
                       maxLength={1000}
                       rows={5}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
