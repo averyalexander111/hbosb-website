@@ -181,7 +181,7 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="email_address" className="text-gray-200">Email *</Label>
+                    <Label htmlFor="email_address" className="text-navy-foreground/70">Email *</Label>
                     <Input
                       id="email_address"
                       type="email"
@@ -190,7 +190,7 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
                       maxLength={255}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
