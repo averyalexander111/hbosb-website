@@ -329,9 +329,9 @@ const AILeadResponseSystem = () => {
       </section>
 
       {/* Next Step CTA */}
-      <section className="py-28 bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden">
+      <section className="py-28 bg-gradient-to-b from-navy via-navy-light to-navy relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div

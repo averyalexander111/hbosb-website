@@ -155,20 +155,19 @@ const Contact = () => {
         </AnimatedSection>
 
         {/* Dark navy section: Form + Trust */}
-        <section
-          className="py-16"
-          style={{ backgroundColor: "hsl(var(--connect-bg))" }}
-        >
+        <section className="py-16 bg-navy relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
           <div className="mx-auto max-w-[1100px] px-4">
             {/* Contact Form */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-8">
               Prefer to Send a Message?
             </h2>
             <div className="max-w-xl mx-auto mb-16">
               <div className="bg-white/10 backdrop-blur p-8 rounded-2xl">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-gray-200">Name *</Label>
+                    <Label htmlFor="full_name" className="text-navy-foreground/70">Name *</Label>
                     <Input
                       id="full_name"
                       type="text"
@@ -177,12 +176,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                       maxLength={100}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="email_address" className="text-gray-200">Email *</Label>
+                    <Label htmlFor="email_address" className="text-navy-foreground/70">Email *</Label>
                     <Input
                       id="email_address"
                       type="email"
@@ -191,12 +190,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
                       maxLength={255}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone_number" className="text-gray-200">Phone Number *</Label>
+                    <Label htmlFor="phone_number" className="text-navy-foreground/70">Phone Number *</Label>
                     <Input
                       id="phone_number"
                       type="tel"
@@ -205,12 +204,12 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                       maxLength={20}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="message" className="text-gray-200">Message *</Label>
+                    <Label htmlFor="message" className="text-navy-foreground/70">Message *</Label>
                     <Textarea
                       id="message"
                       placeholder="How can we help you?"
@@ -219,15 +218,15 @@ const Contact = () => {
                       maxLength={1000}
                       rows={5}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <p className="text-xs text-navy-foreground/40 leading-relaxed">
                     By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                    <Link to="/terms" className="underline text-blue-300 hover:text-blue-200 transition-colors">Terms of Service</Link>
+                    <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                     {" "}and{" "}
-                    <Link to="/privacy" className="underline text-blue-300 hover:text-blue-200 transition-colors">Privacy Policy</Link>.
+                    <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                   </p>
 
                   <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
@@ -238,14 +237,14 @@ const Contact = () => {
             </div>
 
             {/* Trust Section */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-10">
               Why Work With Heartbeat of South Bay
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {trustPoints.map((point) => (
                 <div key={point} className="flex items-start gap-3 bg-white/10 backdrop-blur p-5 rounded-xl">
-                  <CheckCircle2 className="w-5 h-5 text-blue-300 mt-0.5 shrink-0" />
-                  <span className="text-gray-200 text-sm font-medium">{point}</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                   <span className="text-navy-foreground/70 text-sm font-medium">{point}</span>
                 </div>
               ))}
             </div>
