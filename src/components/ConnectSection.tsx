@@ -160,7 +160,7 @@ const ConnectSection = React.memo(() => {
                   <Phone className="w-5 h-5 text-primary" />
                   <h4 className="font-semibold text-navy-foreground">Phone</h4>
                 </div>
-                <p className="text-gray-300 text-sm">424-488-3774</p>
+                <p className="text-navy-foreground/60 text-sm">424-488-3774</p>
               </div>
 
               {/* Email */}
