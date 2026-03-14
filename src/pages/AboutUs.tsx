@@ -79,7 +79,7 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <motion.div {...fadeUp} className="max-w-3xl mx-auto space-y-6 text-center">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Heartbeat of South Bay is an AI consulting and automation firm that helps businesses modernize how they operate.
+                <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> is an AI consulting and automation firm that helps businesses modernize how they operate.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
                 We design and implement AI-powered systems that capture leads, automate customer communication, and streamline operational workflows — allowing businesses to operate more efficiently and grow with confidence.
