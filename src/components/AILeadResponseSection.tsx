@@ -23,8 +23,8 @@ const AILeadResponseSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-navy-foreground">Never Miss Another Lead</h2>
-          <p className="mt-5 text-lg text-navy-foreground/60">
+          <h2 className="section-title text-foreground">Never Miss Another Lead</h2>
+          <p className="mt-5 text-lg text-muted-foreground">
             Many businesses lose opportunities simply because inquiries are not followed up quickly.
           </p>
           <p className="mt-4 text-lg text-navy-foreground/60">
