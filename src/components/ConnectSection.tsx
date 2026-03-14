@@ -99,7 +99,7 @@ const ConnectSection = React.memo(() => {
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_phone" className="text-gray-200">Phone Number *</Label>
+                  <Label htmlFor="home_phone" className="text-navy-foreground/70">Phone Number *</Label>
                   <Input
                     id="home_phone"
                     type="tel"
