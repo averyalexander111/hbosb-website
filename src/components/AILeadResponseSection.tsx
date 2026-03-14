@@ -12,8 +12,8 @@ const features = [
 
 const AILeadResponseSection = () => {
   return (
-    <section className="py-28 bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-28 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -23,14 +23,14 @@ const AILeadResponseSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-navy-foreground">Never Miss Another Lead</h2>
-          <p className="mt-5 text-lg text-navy-foreground/60">
+          <h2 className="section-title text-foreground">Never Miss Another Lead</h2>
+          <p className="mt-5 text-lg text-muted-foreground">
             Many businesses lose opportunities simply because inquiries are not followed up quickly.
           </p>
-          <p className="mt-4 text-lg text-navy-foreground/60">
+          <p className="mt-4 text-lg text-muted-foreground">
             We design AI-powered lead response systems that capture inquiries, respond instantly, and organize leads into a structured pipeline so no opportunity is missed.
           </p>
-          <p className="mt-4 text-lg text-navy-foreground/60">
+          <p className="mt-4 text-lg text-muted-foreground">
             These systems ensure every inquiry receives an immediate response and structured follow-up, helping businesses convert more leads into customers.
           </p>
         </motion.div>
