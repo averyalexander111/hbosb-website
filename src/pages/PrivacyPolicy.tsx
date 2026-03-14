@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
       <main>
         <SubpageHero
           title="Privacy Policy"
-          subtitle="Your privacy is important to us at Heartbeat of South Bay."
+          subtitle="Your privacy is important to us at Heartbeat of South&nbsp;Bay."
         />
 
         {/* Privacy Policy Content */}

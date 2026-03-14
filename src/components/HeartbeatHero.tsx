@@ -100,7 +100,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            Heartbeat of South Bay designs and implements AI-powered business
+            <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> designs and implements AI-powered business
             systems that capture leads, automate customer communication, and
             streamline operations.
           </motion.p>

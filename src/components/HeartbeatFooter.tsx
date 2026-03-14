@@ -15,8 +15,8 @@ const HeartbeatFooter = () => {
                 alt="Heartbeat of South Bay"
                 className="h-10 w-10"
               />
-              <span className="font-semibold text-navy-foreground">
-                Heartbeat of South Bay
+              <span className="font-semibold text-navy-foreground whitespace-nowrap">
+                Heartbeat of South&nbsp;Bay
               </span>
             </div>
             <p className="text-sm text-navy-foreground/60">

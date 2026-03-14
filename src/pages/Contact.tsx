@@ -238,7 +238,7 @@ const Contact = () => {
 
             {/* Trust Section */}
             <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-10">
-              Why Work With Heartbeat of South Bay
+              Why Work With Heartbeat of South&nbsp;Bay
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {trustPoints.map((point) => (

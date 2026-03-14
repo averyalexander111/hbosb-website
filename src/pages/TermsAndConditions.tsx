@@ -20,7 +20,7 @@ const TermsAndConditions = () => {
       <main>
         <SubpageHero
           title="Terms and Conditions"
-          subtitle="Welcome to Heartbeat of South Bay!"
+          subtitle="Welcome to Heartbeat of South&nbsp;Bay!"
         />
 
         {/* Terms Content */}
