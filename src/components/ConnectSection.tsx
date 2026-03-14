@@ -60,7 +60,7 @@ const ConnectSection = React.memo(() => {
             </h2>
             <p className="text-lg text-navy-foreground/60 max-w-3xl mx-auto">
               Learn how we can help your business thrive in today's competitive digital landscape. 
-              At Heartbeat of South Bay, we design Custom AI Ops tailored to your workflows, improving client intake, follow ups, and reporting. 
+              At <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span>, we design Custom AI Ops tailored to your workflows, improving client intake, follow ups, and reporting. 
               The result is a stronger online presence, smoother operations, and sustainable growth backed by measurable ROI.
             </p>
           </div>
@@ -125,7 +125,7 @@ const ConnectSection = React.memo(() => {
                   />
                 </div>
                  <p className="text-xs text-navy-foreground/40 leading-relaxed">
-                   By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                   By submitting this form, you agree to receive SMS messages from Heartbeat of South&nbsp;Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
                    <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                    {" "}and{" "}
                    <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.

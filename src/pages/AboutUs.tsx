@@ -70,7 +70,7 @@ const AboutUs = () => {
       <main>
         {/* 1. Hero */}
         <SubpageHero
-          title="About Heartbeat of South Bay"
+          title="About Heartbeat of South&nbsp;Bay"
           subtitle="Modern Businesses Deserve Systems That Work as Hard as They Do"
         />
 
@@ -79,7 +79,7 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <motion.div {...fadeUp} className="max-w-3xl mx-auto space-y-6 text-center">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Heartbeat of South Bay is an AI consulting and automation firm that helps businesses modernize how they operate.
+                <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> is an AI consulting and automation firm that helps businesses modernize how they operate.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
                 We design and implement AI-powered systems that capture leads, automate customer communication, and streamline operational workflows — allowing businesses to operate more efficiently and grow with confidence.
@@ -168,7 +168,7 @@ const AboutUs = () => {
             <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="section-title text-navy-foreground">The Heartbeat Philosophy</h2>
               <p className="mt-4 text-navy-foreground/60 text-lg">
-                At Heartbeat of South Bay, we believe the future of business operations lies in intelligent systems.
+                At <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span>, we believe the future of business operations lies in intelligent systems.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
@@ -242,7 +242,7 @@ const AboutUs = () => {
                 </div>
                 <div className="lg:w-2/3 space-y-4">
                   <p className="text-navy-foreground/80 leading-relaxed">
-                    Heartbeat of South Bay was founded by Avery Alexander Palmer, a Certified Project Manager, Creative Entrepreneur, and AI Consultant, with a mission to help businesses modernize how they operate through intelligent systems and automation.
+                    <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> was founded by Avery Alexander Palmer, a Certified Project Manager, Creative Entrepreneur, and AI Consultant, with a mission to help businesses modernize how they operate through intelligent systems and automation.
                   </p>
                   <p className="text-navy-foreground/80 leading-relaxed">
                     Avery combines expertise in project management, digital strategy, and AI-powered automation to design operational systems that improve how businesses capture opportunities, communicate with customers, and manage internal workflows.
@@ -286,7 +286,7 @@ const AboutUs = () => {
             <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto">
               <h2 className="section-title text-navy-foreground mb-6">Our Vision</h2>
               <p className="text-xl text-navy-foreground/70 leading-relaxed">
-                Heartbeat of South Bay exists to help businesses step confidently into a new era of intelligent operations powered by AI and automation.
+                <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> exists to help businesses step confidently into a new era of intelligent operations powered by AI and automation.
               </p>
             </motion.div>
           </div>

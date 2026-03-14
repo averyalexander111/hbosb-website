@@ -223,7 +223,7 @@ const Contact = () => {
                   </div>
 
                   <p className="text-xs text-navy-foreground/40 leading-relaxed">
-                    By submitting this form, you agree to receive SMS messages from Heartbeat of South Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                    By submitting this form, you agree to receive SMS messages from Heartbeat of South&nbsp;Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
                     <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                     {" "}and{" "}
                     <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
@@ -238,7 +238,7 @@ const Contact = () => {
 
             {/* Trust Section */}
             <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-10">
-              Why Work With Heartbeat of South Bay
+              Why Work With Heartbeat of South&nbsp;Bay
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {trustPoints.map((point) => (
