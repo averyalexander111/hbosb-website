@@ -62,8 +62,8 @@ const features = [
 const monthlyIncludes = [
   "System monitoring",
   "Automation maintenance",
-  "Updates and improvements",
   "Workflow reliability",
+  "Updates and improvements",
 ];
 
 const AILeadResponseSystem = () => {
