@@ -19,12 +19,6 @@ import {
   CheckCircle2,
   TrendingUp,
   Layers,
-  User,
-  FileText,
-  Bot,
-  MailCheck,
-  FolderKanban,
-  Handshake,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
@@ -54,15 +48,6 @@ const steps = [
   { icon: Database, label: "Lead Captured in CRM" },
   { icon: Repeat, label: "Follow-Up Sequence" },
   { icon: CalendarCheck, label: "Appointment or Sale" },
-];
-
-const workflowSteps = [
-  { icon: User, text: "Website Visitor" },
-  { icon: FileText, text: "Lead Capture Form" },
-  { icon: Bot, text: "Instant Automated Response" },
-  { icon: MailCheck, text: "Automated Follow-Up" },
-  { icon: FolderKanban, text: "Lead Organized in CRM" },
-  { icon: Handshake, text: "Appointment Booking or Sale" },
 ];
 
 const features = [
@@ -248,69 +233,6 @@ const AILeadResponseSystem = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* How the AI Lead Response System Works — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-14"
-          >
-            <h2 className="section-title text-navy-foreground">
-              How the AI Lead Response System Works
-            </h2>
-            <p className="mt-4 text-navy-foreground/60 leading-relaxed max-w-2xl mx-auto">
-              The AI Lead Response System installs the core infrastructure that captures inquiries, responds instantly, and organizes every lead into a structured pipeline so your business can convert more opportunities into customers.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="flex flex-col items-center gap-0"
-          >
-            {workflowSteps.map((step, i) => (
-              <React.Fragment key={step.text}>
-                <motion.div
-                  variants={fadeUp}
-                  className="w-full max-w-md flex items-center gap-4 p-5 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-                    <step.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="font-semibold text-navy-foreground">{step.text}</span>
-                </motion.div>
-                {i < workflowSteps.length - 1 && (
-                  <motion.div variants={fadeUp} className="py-2">
-                    <ArrowDown className="w-6 h-6 text-primary/50" />
-                  </motion.div>
-                )}
-              </React.Fragment>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="mt-14 space-y-4 text-center"
-          >
-            <p className="text-navy-foreground/70 leading-relaxed">
-              Every inquiry is captured and immediately receives a response. The system then organizes the lead into your CRM pipeline and continues structured follow-up until the prospect schedules an appointment or becomes a customer.
-            </p>
-            <p className="text-navy-foreground/70 leading-relaxed">
-              The result is a reliable lead management process that ensures opportunities are never lost due to delayed responses or disorganized follow-up.
-            </p>
-          </motion.div>
         </div>
       </section>
 
