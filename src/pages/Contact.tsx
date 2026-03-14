@@ -195,7 +195,7 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone_number" className="text-gray-200">Phone Number *</Label>
+                    <Label htmlFor="phone_number" className="text-navy-foreground/70">Phone Number *</Label>
                     <Input
                       id="phone_number"
                       type="tel"
@@ -204,7 +204,7 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                       maxLength={20}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
