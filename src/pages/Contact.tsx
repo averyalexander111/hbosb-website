@@ -167,7 +167,7 @@ const Contact = () => {
               <div className="bg-white/10 backdrop-blur p-8 rounded-2xl">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-gray-200">Name *</Label>
+                    <Label htmlFor="full_name" className="text-navy-foreground/70">Name *</Label>
                     <Input
                       id="full_name"
                       type="text"
@@ -176,7 +176,7 @@ const Contact = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                       maxLength={100}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
 
