@@ -45,14 +45,10 @@ const ConnectSection = React.memo(() => {
   return (
     <section 
       id="consultation" 
-      className="py-16 text-white bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden"
+      className="py-16 text-white"
+      style={{ backgroundColor: "hsl(var(--connect-bg))" }}
     >
-      {/* Decorative glow orbs */}
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
-
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
