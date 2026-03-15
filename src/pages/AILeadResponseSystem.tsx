@@ -34,6 +34,11 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
+};
+
 const problems = [
   { icon: AlertTriangle, text: "Missed website inquiries" },
   { icon: Clock, text: "Slow response times" },
