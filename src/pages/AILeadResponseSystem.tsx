@@ -13,6 +13,7 @@ import {
   CalendarCheck,
   Monitor,
   ArrowDown,
+  ArrowRight,
   Send,
   Database,
   Repeat,
