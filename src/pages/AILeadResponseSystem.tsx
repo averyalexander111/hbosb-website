@@ -23,6 +23,8 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SubpageHero from "@/components/SubpageHero";
 import SEOHead from "@/components/SEOHead";
+import ConnectSection from "@/components/ConnectSection";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
