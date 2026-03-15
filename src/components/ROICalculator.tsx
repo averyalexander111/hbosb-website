@@ -138,7 +138,7 @@ const ROICalculator = () => {
   };
 
   return (
-    <div className="bg-navy" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
+    <div className="bg-background" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
@@ -436,7 +436,7 @@ const ROICalculator = () => {
             <div className="wave"></div>
           </button>
         </a>
-        <p className="mt-6 text-sm text-navy-foreground/60">
+        <p className="mt-6 text-sm text-muted-foreground">
           Complimentary. Get your fastest first win.
         </p>
       </div>
