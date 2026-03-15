@@ -343,6 +343,55 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
+      {/* Who This System Is For — navy */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-10"
+          >
+            <h2 className="section-title text-navy-foreground">Who This System Is For</h2>
+            <p className="section-subtitle mx-auto text-navy-foreground/60">
+              This system works best for businesses that regularly receive inquiries from potential customers.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="space-y-3 max-w-xl mx-auto mb-10"
+          >
+            {[
+              "Service businesses that receive website inquiries",
+              "Local businesses that rely on appointment bookings",
+              "Companies that want faster follow-up with new leads",
+              "Teams that want to organize inquiries into a structured pipeline",
+            ].map((item) => (
+              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-navy-foreground/80">{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center text-navy-foreground/60 leading-relaxed"
+          >
+            If your business receives inquiries but responses are delayed or inconsistent, the AI Lead Response System can help ensure every opportunity is captured and followed up automatically.
+          </motion.p>
+        </div>
+      </section>
+
 
       {/* Next Step CTA */}
       <section className="py-28 relative overflow-hidden bg-navy">
