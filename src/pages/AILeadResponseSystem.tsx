@@ -286,7 +286,7 @@ const AILeadResponseSystem = () => {
           >
             <h2 className="section-title text-foreground">Investment</h2>
             <p className="section-subtitle mx-auto max-w-3xl">
-              The AI Lead Response System is installed with a one-time setup investment and a simple monthly hosting plan. This system is designed to capture inquiries, respond instantly, and organize leads into a structured pipeline so your business can convert more opportunities into customers.
+              A one-time setup investment and a simple monthly hosting plan — designed to pay for itself from day one.
             </p>
           </motion.div>
 
