@@ -83,7 +83,8 @@ const NavySectionBg = () => (
 
 const AILeadResponseSystem = () => {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
+      <main className="bg-background">
       <SEOHead
         title="AI Lead Response System | Heartbeat of South Bay"
         description="Discover how our AI Lead Response System captures inquiries, responds instantly, and organizes leads into a structured pipeline so no opportunity is missed."
