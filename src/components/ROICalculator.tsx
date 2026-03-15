@@ -145,15 +145,11 @@ const ROICalculator = () => {
         `}
       </style>
 
-      <div style={{ 
+      <div className="bg-navy border border-navy-foreground/10 rounded-xl" style={{ 
         maxWidth: '900px', 
         margin: '20px auto', 
-        background: 'rgba(255,255,255,0.07)', 
-        backdropFilter: 'blur(12px)',
         color: '#e1ecff', 
         padding: '30px', 
-        borderRadius: '10px', 
-        border: '1px solid rgba(255,255,255,0.1)',
         width: '90%'
       }}>
         <h1 style={{ 
