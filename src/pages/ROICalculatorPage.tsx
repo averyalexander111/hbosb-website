@@ -21,14 +21,14 @@ const ROICalculatorPage = () => {
           title="ROI Calculator"
           subtitle="Calculate your potential ROI and see how AI can accelerate your growth."
         />
-        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
-          <ROICalculator />
-        </Suspense>
-        <AnimatedSection>
+        <div className="bg-background">
+          <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
+            <ROICalculator />
+          </Suspense>
           <Suspense fallback={null}>
             <ConnectSection />
           </Suspense>
-        </AnimatedSection>
+        </div>
       </main>
       <HeartbeatFooter />
     </div>

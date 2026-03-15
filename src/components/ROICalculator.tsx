@@ -138,7 +138,7 @@ const ROICalculator = () => {
   };
 
   return (
-    <div className="bg-background" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
+    <div className="bg-background" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '0' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
