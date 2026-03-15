@@ -159,11 +159,11 @@ const ROICalculator = () => {
           fontFamily: 'Montserrat, sans-serif', 
           fontSize: '30px', 
           margin: '0 0 10px 0', 
-          color: '#ffffff' 
+          color: '#16324f' 
         }}>
           Estimate Your ROI
         </h1>
-        <p style={{ margin: '0 0 18px 0', color: '#94b8d8' }}>
+        <p style={{ margin: '0 0 18px 0', color: '#5e84a7' }}>
           Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
         </p>
 
