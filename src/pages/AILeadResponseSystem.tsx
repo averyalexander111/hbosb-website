@@ -34,6 +34,11 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
+};
+
 const problems = [
   { icon: AlertTriangle, text: "Missed website inquiries" },
   { icon: Clock, text: "Slow response times" },
@@ -298,8 +303,8 @@ const AILeadResponseSystem = () => {
           >
             {/* Setup */}
             <motion.div
-              variants={fadeUp}
-              className="p-8 rounded-2xl bg-card border border-border text-center"
+              variants={scaleIn}
+              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Setup Investment</p>
               <p className="text-4xl font-extrabold text-foreground">$997</p>
@@ -308,8 +313,8 @@ const AILeadResponseSystem = () => {
 
             {/* Monthly */}
             <motion.div
-              variants={fadeUp}
-              className="p-8 rounded-2xl bg-card border border-border text-center"
+              variants={scaleIn}
+              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting</p>
               <p className="text-4xl font-extrabold text-foreground">$97<span className="text-lg font-normal text-muted-foreground">/mo</span></p>
