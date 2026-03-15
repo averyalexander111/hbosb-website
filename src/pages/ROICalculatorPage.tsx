@@ -10,7 +10,7 @@ const ConnectSection = lazy(() => import("@/components/ConnectSection"));
 
 const ROICalculatorPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <SEOHead
         title="ROI Calculator | Heartbeat of South Bay"
         description="Calculate the return on investment for AI automation and CRM solutions for your local business."
