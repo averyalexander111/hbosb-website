@@ -138,22 +138,18 @@ const ROICalculator = () => {
   };
 
   return (
-    <div className="bg-navy" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
+    <div className="bg-background" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
         `}
       </style>
 
-      <div style={{ 
+      <div className="bg-navy border border-navy-foreground/10 rounded-xl" style={{ 
         maxWidth: '900px', 
         margin: '20px auto', 
-        background: 'rgba(255,255,255,0.07)', 
-        backdropFilter: 'blur(12px)',
         color: '#e1ecff', 
         padding: '30px', 
-        borderRadius: '10px', 
-        border: '1px solid rgba(255,255,255,0.1)',
         width: '90%'
       }}>
         <h1 style={{ 
@@ -436,7 +432,7 @@ const ROICalculator = () => {
             <div className="wave"></div>
           </button>
         </a>
-        <p className="mt-6 text-sm text-navy-foreground/60">
+        <p className="mt-6 text-sm text-muted-foreground">
           Complimentary. Get your fastest first win.
         </p>
       </div>
