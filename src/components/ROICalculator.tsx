@@ -148,12 +148,11 @@ const ROICalculator = () => {
       <div style={{ 
         maxWidth: '900px', 
         margin: '20px auto', 
-        background: 'rgba(255,255,255,0.07)', 
-        backdropFilter: 'blur(12px)',
-        color: '#e1ecff', 
+        background: '#ffffff', 
+        color: '#16324f', 
         padding: '30px', 
         borderRadius: '10px', 
-        border: '1px solid rgba(255,255,255,0.1)',
+        border: '1px solid #e2e8f0',
         width: '90%'
       }}>
         <h1 style={{ 
