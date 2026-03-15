@@ -118,8 +118,27 @@ const ROICalculator = () => {
     });
   };
 
+  const inputStyle = {
+    marginBottom: '14px',
+    padding: '10px',
+    fontSize: '16px',
+    color: '#e1ecff',
+    background: 'rgba(255,255,255,0.1)',
+    border: '1px solid rgba(255,255,255,0.2)',
+    borderRadius: '6px',
+    outline: 'none',
+    width: '100%'
+  };
+
+  const labelStyle = {
+    marginBottom: '6px',
+    fontWeight: 700 as const,
+    color: '#e1ecff',
+    display: 'block' as const
+  };
+
   return (
-    <div className="bg-background" style={{ color: '#1e293b', fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
+    <div className="bg-navy" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
@@ -129,48 +148,37 @@ const ROICalculator = () => {
       <div style={{ 
         maxWidth: '900px', 
         margin: '20px auto', 
-        background: '#ffffff', 
-        color: '#16324f', 
+        background: 'rgba(255,255,255,0.07)', 
+        backdropFilter: 'blur(12px)',
+        color: '#e1ecff', 
         padding: '30px', 
         borderRadius: '10px', 
-        boxShadow: '0 4px 10px rgba(0,0,0,0.08)',
+        border: '1px solid rgba(255,255,255,0.1)',
         width: '90%'
       }}>
         <h1 style={{ 
           fontFamily: 'Montserrat, sans-serif', 
           fontSize: '30px', 
           margin: '0 0 10px 0', 
-          color: '#16324f' 
+          color: '#ffffff' 
         }}>
           Estimate Your ROI
         </h1>
-        <p style={{ margin: '0 0 18px 0', color: '#34577a' }}>
+        <p style={{ margin: '0 0 18px 0', color: '#94b8d8' }}>
           Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Plan Preset
-              </label>
+              <label style={labelStyle}>Plan Preset</label>
               <select
                 value={formData.preset}
                 onChange={(e) => {
                   setFormData({ ...formData, preset: e.target.value });
                   handlePresetChange(e.target.value);
                 }}
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               >
                 <option value="">— Choose (optional) —</option>
                 <option value="core">Core (typical)</option>
@@ -179,238 +187,118 @@ const ROICalculator = () => {
               </select>
             </div>
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                AI Solution Cost / Month ($)
-              </label>
+              <label style={labelStyle}>AI Solution Cost / Month ($)</label>
               <input
                 type="number"
                 value={formData.aiCost}
                 onChange={(e) => setFormData({ ...formData, aiCost: e.target.value })}
                 placeholder="e.g., 997"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Current Monthly Revenue ($)
-              </label>
+              <label style={labelStyle}>Current Monthly Revenue ($)</label>
               <input
                 type="number"
                 value={formData.currentRevenue}
                 onChange={(e) => setFormData({ ...formData, currentRevenue: e.target.value })}
                 placeholder="(optional)"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Avg Monthly Customers
-              </label>
+              <label style={labelStyle}>Avg Monthly Customers</label>
               <input
                 type="number"
                 value={formData.monthlyCustomers}
                 onChange={(e) => setFormData({ ...formData, monthlyCustomers: e.target.value })}
                 placeholder="e.g., 200"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Avg Spend per Customer ($)
-              </label>
+              <label style={labelStyle}>Avg Spend per Customer ($)</label>
               <input
                 type="number"
                 value={formData.averageSpend}
                 onChange={(e) => setFormData({ ...formData, averageSpend: e.target.value })}
                 placeholder="e.g., 50"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Admin Hours / Week
-              </label>
+              <label style={labelStyle}>Admin Hours / Week</label>
               <input
                 type="number"
                 value={formData.adminHours}
                 onChange={(e) => setFormData({ ...formData, adminHours: e.target.value })}
                 placeholder="e.g., 10"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Missed Calls per Month
-              </label>
+              <label style={labelStyle}>Missed Calls per Month</label>
               <input
                 type="number"
                 value={formData.missedCalls}
                 onChange={(e) => setFormData({ ...formData, missedCalls: e.target.value })}
                 placeholder="e.g., 50"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Recovered % via Automation (%)
-              </label>
+              <label style={labelStyle}>Recovered % via Automation (%)</label>
               <input
                 type="number"
                 value={formData.recoveredPct}
                 onChange={(e) => setFormData({ ...formData, recoveredPct: e.target.value })}
                 placeholder="e.g., 25"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Retention Increase (%)
-              </label>
+              <label style={labelStyle}>Retention Increase (%)</label>
               <input
                 type="number"
                 value={formData.retentionIncrease}
                 onChange={(e) => setFormData({ ...formData, retentionIncrease: e.target.value })}
                 placeholder="e.g., 5"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Revenue per Customer Increase (%)
-              </label>
+              <label style={labelStyle}>Revenue per Customer Increase (%)</label>
               <input
                 type="number"
                 value={formData.spendIncrease}
                 onChange={(e) => setFormData({ ...formData, spendIncrease: e.target.value })}
                 placeholder="e.g., 8"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label style={{ marginBottom: '6px', fontWeight: 700, color: '#16324f', display: 'block' }}>
-                Time Savings from Automation (%)
-              </label>
+              <label style={labelStyle}>Time Savings from Automation (%)</label>
               <input
                 type="number"
                 value={formData.timeSavings}
                 onChange={(e) => setFormData({ ...formData, timeSavings: e.target.value })}
                 placeholder="e.g., 40"
-                style={{
-                  marginBottom: '14px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  color: '#16324f',
-                  background: '#ffffff',
-                  border: '1px solid #c7d6ea',
-                  borderRadius: '6px',
-                  outline: 'none',
-                  width: '100%'
-                }}
+                style={inputStyle}
               />
             </div>
             <div></div>
@@ -434,7 +322,7 @@ const ROICalculator = () => {
           >
             Calculate ROI
           </button>
-          <div style={{ fontSize: '12px', color: '#5e84a7', marginTop: '8px' }}>
+          <div style={{ fontSize: '12px', color: '#94b8d8', marginTop: '8px' }}>
             Tip: If "Current Revenue" is blank, baseline = customers × average spend.
           </div>
         </div>
@@ -548,7 +436,7 @@ const ROICalculator = () => {
             <div className="wave"></div>
           </button>
         </a>
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-6 text-sm text-navy-foreground/60">
           Complimentary. Get your fastest first win.
         </p>
       </div>
