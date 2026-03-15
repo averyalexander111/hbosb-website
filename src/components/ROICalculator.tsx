@@ -122,9 +122,9 @@ const ROICalculator = () => {
     marginBottom: '14px',
     padding: '10px',
     fontSize: '16px',
-    color: '#16324f',
-    background: '#f8fafc',
-    border: '1px solid #c7d6ea',
+    color: '#e1ecff',
+    background: 'rgba(255,255,255,0.1)',
+    border: '1px solid rgba(255,255,255,0.2)',
     borderRadius: '6px',
     outline: 'none',
     width: '100%'
@@ -133,7 +133,7 @@ const ROICalculator = () => {
   const labelStyle = {
     marginBottom: '6px',
     fontWeight: 700 as const,
-    color: '#16324f',
+    color: '#e1ecff',
     display: 'block' as const
   };
 
@@ -148,22 +148,23 @@ const ROICalculator = () => {
       <div style={{ 
         maxWidth: '900px', 
         margin: '20px auto', 
-        background: '#ffffff', 
-        color: '#16324f', 
+        background: 'rgba(255,255,255,0.07)', 
+        backdropFilter: 'blur(12px)',
+        color: '#e1ecff', 
         padding: '30px', 
         borderRadius: '10px', 
-        border: '1px solid #e2e8f0',
+        border: '1px solid rgba(255,255,255,0.1)',
         width: '90%'
       }}>
         <h1 style={{ 
           fontFamily: 'Montserrat, sans-serif', 
           fontSize: '30px', 
           margin: '0 0 10px 0', 
-          color: '#16324f' 
+          color: '#ffffff' 
         }}>
           Estimate Your ROI
         </h1>
-        <p style={{ margin: '0 0 18px 0', color: '#5e84a7' }}>
+        <p style={{ margin: '0 0 18px 0', color: '#94b8d8' }}>
           Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
         </p>
 
@@ -321,7 +322,7 @@ const ROICalculator = () => {
           >
             Calculate ROI
           </button>
-          <div style={{ fontSize: '12px', color: '#5e84a7', marginTop: '8px' }}>
+          <div style={{ fontSize: '12px', color: '#94b8d8', marginTop: '8px' }}>
             Tip: If "Current Revenue" is blank, baseline = customers × average spend.
           </div>
         </div>
