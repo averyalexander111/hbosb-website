@@ -263,7 +263,7 @@ const AILeadResponseSystem = () => {
             {features.map((f) => (
               <motion.div
                 key={f.title}
-                variants={fadeUp}
+                variants={scaleIn}
                 className="group p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/25 transition-colors">
