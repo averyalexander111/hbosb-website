@@ -430,6 +430,7 @@ const AILeadResponseSystem = () => {
       <HeartbeatFooter />
       </main>
       <ScrollToTopButton />
+    </div>
   );
 };
 
