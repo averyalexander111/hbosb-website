@@ -313,8 +313,8 @@ const AILeadResponseSystem = () => {
 
             {/* Monthly */}
             <motion.div
-              variants={fadeUp}
-              className="p-8 rounded-2xl bg-card border border-border text-center"
+              variants={scaleIn}
+              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting</p>
               <p className="text-4xl font-extrabold text-foreground">$97<span className="text-lg font-normal text-muted-foreground">/mo</span></p>
