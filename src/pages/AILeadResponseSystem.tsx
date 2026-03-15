@@ -395,6 +395,7 @@ const AILeadResponseSystem = () => {
 
       {/* Next Step CTA */}
       <section className="py-28 relative overflow-hidden bg-navy">
+        <NavySectionBg />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
