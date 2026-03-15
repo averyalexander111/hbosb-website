@@ -133,7 +133,7 @@ const ROICalculator = () => {
   const labelStyle = {
     marginBottom: '6px',
     fontWeight: 700 as const,
-    color: '#e1ecff',
+    color: '#16324f',
     display: 'block' as const
   };
 
