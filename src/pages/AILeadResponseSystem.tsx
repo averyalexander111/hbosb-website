@@ -171,10 +171,6 @@ const AILeadResponseSystem = () => {
       {/* The Solution — Process Diagram */}
       <section
         className="py-20 bg-background relative overflow-hidden"
-        style={{
-          backgroundImage: "radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
           <motion.div
