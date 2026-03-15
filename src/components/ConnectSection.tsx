@@ -72,7 +72,7 @@ const ConnectSection = React.memo(() => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_full_name" className="text-muted-foreground">Name *</Label>
+                    <Label htmlFor="home_full_name" className="text-navy-foreground/70">Name *</Label>
                     <Input
                       id="home_full_name"
                       type="text"
