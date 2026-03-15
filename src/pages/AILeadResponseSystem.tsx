@@ -123,7 +123,7 @@ const AILeadResponseSystem = () => {
               className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
               Start AI Lead System Installation
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
             </a>
           </motion.div>
         </div>
