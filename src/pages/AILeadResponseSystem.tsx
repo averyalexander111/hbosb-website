@@ -339,14 +339,20 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section className="py-28 bg-background">
+      <section
+        className="py-32 bg-background relative overflow-hidden"
+        style={{
+          backgroundImage: "radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto text-center"
+            className="max-w-3xl mx-auto rounded-3xl bg-gradient-to-br from-card to-muted/30 border border-border p-12 md:p-16 text-center"
           >
             <h2 className="section-title text-foreground">
               See If This System Is Right for Your Business
