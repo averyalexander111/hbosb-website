@@ -321,7 +321,7 @@ const ROICalculator = () => {
           >
             Calculate ROI
           </button>
-          <div style={{ fontSize: '12px', color: '#94b8d8', marginTop: '8px' }}>
+          <div style={{ fontSize: '12px', color: '#5e84a7', marginTop: '8px' }}>
             Tip: If "Current Revenue" is blank, baseline = customers × average spend.
           </div>
         </div>
