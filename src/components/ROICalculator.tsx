@@ -122,9 +122,9 @@ const ROICalculator = () => {
     marginBottom: '14px',
     padding: '10px',
     fontSize: '16px',
-    color: '#e1ecff',
-    background: 'rgba(255,255,255,0.1)',
-    border: '1px solid rgba(255,255,255,0.2)',
+    color: '#16324f',
+    background: '#f8fafc',
+    border: '1px solid #c7d6ea',
     borderRadius: '6px',
     outline: 'none',
     width: '100%'
