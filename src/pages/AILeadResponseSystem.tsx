@@ -119,7 +119,7 @@ const AILeadResponseSystem = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
-              Schedule AI Lead System Consultation
+              Start AI Lead System Installation
             </a>
           </motion.div>
         </div>
@@ -360,7 +360,7 @@ const AILeadResponseSystem = () => {
               See If This System Is Right for Your Business
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/60">
-              Schedule a short consultation and we'll evaluate whether the AI Lead Response System is a good fit for your business.
+              Schedule a consultation to confirm whether the AI Lead Response System is the right fit and begin the installation process for your business.
             </p>
             <div className="mt-12">
               <a
@@ -369,7 +369,7 @@ const AILeadResponseSystem = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
               >
-                Book AI Lead System Consultation
+                Start AI Lead System Installation
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
