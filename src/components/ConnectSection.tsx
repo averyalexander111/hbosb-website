@@ -85,7 +85,7 @@ const ConnectSection = React.memo(() => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_email" className="text-muted-foreground">Email *</Label>
+                    <Label htmlFor="home_email" className="text-navy-foreground/70">Email *</Label>
                     <Input
                       id="home_email"
                       type="email"
