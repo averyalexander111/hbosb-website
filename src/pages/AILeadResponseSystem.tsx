@@ -17,8 +17,6 @@ import {
   Database,
   Repeat,
   CheckCircle2,
-  TrendingUp,
-  Layers,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
