@@ -360,7 +360,7 @@ const AILeadResponseSystem = () => {
               See If This System Is Right for Your Business
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/60">
-              Schedule a short consultation and we'll evaluate whether the AI Lead Response System is a good fit for your business.
+              Schedule a consultation to confirm whether the AI Lead Response System is the right fit and begin the installation process for your business.
             </p>
             <div className="mt-12">
               <a
