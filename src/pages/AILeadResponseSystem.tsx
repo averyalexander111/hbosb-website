@@ -339,29 +339,32 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section className="py-28 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-28 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto text-center"
+            className="max-w-2xl mx-auto rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-12 md:p-16 text-center"
           >
-            <h2 className="section-title text-foreground">
+            <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
+            <h2 className="section-title text-navy-foreground">
               See If This System Is Right for Your Business
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Schedule a short consultation and we will evaluate whether the AI Lead Response System is a good fit for your business.
+            <p className="mt-5 text-lg text-navy-foreground/60">
+              Schedule a short consultation and we'll evaluate whether the AI Lead Response System is a good fit for your business.
             </p>
             <div className="mt-12">
               <a
                 href="https://cal.com/hbosb/lead-system-install"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
+                className="inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
               >
                 Book AI Lead System Consultation
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
