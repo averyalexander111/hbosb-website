@@ -67,12 +67,12 @@ const ConnectSection = React.memo(() => {
 
           {/* Contact Form */}
           <div className="mb-12">
-            <div className="bg-white/70 backdrop-blur-sm border border-white/20 shadow-elegant rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center text-foreground">Send Us a Message</h3>
+            <div className="bg-navy border border-navy-foreground/10 rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-6 text-center text-navy-foreground">Send Us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_full_name" className="text-muted-foreground">Name *</Label>
+                    <Label htmlFor="home_full_name" className="text-navy-foreground/70">Name *</Label>
                     <Input
                       id="home_full_name"
                       type="text"
@@ -81,11 +81,11 @@ const ConnectSection = React.memo(() => {
                       onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                       maxLength={100}
                       required
-                      className="bg-white border-border text-foreground placeholder:text-muted-foreground"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="home_email" className="text-muted-foreground">Email *</Label>
+                    <Label htmlFor="home_email" className="text-navy-foreground/70">Email *</Label>
                     <Input
                       id="home_email"
                       type="email"
@@ -94,12 +94,12 @@ const ConnectSection = React.memo(() => {
                       onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
                       maxLength={255}
                       required
-                      className="bg-white border-border text-foreground placeholder:text-muted-foreground"
+                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                     />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_phone" className="text-muted-foreground">Phone Number *</Label>
+                  <Label htmlFor="home_phone" className="text-navy-foreground/70">Phone Number *</Label>
                   <Input
                     id="home_phone"
                     type="tel"
@@ -108,11 +108,11 @@ const ConnectSection = React.memo(() => {
                     onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
                     maxLength={20}
                     required
-                    className="bg-white border-border text-foreground placeholder:text-muted-foreground"
+                    className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_message" className="text-muted-foreground">Message *</Label>
+                  <Label htmlFor="home_message" className="text-navy-foreground/70">Message *</Label>
                   <Textarea
                     id="home_message"
                     placeholder="How can we help you?"
@@ -121,14 +121,14 @@ const ConnectSection = React.memo(() => {
                     maxLength={1000}
                     rows={4}
                     required
-                    className="bg-white border-border text-foreground placeholder:text-muted-foreground"
+                    className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-navy-foreground/40 leading-relaxed">
                   By submitting this form, you agree to receive SMS messages from Heartbeat of South&nbsp;Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
-                  <Link to="/terms" className="underline text-primary hover:text-foreground transition-colors">Terms of Service</Link>
+                  <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                   {" "}and{" "}
-                  <Link to="/privacy" className="underline text-primary hover:text-foreground transition-colors">Privacy Policy</Link>.
+                  <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                 </p>
                 <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : "Send Message"}
