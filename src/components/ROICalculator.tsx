@@ -432,7 +432,7 @@ const ROICalculator = () => {
             <div className="wave"></div>
           </button>
         </a>
-        <p className="mt-6 text-sm text-navy-foreground/60">
+        <p className="mt-6 text-sm text-muted-foreground">
           Complimentary. Get your fastest first win.
         </p>
       </div>
