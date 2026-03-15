@@ -68,7 +68,7 @@ const ConnectSection = React.memo(() => {
           {/* Contact Form */}
           <div className="mb-12">
             <div className="bg-navy border border-navy-foreground/10 rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center text-foreground">Send Us a Message</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center text-navy-foreground">Send Us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
