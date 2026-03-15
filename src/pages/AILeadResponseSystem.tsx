@@ -339,39 +339,6 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* Why Businesses Install — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center"
-          >
-            <h2 className="section-title text-navy-foreground">Why Businesses Install This System</h2>
-            <div className="mt-8 space-y-6">
-              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <TrendingUp className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-navy-foreground/70 leading-relaxed">
-                  Recovering just <span className="font-semibold text-navy-foreground">one additional customer per month</span> often covers the entire system cost, making this a self-funding investment from day one.
-                </p>
-              </div>
-              <div className="flex items-start gap-4 text-left p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Layers className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-navy-foreground/70 leading-relaxed">
-                  The AI Lead Response System becomes the <span className="font-semibold text-navy-foreground">foundation of an automated business workflow</span>, connecting lead capture, follow-up, scheduling, and reporting into one seamless system.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Next Step CTA */}
       <section className="py-28 bg-background">
