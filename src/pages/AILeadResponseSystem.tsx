@@ -393,16 +393,14 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section className="py-28 relative overflow-hidden bg-gradient-to-b from-navy via-navy-light to-navy">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+      <section className="py-28 relative overflow-hidden bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto rounded-2xl border border-navy-foreground/10 bg-white/10 backdrop-blur-sm p-12 md:p-16 text-center"
+            className="max-w-2xl mx-auto rounded-2xl bg-navy border border-navy-foreground/10 p-12 md:p-16 text-center"
           >
             <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
             <h2 className="section-title text-navy-foreground">
