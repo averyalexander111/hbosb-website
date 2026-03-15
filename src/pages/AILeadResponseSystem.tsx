@@ -272,10 +272,9 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* Investment — navy */}
-      <section className="py-24 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
+      {/* Investment */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -283,8 +282,8 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center mb-14"
           >
-            <h2 className="section-title text-navy-foreground">Investment</h2>
-            <p className="section-subtitle mx-auto max-w-3xl text-navy-foreground/60">
+            <h2 className="section-title text-foreground">Investment</h2>
+            <p className="section-subtitle mx-auto max-w-3xl">
               A one-time setup investment and a simple monthly hosting plan — designed to pay for itself from day one.
             </p>
           </motion.div>
@@ -299,23 +298,23 @@ const AILeadResponseSystem = () => {
             {/* Setup */}
             <motion.div
               variants={fadeUp}
-              className="p-8 rounded-2xl bg-navy-light/50 border border-primary/30 backdrop-blur-sm text-center"
+              className="p-8 rounded-2xl bg-card border border-border text-center"
             >
-              <p className="text-sm font-medium text-navy-foreground/60 uppercase tracking-wider mb-3">Setup Investment</p>
-              <p className="text-4xl font-extrabold text-navy-foreground">$997</p>
-              <p className="text-sm text-navy-foreground/60 mt-2">One-time setup</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Setup Investment</p>
+              <p className="text-4xl font-extrabold text-foreground">$997</p>
+              <p className="text-sm text-muted-foreground mt-2">One-time setup</p>
             </motion.div>
 
             {/* Monthly */}
             <motion.div
               variants={fadeUp}
-              className="p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm text-center"
+              className="p-8 rounded-2xl bg-card border border-border text-center"
             >
-              <p className="text-sm font-medium text-navy-foreground/60 uppercase tracking-wider mb-3">Monthly System Hosting</p>
-              <p className="text-4xl font-extrabold text-navy-foreground">$97<span className="text-lg font-normal text-navy-foreground/60">/mo</span></p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting</p>
+              <p className="text-4xl font-extrabold text-foreground">$97<span className="text-lg font-normal text-muted-foreground">/mo</span></p>
               <ul className="mt-5 space-y-2 text-left">
                 {monthlyIncludes.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-navy-foreground/60">
+                  <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                     {item}
                   </li>
@@ -329,9 +328,9 @@ const AILeadResponseSystem = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="mt-10 flex justify-center"
+            className="mt-10 max-w-2xl mx-auto text-center"
           >
-            <p className="inline-block bg-primary/10 text-primary rounded-full px-6 py-3 text-sm font-medium">
+            <p className="text-muted-foreground leading-relaxed">
               For many businesses, recovering just one additional customer per month covers the entire cost of the system.
             </p>
           </motion.div>
@@ -340,20 +339,14 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section
-        className="py-32 bg-background relative overflow-hidden"
-        style={{
-          backgroundImage: "radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      >
+      <section className="py-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-3xl mx-auto rounded-3xl bg-gradient-to-br from-card to-muted/30 border border-border p-12 md:p-16 text-center"
+            className="max-w-2xl mx-auto text-center"
           >
             <h2 className="section-title text-foreground">
               See If This System Is Right for Your Business
