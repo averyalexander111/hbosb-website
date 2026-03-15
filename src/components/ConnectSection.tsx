@@ -121,7 +121,7 @@ const ConnectSection = React.memo(() => {
                     maxLength={1000}
                     rows={4}
                     required
-                    className="bg-white border-border text-foreground placeholder:text-muted-foreground"
+                    className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
