@@ -333,7 +333,7 @@ const AILeadResponseSystem = () => {
             className="mt-10 max-w-2xl mx-auto text-center"
           >
             <p className="text-muted-foreground leading-relaxed">
-              For many businesses, recovering just one additional customer per month can cover the cost of the system. By ensuring every inquiry receives an immediate response and structured follow-up, the AI Lead Response System helps businesses capture opportunities that would otherwise be lost.
+              For many businesses, recovering just one additional customer per month covers the entire cost of the system.
             </p>
           </motion.div>
         </div>
