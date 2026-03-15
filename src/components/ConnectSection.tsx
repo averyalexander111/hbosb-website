@@ -112,7 +112,7 @@ const ConnectSection = React.memo(() => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="home_message" className="text-muted-foreground">Message *</Label>
+                  <Label htmlFor="home_message" className="text-navy-foreground/70">Message *</Label>
                   <Textarea
                     id="home_message"
                     placeholder="How can we help you?"
