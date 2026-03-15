@@ -394,20 +394,20 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section className="py-28 relative overflow-hidden bg-gradient-to-b from-navy via-navy-light to-navy">
+      <section className="py-28 relative overflow-hidden bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-12 md:p-16 text-center"
+            className="max-w-2xl mx-auto rounded-2xl border border-border bg-card p-12 md:p-16 text-center"
           >
             <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
-            <h2 className="section-title text-navy-foreground">
+            <h2 className="section-title text-foreground">
               See If This System Is Right for Your Business
             </h2>
-            <p className="mt-5 text-lg text-navy-foreground/60">
+            <p className="mt-5 text-lg text-muted-foreground">
               Schedule a consultation to confirm whether the AI Lead Response System is the right fit and begin the installation process for your business.
             </p>
             <div className="mt-12">
