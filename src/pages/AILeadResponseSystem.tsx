@@ -394,16 +394,23 @@ const AILeadResponseSystem = () => {
 
 
       {/* Next Step CTA */}
-      <section className="py-28 relative overflow-hidden bg-background">
+      <section
+        className="py-28 relative overflow-hidden bg-background"
+        style={{
+          backgroundImage: "radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto rounded-2xl border border-border bg-card p-12 md:p-16 text-center"
+            className="max-w-2xl mx-auto rounded-2xl border border-border bg-card shadow-[0_8px_40px_hsl(var(--primary)/0.06)] p-12 md:p-16 text-center"
           >
-            <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-8" />
             <h2 className="section-title text-foreground">
               See If This System Is Right for Your Business
             </h2>
@@ -420,6 +427,7 @@ const AILeadResponseSystem = () => {
                 Start AI Lead System Installation
                 <ArrowRight className="w-5 h-5" />
               </a>
+              <p className="mt-4 text-sm text-muted-foreground/60">No obligation · Free consultation</p>
             </div>
           </motion.div>
         </div>
