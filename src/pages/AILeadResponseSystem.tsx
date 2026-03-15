@@ -155,7 +155,7 @@ const AILeadResponseSystem = () => {
             {problems.map((p) => (
               <motion.div
                 key={p.text}
-                variants={fadeUp}
+                variants={scaleIn}
                 className="flex items-center gap-4 p-5 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
               >
                 <div className="w-10 h-10 rounded-xl bg-destructive/20 flex items-center justify-center flex-shrink-0">
