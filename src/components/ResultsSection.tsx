@@ -52,11 +52,9 @@ const ResultsSection = () => {
           className="mt-14 max-w-2xl mx-auto text-center"
         >
           <blockquote className="text-lg italic text-navy-foreground/60">
-            "Heartbeat of South Bay helped us automate our follow-ups and
-            dramatically improve our response times. Our operations feel much
-            more organized."
+            "Heartbeat of South Bay helped us automate our follow-up process and respond to leads faster. We started seeing more consistent bookings and fewer missed opportunities."
           </blockquote>
-          <p className="mt-4 text-sm text-navy-foreground/40">— Satisfied Client</p>
+          <p className="mt-4 text-sm text-navy-foreground/40">— Client</p>
         </motion.div>
       </div>
     </section>
