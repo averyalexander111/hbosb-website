@@ -78,7 +78,7 @@ const ImplementationSection = () => {
             See What This Looks Like for Your Business
           </h3>
           <p className="text-sm text-muted-foreground mb-8">
-            Schedule an AI Revenue System Assessment to identify where your business can improve lead conversion, follow-up, and automation.
+            Schedule an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
           </p>
           <a
             href="https://audit.heartbeatofsouthbay.com/"
