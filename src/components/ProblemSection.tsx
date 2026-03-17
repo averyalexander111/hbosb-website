@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { PhoneOff, Clock, CalendarX, Snail, Star } from "lucide-react";
 
 const problems = [
-  { icon: PhoneOff, title: "Missed Inquiries", desc: "Potential customers reach out and never hear back." },
-  { icon: Clock, title: "Inconsistent Follow-Ups", desc: "Leads fall through the cracks without a system." },
-  { icon: CalendarX, title: "Manual Scheduling", desc: "Back-and-forth booking wastes hours every week." },
-  { icon: Snail, title: "Slow Response Times", desc: "Delayed replies push prospects to competitors." },
-  { icon: Star, title: "Low Review Volume", desc: "Happy clients leave without sharing their experience." },
+  { icon: PhoneOff, title: "Missed Inquiries", desc: "Potential customers reach out and never receive a response." },
+  { icon: Clock, title: "Inconsistent Follow-Ups", desc: "Leads are not contacted consistently, causing lost opportunities." },
+  { icon: CalendarX, title: "Manual Scheduling", desc: "Time is lost going back and forth trying to book appointments." },
+  { icon: Snail, title: "Slow Response Times", desc: "Delayed replies push potential customers toward competitors." },
+  { icon: Star, title: "Low Review Volume", desc: "Satisfied customers leave without sharing their experience." },
 ];
 
 const ProblemSection = () => {
@@ -28,9 +28,8 @@ const ProblemSection = () => {
             Most Businesses Are Losing Opportunities Every Day
           </h2>
           <p className="section-subtitle mx-auto">
-            These gaps quietly cost businesses time, revenue, and growth. AI
-            systems solve them by improving lead conversion, revenue, and
-            operations continuously in the background.
+            Small breakdowns in response time, follow-up, and organization lead to missed revenue.
+            AI systems fix these gaps by capturing, responding to, and converting opportunities automatically.
           </p>
         </motion.div>
 
@@ -61,6 +60,16 @@ const ProblemSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-10"
+        >
+          These are not isolated issues — they are systemic problems that reduce how many opportunities turn into customers.
+        </motion.p>
       </div>
     </section>
   );
