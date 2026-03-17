@@ -100,7 +100,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            We design AI-powered systems that capture, follow up with, and convert your leads into customers automatically.
+            We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
           </motion.p>
 
           <motion.p
@@ -109,7 +109,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
-            Automate inbound responses and outbound follow-up with AI voice agents that book appointments for you.
+            From instant lead response to outbound reactivation — every step of your pipeline, handled by intelligent systems.
           </motion.p>
 
           {/* Benefit pills */}
@@ -120,9 +120,9 @@ const HeartbeatHero = () => {
             className="mt-8 flex flex-wrap gap-3"
           >
             {[
-              { icon: TrendingUp, label: "Increase revenue" },
-              { icon: Zap, label: "Convert more leads" },
-              { icon: Bot, label: "Automate follow-ups" },
+              { icon: Zap, label: "Capture every lead" },
+              { icon: Bot, label: "Automate follow-up" },
+              { icon: TrendingUp, label: "Grow revenue" },
             ].map((item) => (
               <span
                 key={item.label}
