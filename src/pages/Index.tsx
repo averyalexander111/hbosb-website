@@ -34,6 +34,7 @@ const Index = () => {
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
         <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
+        <Suspense fallback={<Loader />}><AIVoiceOutboundSection /></Suspense>
         <Suspense fallback={<Loader />}><ResultsSection /></Suspense>
         <Suspense fallback={<Loader />}><ImplementationSection /></Suspense>
         <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>

@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const steps = [
   {
     num: "01",
-    title: "AI Opportunity Assessment",
-    desc: "We analyze your current operations to identify the highest-impact automation opportunities.",
+    title: "AI Revenue System Assessment",
+    desc: "We analyze your current operations to identify where AI systems can improve your lead capture, follow-up, and conversion process.",
   },
   {
     num: "02",

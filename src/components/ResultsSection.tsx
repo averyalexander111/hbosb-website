@@ -21,7 +21,7 @@ const ResultsSection = () => {
           className="text-center mb-14"
         >
           <h2 className="section-title text-navy-foreground">
-            Real Results From AI Automation
+            Real Results From AI Systems
           </h2>
         </motion.div>
 

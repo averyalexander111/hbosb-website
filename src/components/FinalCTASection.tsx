@@ -53,7 +53,7 @@ const FinalCTASection = () => {
               Start Your AI Revenue System Assessment
             </a>
             <p className="mt-4 text-sm text-navy-foreground/40">
-              Discover where automation can create the biggest impact in your business.
+              Identify where AI systems can create the biggest impact in your business.
             </p>
           </div>
         </motion.div>
