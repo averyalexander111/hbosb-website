@@ -6,6 +6,7 @@ import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import SubpageHero from "@/components/SubpageHero";
 import AIOperatingSystem from "@/components/AIOperatingSystem";
+import FinalCTASection from "@/components/FinalCTASection";
 import averyAlexander from "@/assets/avery-alexander.jpg";
 
 
