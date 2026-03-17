@@ -295,26 +295,31 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* 11. CTA */}
+        {/* CTA */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <motion.div
               {...scaleIn(0)}
               className="max-w-3xl mx-auto text-center bg-primary/5 border border-primary/20 rounded-2xl p-10 md:p-14"
             >
+              <p className="text-lg text-muted-foreground mb-3">
+                When businesses operate smarter, they grow stronger.
+              </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Start Your AI Opportunity Assessment
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
                 Discover where automation can create the biggest impact in your business.
               </p>
-              <Link
-                to="/contact"
+              <a
+                href="https://audit.heartbeatofsouthbay.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg text-lg font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
-                Book a Consultation
+                Start Your AI Opportunity Assessment
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
             </motion.div>
           </div>
         </section>
