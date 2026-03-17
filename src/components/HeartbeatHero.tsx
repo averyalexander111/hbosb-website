@@ -100,7 +100,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            We design AI-powered systems that capture, follow up with, and convert your leads into customers automatically.
+            We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
           </motion.p>
 
           <motion.p
