@@ -109,7 +109,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
-            From instant lead response to outbound reactivation — every step of your pipeline, handled by intelligent systems.
+            From instant conversion to outbound reactivation — every step of your pipeline, handled by intelligent systems.
           </motion.p>
 
           {/* Benefit pills */}
