@@ -29,37 +29,16 @@ const ROICalculator = () => {
 
     const presets: any = {
       core: {
-        aiCost: 997,
-        monthlyCustomers: 200,
-        averageSpend: 50,
-        adminHours: 6,
-        missedCalls: 30,
-        recoveredPct: 20,
-        retentionIncrease: 3,
-        spendIncrease: 4,
-        timeSavings: 30
+        aiCost: 997, monthlyCustomers: 200, averageSpend: 50, adminHours: 6,
+        missedCalls: 30, recoveredPct: 20, retentionIncrease: 3, spendIncrease: 4, timeSavings: 30
       },
       plus: {
-        aiCost: 2497,
-        monthlyCustomers: 350,
-        averageSpend: 60,
-        adminHours: 10,
-        missedCalls: 50,
-        recoveredPct: 30,
-        retentionIncrease: 5,
-        spendIncrease: 8,
-        timeSavings: 45
+        aiCost: 2497, monthlyCustomers: 350, averageSpend: 60, adminHours: 10,
+        missedCalls: 50, recoveredPct: 30, retentionIncrease: 5, spendIncrease: 8, timeSavings: 45
       },
       pro: {
-      aiCost: 4997,
-        monthlyCustomers: 600,
-        averageSpend: 80,
-        adminHours: 14,
-        missedCalls: 80,
-        recoveredPct: 40,
-        retentionIncrease: 8,
-        spendIncrease: 12,
-        timeSavings: 60
+        aiCost: 4997, monthlyCustomers: 600, averageSpend: 80, adminHours: 14,
+        missedCalls: 80, recoveredPct: 40, retentionIncrease: 8, spendIncrease: 12, timeSavings: 60
       }
     };
 
@@ -107,74 +86,33 @@ const ROICalculator = () => {
     const assumedBaseline = currentRevenueInput > 0 ? 'Using your current revenue.' : 'Baseline = customers × average spend.';
     const note = `${assumedBaseline} Recovered revenue = missed calls × avg spend × recovered %.`;
 
-    setResults({
-      projectedRevenue,
-      revenueGain,
-      recoveredRevenue,
-      savedHours,
-      profitAfterAI,
-      roi,
-      note
-    });
+    setResults({ projectedRevenue, revenueGain, recoveredRevenue, savedHours, profitAfterAI, roi, note });
   };
 
-  const inputStyle = {
-    marginBottom: '14px',
-    padding: '10px',
-    fontSize: '16px',
-    color: '#e1ecff',
-    background: 'rgba(255,255,255,0.1)',
-    border: '1px solid rgba(255,255,255,0.2)',
-    borderRadius: '6px',
-    outline: 'none',
-    width: '100%'
-  };
-
-  const labelStyle = {
-    marginBottom: '6px',
-    fontWeight: 700 as const,
-    color: '#e1ecff',
-    display: 'block' as const
-  };
+  const inputClasses = "w-full mb-3 px-3 py-2.5 text-base text-navy-foreground/90 bg-white/10 border border-white/20 rounded-md outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-navy-foreground/30";
+  const labelClasses = "block mb-1.5 font-bold text-navy-foreground/85 text-sm";
 
   return (
-    <div className="bg-background" style={{ fontFamily: 'Arial, sans-serif', paddingTop: '40px', paddingBottom: '60px' }}>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-        `}
-      </style>
-
-      <div className="bg-navy border border-navy-foreground/10 rounded-xl" style={{ 
-        maxWidth: '900px', 
-        margin: '20px auto', 
-        color: '#e1ecff', 
-        padding: '30px', 
-        width: '90%'
-      }}>
-        <h1 style={{ 
-          fontFamily: 'Montserrat, sans-serif', 
-          fontSize: '30px', 
-          margin: '0 0 10px 0', 
-          color: '#ffffff' 
-        }}>
+    <section className="bg-background px-4 py-10 md:pt-10 md:pb-14">
+      <div className="bg-navy border border-navy-foreground/10 rounded-xl max-w-[900px] mx-auto text-navy-foreground/85 p-5 sm:p-6 md:p-8 w-full">
+        <h2 className="font-display text-2xl sm:text-[30px] font-semibold mb-2 text-navy-foreground">
           Estimate Your ROI
-        </h1>
-        <p style={{ margin: '0 0 18px 0', color: '#94b8d8' }}>
+        </h2>
+        <p className="mb-5 text-sm sm:text-base text-navy-foreground/50">
           Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Plan Preset</label>
+              <label className={labelClasses}>Plan Preset</label>
               <select
                 value={formData.preset}
                 onChange={(e) => {
                   setFormData({ ...formData, preset: e.target.value });
                   handlePresetChange(e.target.value);
                 }}
-                style={inputStyle}
+                className={inputClasses}
               >
                 <option value="">— Choose (optional) —</option>
                 <option value="core">Core (typical)</option>
@@ -183,118 +121,118 @@ const ROICalculator = () => {
               </select>
             </div>
             <div>
-              <label style={labelStyle}>AI Solution Cost / Month ($)</label>
+              <label className={labelClasses}>AI Solution Cost / Month ($)</label>
               <input
                 type="number"
                 value={formData.aiCost}
                 onChange={(e) => setFormData({ ...formData, aiCost: e.target.value })}
                 placeholder="e.g., 997"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Current Monthly Revenue ($)</label>
+              <label className={labelClasses}>Current Monthly Revenue ($)</label>
               <input
                 type="number"
                 value={formData.currentRevenue}
                 onChange={(e) => setFormData({ ...formData, currentRevenue: e.target.value })}
                 placeholder="(optional)"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
             <div>
-              <label style={labelStyle}>Avg Monthly Customers</label>
+              <label className={labelClasses}>Avg Monthly Customers</label>
               <input
                 type="number"
                 value={formData.monthlyCustomers}
                 onChange={(e) => setFormData({ ...formData, monthlyCustomers: e.target.value })}
                 placeholder="e.g., 200"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Avg Spend per Customer ($)</label>
+              <label className={labelClasses}>Avg Spend per Customer ($)</label>
               <input
                 type="number"
                 value={formData.averageSpend}
                 onChange={(e) => setFormData({ ...formData, averageSpend: e.target.value })}
                 placeholder="e.g., 50"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
             <div>
-              <label style={labelStyle}>Admin Hours / Week</label>
+              <label className={labelClasses}>Admin Hours / Week</label>
               <input
                 type="number"
                 value={formData.adminHours}
                 onChange={(e) => setFormData({ ...formData, adminHours: e.target.value })}
                 placeholder="e.g., 10"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Missed Calls per Month</label>
+              <label className={labelClasses}>Missed Calls per Month</label>
               <input
                 type="number"
                 value={formData.missedCalls}
                 onChange={(e) => setFormData({ ...formData, missedCalls: e.target.value })}
                 placeholder="e.g., 50"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
             <div>
-              <label style={labelStyle}>Recovered % via Automation (%)</label>
+              <label className={labelClasses}>Recovered % via Automation (%)</label>
               <input
                 type="number"
                 value={formData.recoveredPct}
                 onChange={(e) => setFormData({ ...formData, recoveredPct: e.target.value })}
                 placeholder="e.g., 25"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Retention Increase (%)</label>
+              <label className={labelClasses}>Retention Increase (%)</label>
               <input
                 type="number"
                 value={formData.retentionIncrease}
                 onChange={(e) => setFormData({ ...formData, retentionIncrease: e.target.value })}
                 placeholder="e.g., 5"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
             <div>
-              <label style={labelStyle}>Revenue per Customer Increase (%)</label>
+              <label className={labelClasses}>Revenue per Customer Increase (%)</label>
               <input
                 type="number"
                 value={formData.spendIncrease}
                 onChange={(e) => setFormData({ ...formData, spendIncrease: e.target.value })}
                 placeholder="e.g., 8"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label style={labelStyle}>Time Savings from Automation (%)</label>
+              <label className={labelClasses}>Time Savings from Automation (%)</label>
               <input
                 type="number"
                 value={formData.timeSavings}
                 onChange={(e) => setFormData({ ...formData, timeSavings: e.target.value })}
                 placeholder="e.g., 40"
-                style={inputStyle}
+                className={inputClasses}
               />
             </div>
             <div></div>
@@ -302,64 +240,33 @@ const ROICalculator = () => {
 
           <button
             onClick={calculateROI}
-            style={{
-              marginTop: '4px',
-              padding: '12px',
-              fontSize: '16px',
-              fontWeight: 700,
-              background: '#28a745',
-              color: '#fff',
-              border: 0,
-              borderRadius: '8px',
-              cursor: 'pointer'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.filter = 'brightness(0.95)'}
-            onMouseOut={(e) => e.currentTarget.style.filter = 'brightness(1)'}
+            className="mt-2 px-6 py-3 text-base font-bold bg-primary text-primary-foreground rounded-lg cursor-pointer hover:brightness-95 active:scale-[0.98] transition-all"
           >
             Calculate ROI
           </button>
-          <div style={{ fontSize: '12px', color: '#94b8d8', marginTop: '8px' }}>
+          <p className="text-xs text-navy-foreground/40 mt-2">
             Tip: If "Current Revenue" is blank, baseline = customers × average spend.
-          </div>
+          </p>
         </div>
 
         {results && (
-          <div style={{
-            marginTop: '18px',
-            padding: '16px',
-            borderRadius: '10px',
-            background: '#16324f',
-            color: '#fff'
-          }}>
-            <h2 style={{ margin: '0 0 10px 0', fontSize: '20px', color: '#fff' }}>
+          <div className="mt-5 p-4 sm:p-5 rounded-xl bg-navy-light text-navy-foreground">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 text-navy-foreground">
               ROI Calculator Results
-            </h2>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>Projected Monthly Revenue:</strong> {isFinite(results.projectedRevenue) ? money(results.projectedRevenue) : '—'}
-            </p>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>Revenue Gain vs. Current:</strong> {isFinite(results.revenueGain) ? money(results.revenueGain) : '—'}
-            </p>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>Recovered Revenue from Missed Calls:</strong> {isFinite(results.recoveredRevenue) ? money(results.recoveredRevenue) : '—'}
-            </p>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>Admin Hours Saved (Weekly):</strong> {isFinite(results.savedHours) ? results.savedHours.toFixed(1) + ' hrs' : '—'}
-            </p>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>Profit After AI Cost:</strong> {isFinite(results.profitAfterAI) ? money(results.profitAfterAI) : '—'}
-            </p>
-            <p style={{ margin: '6px 0', color: '#e1ecff' }}>
-              <strong>ROI %:</strong> {isFinite(results.roi) ? (results.roi > 999 ? '999%+' : pct(results.roi)) : '—'}
-            </p>
-            <p style={{ fontSize: '12px', color: '#cfe0ff' }}>
-              {results.note}
-            </p>
+            </h3>
+            <div className="space-y-1.5 text-sm sm:text-base">
+              <p><strong>Projected Monthly Revenue:</strong> {isFinite(results.projectedRevenue) ? money(results.projectedRevenue) : '—'}</p>
+              <p><strong>Revenue Gain vs. Current:</strong> {isFinite(results.revenueGain) ? money(results.revenueGain) : '—'}</p>
+              <p><strong>Recovered Revenue from Missed Calls:</strong> {isFinite(results.recoveredRevenue) ? money(results.recoveredRevenue) : '—'}</p>
+              <p><strong>Admin Hours Saved (Weekly):</strong> {isFinite(results.savedHours) ? results.savedHours.toFixed(1) + ' hrs' : '—'}</p>
+              <p><strong>Profit After AI Cost:</strong> {isFinite(results.profitAfterAI) ? money(results.profitAfterAI) : '—'}</p>
+              <p><strong>ROI %:</strong> {isFinite(results.roi) ? (results.roi > 999 ? '999%+' : pct(results.roi)) : '—'}</p>
+            </div>
+            <p className="text-xs text-navy-foreground/50 mt-3">{results.note}</p>
           </div>
         )}
       </div>
-
-    </div>
+    </section>
   );
 };
 
