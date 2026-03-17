@@ -1,13 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Magnet, Send, Mic, Workflow, LineChart } from "lucide-react";
+import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing } from "lucide-react";
 
 const services = [
   { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
-  { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads without manual effort." },
-  { icon: Mic, title: "AI Voice Assistants", desc: "24/7 automated customer communication that never sleeps." },
-  { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow automation connecting your tools and systems seamlessly." },
-  { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights to drive better decisions." },
+  { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads and move them toward action." },
+  { icon: Mic, title: "AI Voice Assistants", desc: "24/7 AI-powered communication that responds, qualifies, and routes leads instantly." },
+  { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow systems connecting your tools to eliminate bottlenecks and accelerate output." },
+  { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights that tie directly to revenue outcomes." },
+  { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "AI-powered systems that proactively reach out to new and existing leads to generate conversations and book appointments." },
 ];
 
 const AISystemsSection = () => {
