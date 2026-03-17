@@ -100,9 +100,16 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> designs and implements AI-powered business
-            systems that capture leads, automate customer communication, and
-            streamline operations.
+            We design AI-powered systems that capture, follow up with, and convert your leads into customers automatically.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.22 }}
+            className="mt-3 text-base text-navy-foreground/50 italic"
+          >
+            Most businesses don't have a lead problem — they have a follow-up and conversion problem.
           </motion.p>
 
           {/* Benefit pills */}
