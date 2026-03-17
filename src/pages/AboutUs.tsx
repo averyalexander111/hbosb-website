@@ -43,11 +43,7 @@ const philosophyStatements = [
   "Systems that streamline operations and provide clarity into performance.",
 ];
 
-const outcomes = [
-  "Opportunities are captured faster.",
-  "Communication becomes more consistent.",
-  "Operations run more smoothly.",
-];
+
 
 const credentials = [
   { icon: Award, title: "Certified Project Manager" },
