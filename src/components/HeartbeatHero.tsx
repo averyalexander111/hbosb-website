@@ -91,7 +91,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
-            Turn Your Business Into an AI Revenue System
+            Turn Your Business Into an AI-Powered System
           </motion.h1>
 
           <motion.p
@@ -100,16 +100,9 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            We design AI-powered systems that capture, follow up with, and convert your leads into customers automatically.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="mt-3 text-base text-navy-foreground/50 italic"
-          >
-            Most businesses don't have a lead problem — they have a follow-up and conversion problem.
+            <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> designs and implements AI-powered business
+            systems that capture leads, automate customer communication, and
+            streamline operations.
           </motion.p>
 
           {/* Benefit pills */}
@@ -121,7 +114,7 @@ const HeartbeatHero = () => {
           >
             {[
               { icon: Zap, label: "Reduce manual work" },
-              { icon: TrendingUp, label: "Convert more leads" },
+              { icon: TrendingUp, label: "Capture more leads" },
               { icon: Bot, label: "Automate follow-ups" },
             ].map((item) => (
               <span
@@ -147,7 +140,7 @@ const HeartbeatHero = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
-              Start Your AI Revenue System Assessment
+              Start Your AI Opportunity Assessment
             </a>
             <Link
               to="/roi"

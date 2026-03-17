@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "AI Revenue Systems for Local Businesses | Heartbeat of South Bay",
-  description = "We design AI-powered systems that capture, follow up with, and convert your leads into customers automatically. Book your AI Revenue System Assessment.",
+  title = "AI Automation & CRM for Local Businesses | Heartbeat of South Bay",
+  description = "We build AI automation, CRM, and high-converting websites for local brands. Get more leads, reviews, and repeat customers—done for you. Book a free consult.",
   ogTitle,
   ogDescription,
   canonicalUrl,
