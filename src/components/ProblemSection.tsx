@@ -60,6 +60,16 @@ const ProblemSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-10"
+        >
+          These are not isolated issues — they are systemic problems that reduce how many opportunities turn into customers.
+        </motion.p>
       </div>
     </section>
   );
