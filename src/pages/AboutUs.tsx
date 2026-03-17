@@ -192,32 +192,8 @@ const AboutUs = () => {
         {/* 6. AI Operating System */}
         <AIOperatingSystem />
 
-        {/* 7. When Systems Work */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="section-title">When Systems Work, Businesses Grow</h2>
-              <p className="mt-4 text-muted-foreground text-lg">
-                When the right systems are in place, businesses don't just work harder — they work smarter.
-              </p>
-            </motion.div>
-            <div className="max-w-2xl mx-auto space-y-5 mb-10">
-              {outcomes.map((item, i) => (
-                <motion.div
-                  key={item}
-                  {...scaleIn(i * 0.1)}
-                  className="flex items-center gap-4 bg-card rounded-xl p-5 shadow-elegant"
-                >
-                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                  <p className="text-foreground text-lg">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-            <motion.p {...fadeUp} className="text-center text-xl font-semibold text-foreground max-w-2xl mx-auto">
-              And when businesses operate smarter, they grow stronger.
-            </motion.p>
-          </div>
-        </section>
+
+
 
         {/* 8. Meet the Founder */}
         <section className="py-20 bg-navy relative overflow-hidden">
