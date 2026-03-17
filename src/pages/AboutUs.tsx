@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { AlertTriangle, Clock, MessageSquareOff, Wrench, Zap, MessageSquare, BarChart3, Settings, Award, Lightbulb, Bot, ArrowRight, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, Clock, MessageSquareOff, Wrench, Zap, MessageSquare, BarChart3, Settings, Award, Lightbulb, Bot } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
