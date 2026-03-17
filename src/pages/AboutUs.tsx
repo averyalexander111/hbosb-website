@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import SubpageHero from "@/components/SubpageHero";
 import AIOperatingSystem from "@/components/AIOperatingSystem";
 import averyAlexander from "@/assets/avery-alexander.jpg";
-import { Link } from "react-router-dom";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
