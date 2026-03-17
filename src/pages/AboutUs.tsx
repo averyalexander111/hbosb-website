@@ -278,7 +278,7 @@ const AboutUs = () => {
                 When businesses operate smarter, they grow stronger.
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Start Your AI Opportunity Assessment
+                Start Your AI Revenue System Assessment
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
                 Discover where automation can create the biggest impact in your business.
@@ -289,7 +289,7 @@ const AboutUs = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg text-lg font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
-                Start Your AI Opportunity Assessment
+                Start Your AI Revenue System Assessment
                 <ArrowRight className="w-5 h-5" />
               </a>
             </motion.div>
