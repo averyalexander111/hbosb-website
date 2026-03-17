@@ -121,7 +121,7 @@ const HeartbeatHero = () => {
           >
             {[
               { icon: Zap, label: "Reduce manual work" },
-              { icon: TrendingUp, label: "Capture more leads" },
+              { icon: TrendingUp, label: "Convert more leads" },
               { icon: Bot, label: "Automate follow-ups" },
             ].map((item) => (
               <span
