@@ -44,13 +44,13 @@ const AILeadResponseSection = () => {
             </span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Many businesses lose opportunities simply because inquiries are not followed up quickly.
+            Most businesses don't lose leads — they lose them in the follow-up.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            We design AI-powered lead response systems that capture inquiries, respond instantly, and organize leads into a structured pipeline so no opportunity is missed.
+            We build AI-powered lead conversion systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            These systems ensure every inquiry receives an immediate response and structured follow-up, helping businesses convert more leads into customers.
+            From first inquiry to scheduled call, every step is handled by AI — so your team can focus on closing.
           </p>
         </motion.div>
 
