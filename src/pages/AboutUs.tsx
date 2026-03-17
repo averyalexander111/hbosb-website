@@ -278,7 +278,7 @@ const AboutUs = () => {
                 When businesses operate smarter, they grow stronger.
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Start Your AI Opportunity Assessment
+                Start Your AI Revenue System Assessment
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
                 Discover where automation can create the biggest impact in your business.
