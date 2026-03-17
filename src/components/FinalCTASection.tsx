@@ -27,8 +27,8 @@ const FinalCTASection = () => {
             Let's Explore What AI Could Fix In Your Business
           </h2>
           <p className="mt-5 text-lg text-navy-foreground/60">
-            Book a complimentary strategy call and we'll identify where AI and
-            automation can create the biggest impact in your business.
+            Identify where your business is losing opportunities and how AI
+            systems can improve your lead capture, follow-up, and conversion process.
           </p>
 
           <ul className="mt-8 space-y-3 text-left max-w-md mx-auto">
