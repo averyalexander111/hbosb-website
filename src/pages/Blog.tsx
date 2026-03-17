@@ -12,6 +12,7 @@ import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SubpageHero from "@/components/SubpageHero";
 import AnimatedSection from "@/components/AnimatedSection";
+import FinalCTASection from "@/components/FinalCTASection";
 
 interface BlogPost {
   id: string;
