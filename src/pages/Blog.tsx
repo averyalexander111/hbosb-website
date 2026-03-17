@@ -232,6 +232,7 @@ const Blog = () => {
           </div>
         </section>
       </div>
+      <FinalCTASection />
       <HeartbeatFooter />
     </>
   );
