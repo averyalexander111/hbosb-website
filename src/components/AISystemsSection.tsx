@@ -24,7 +24,7 @@ const AISystemsSection = () => {
         >
           <h2 className="section-title text-foreground">AI Systems We Build</h2>
           <p className="section-subtitle mx-auto">
-            Purpose-built AI systems designed to improve your revenue, lead conversion, and operations.
+            Purpose-built systems designed to improve how your business captures, follows up with, and converts opportunities.
           </p>
         </motion.div>
 
