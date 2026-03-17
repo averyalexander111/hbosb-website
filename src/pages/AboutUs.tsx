@@ -24,7 +24,7 @@ const scaleIn = (delay = 0) => ({
 });
 
 const painPoints = [
-  { icon: AlertTriangle, text: "Leads are captured in one place" },
+  { icon: AlertTriangle, text: "Leads slip through the cracks" },
   { icon: Clock, text: "Follow-ups happen inconsistently" },
   { icon: MessageSquareOff, text: "Customer communication becomes fragmented" },
   { icon: Wrench, text: "Operations depend on manual effort" },
