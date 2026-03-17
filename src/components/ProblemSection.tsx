@@ -26,8 +26,8 @@ const ProblemSection = () => {
           </h2>
           <p className="section-subtitle mx-auto">
             These gaps quietly cost businesses time, revenue, and growth. AI
-            automation solves them by creating systems that work continuously in
-            the background.
+            systems solve them by improving how your business captures and
+            converts revenue.
           </p>
         </motion.div>
 
