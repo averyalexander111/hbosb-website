@@ -28,11 +28,11 @@ const HeartbeatFooter = () => {
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
             {[
               { to: "/", label: "Home" },
-              { to: "/about", label: "About" },
-              { to: "/blog", label: "Blog" },
+              { to: "/leads", label: "Lead Conversion System" },
               { to: "/roi", label: "ROI Calculator" },
-              { to: "/leads", label: "Leads" },
+              { to: "/about", label: "About Us" },
               { to: "/contact", label: "Contact" },
+              { to: "/blog", label: "Blog" },
             ].map((link) => (
               <Link
                 key={link.to}
