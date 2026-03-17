@@ -23,6 +23,9 @@ const ROICalculatorPage = () => {
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
           <ROICalculator />
         </Suspense>
+        <div className="bg-background flex justify-center py-8">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-navy/20 to-transparent" />
+        </div>
         <FinalCTASection />
       </main>
       <HeartbeatFooter />
