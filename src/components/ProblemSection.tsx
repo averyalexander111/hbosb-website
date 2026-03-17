@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { PhoneOff, Clock, CalendarX, Snail, Star } from "lucide-react";
 
 const problems = [
-  { icon: PhoneOff, title: "Missed Inquiries", desc: "Potential customers reach out and never hear back." },
-  { icon: Clock, title: "Inconsistent Follow-Ups", desc: "Leads fall through the cracks without a system." },
-  { icon: CalendarX, title: "Manual Scheduling", desc: "Back-and-forth booking wastes hours every week." },
-  { icon: Snail, title: "Slow Response Times", desc: "Delayed replies push prospects to competitors." },
-  { icon: Star, title: "Low Review Volume", desc: "Happy clients leave without sharing their experience." },
+  { icon: PhoneOff, title: "Missed Inquiries", desc: "Potential customers reach out and never receive a response." },
+  { icon: Clock, title: "Inconsistent Follow-Ups", desc: "Leads are not contacted consistently, causing lost opportunities." },
+  { icon: CalendarX, title: "Manual Scheduling", desc: "Time is lost going back and forth trying to book appointments." },
+  { icon: Snail, title: "Slow Response Times", desc: "Delayed replies push potential customers toward competitors." },
+  { icon: Star, title: "Low Review Volume", desc: "Satisfied customers leave without sharing their experience." },
 ];
 
 const ProblemSection = () => {
