@@ -72,23 +72,26 @@ const ImplementationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center max-w-2xl mx-auto"
+          className="mt-16 max-w-2xl mx-auto bg-navy rounded-2xl p-8 md:p-10 relative overflow-hidden border border-navy-foreground/10"
         >
-          <h3 className="text-xl font-semibold text-foreground mb-3">
-            See What This Looks Like for Your Business
-          </h3>
-          <p className="text-sm text-muted-foreground mb-8">
-            Schedule an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
-          </p>
-          <a
-            href="https://audit.heartbeatofsouthbay.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
-          >
-            Start AI Revenue System Assessment
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 text-center">
+            <h3 className="text-xl font-semibold text-navy-foreground mb-3">
+              See What This Looks Like for Your Business
+            </h3>
+            <p className="text-sm text-navy-foreground/60 mb-8">
+              Schedule an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
+            </p>
+            <a
+              href="https://audit.heartbeatofsouthbay.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+            >
+              Start AI Revenue System Assessment
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
