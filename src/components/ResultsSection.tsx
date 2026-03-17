@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "30%", label: "Reduce no-shows" },
-  { value: "22%", label: "Improve client retention" },
-  { value: "18%", label: "Increase booking conversion" },
+  { value: "30%", label: "Reduction in missed appointments through automated reminders" },
+  { value: "22%", label: "Improvement in client retention with consistent follow-up" },
+  { value: "18%", label: "Increase in booking conversion from faster response times" },
 ];
 
 const ResultsSection = () => {
