@@ -21,13 +21,16 @@ const ProblemSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
+          <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
+            Most businesses don't have a lead problem — they have a follow-up and conversion problem.
+          </p>
           <h2 className="section-title text-foreground">
             Most Businesses Are Losing Opportunities Every Day
           </h2>
           <p className="section-subtitle mx-auto">
             These gaps quietly cost businesses time, revenue, and growth. AI
-            automation solves them by creating systems that work continuously in
-            the background.
+            systems solve them by improving lead conversion, revenue, and
+            operations continuously in the background.
           </p>
         </motion.div>
 

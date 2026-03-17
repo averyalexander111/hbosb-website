@@ -8,6 +8,7 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 const ProblemSection = lazy(() => import("@/components/ProblemSection"));
 const AIOperatingSystem = lazy(() => import("@/components/AIOperatingSystem"));
 const AISystemsSection = lazy(() => import("@/components/AISystemsSection"));
+const AIVoiceOutboundSection = lazy(() => import("@/components/AIVoiceOutboundSection"));
 const ResultsSection = lazy(() => import("@/components/ResultsSection"));
 const ImplementationSection = lazy(() => import("@/components/ImplementationSection"));
 const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
@@ -33,6 +34,7 @@ const Index = () => {
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
         <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
+        <Suspense fallback={<Loader />}><AIVoiceOutboundSection /></Suspense>
         <Suspense fallback={<Loader />}><ResultsSection /></Suspense>
         <Suspense fallback={<Loader />}><ImplementationSection /></Suspense>
         <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
