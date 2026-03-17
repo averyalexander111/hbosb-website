@@ -72,6 +72,20 @@ const monthlyIncludes = [
   "Updates and improvements",
 ];
 
+const conversionBullets = [
+  "Engage leads instantly through automated messaging",
+  "Guide conversations using AI-assisted responses",
+  "Qualify opportunities with structured logic",
+  "Move prospects toward a booked appointment",
+];
+
+const advancedBullets = [
+  "Follow up after conferences or events",
+  "Reconnect with old contacts",
+  "Qualify prospects using AI voice agents",
+  "Proactively reach out to leads",
+];
+
 /* Reusable navy section background with blur orbs */
 const NavySectionBg = () => (
   <>
@@ -86,14 +100,14 @@ const AILeadResponseSystem = () => {
     <div className="min-h-screen">
       <main className="bg-background">
       <SEOHead
-        title="AI Lead Response System | Heartbeat of South Bay"
-        description="Discover how our AI Lead Response System captures inquiries, responds instantly, and organizes leads into a structured pipeline so no opportunity is missed."
+        title="AI Lead Conversion System | Heartbeat of South Bay"
+        description="Discover how our AI Lead Conversion System captures inquiries, responds instantly, and converts leads into booked appointments so no opportunity is missed."
       />
       <HeartbeatNavbar />
 
       {/* Hero */}
       <SubpageHero
-        title="AI Lead Response System"
+        title="AI Lead Conversion System"
         subtitle="Turn every inquiry into an organized opportunity."
       />
 
@@ -107,13 +121,22 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-lg text-muted-foreground leading-relaxed"
           >
-            Our AI-powered lead response systems ensure that every inquiry receives an immediate response and structured follow-up. Businesses no longer lose opportunities due to delayed responses or disorganized lead management.
+            Our AI-powered lead conversion systems ensure that every inquiry receives an immediate response and structured follow-up. Businesses no longer lose opportunities due to delayed responses or disorganized lead management.
+          </motion.p>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.1 } } }}
+            className="mt-4 text-lg text-muted-foreground leading-relaxed"
+          >
+            Automatically respond to leads and turn them into booked appointments with AI-powered follow-up.
           </motion.p>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.15 } } }}
+            variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.2 } } }}
             className="mt-10"
           >
             <a
@@ -181,7 +204,7 @@ const AILeadResponseSystem = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="section-title text-foreground">How the AI Lead Response System Works</h2>
+            <h2 className="section-title text-foreground">How the AI Lead Conversion System Works</h2>
           </motion.div>
 
           <div className="relative">
@@ -237,6 +260,54 @@ const AILeadResponseSystem = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Conversion, Not Just Response */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-10"
+          >
+            <h2 className="section-title text-foreground">
+              Conversion, Not Just{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+                Response
+              </span>
+            </h2>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+              Most systems stop at responding to leads. Heartbeat of South Bay focuses on converting them. Our system is designed to:
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="space-y-3 max-w-xl mx-auto mb-10"
+          >
+            {conversionBullets.map((item) => (
+              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center text-muted-foreground leading-relaxed"
+          >
+            This ensures your leads don't just get a reply — they move forward.
+          </motion.p>
         </div>
       </section>
 
@@ -343,6 +414,67 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
+      {/* Need Something More Advanced? — navy */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-10"
+          >
+            <h2 className="section-title text-navy-foreground">Need Something More Advanced?</h2>
+            <p className="mt-5 text-lg text-navy-foreground/60 leading-relaxed">
+              For businesses that want to go beyond inbound lead response, we also build advanced AI systems designed to generate new opportunities and increase revenue.
+            </p>
+            <p className="mt-4 text-lg text-navy-foreground/60 leading-relaxed">
+              These systems can:
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="space-y-3 max-w-xl mx-auto mb-10"
+          >
+            {advancedBullets.map((item) => (
+              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-navy-foreground/80">{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center"
+          >
+            <p className="text-navy-foreground/60 leading-relaxed mb-10">
+              Each system is custom-built based on your business, workflow, and growth goals.
+            </p>
+            <a
+              href="https://audit.heartbeatofsouthbay.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+            >
+              Apply for AI Revenue System Assessment
+              <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
+            </a>
+            <p className="mt-4 text-sm text-navy-foreground/40">
+              Complete a short assessment to see if your business is a fit for a custom AI outbound or revenue system.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Who This System Is For — navy */}
       <section className="py-20 relative overflow-hidden bg-navy">
         <NavySectionBg />
@@ -387,7 +519,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center text-navy-foreground/60 leading-relaxed"
           >
-            If your business receives inquiries but responses are delayed or inconsistent, the AI Lead Response System can help ensure every opportunity is captured and followed up automatically.
+            If your business receives inquiries but responses are delayed or inconsistent, the AI Lead Conversion System can help ensure every opportunity is captured and followed up automatically.
           </motion.p>
         </div>
       </section>
@@ -404,11 +536,14 @@ const AILeadResponseSystem = () => {
             className="max-w-2xl mx-auto rounded-2xl bg-navy border border-navy-foreground/10 p-12 md:p-16 text-center"
           >
             <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
+            <p className="text-lg text-navy-foreground/60 mb-6">
+              Turn your existing leads into real conversations and booked appointments automatically.
+            </p>
             <h2 className="section-title text-navy-foreground">
               See If This System Is Right for Your Business
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/60">
-              Schedule a consultation to confirm whether the AI Lead Response System is the right fit and begin the installation process for your business.
+              Schedule a consultation to confirm whether the AI Lead Conversion System is the right fit and begin the installation process for your business.
             </p>
             <div className="mt-12">
               <a
