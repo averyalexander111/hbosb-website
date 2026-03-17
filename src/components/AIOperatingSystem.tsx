@@ -48,7 +48,10 @@ const AIOperatingSystem = () => {
             The Heartbeat AI Operating System™
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
-            A complete automation infrastructure that strengthens every stage of
+            Our systems are designed to improve how your business generates and converts revenue.
+          </p>
+          <p className="mt-2 text-base text-navy-foreground/50 max-w-2xl mx-auto">
+            A complete system infrastructure that strengthens every stage of
             the customer journey.
           </p>
         </motion.div>
