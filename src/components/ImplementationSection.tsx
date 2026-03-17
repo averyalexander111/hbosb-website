@@ -1,26 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
     num: "01",
     title: "AI Revenue System Assessment",
-    desc: "We analyze your current operations to identify where AI systems can improve your lead capture, follow-up, and conversion process.",
+    desc: "We analyze how your business currently receives and manages inquiries to identify where opportunities are being missed.",
   },
   {
     num: "02",
     title: "AI System Blueprint",
-    desc: "A detailed implementation plan outlining workflows, integrations, and expected outcomes.",
+    desc: "We design a clear implementation plan outlining workflows, integrations, and how your system will improve lead conversion.",
   },
   {
     num: "03",
     title: "Automation Implementation",
-    desc: "We build and deploy your custom AI systems, integrating with your existing tools.",
+    desc: "We build and deploy your AI system, integrating it with your existing tools and processes.",
   },
   {
     num: "04",
     title: "Optimization & Growth",
-    desc: "Ongoing monitoring, reporting, and refinement to maximize results over time.",
+    desc: "We monitor performance, refine workflows, and improve results over time as your system continues to operate.",
   },
 ];
 
@@ -36,8 +37,11 @@ const ImplementationSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="section-title text-foreground">
-            How We Implement AI Systems
+            How We Build and Implement AI Systems
           </h2>
+          <p className="section-subtitle mx-auto mt-4">
+            These results come from a structured system designed to improve how your business captures, follows up with, and converts opportunities.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
@@ -62,6 +66,30 @@ const ImplementationSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 text-center max-w-2xl mx-auto"
+        >
+          <h3 className="text-xl font-semibold text-foreground mb-3">
+            See What This Looks Like for Your Business
+          </h3>
+          <p className="text-sm text-muted-foreground mb-8">
+            Schedule an AI Revenue System Assessment to identify where your business can improve lead conversion, follow-up, and automation.
+          </p>
+          <a
+            href="https://audit.heartbeatofsouthbay.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+          >
+            Start AI Revenue System Assessment
+            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
