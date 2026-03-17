@@ -120,9 +120,9 @@ const HeartbeatHero = () => {
             className="mt-8 flex flex-wrap gap-3"
           >
             {[
-              { icon: TrendingUp, label: "Increase revenue" },
-              { icon: Zap, label: "Convert more leads" },
-              { icon: Bot, label: "Automate follow-ups" },
+              { icon: Zap, label: "Capture every lead" },
+              { icon: Bot, label: "Automate follow-up" },
+              { icon: TrendingUp, label: "Grow revenue" },
             ].map((item) => (
               <span
                 key={item.label}
