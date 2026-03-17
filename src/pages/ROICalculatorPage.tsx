@@ -7,7 +7,7 @@ import SubpageHero from "@/components/SubpageHero";
 import FinalCTASection from "@/components/FinalCTASection";
 
 const ROICalculator = lazy(() => import("@/components/ROICalculator"));
-const ConnectSection = lazy(() => import("@/components/ConnectSection"));
+const ContactInfoStrip = lazy(() => import("@/components/ContactInfoStrip"));
 
 const ROICalculatorPage = () => {
   return (
@@ -25,11 +25,9 @@ const ROICalculatorPage = () => {
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
           <ROICalculator />
         </Suspense>
-        <AnimatedSection>
-          <Suspense fallback={null}>
-            <ConnectSection />
-          </Suspense>
-        </AnimatedSection>
+        <Suspense fallback={null}>
+          <ContactInfoStrip />
+        </Suspense>
         <FinalCTASection />
       </main>
       <HeartbeatFooter />
