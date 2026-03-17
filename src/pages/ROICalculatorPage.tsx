@@ -7,7 +7,7 @@ import SubpageHero from "@/components/SubpageHero";
 import FinalCTASection from "@/components/FinalCTASection";
 
 const ROICalculator = lazy(() => import("@/components/ROICalculator"));
-const ConnectSection = lazy(() => import("@/components/ConnectSection"));
+const ContactInfoStrip = lazy(() => import("@/components/ContactInfoStrip"));
 
 const ROICalculatorPage = () => {
   return (
