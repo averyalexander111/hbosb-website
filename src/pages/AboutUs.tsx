@@ -285,8 +285,11 @@ const AboutUs = () => {
           <div className="container mx-auto px-4 relative z-10">
             <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto">
               <h2 className="section-title text-navy-foreground mb-6">Our Vision</h2>
-              <p className="text-xl text-navy-foreground/70 leading-relaxed">
+              <p className="text-xl text-navy-foreground/70 leading-relaxed mb-4">
                 <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> exists to help businesses step confidently into a new era of intelligent operations powered by AI and automation.
+              </p>
+              <p className="text-lg text-navy-foreground/50 leading-relaxed">
+                We envision a future where every business — regardless of size — has access to the intelligent systems that were once reserved for enterprise organizations.
               </p>
             </motion.div>
           </div>
