@@ -91,7 +91,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
-            Turn Your Business Into an AI-Powered System
+            Turn Your Business Into an AI Revenue System
           </motion.h1>
 
           <motion.p
