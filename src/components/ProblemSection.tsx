@@ -28,9 +28,8 @@ const ProblemSection = () => {
             Most Businesses Are Losing Opportunities Every Day
           </h2>
           <p className="section-subtitle mx-auto">
-            These gaps quietly cost businesses time, revenue, and growth. AI
-            systems solve them by improving lead conversion, revenue, and
-            operations continuously in the background.
+            Small breakdowns in response time, follow-up, and organization lead to missed revenue.
+            AI systems fix these gaps by capturing, responding to, and converting opportunities automatically.
           </p>
         </motion.div>
 
