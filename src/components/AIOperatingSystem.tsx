@@ -70,10 +70,10 @@ const AIOperatingSystem = () => {
                 <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stage.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-navy-foreground mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   {stage.title}
                 </h3>
-                <p className="text-sm text-navy-foreground/50">{stage.desc}</p>
+                <p className="text-sm text-muted-foreground">{stage.desc}</p>
               </motion.div>
               {i < stages.length - 1 && (
                 <div className="hidden lg:flex items-center justify-center">
