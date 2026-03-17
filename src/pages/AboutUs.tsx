@@ -289,7 +289,7 @@ const AboutUs = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg text-lg font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
-                Start Your AI Opportunity Assessment
+                Start Your AI Revenue System Assessment
                 <ArrowRight className="w-5 h-5" />
               </a>
             </motion.div>
