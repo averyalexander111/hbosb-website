@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
@@ -32,7 +33,7 @@ const PrivacyPolicy = () => {
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg leading-relaxed mb-6">
-                    Heartbeat of South Bay website is owned by Heartbeat of South Bay, which is a data controller of your personal data.
+                    Heartbeat of South Bay is a digital marketing and AI automation agency that provides services to businesses and individuals. We act as the data controller for any personal information collected through our website.
                   </p>
                   
                   <p className="text-lg leading-relaxed mb-6">
@@ -79,10 +80,27 @@ const PrivacyPolicy = () => {
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communication</h2>
                   <p className="text-base leading-relaxed mb-4">
-                    Heartbeat of South Bay may send SMS messages to individuals who opt in through our website forms. These messages may include appointment confirmations, reminders, follow-ups, and service-related information.
+                    Heartbeat of South Bay may send SMS messages to individuals who have provided explicit consent through our website forms, including our contact form at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    These messages may include appointment confirmations, consultation reminders, follow-ups, and service-related updates.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Message frequency may vary. Message and data rates may apply.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    You can opt out of receiving SMS messages at any time by replying STOP. For assistance, reply HELP.
                   </p>
                   <p className="text-base leading-relaxed mb-8">
-                    Users can opt out at any time by replying STOP.
+                    We do not share, sell, rent, or disclose your phone number or SMS opt-in information to third parties for marketing purposes.
+                  </p>
+
+                  <h2 className="text-2xl font-bold mb-4 text-primary">Consent to Receive Communications</h2>
+                  <p className="text-base leading-relaxed mb-4">
+                    By providing your phone number through our website and checking the consent box, you expressly agree to receive SMS communications from Heartbeat of South Bay.
+                  </p>
+                  <p className="text-base leading-relaxed mb-8">
+                    Your consent is not a condition of purchase. You may opt out at any time as described above.
                   </p>
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">Links to Other Websites</h2>
@@ -101,8 +119,11 @@ const PrivacyPolicy = () => {
                   </p>
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">Contact Information</h2>
-                  <p className="text-base leading-relaxed">
+                  <p className="text-base leading-relaxed mb-4">
                     If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to <a href="mailto:info@heartbeatofsouthbay.com" className="text-primary hover:underline">info@heartbeatofsouthbay.com</a>.
+                  </p>
+                  <p className="text-base leading-relaxed">
+                    View our <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
                   </p>
                 </div>
               </div>
