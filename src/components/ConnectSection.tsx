@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -15,12 +16,17 @@ const ConnectSection = React.memo(() => {
     phone_number: "",
     message: "",
   });
+  const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.full_name.trim() || !formData.email_address.trim() || !formData.phone_number.trim() || !formData.message.trim()) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    if (!smsConsent) {
+      toast.error("Please agree to receive SMS messages to continue.");
       return;
     }
     setIsSubmitting(true);
@@ -35,6 +41,7 @@ const ConnectSection = React.memo(() => {
       if (error) throw error;
       toast.success("Thank you! Your message has been sent successfully.");
       setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
+      setSmsConsent(false);
     } catch {
       toast.error("Something went wrong. Please try again later.");
     } finally {
@@ -120,13 +127,24 @@ const ConnectSection = React.memo(() => {
                     className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
-                <p className="text-xs text-navy-foreground/40 leading-relaxed">
-                  By submitting this form, you agree to receive SMS messages from Heartbeat of South&nbsp;Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="home_sms_consent"
+                    checked={smsConsent}
+                    onCheckedChange={(checked) => setSmsConsent(checked === true)}
+                    className="mt-0.5 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                  />
+                  <label htmlFor="home_sms_consent" className="text-xs text-navy-foreground/60 leading-relaxed cursor-pointer">
+                    I agree to receive SMS messages from Heartbeat of South&nbsp;Bay regarding my inquiry, appointments, and services. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
+                  </label>
+                </div>
+                <p className="text-xs text-navy-foreground/40">
+                  View our{" "}
                   <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                   {" "}and{" "}
                   <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                 </p>
-                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || !smsConsent}>
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
