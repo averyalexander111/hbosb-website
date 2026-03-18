@@ -110,6 +110,7 @@ const Contact = () => {
 
       toast.success("Thank you! Your message has been sent successfully.");
       setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
+      setSmsConsent(false);
     } catch (err) {
       toast.error("Something went wrong. Please try again later.");
     } finally {
