@@ -21,6 +21,7 @@ const Contact = () => {
     phone_number: "",
     message: "",
   });
+  const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
