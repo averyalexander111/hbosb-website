@@ -16,6 +16,7 @@ const ConnectSection = React.memo(() => {
     phone_number: "",
     message: "",
   });
+  const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
