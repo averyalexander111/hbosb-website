@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import ConnectSection from "@/components/ConnectSection";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
