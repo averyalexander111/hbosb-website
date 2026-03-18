@@ -79,10 +79,27 @@ const PrivacyPolicy = () => {
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communication</h2>
                   <p className="text-base leading-relaxed mb-4">
-                    Heartbeat of South Bay may send SMS messages to individuals who opt in through our website forms. These messages may include appointment confirmations, reminders, follow-ups, and service-related information.
+                    Heartbeat of South Bay may send SMS messages to individuals who have provided explicit consent through our website forms, including our contact form at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    These messages may include appointment confirmations, consultation reminders, follow-ups, and service-related updates.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Message frequency may vary. Message and data rates may apply.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    You can opt out of receiving SMS messages at any time by replying STOP. For assistance, reply HELP.
                   </p>
                   <p className="text-base leading-relaxed mb-8">
-                    Users can opt out at any time by replying STOP.
+                    We do not share, sell, rent, or disclose your phone number or SMS opt-in information to third parties for marketing purposes.
+                  </p>
+
+                  <h2 className="text-2xl font-bold mb-4 text-primary">Consent to Receive Communications</h2>
+                  <p className="text-base leading-relaxed mb-4">
+                    By providing your phone number through our website and checking the consent box, you expressly agree to receive SMS communications from Heartbeat of South Bay.
+                  </p>
+                  <p className="text-base leading-relaxed mb-8">
+                    Your consent is not a condition of purchase. You may opt out at any time as described above.
                   </p>
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">Links to Other Websites</h2>
