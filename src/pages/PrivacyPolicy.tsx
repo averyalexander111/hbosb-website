@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
               <div className="bg-card p-8 rounded-2xl shadow-elegant">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg leading-relaxed mb-6">
-                    Heartbeat of South Bay website is owned by Heartbeat of South Bay, which is a data controller of your personal data.
+                    Heartbeat of South Bay is a digital marketing and AI automation agency that provides services to businesses and individuals. We act as the data controller for any personal information collected through our website.
                   </p>
                   
                   <p className="text-lg leading-relaxed mb-6">
