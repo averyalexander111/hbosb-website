@@ -25,6 +25,10 @@ const ConnectSection = React.memo(() => {
       toast.error("Please fill in all required fields.");
       return;
     }
+    if (!smsConsent) {
+      toast.error("Please agree to receive SMS messages to continue.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       const { error } = await supabase.from("HBOSB Contact Form").insert({
