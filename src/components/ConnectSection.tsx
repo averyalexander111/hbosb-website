@@ -127,13 +127,24 @@ const ConnectSection = React.memo(() => {
                     className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
                   />
                 </div>
-                <p className="text-xs text-navy-foreground/40 leading-relaxed">
-                  By submitting this form, you agree to receive SMS messages from Heartbeat of South&nbsp;Bay related to consultations, project updates, and service communication. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. View our{" "}
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="home_sms_consent"
+                    checked={smsConsent}
+                    onCheckedChange={(checked) => setSmsConsent(checked === true)}
+                    className="mt-0.5 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                  />
+                  <label htmlFor="home_sms_consent" className="text-xs text-navy-foreground/60 leading-relaxed cursor-pointer">
+                    I agree to receive SMS messages from Heartbeat of South&nbsp;Bay regarding my inquiry, appointments, and services. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
+                  </label>
+                </div>
+                <p className="text-xs text-navy-foreground/40">
+                  View our{" "}
                   <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
                   {" "}and{" "}
                   <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
                 </p>
-                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || !smsConsent}>
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
