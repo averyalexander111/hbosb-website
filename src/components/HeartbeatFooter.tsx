@@ -91,10 +91,10 @@ const HeartbeatFooter = () => {
             &copy; {new Date().getFullYear()} Heartbeat of South Bay. All rights reserved.
           </p>
           <div className="flex gap-4 text-xs">
-            <Link to="/terms" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
+            <Link to="/terms-and-conditions" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
               Terms
             </Link>
-            <Link to="/privacy" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
+            <Link to="/privacy-policy" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
               Privacy
             </Link>
           </div>

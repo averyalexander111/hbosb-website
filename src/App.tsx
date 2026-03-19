@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Suspense, lazy } from "react";
 import { HelmetProvider } from "react-helmet-async";
@@ -67,8 +67,10 @@ const App = () => (
                   </AdminGuard>
                 } 
               />
-              <Route path="/terms" element={<TermsAndConditions />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
+              <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/leads" element={<AILeadResponseSystem />} />
               <Route path="/roi" element={<ROICalculatorPage />} />

@@ -14,8 +14,8 @@ const PrivacyPolicy = () => {
         title="Privacy Policy - Heartbeat of South Bay"
         description="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
         ogTitle="Privacy Policy - Heartbeat of South Bay"
-        ogDescription="Read Heartbeat of South Bay's privacy policy to understand how we collect, use, and protect your personal information when using our AI automation services."
-        canonicalUrl={`${window.location.origin}/privacy`}
+        ogDescription="Learn how Heartbeat of South Bay collects, uses, and protects your information."
+        canonicalUrl={`${window.location.origin}/privacy-policy`}
       />
       <HeartbeatNavbar />
       <main>
@@ -123,7 +123,7 @@ const PrivacyPolicy = () => {
                     If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to <a href="mailto:info@heartbeatofsouthbay.com" className="text-primary hover:underline">info@heartbeatofsouthbay.com</a>.
                   </p>
                   <p className="text-base leading-relaxed">
-                    View our <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+                    View our <Link to="/terms-and-conditions" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.
                   </p>
                 </div>
               </div>
