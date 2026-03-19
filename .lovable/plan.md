@@ -1,31 +1,58 @@
 
 
-## Assessment: No Changes Needed
+## Global Contact Form Update — High-Converting, SMS Compliant
 
-After thorough investigation, the `ConnectSection` component on both the Privacy Policy and Terms of Service pages **already implements every requirement listed**:
+### Current State
 
-| Requirement | Status |
-|---|---|
-| SMS consent checkbox present | Done (line 131-139) |
-| Unchecked by default | Done (`useState(false)`) |
-| Form blocked until checked | Done (`disabled={isSubmitting \|\| !smsConsent}`) |
-| Correct label text with STOP/HELP | Done |
-| "View our Terms / Privacy" links below checkbox | Done (lines 141-146) |
-| Old "By submitting this form..." removed | Done (not found in codebase) |
-| Shared component on both pages | Done (both import `ConnectSection`) |
-| Mobile responsive | Done (responsive grid classes) |
+There are **two separate form implementations**:
+1. **`ConnectSection.tsx`** — shared component used on Homepage, Privacy, Terms, and AI Lead Response pages (4 places)
+2. **`Contact.tsx`** — has its own inline duplicate form on the /contact page
 
-### Evidence
+Both have identical logic but are maintained separately. This update will create a single shared form component and apply all enhancements.
 
-- **ConnectSection.tsx** (shared): Contains checkbox with `id="home_sms_consent"`, correct consent label, `Link` components to `/terms` and `/privacy`, and submit button disabled unless `smsConsent` is true.
-- **PrivacyPolicy.tsx** line 136: `<ConnectSection />`
-- **TermsAndConditions.tsx** line 140: `<ConnectSection />`
-- No console errors detected.
-- No duplicate or outdated form components found.
+### Plan
 
-### Recommendation
+#### Step 1: Create `src/components/ContactForm.tsx` — New Shared Form Component
 
-There are no code changes to make — the form is already fully compliant and rendering on both pages. If the form appears missing visually, it may require scrolling to the bottom of the page (it renders after the legal content, before the footer).
+Extract the form into a standalone, reusable component with these props:
+- `areaOfInterest: string` (to distinguish submissions by page)
+- `formIdPrefix: string` (unique HTML IDs to avoid conflicts)
 
-If you'd like, I can use the browser tool to take screenshots of both pages to visually confirm the form is rendering, or I can proceed with no changes since the code is already correct.
+The form will include all requested enhancements:
+
+- **Headline**: "Prefer to Send a Message?"
+- **Subheading**: "Tell us a bit about what you're looking for and we'll get back to you shortly."
+- **Fields**: Name, Email, Phone, Message — with rounded inputs, soft shadows, smooth focus ring transitions
+- **Consent container**: Visually distinct block with `bg-white/5 border border-white/10 rounded-xl p-4` wrapping the checkbox + label + legal links
+- **Updated checkbox label** (exact text from requirements, including "Consent is not a condition of purchase")
+- **Terms/Privacy links** below checkbox inside the consent container
+- **Consent error state**: Shows inline "Consent is required to receive SMS communication." message on failed submit attempt without consent
+- **Submit button**: Full-width, hover effect, disabled until consent checked
+- **Microcopy below button**: "We typically respond within 24 hours."
+- **Trust line**: "Secure. No spam. Your information is never shared." with a lock/shield icon
+
+#### Step 2: Update `ConnectSection.tsx`
+
+- Replace the inline form (lines 72-151) with `<ContactForm areaOfInterest="Homepage Inquiry" formIdPrefix="home" />`
+- Keep the "Connect with Us" heading, description, and "Get in Touch" contact info grid unchanged
+
+#### Step 3: Update `Contact.tsx`
+
+- Replace the inline form (lines 170-253) with `<ContactForm areaOfInterest="Contact Page Inquiry" formIdPrefix="contact" />`
+- Remove duplicated state/handler code (`formData`, `smsConsent`, `handleSubmit`)
+- Keep Cal.com embed, trust points, and page structure unchanged
+
+### Files Modified
+- **New**: `src/components/ContactForm.tsx`
+- **Edit**: `src/components/ConnectSection.tsx`
+- **Edit**: `src/pages/Contact.tsx`
+
+### Technical Details
+
+- Checkbox unchecked by default (`useState(false)`)
+- New `consentError` state shown inline when user tries to submit without checking
+- Toast error also fires: "Consent is required to receive SMS communication."
+- `formIdPrefix` prop ensures unique element IDs when multiple forms appear on the same page (unlikely but safe)
+- All Tailwind classes stay within the existing navy/primary design system
+- Mobile: single-column stacking, large tap targets (`min-h-[44px]` on checkbox area)
 
