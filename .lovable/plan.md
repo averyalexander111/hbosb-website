@@ -1,36 +1,26 @@
 
 
-## Rename Legal Page URLs & Update All References
+## Standardize Legal Page Labels
 
-### Files to Modify
+### Changes Required
 
-**1. `src/App.tsx`** — Update routes and add redirects
-- Change `/terms` route to `/terms-and-conditions`
-- Change `/privacy` route to `/privacy-policy`
-- Add redirect routes: `/terms` → `/terms-and-conditions`, `/privacy` → `/privacy-policy` using `<Navigate to="..." replace />`
+Four files have outdated labels that need updating:
 
-**2. `src/components/ContactForm.tsx`** — Update links
-- `/terms` → `/terms-and-conditions`
-- `/privacy` → `/privacy-policy`
+**1. `src/components/ContactForm.tsx`** (line 212)
+- Change `"Terms of Service"` → `"Terms and Conditions"`
 
-**3. `src/components/HeartbeatFooter.tsx`** — Update footer links
-- `/terms` → `/terms-and-conditions`
-- `/privacy` → `/privacy-policy`
+**2. `src/components/HeartbeatFooter.tsx`** (lines 95, 98)
+- Change `"Terms"` → `"Terms and Conditions"`
+- Change `"Privacy"` → `"Privacy Policy"`
 
-**4. `src/pages/TermsAndConditions.tsx`** — Update metadata
-- `canonicalUrl` → `${window.location.origin}/terms-and-conditions`
-- `ogDescription` → "Review the terms and conditions for using Heartbeat of South Bay services."
+**3. `src/pages/PrivacyPolicy.tsx`** (line 126)
+- Change `"Terms of Service"` → `"Terms and Conditions"` in the cross-link text
 
-**5. `src/pages/PrivacyPolicy.tsx`** — Update metadata and internal link
-- `canonicalUrl` → `${window.location.origin}/privacy-policy`
-- `ogDescription` → "Learn how Heartbeat of South Bay collects, uses, and protects your information."
-- Update internal `/terms` link to `/terms-and-conditions`
-- Update internal `/privacy` link to `/privacy-policy`
+**4. `src/pages/TermsAndConditions.tsx`** (line 98)
+- Change `"SMS Terms of Service"` → `"SMS Terms and Conditions"` in the section heading
 
-### Technical Details
-
-- React Router's `<Navigate to="..." replace />` serves as a client-side redirect (equivalent to 301 for SPA). Old URLs `/privacy` and `/terms` will instantly redirect to new paths.
-- Import `Navigate` from `react-router-dom` in App.tsx.
-- The `usePerformanceOptimization.tsx` prefetch list already uses the new URLs — no change needed there.
-- Total: 5 files modified, no new files.
+### What stays the same
+- All URLs already point to `/terms-and-conditions` and `/privacy-policy` (correct)
+- No layout, spacing, or styling changes
+- No other files contain outdated references
 
