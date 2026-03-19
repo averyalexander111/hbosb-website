@@ -128,7 +128,7 @@ const Contact = () => {
         <AnimatedSection>
           <section className="pb-16">
             <div className="mx-auto max-w-[1100px] px-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-3">
                 Prefer to Schedule a Call Instead?
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
