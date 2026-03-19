@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 import SubpageHero from "@/components/SubpageHero";
 import AnimatedSection from "@/components/AnimatedSection";
+import ContactForm from "@/components/ContactForm";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    full_name: "",
-    email_address: "",
-    phone_number: "",
-    message: "",
-  });
-  const [smsConsent, setSmsConsent] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   useEffect(() => {
     const scriptId = "cal-embed-script";
     if (document.getElementById(scriptId)) return;
@@ -84,40 +68,6 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.full_name.trim() || !formData.email_address.trim() || !formData.phone_number.trim() || !formData.message.trim()) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
-    if (!smsConsent) {
-      toast.error("Please agree to receive SMS messages to continue.");
-      return;
-    }
-
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase.from("HBOSB Contact Form").insert({
-        full_name: formData.full_name.trim(),
-        email_address: formData.email_address.trim(),
-        phone_number: formData.phone_number.trim(),
-        message: formData.message.trim(),
-        area_of_interest: "Contact Page Inquiry",
-      });
-
-      if (error) throw error;
-
-      toast.success("Thank you! Your message has been sent successfully.");
-      setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
-      setSmsConsent(false);
-    } catch (err) {
-      toast.error("Something went wrong. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const trustPoints = [
     "AI automation solutions for small businesses",
     "CRM and workflow automation",
@@ -167,91 +117,11 @@ const Contact = () => {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
           <div className="mx-auto max-w-[1100px] px-4">
             {/* Contact Form */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-8">
-              Prefer to Send a Message?
-            </h2>
-            <div className="max-w-xl mx-auto mb-16">
-              <div className="bg-white/10 backdrop-blur p-8 rounded-2xl">
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-navy-foreground/70">Name *</Label>
-                    <Input
-                      id="full_name"
-                      type="text"
-                      placeholder="Your full name"
-                      value={formData.full_name}
-                      onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
-                      maxLength={100}
-                      required
-                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="email_address" className="text-navy-foreground/70">Email *</Label>
-                    <Input
-                      id="email_address"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email_address}
-                      onChange={(e) => setFormData(prev => ({ ...prev, email_address: e.target.value }))}
-                      maxLength={255}
-                      required
-                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="phone_number" className="text-navy-foreground/70">Phone Number *</Label>
-                    <Input
-                      id="phone_number"
-                      type="tel"
-                      placeholder="(555) 123-4567"
-                      value={formData.phone_number}
-                      onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
-                      maxLength={20}
-                      required
-                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="message" className="text-navy-foreground/70">Message *</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="How can we help you?"
-                      value={formData.message}
-                      onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                      maxLength={1000}
-                      rows={5}
-                      required
-                      className="bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40"
-                    />
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Checkbox
-                      id="contact_sms_consent"
-                      checked={smsConsent}
-                      onCheckedChange={(checked) => setSmsConsent(checked === true)}
-                      className="mt-0.5 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
-                    />
-                    <label htmlFor="contact_sms_consent" className="text-xs text-navy-foreground/60 leading-relaxed cursor-pointer">
-                      I agree to receive SMS messages from Heartbeat of South&nbsp;Bay regarding my inquiry, appointments, and services. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
-                    </label>
-                  </div>
-                  <p className="text-xs text-navy-foreground/40">
-                    View our{" "}
-                    <Link to="/terms" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Terms of Service</Link>
-                    {" "}and{" "}
-                    <Link to="/privacy" className="underline text-primary/70 hover:text-navy-foreground transition-colors">Privacy Policy</Link>.
-                  </p>
-
-                  <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || !smsConsent}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </div>
+            <div className="mb-16">
+              <ContactForm
+                areaOfInterest="Contact Page Inquiry"
+                formIdPrefix="contact"
+              />
             </div>
 
             {/* Trust Section */}
@@ -262,7 +132,7 @@ const Contact = () => {
               {trustPoints.map((point) => (
                 <div key={point} className="flex items-start gap-3 bg-white/10 backdrop-blur p-5 rounded-xl">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                   <span className="text-navy-foreground/70 text-sm font-medium">{point}</span>
+                  <span className="text-navy-foreground/70 text-sm font-medium">{point}</span>
                 </div>
               ))}
             </div>
