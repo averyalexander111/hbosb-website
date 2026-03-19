@@ -206,7 +206,7 @@ const ContactForm = React.memo(({
             <p className="mt-3 text-xs text-navy-foreground/40">
               View our{" "}
               <Link
-                to="/terms"
+                to="/terms-and-conditions"
                 className="underline text-primary/70 hover:text-navy-foreground transition-colors"
               >
                 Terms of Service
