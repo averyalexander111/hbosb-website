@@ -88,35 +88,15 @@ const Contact = () => {
 
       <main className="bg-background">
         <SubpageHero
-          title="Schedule a Consultation"
-          subtitle="Book a quick call to discuss your project, AI automation opportunities, or digital marketing strategy."
+          title="Get in Touch"
+          subtitle="Send us a message or schedule a call — we're here to help your business grow."
         />
 
-        <AnimatedSection>
-          <section className="pb-16">
-            <div className="mx-auto max-w-[1100px] px-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-8">
-                Book a 30-Minute AI Opportunity Assessment
-              </h2>
-              <div
-                className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
-                style={{ minHeight: 500 }}
-              >
-                <div
-                  id="my-cal-inline-ai-opportunity-assessment"
-                  style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }}
-                />
-              </div>
-            </div>
-          </section>
-        </AnimatedSection>
-
-        {/* Dark navy section: Form + Trust */}
+        {/* PRIMARY: Contact Form + Trust */}
         <section className="py-16 bg-navy relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
           <div className="mx-auto max-w-[1100px] px-4">
-            {/* Contact Form */}
             <div className="mb-16">
               <ContactForm
                 areaOfInterest="Contact Page Inquiry"
@@ -124,7 +104,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Trust Section */}
             <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground text-center mb-10">
               Why Work With Heartbeat of South&nbsp;Bay
             </h2>
@@ -138,6 +117,34 @@ const Contact = () => {
             </div>
           </div>
         </section>
+
+        {/* Divider */}
+        <div className="mx-auto max-w-[1100px] px-4 py-8">
+          <Separator className="bg-border" />
+        </div>
+
+        {/* SECONDARY: Cal.com Booking */}
+        <AnimatedSection>
+          <section className="pb-16">
+            <div className="mx-auto max-w-[1100px] px-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 text-center mb-3">
+                Prefer to Schedule a Call Instead?
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
+                Book a time that works best for you and we'll connect directly.
+              </p>
+              <div
+                className="w-full rounded-2xl bg-card shadow-lg overflow-hidden"
+                style={{ minHeight: 500 }}
+              >
+                <div
+                  id="my-cal-inline-ai-opportunity-assessment"
+                  style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }}
+                />
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
       </main>
 
       <HeartbeatFooter />
