@@ -1,59 +1,36 @@
 
 
-## Restructure Contact Page Layout
+## Rename Legal Page URLs & Update All References
 
-### What Changes
+### Files to Modify
 
-Reorder sections in `src/pages/Contact.tsx` so the contact form appears first (primary CTA), followed by the Cal.com booking widget (secondary option).
+**1. `src/App.tsx`** — Update routes and add redirects
+- Change `/terms` route to `/terms-and-conditions`
+- Change `/privacy` route to `/privacy-policy`
+- Add redirect routes: `/terms` → `/terms-and-conditions`, `/privacy` → `/privacy-policy` using `<Navigate to="..." replace />`
 
-### New Section Order
+**2. `src/components/ContactForm.tsx`** — Update links
+- `/terms` → `/terms-and-conditions`
+- `/privacy` → `/privacy-policy`
 
-1. **SubpageHero** — Update subtitle to reflect "send a message or schedule a call"
-2. **Contact Form** (dark navy section) — Primary action, appears immediately after hero
-3. **Trust Points** — Stays within the navy section below the form
-4. **Visual Divider** — Subtle separator (horizontal rule with spacing)
-5. **New "Prefer to Schedule a Call?" Section** — Heading + subtext introducing the calendar
-6. **Cal.com Booking Widget** — Repositioned below the new heading
+**3. `src/components/HeartbeatFooter.tsx`** — Update footer links
+- `/terms` → `/terms-and-conditions`
+- `/privacy` → `/privacy-policy`
 
-### File: `src/pages/Contact.tsx`
+**4. `src/pages/TermsAndConditions.tsx`** — Update metadata
+- `canonicalUrl` → `${window.location.origin}/terms-and-conditions`
+- `ogDescription` → "Review the terms and conditions for using Heartbeat of South Bay services."
 
-**Lines 89-141** will be restructured:
+**5. `src/pages/PrivacyPolicy.tsx`** — Update metadata and internal link
+- `canonicalUrl` → `${window.location.origin}/privacy-policy`
+- `ogDescription` → "Learn how Heartbeat of South Bay collects, uses, and protects your information."
+- Update internal `/terms` link to `/terms-and-conditions`
+- Update internal `/privacy` link to `/privacy-policy`
 
-```
-<main>
-  <SubpageHero
-    title="Get in Touch"
-    subtitle="Send us a message or schedule a call..."
-  />
+### Technical Details
 
-  {/* PRIMARY: Dark navy section with Contact Form + Trust */}
-  <section className="py-16 bg-navy ...">
-    <ContactForm ... />
-    {/* Trust Points */}
-  </section>
-
-  {/* Divider */}
-  <div className="mx-auto max-w-[1100px] px-4 py-8">
-    <Separator className="bg-slate-200" />
-  </div>
-
-  {/* SECONDARY: Cal.com booking */}
-  <AnimatedSection>
-    <section className="pb-16">
-      <div className="mx-auto max-w-[1100px] px-4">
-        <h2>Prefer to Schedule a Call Instead?</h2>
-        <p>Book a time that works best for you...</p>
-        {/* Cal.com widget */}
-      </div>
-    </section>
-  </AnimatedSection>
-</main>
-```
-
-### What Stays the Same
-- Cal.com embed script logic (useEffect) unchanged
-- ContactForm component unchanged
-- Trust points unchanged
-- All styling/design system preserved
-- SMS consent checkbox position within form unchanged
+- React Router's `<Navigate to="..." replace />` serves as a client-side redirect (equivalent to 301 for SPA). Old URLs `/privacy` and `/terms` will instantly redirect to new paths.
+- Import `Navigate` from `react-router-dom` in App.tsx.
+- The `usePerformanceOptimization.tsx` prefetch list already uses the new URLs — no change needed there.
+- Total: 5 files modified, no new files.
 
