@@ -6,6 +6,7 @@ import { CheckCircle2 } from "lucide-react";
 import SubpageHero from "@/components/SubpageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import { Separator } from "@/components/ui/separator";
 
 const Contact = () => {
   useEffect(() => {
