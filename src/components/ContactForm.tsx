@@ -213,7 +213,7 @@ const ContactForm = React.memo(({
               </Link>{" "}
               and{" "}
               <Link
-                to="/privacy"
+                to="/privacy-policy"
                 className="underline text-primary/70 hover:text-navy-foreground transition-colors"
               >
                 Privacy Policy
