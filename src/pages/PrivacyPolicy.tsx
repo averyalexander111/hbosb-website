@@ -78,29 +78,27 @@ const PrivacyPolicy = () => {
                     Additionally, if you are a European resident, we note that we are processing your information in order to fulfill contracts we might have with you (for example, if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information might be transferred outside of Europe, including Canada and the United States.
                   </p>
 
-                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communication</h2>
+                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communications and Consent</h2>
                   <p className="text-base leading-relaxed mb-4">
-                    Heartbeat of South Bay may send SMS messages to individuals who have provided explicit consent through our website forms, including our contact form at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
+                    Heartbeat of South Bay collects phone numbers through website forms, including the contact form located at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    These messages may include appointment confirmations, consultation reminders, follow-ups, and service-related updates.
+                    When submitting a form, users are required to provide their phone number and check a consent checkbox before submission. This checkbox is not pre-selected and must be actively selected by the user.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    Message frequency may vary. Message and data rates may apply.
+                    By submitting the form and providing consent, users agree to receive SMS messages related to their inquiry, including responses, appointment scheduling, reminders, and follow-up communication.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    You can opt out of receiving SMS messages at any time by replying STOP. For assistance, reply HELP.
+                    Message frequency varies based on user interaction. Message and data rates may apply.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Users can opt out of receiving SMS messages at any time by replying STOP. For assistance, users can reply HELP or contact us at <a href="mailto:info@heartbeatofsouthbay.com" className="text-primary hover:underline">info@heartbeatofsouthbay.com</a> or through our website at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Heartbeat of South Bay uses phone numbers and SMS opt-in data solely for communication related to the user's inquiry and services. We do not sell, rent, or share phone numbers or SMS opt-in data with third parties for marketing purposes.
                   </p>
                   <p className="text-base leading-relaxed mb-8">
-                    We do not share, sell, rent, or disclose your phone number or SMS opt-in information to third parties for marketing purposes.
-                  </p>
-
-                  <h2 className="text-2xl font-bold mb-4 text-primary">Consent to Receive Communications</h2>
-                  <p className="text-base leading-relaxed mb-4">
-                    By providing your phone number through our website and checking the consent box, you expressly agree to receive SMS communications from Heartbeat of South Bay.
-                  </p>
-                  <p className="text-base leading-relaxed mb-8">
-                    Your consent is not a condition of purchase. You may opt out at any time as described above.
+                    Consent to receive SMS messages is not a condition of purchase.
                   </p>
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">Links to Other Websites</h2>
