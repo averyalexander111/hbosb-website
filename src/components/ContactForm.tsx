@@ -209,7 +209,7 @@ const ContactForm = React.memo(({
                 to="/terms-and-conditions"
                 className="underline text-primary/70 hover:text-navy-foreground transition-colors"
               >
-                Terms of Service
+                Terms and Conditions
               </Link>{" "}
               and{" "}
               <Link

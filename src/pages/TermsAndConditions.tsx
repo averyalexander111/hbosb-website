@@ -95,7 +95,7 @@ const TermsAndConditions = () => {
                     We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.
                   </p>
 
-                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Terms of Service</h2>
+                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Terms and Conditions</h2>
                   <p className="text-base leading-relaxed mb-4">
                     By providing your phone number and opting in through our website forms, you agree to receive SMS messages from Heartbeat of South Bay related to your inquiry, appointments, and services.
                   </p>
