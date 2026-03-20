@@ -92,10 +92,10 @@ const HeartbeatFooter = () => {
           </p>
           <div className="flex gap-4 text-xs">
             <Link to="/terms-and-conditions" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
-              Terms
+              Terms and Conditions
             </Link>
             <Link to="/privacy-policy" className="text-navy-foreground/40 hover:text-navy-foreground transition-colors">
-              Privacy
+              Privacy Policy
             </Link>
           </div>
         </div>
