@@ -95,21 +95,33 @@ const TermsAndConditions = () => {
                     We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.
                   </p>
 
-                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Terms and Conditions</h2>
+                  <h2 className="text-2xl font-bold mb-4 text-primary">SMS Communications</h2>
                   <p className="text-base leading-relaxed mb-4">
-                    By providing your phone number and opting in through our website forms, you agree to receive SMS messages from Heartbeat of South Bay related to your inquiry, appointments, and services.
+                    Heartbeat of South Bay uses SMS messaging to communicate with individuals who submit inquiries through our website at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    Message frequency may vary. Message and data rates may apply.
+                    When submitting a contact form, users are required to provide their phone number and check a consent checkbox before submission. This checkbox is not pre-selected and must be actively selected by the user.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    You can opt out at any time by replying STOP. For assistance, reply HELP.
+                    By submitting the form and providing consent, users agree to receive SMS messages related to their inquiry, including responses, appointment scheduling, reminders, and follow-up communication.
                   </p>
                   <p className="text-base leading-relaxed mb-4">
-                    Your consent to receive SMS messages is not a condition of purchase.
+                    Message frequency varies based on user interaction. Message and data rates may apply.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Users can opt out of receiving SMS messages at any time by replying STOP. For assistance, users can reply HELP or contact us through our website at <a href="https://heartbeatofsouthbay.com/contact" className="text-primary hover:underline">https://heartbeatofsouthbay.com/contact</a>.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Consent to receive SMS messages is not a condition of purchase.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    Heartbeat of South Bay does not sell, rent, or share phone numbers or SMS opt-in data with third parties for marketing purposes.
+                  </p>
+                  <p className="text-base leading-relaxed mb-4">
+                    For more information about how your data is handled, please review our Privacy Policy:
                   </p>
                   <p className="text-base leading-relaxed mb-8">
-                    Heartbeat of South Bay does not share, sell, rent, or disclose your phone number or SMS opt-in information to third parties for marketing purposes.
+                    <a href="https://heartbeatofsouthbay.com/privacy-policy" className="text-primary hover:underline">https://heartbeatofsouthbay.com/privacy-policy</a>
                   </p>
 
                   <h2 className="text-2xl font-bold mb-4 text-primary">Disclaimer</h2>
