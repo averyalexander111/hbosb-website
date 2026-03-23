@@ -43,12 +43,6 @@ const ContactForm = React.memo(({
       return;
     }
 
-    if (!smsConsent) {
-      setConsentError(true);
-      toast.error("Consent is required to receive SMS communication.");
-      return;
-    }
-
     setIsSubmitting(true);
     try {
       const { error } = await supabase.from("HBOSB Contact Form").insert({
