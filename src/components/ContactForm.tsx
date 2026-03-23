@@ -27,7 +27,7 @@ const ContactForm = React.memo(({
     message: "",
   });
   const [smsConsent, setSmsConsent] = useState(false);
-  const [consentError, setConsentError] = useState(false);
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,12 +40,6 @@ const ContactForm = React.memo(({
       !formData.message.trim()
     ) {
       toast.error("Please fill in all required fields.");
-      return;
-    }
-
-    if (!smsConsent) {
-      setConsentError(true);
-      toast.error("Consent is required to receive SMS communication.");
       return;
     }
 
@@ -63,7 +57,7 @@ const ContactForm = React.memo(({
       toast.success("Thank you! Your message has been sent successfully.");
       setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
       setSmsConsent(false);
-      setConsentError(false);
+      
     } catch {
       toast.error("Something went wrong. Please try again later.");
     } finally {
@@ -72,9 +66,7 @@ const ContactForm = React.memo(({
   };
 
   const handleConsentChange = (checked: boolean | "indeterminate") => {
-    const val = checked === true;
-    setSmsConsent(val);
-    if (val) setConsentError(false);
+    setSmsConsent(checked === true);
   };
 
   const id = (name: string) => `${formIdPrefix}_${name}`;
@@ -171,13 +163,10 @@ const ContactForm = React.memo(({
           </div>
 
           {/* Consent Container */}
-          <div
-            className={`rounded-xl border p-4 transition-colors ${
-              consentError
-                ? "border-destructive/60 bg-destructive/5"
-                : "border-white/10 bg-white/5"
-            }`}
-          >
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="text-xs text-navy-foreground/60 font-medium mb-2">
+              Optional: Check this box to receive SMS updates regarding your inquiry.
+            </p>
             <div className="flex items-start gap-3 min-h-[44px]">
               <Checkbox
                 id={id("sms_consent")}
@@ -196,12 +185,6 @@ const ContactForm = React.memo(({
                 purchase.
               </label>
             </div>
-
-            {consentError && (
-              <p className="mt-2 text-xs text-destructive font-medium">
-                Consent is required to receive SMS communication.
-              </p>
-            )}
 
             <p className="mt-3 text-xs text-navy-foreground/40">
               View our{" "}
@@ -227,7 +210,7 @@ const ContactForm = React.memo(({
             type="submit"
             className="w-full transition-transform hover:scale-[1.01] active:scale-[0.99]"
             size="lg"
-            disabled={isSubmitting || !smsConsent}
+            disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
