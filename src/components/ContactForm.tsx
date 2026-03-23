@@ -163,13 +163,10 @@ const ContactForm = React.memo(({
           </div>
 
           {/* Consent Container */}
-          <div
-            className={`rounded-xl border p-4 transition-colors ${
-              consentError
-                ? "border-destructive/60 bg-destructive/5"
-                : "border-white/10 bg-white/5"
-            }`}
-          >
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="text-xs text-navy-foreground/60 font-medium mb-2">
+              Optional: Check this box to receive SMS updates regarding your inquiry.
+            </p>
             <div className="flex items-start gap-3 min-h-[44px]">
               <Checkbox
                 id={id("sms_consent")}
