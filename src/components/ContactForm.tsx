@@ -51,6 +51,7 @@ const ContactForm = React.memo(({
         phone_number: formData.phone_number.trim(),
         message: formData.message.trim(),
         area_of_interest: areaOfInterest,
+        sms_consent: smsConsent,
       });
       if (error) throw error;
 

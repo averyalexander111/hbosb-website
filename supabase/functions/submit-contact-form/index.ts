@@ -13,6 +13,7 @@ const contactFormSchema = z.object({
   phone_number: z.string().trim().max(20, 'Phone number must be less than 20 characters'),
   area_of_interest: z.string().trim().min(1, 'Area of interest is required').max(100, 'Area of interest must be less than 100 characters'),
   message: z.string().trim().min(1, 'Message is required').max(2000, 'Message must be less than 2000 characters'),
+  sms_consent: z.boolean().optional().default(false),
 });
 
 Deno.serve(async (req) => {
