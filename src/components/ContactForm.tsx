@@ -57,7 +57,7 @@ const ContactForm = React.memo(({
       toast.success("Thank you! Your message has been sent successfully.");
       setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
       setSmsConsent(false);
-      setConsentError(false);
+      
     } catch {
       toast.error("Something went wrong. Please try again later.");
     } finally {
