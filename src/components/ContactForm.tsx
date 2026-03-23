@@ -186,12 +186,6 @@ const ContactForm = React.memo(({
               </label>
             </div>
 
-            {consentError && (
-              <p className="mt-2 text-xs text-destructive font-medium">
-                Consent is required to receive SMS communication.
-              </p>
-            )}
-
             <p className="mt-3 text-xs text-navy-foreground/40">
               View our{" "}
               <Link
