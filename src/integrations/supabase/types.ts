@@ -74,6 +74,7 @@ export type Database = {
           id: number
           message: string
           phone_number: string
+          sms_consent: boolean
         }
         Insert: {
           area_of_interest: string
@@ -83,6 +84,7 @@ export type Database = {
           id?: number
           message: string
           phone_number: string
+          sms_consent?: boolean
         }
         Update: {
           area_of_interest?: string
@@ -92,6 +94,7 @@ export type Database = {
           id?: number
           message?: string
           phone_number?: string
+          sms_consent?: boolean
         }
         Relationships: []
       }
