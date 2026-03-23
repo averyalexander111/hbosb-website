@@ -66,9 +66,7 @@ const ContactForm = React.memo(({
   };
 
   const handleConsentChange = (checked: boolean | "indeterminate") => {
-    const val = checked === true;
-    setSmsConsent(val);
-    if (val) setConsentError(false);
+    setSmsConsent(checked === true);
   };
 
   const id = (name: string) => `${formIdPrefix}_${name}`;
