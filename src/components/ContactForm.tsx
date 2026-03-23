@@ -27,7 +27,7 @@ const ContactForm = React.memo(({
     message: "",
   });
   const [smsConsent, setSmsConsent] = useState(false);
-  const [consentError, setConsentError] = useState(false);
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
