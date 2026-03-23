@@ -210,7 +210,7 @@ const ContactForm = React.memo(({
             type="submit"
             className="w-full transition-transform hover:scale-[1.01] active:scale-[0.99]"
             size="lg"
-            disabled={isSubmitting || !smsConsent}
+            disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
