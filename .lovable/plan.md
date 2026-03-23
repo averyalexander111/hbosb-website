@@ -1,26 +1,32 @@
 
 
-## Standardize Legal Page Labels
+## Make SMS Consent Checkbox Optional
 
-### Changes Required
+### Changes in `src/components/ContactForm.tsx`
 
-Four files have outdated labels that need updating:
+Three targeted edits — no layout, styling, or structural changes:
 
-**1. `src/components/ContactForm.tsx`** (line 212)
-- Change `"Terms of Service"` → `"Terms and Conditions"`
+**1. Add "Optional" text above checkbox (line 181)**
+Insert a `<p>` with matching styling before the checkbox row:
+```
+<p className="text-xs text-navy-foreground/60 font-medium mb-2">
+  Optional: Check this box to receive SMS updates regarding your inquiry.
+</p>
+```
 
-**2. `src/components/HeartbeatFooter.tsx`** (lines 95, 98)
-- Change `"Terms"` → `"Terms and Conditions"`
-- Change `"Privacy"` → `"Privacy Policy"`
+**2. Remove consent validation block (lines 46–50)**
+Delete the `if (!smsConsent)` check that blocks submission, so the form submits regardless of checkbox state.
 
-**3. `src/pages/PrivacyPolicy.tsx`** (line 126)
-- Change `"Terms of Service"` → `"Terms and Conditions"` in the cross-link text
+**3. Remove submit button disabled condition (line 230)**
+Change `disabled={isSubmitting || !smsConsent}` to `disabled={isSubmitting}` so the button is always active when not submitting.
 
-**4. `src/pages/TermsAndConditions.tsx`** (line 98)
-- Change `"SMS Terms of Service"` → `"SMS Terms and Conditions"` in the section heading
+**4. Remove consent error state and display (lines 200–203)**
+Remove the `consentError` inline error message since consent is no longer required. The `consentError` state and `handleConsentChange` error-clearing logic can also be cleaned up.
 
 ### What stays the same
-- All URLs already point to `/terms-and-conditions` and `/privacy-policy` (correct)
-- No layout, spacing, or styling changes
-- No other files contain outdated references
+- Checkbox remains unchecked by default
+- Existing consent label text unchanged
+- Terms/Privacy links unchanged
+- All input fields, button text, styling unchanged
+- `smsConsent` value still stored and reset on submit
 
