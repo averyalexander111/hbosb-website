@@ -107,7 +107,7 @@ const AILeadResponseSystem = () => {
 
       {/* Hero */}
       <SubpageHero
-        title="Turn More Leads Into Booked Jobs — Automatically"
+        title="Turn More of Your Leads Into Booked Jobs Automatically"
         subtitle="We install AI-powered systems that respond instantly, follow up automatically, and convert more of your existing leads into paying customers."
       />
 
