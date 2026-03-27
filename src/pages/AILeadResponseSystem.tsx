@@ -42,26 +42,26 @@ const scaleIn = {
 };
 
 const problems = [
-  { icon: AlertTriangle, text: "Missed website inquiries" },
-  { icon: Clock, text: "Slow response times" },
-  { icon: FolderSearch, text: "Disorganized lead tracking" },
-  { icon: RefreshCw, text: "Inconsistent follow-up" },
+  { icon: AlertTriangle, text: "Leads come in but no one responds immediately" },
+  { icon: Clock, text: "Follow-up is inconsistent or forgotten entirely" },
+  { icon: FolderSearch, text: "Opportunities are lost to faster competitors" },
+  { icon: RefreshCw, text: "No system in place to track or convert inquiries" },
 ];
 
 const steps = [
-  { icon: Send, label: "Lead Inquiry" },
-  { icon: Zap, label: "Instant Automated Response" },
-  { icon: Database, label: "Lead Captured in CRM" },
-  { icon: Repeat, label: "Follow-Up Sequence" },
-  { icon: CalendarCheck, label: "Appointment or Sale" },
+  { icon: Send, label: "A lead submits a form" },
+  { icon: Zap, label: "They receive an instant response" },
+  { icon: Repeat, label: "Automated follow-up begins" },
+  { icon: Database, label: "The lead is tracked inside your CRM" },
+  { icon: CalendarCheck, label: "They are guided toward booking" },
 ];
 
 const features = [
-  { icon: Zap, title: "Custom Lead Capture Page or Form", desc: "Branded intake forms designed to convert visitors into qualified leads." },
-  { icon: MessageSquare, title: "Automated SMS Response", desc: "Instant text replies the moment a lead submits an inquiry." },
-  { icon: Mail, title: "Automated Email Follow-Ups", desc: "Drip sequences that nurture leads without manual effort." },
+  { icon: Zap, title: "Lead Capture Form or Landing Page", desc: "Designed to convert visitors into qualified leads for your business." },
+  { icon: MessageSquare, title: "Instant SMS Response System", desc: "Every new inquiry gets an immediate text reply — automatically." },
+  { icon: Mail, title: "Automated Follow-Up Sequences", desc: "SMS and email follow-ups that nurture leads without manual effort." },
   { icon: BarChart3, title: "CRM Pipeline Setup", desc: "Organized stages so you always know where every lead stands." },
-  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Let leads schedule directly into your calendar." },
+  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Leads schedule directly into your calendar — no back and forth." },
   { icon: Monitor, title: "Automation Monitoring", desc: "Ongoing oversight to ensure every workflow runs reliably." },
 ];
 
@@ -73,10 +73,10 @@ const monthlyIncludes = [
 ];
 
 const conversionBullets = [
-  "Engage leads instantly through automated messaging",
-  "Guide conversations using AI-assisted responses",
-  "Qualify opportunities with structured logic",
-  "Move prospects toward a booked appointment",
+  "Instantly responds to every new inquiry",
+  "Follows up automatically (SMS + email)",
+  "Organizes leads into a structured pipeline",
+  "Moves prospects toward booking without manual effort",
 ];
 
 const advancedBullets = [
@@ -107,8 +107,8 @@ const AILeadResponseSystem = () => {
 
       {/* Hero */}
       <SubpageHero
-        title="AI Lead Conversion System"
-        subtitle="Turn every inquiry into an organized opportunity."
+        title="Turn More Leads Into Booked Jobs — Automatically"
+        subtitle="We install AI-powered systems that respond instantly, follow up automatically, and convert more of your existing leads into paying customers."
       />
 
       {/* Hero description + CTA */}
@@ -121,16 +121,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-lg text-muted-foreground leading-relaxed"
           >
-            Our AI-powered lead conversion systems ensure that every inquiry receives an immediate response and structured follow-up. Businesses no longer lose opportunities due to delayed responses or disorganized lead management.
-          </motion.p>
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.1 } } }}
-            className="mt-4 text-lg text-muted-foreground leading-relaxed"
-          >
-            Automatically respond to leads and turn them into booked appointments with AI-powered follow-up.
+            Most businesses don't lose leads because of bad marketing. They lose them because they don't respond fast enough.
           </motion.p>
           <motion.div
             initial="hidden"
@@ -145,7 +136,7 @@ const AILeadResponseSystem = () => {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
-              Start AI Lead System Installation
+              Book an AI Revenue System Assessment
               <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
             </a>
           </motion.div>
@@ -163,9 +154,9 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center mb-12"
           >
-            <h2 className="section-title text-navy-foreground">Why Businesses Lose Leads</h2>
+            <h2 className="section-title text-navy-foreground">Why You're Losing Leads</h2>
             <p className="section-subtitle mx-auto text-navy-foreground/60">
-              Many businesses receive inquiries but fail to respond quickly. When responses are delayed, potential customers often move on to competitors.
+              You're not losing leads because you need more traffic. You're losing them because you don't have a system.
             </p>
           </motion.div>
 
@@ -274,13 +265,17 @@ const AILeadResponseSystem = () => {
             className="text-center mb-10"
           >
             <h2 className="section-title text-foreground">
-              Conversion, Not Just{" "}
+              AI Lead{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-                Response
+                Conversion
               </span>
+              {" "}System
             </h2>
             <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              Most systems stop at responding to leads. Heartbeat of South Bay focuses on converting them. Our system is designed to:
+              This system ensures every new inquiry is contacted instantly, followed up automatically, and guided toward a booked opportunity.
+            </p>
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              This is not marketing. This is infrastructure.
             </p>
           </motion.div>
 
@@ -306,7 +301,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center text-muted-foreground leading-relaxed"
           >
-            This ensures your leads don't just get a reply — they move forward.
+            Most businesses focus on getting more leads. The real leverage comes from converting the ones you already have.
           </motion.p>
         </div>
       </section>
@@ -322,7 +317,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center mb-14"
           >
-            <h2 className="section-title text-navy-foreground">What the System Includes</h2>
+            <h2 className="section-title text-navy-foreground">What You Get</h2>
           </motion.div>
 
           <motion.div
@@ -346,6 +341,16 @@ const AILeadResponseSystem = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center text-navy-foreground/60 mt-10 text-sm"
+          >
+            Everything is installed and configured for your business.
+          </motion.p>
         </div>
       </section>
 
@@ -377,7 +382,7 @@ const AILeadResponseSystem = () => {
               variants={scaleIn}
               className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Setup Investment</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">System Installation</p>
               <p className="text-4xl font-extrabold text-foreground">$997</p>
               <p className="text-sm text-muted-foreground mt-2">One-time setup</p>
             </motion.div>
@@ -387,7 +392,7 @@ const AILeadResponseSystem = () => {
               variants={scaleIn}
               className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting & Maintenance</p>
               <p className="text-4xl font-extrabold text-foreground">$97<span className="text-lg font-normal text-muted-foreground">/mo</span></p>
               <ul className="mt-5 space-y-2 text-left">
                 {monthlyIncludes.map((item) => (
@@ -408,6 +413,9 @@ const AILeadResponseSystem = () => {
             className="mt-10 max-w-2xl mx-auto text-center"
           >
             <p className="text-muted-foreground leading-relaxed">
+              Includes hosting, monitoring, and ongoing system maintenance. Messaging costs (Twilio) are usage-based and billed separately.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mt-3">
               For many businesses, recovering just one additional customer per month covers the entire cost of the system.
             </p>
           </motion.div>
@@ -427,7 +435,7 @@ const AILeadResponseSystem = () => {
           >
             <h2 className="section-title text-navy-foreground">Who This System Is For</h2>
             <p className="section-subtitle mx-auto text-navy-foreground/60">
-              This system works best for businesses that regularly receive inquiries from potential customers.
+              Built for businesses that already receive inquiries but lack a system to convert them.
             </p>
           </motion.div>
 
@@ -439,10 +447,10 @@ const AILeadResponseSystem = () => {
             className="space-y-3 max-w-xl mx-auto mb-10"
           >
             {[
-              "Service businesses that receive website inquiries",
-              "Local businesses that rely on appointment bookings",
-              "Companies that want faster follow-up with new leads",
-              "Teams that want to organize inquiries into a structured pipeline",
+              "Service businesses that receive inquiries daily",
+              "Local businesses that rely on booked appointments",
+              "Companies losing deals to slower follow-up",
+              "Teams ready to systematize their lead pipeline",
             ].map((item) => (
               <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
@@ -458,7 +466,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-center text-navy-foreground/60 leading-relaxed"
           >
-            If your business receives inquiries but responses are delayed or inconsistent, the AI Lead Conversion System can help ensure every opportunity is captured and followed up automatically.
+            This is the first system inside your AI Operating System™. Once installed, this system becomes the foundation for more advanced automation and revenue systems.
           </motion.p>
         </div>
       </section>
@@ -475,14 +483,11 @@ const AILeadResponseSystem = () => {
             className="max-w-2xl mx-auto rounded-2xl bg-navy border border-navy-foreground/10 p-12 md:p-16 text-center"
           >
             <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
-            <p className="text-lg text-navy-foreground/60 mb-6">
-              Turn your existing leads into real conversations and booked appointments automatically.
-            </p>
             <h2 className="section-title text-navy-foreground">
-              See If This System Is Right for Your Business
+              Book an AI Revenue System Assessment
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/60">
-              Schedule a consultation to confirm whether the AI Lead Conversion System is the right fit and begin the installation process for your business.
+              We'll walk through your current lead flow and show you exactly where opportunities are being lost — and how to fix it.
             </p>
             <div className="mt-12">
               <a
@@ -491,7 +496,7 @@ const AILeadResponseSystem = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
-                Start AI Lead System Installation
+                Book an AI Revenue System Assessment
                 <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
               </a>
             </div>
