@@ -346,27 +346,7 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-      {/* Most Businesses Are Losing Leads — navy (moved problem section) */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center"
-          >
-            <h2 className="section-title text-navy-foreground">Most Businesses Are Losing Leads Without Realizing It</h2>
-            <div className="mt-6 space-y-4 text-lg text-navy-foreground/70 leading-relaxed">
-              <p>Most businesses don't have a lead problem.</p>
-              <p>They have a response problem.</p>
-              <p>The first business to respond usually wins the customer.</p>
-              <p className="font-semibold text-navy-foreground/90">If you're not first, you're invisible.</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Investment */}
       <section className="py-20 bg-background">
