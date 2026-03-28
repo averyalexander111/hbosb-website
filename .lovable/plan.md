@@ -1,47 +1,63 @@
 
 
-## Update /leads Page Copy and Add Sections
+## Update /leads Page — Conversion Flow Improvements
 
 ### File Modified
 - `src/pages/AILeadResponseSystem.tsx`
 
-Copy and section updates only — no layout, styling, or structural changes.
-
 ### Changes
 
-**1. Hero SubpageHero (line 111)**
-- Update subtitle to: "We install systems that respond instantly, follow up automatically, and help you convert more of your existing leads into paying customers."
+**1. Hero subtitle (line 111)**
+- Change to: "We install systems that respond instantly, follow up automatically, and help you convert more of your existing leads into paying customers."
 
-**2. Hero description section (lines 115–143)**
+**2. Hero description section (lines 114–144)**
 - Remove the paragraph "Most businesses don't lose leads because of bad marketing..."
 - Replace with: "No ads. No extra traffic. Just better conversion from the leads you already have."
-- Keep CTA button unchanged
+- Update CTA button link from `https://cal.com/hbosb/lead-system-install` to `https://audit.heartbeatofsouthbay.com/`
+- Keep button text: "Book an AI Revenue System Assessment"
+- Add subtle text link below button: "Already getting leads? Skip the assessment and install your system →" linking to `https://cal.com/hbosb/lead-system-install`
 
-**3. Add new section between Hero description and Problem section (after line 143, before line 146)**
-- New light background section with same styling patterns as existing sections
-- Title: "Most Businesses Are Losing Leads Without Realizing It"
-- Body text as specified (multi-line: "Most businesses don't lose leads because of bad marketing..." through "No system to convert interest into action.")
-- Uses existing `fadeUp` animation variant
+**3. Move problem statement above Investment (lines 146–184 → new position)**
+- Remove the existing "Why You're Losing Leads" navy section from its current position (between hero and solution)
+- Insert a new section just before the Investment section (before line 357) with:
+  - Title: "Most Businesses Are Losing Leads Without Realizing It"
+  - Body: "Most businesses don't have a lead problem. / They have a response problem. / The first business to respond usually wins the customer. / If you're not first, you're invisible."
+  - Uses same navy styling as the removed section
 
-**4. Investment section — add CTA below pricing text (after line 421, before line 423)**
-- Add a centered block below the existing pricing notes:
+**4. System/explanation section CTAs**
+- Verify all mid-page CTAs use "Book an AI Revenue System Assessment" linking to `https://audit.heartbeatofsouthbay.com/` (currently no mid-section CTAs exist beyond hero and final — no change needed)
+
+**5. Investment section — add installation CTA (after line 421)**
+- Add below existing pricing notes:
   - Headline: "Ready to install your AI Lead Conversion System?"
   - Subtext: "Start your system setup and get everything configured for your business."
-  - CTA button: "Start Your AI Lead System Installation" linking to `https://cal.com/hbosb/lead-system-install`
+  - Line: "Most businesses recover the cost with just one additional customer."
+  - Primary CTA button: "Start Your AI Lead System Installation" → `https://cal.com/hbosb/lead-system-install`
   - Small text: "This call begins your system installation. Not a sales pitch."
-- Uses same button styling as existing CTAs on the page
 
-**5. Final CTA section (lines 476–505) — replace content**
-- Headline: "Start Your AI Lead Conversion System"
-- Subheadline: "We'll confirm your setup details and begin installing your system so your leads are responded to, followed up with, and organized automatically."
-- Button text: "Start Your AI Lead System Installation"
-- Button link stays: `https://cal.com/hbosb/lead-system-install`
-- Add small text below button: "This session is where your system gets set up."
+**6. Final CTA section (lines 475–505) — replace with dual-option**
+- Headline: "Start with a plan or install your system"
+- Two side-by-side cards (using existing grid pattern):
+  - **Option 1**: "Book an AI Revenue System Assessment" / "Not sure where to start? We'll map it out." → `https://audit.heartbeatofsouthbay.com/`
+  - **Option 2**: "Start Your AI Lead System Installation" / "Ready to move? We'll build it with you." → `https://cal.com/hbosb/lead-system-install`
+- Both use existing button styling
+
+### Section Order After Changes
+1. Hero (updated copy + dual links)
+2. How It Works (unchanged)
+3. Conversion section (unchanged)
+4. What You Get — navy (unchanged)
+5. **NEW: "Most Businesses Are Losing Leads..." — navy** (moved/rewritten problem section)
+6. Investment (existing + new installation CTA)
+7. Who This System Is For — navy (unchanged)
+8. **Dual-option Final CTA** (replaced)
+9. Advanced section — navy (unchanged)
+10. ConnectSection + Footer
 
 ### What Stays the Same
-- All imports, components, layout structure, animations
-- Section order (new section inserted, not reordered)
-- All Tailwind classes, spacing, colors, typography
-- Problem, Solution, Conversion, What You Get, Who This Is For, Advanced sections unchanged
-- ConnectSection, HeartbeatFooter, ScrollToTopButton unchanged
+- All layout, spacing, typography, colors
+- All component imports and structure
+- NavySectionBg, ConnectSection, HeartbeatFooter, ScrollToTopButton
+- Steps, features, conversionBullets, advancedBullets arrays
+- Pricing cards content
 
