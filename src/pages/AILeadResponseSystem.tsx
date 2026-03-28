@@ -108,7 +108,7 @@ const AILeadResponseSystem = () => {
       {/* Hero */}
       <SubpageHero
         title="Turn More of Your Leads Into Booked Jobs Automatically"
-        subtitle="We install systems that respond instantly, follow up automatically, and help you turn more of your existing leads into paying customers."
+        subtitle="We install systems that respond instantly, follow up automatically, and help you convert more of your existing leads into paying customers."
       />
 
       {/* Hero description + CTA */}
@@ -121,7 +121,7 @@ const AILeadResponseSystem = () => {
             variants={fadeUp}
             className="text-lg text-muted-foreground leading-relaxed"
           >
-            Most businesses don't lose leads because of bad marketing. They lose them because they don't respond fast enough.
+            No ads. No extra traffic. Just better conversion from the leads you already have.
           </motion.p>
           <motion.div
             initial="hidden"
@@ -131,7 +131,7 @@ const AILeadResponseSystem = () => {
             className="mt-10"
           >
             <a
-              href="https://cal.com/hbosb/lead-system-install"
+              href="https://audit.heartbeatofsouthbay.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
@@ -139,46 +139,16 @@ const AILeadResponseSystem = () => {
               Book an AI Revenue System Assessment
               <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
             </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The Problem — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-12"
-          >
-            <h2 className="section-title text-navy-foreground">Why You're Losing Leads</h2>
-            <p className="section-subtitle mx-auto text-navy-foreground/60">
-              You're not losing leads because you need more traffic. You're losing them because you don't have a system.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto"
-          >
-            {problems.map((p) => (
-              <motion.div
-                key={p.text}
-                variants={scaleIn}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
+            <p className="mt-4">
+              <a
+                href="https://cal.com/hbosb/lead-system-install"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
               >
-                <div className="w-10 h-10 rounded-xl bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <p.icon className="w-5 h-5 text-destructive" />
-                </div>
-                <span className="text-sm font-medium text-navy-foreground">{p.text}</span>
-              </motion.div>
-            ))}
+                Already getting leads? Skip the assessment and install your system →
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>
@@ -354,6 +324,28 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
+      {/* Most Businesses Are Losing Leads — navy (moved problem section) */}
+      <section className="py-20 relative overflow-hidden bg-navy">
+        <NavySectionBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center"
+          >
+            <h2 className="section-title text-navy-foreground">Most Businesses Are Losing Leads Without Realizing It</h2>
+            <div className="mt-6 space-y-4 text-lg text-navy-foreground/70 leading-relaxed">
+              <p>Most businesses don't have a lead problem.</p>
+              <p>They have a response problem.</p>
+              <p>The first business to respond usually wins the customer.</p>
+              <p className="font-semibold text-navy-foreground/90">If you're not first, you're invisible.</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Investment */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -419,6 +411,37 @@ const AILeadResponseSystem = () => {
               For many businesses, recovering just one additional customer per month covers the entire cost of the system.
             </p>
           </motion.div>
+
+          {/* Installation CTA */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="mt-16 max-w-2xl mx-auto text-center"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Ready to install your AI Lead Conversion System?
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-2">
+              Start your system setup and get everything configured for your business.
+            </p>
+            <p className="text-sm text-muted-foreground/80 mb-8">
+              Most businesses recover the cost with just one additional customer.
+            </p>
+            <a
+              href="https://cal.com/hbosb/lead-system-install"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+            >
+              Start Your AI Lead System Installation
+              <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
+            </a>
+            <p className="mt-4 text-sm text-muted-foreground/60">
+              This call begins your system installation. Not a sales pitch.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -471,8 +494,7 @@ const AILeadResponseSystem = () => {
         </div>
       </section>
 
-
-      {/* Next Step CTA */}
+      {/* Dual-Option Final CTA */}
       <section className="py-28 relative overflow-hidden bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -480,26 +502,58 @@ const AILeadResponseSystem = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="max-w-2xl mx-auto rounded-2xl bg-navy border border-navy-foreground/10 p-12 md:p-16 text-center"
+            className="max-w-3xl mx-auto text-center mb-12"
           >
             <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
-            <h2 className="section-title text-navy-foreground">
-              Book an AI Revenue System Assessment
+            <h2 className="section-title text-foreground">
+              Start with a plan or install your system
             </h2>
-            <p className="mt-5 text-lg text-navy-foreground/60">
-              We'll walk through your current lead flow and show you exactly where opportunities are being lost — and how to fix it.
-            </p>
-            <div className="mt-12">
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
+          >
+            {/* Option 1 — Assessment */}
+            <motion.div
+              variants={scaleIn}
+              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+            >
+              <p className="text-sm text-muted-foreground mb-6">
+                Not sure where to start? We'll map it out.
+              </p>
+              <a
+                href="https://audit.heartbeatofsouthbay.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+              >
+                Book an AI Revenue System Assessment
+                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+              </a>
+            </motion.div>
+
+            {/* Option 2 — Installation */}
+            <motion.div
+              variants={scaleIn}
+              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+            >
+              <p className="text-sm text-muted-foreground mb-6">
+                Ready to move? We'll build it with you.
+              </p>
               <a
                 href="https://cal.com/hbosb/lead-system-install"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
-                Book an AI Revenue System Assessment
-                <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
+                Start Your AI Lead System Installation
+                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
               </a>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
