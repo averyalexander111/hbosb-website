@@ -79,12 +79,8 @@ const conversionBullets = [
   "Moves prospects toward booking without manual effort",
 ];
 
-const advancedBullets = [
-  "Follow up after conferences or events",
-  "Reconnect with old contacts",
-  "Qualify prospects using AI voice agents",
-  "Proactively reach out to leads",
-];
+
+
 
 /* Reusable navy section background with blur orbs */
 const NavySectionBg = () => (
