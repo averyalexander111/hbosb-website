@@ -43,20 +43,7 @@ const ConnectSection = React.memo(() => {
               Get in Touch
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {/* Address */}
-              <div className="flex flex-col items-center text-center">
-                <div className="flex items-center space-x-2 mb-2">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <h4 className="font-semibold text-foreground">Address</h4>
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  20700 Avalon Blvd Ste 116, PO Box 11812
-                  <br />
-                  Carson, CA 90746
-                </p>
-              </div>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Phone */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center space-x-2 mb-2">
