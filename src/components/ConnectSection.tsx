@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 const ConnectSection = React.memo(() => {
