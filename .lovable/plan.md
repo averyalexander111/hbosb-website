@@ -1,18 +1,19 @@
 
 
-## Remove Address from Website
+## Embed External Tracking Script on Every Page
 
-### Files to Modify
+### File Modified
+- `index.html`
 
-**1. `src/components/ConnectSection.tsx`**
-- Remove the entire "Address" block (the `<div>` containing the MapPin icon, "Address" heading, and the street address text — approximately lines 47–57)
-- Update the grid from `grid-cols-1 md:grid-cols-3 lg:grid-cols-5` to `grid-cols-1 md:grid-cols-2 lg:grid-cols-4` to account for one fewer column
+### Change
+Add the following script tag inside the `<body>` section (before the closing `</body>` tag, alongside the existing scripts):
 
-**2. `index.html`**
-- Remove the `"address"` object from the structured data JSON-LD schema (the PostalAddress block)
+```html
+<script 
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_deddbf0ee67747858c559b21d9fb9117">
+</script>
+```
 
-### What Stays the Same
-- Phone, Email, Hours, Social columns unchanged
-- All styling and layout patterns preserved
-- No other pages affected (address only appears in these two files)
+Since this is a single-page app, placing it in `index.html` ensures it loads on every route automatically.
 
