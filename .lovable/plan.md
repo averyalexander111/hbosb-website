@@ -1,19 +1,16 @@
 
-
-## Embed External Tracking Script on Every Page
+Simple copy update in `src/components/ConnectSection.tsx` (the only place this paragraph appears, used site-wide).
 
 ### File Modified
-- `index.html`
+- `src/components/ConnectSection.tsx`
 
 ### Change
-Add the following script tag inside the `<body>` section (before the closing `</body>` tag, alongside the existing scripts):
+Replace the single `<p>` paragraph under the "Connect with Us" heading with three separate paragraphs containing the new copy. Keep existing typography classes (`text-lg text-muted-foreground max-w-3xl mx-auto`) on each paragraph, and add `mb-4` spacing between them (except the last). Preserve the non-breaking space styling around "Heartbeat of South Bay".
 
-```html
-<script 
-  src="https://link.msgsndr.com/js/external-tracking.js"
-  data-tracking-id="tk_deddbf0ee67747858c559b21d9fb9117">
-</script>
-```
+### New Content
+1. "Learn how we can help your business capture, respond to, and convert more opportunities."
+2. "At Heartbeat of South Bay, we design custom AI systems tailored to your workflows, improving client intake, follow-up, and reporting."
+3. "The result is faster response times, smoother operations, and sustainable growth backed by measurable ROI."
 
-Since this is a single-page app, placing it in `index.html` ensures it loads on every route automatically.
-
+### What Stays the Same
+- Section heading, layout, colors, contact info grid, all other styling
