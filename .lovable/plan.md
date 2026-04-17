@@ -1,18 +1,33 @@
 
 
-User wants me to verify the blog renders end-to-end in the preview. This is a browser verification task — straightforward, no code changes. Need default mode for browser tools.
+Simple, focused task. Add a JSON-LD `BlogPosting` script tag inside the existing `<Helmet>` block in `src/pages/BlogPost.tsx` so Google can pick up rich results for each post.
 
 ## Plan
 
-1. `navigate_to_sandbox` to `/blog` — verify list view: post card, featured image, tags, author, date, "Read More" link.
-2. Take a screenshot of `/blog` to confirm visual rendering.
-3. `navigate_to_sandbox` to `/blog/leveraging-ai-for-smarter-customer-segmentation` — verify detail view: title, hero image, tags, author/date, sanitized content, Share button.
-4. Click the Share button to confirm clipboard fallback toast appears.
-5. Scroll to bottom and confirm Related Posts section behavior (will likely be empty since only 1 published post exists — note this as expected).
-6. Capture a screenshot of the post page.
-7. Report findings: what rendered correctly, what was empty-by-design (related posts), and any console errors.
+1. In `src/pages/BlogPost.tsx`, build a `blogPostingSchema` object inside the component (memoized) with these fields mapped from the loaded `post`:
+   - `@context`: `https://schema.org`
+   - `@type`: `BlogPosting`
+   - `headline`: `post.title`
+   - `description`: `post.meta_description || post.excerpt`
+   - `image`: `post.featured_image` (only included if present)
+   - `datePublished`: `post.published_at`
+   - `dateModified`: `post.published_at` (table has `updated_at` but it's not currently selected; keep scope tight and reuse `published_at`)
+   - `author`: `{ "@type": "Person", "name": post.author }`
+   - `publisher`: `{ "@type": "Organization", "name": "Heartbeat of South Bay", "logo": { "@type": "ImageObject", "url": "<origin>/lovable-uploads/8a3ccb7e-983a-4e89-8910-236ab612f1c3.png" } }`
+   - `mainEntityOfPage`: `{ "@type": "WebPage", "@id": "<origin>/blog/<slug>" }`
+2. Inside the existing `<Helmet>` block, add:
+   ```tsx
+   <script type="application/ld+json">
+     {JSON.stringify(blogPostingSchema)}
+   </script>
+   ```
+3. No new dependencies, no schema/migration changes, no other files touched.
+
+## Validation
+
+After implementation, view-source on a published post and confirm a `<script type="application/ld+json">` block is present with valid JSON. Optionally paste into Google's Rich Results Test.
 
 ## Files Touched
 
-None — verification only.
+- `src/pages/BlogPost.tsx` — add memoized schema object + JSON-LD `<script>` inside `<Helmet>`.
 
