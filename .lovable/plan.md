@@ -1,77 +1,36 @@
 
 
-The user wants two things:
-1. Verify byline + tab titles on `/blog` and the post page (verification only — done previously, just needs hard refresh)
-2. Fix the security finding: private `Photos` and `Blogs` buckets have no RLS policies on `storage.objects`
+This finding is a Supabase platform-level warning: the project's Postgres instance has pending security patches. This is **not something I can fix from code or migrations** — there is no SQL or file change that upgrades Postgres. The upgrade is performed in the Supabase dashboard by the project owner.
 
-Item 1 is just a manual hard-refresh on the user's end — I can confirm what they should see.
+## What needs to happen
 
-Item 2 is the real work. The fix is to add RLS policies on `storage.objects` scoped to each bucket. Since `Blogs` holds blog featured images that need to render publicly on `/blog` and `/blog/:slug`, public SELECT is required (or the bucket should be flipped to public). `Photos` appears unused in code — I'll restrict it to admin-only across the board.
+You upgrade Postgres from the Supabase dashboard:
 
-## Plan
+1. Open the Infrastructure → Upgrades page for the project
+2. Review the proposed Postgres version
+3. Click **Upgrade project** and confirm
+4. Wait for the upgrade to complete (a few minutes; brief downtime possible)
 
-### Part 1 — Verification (you do this)
-Hard-refresh:
-- `/blog` → byline should read "Heartbeat of South Bay Team", tab title "The Pulse — AI Revenue Insights | Heartbeat of South Bay"
-- `/blog/leveraging-ai-for-smarter-customer-segmentation` → tab title ends with "| The Pulse — Heartbeat of South Bay"
+Direct link: `https://supabase.com/dashboard/project/gdmjszxcqqfwhkxxoqlp/settings/infrastructure`
 
-### Part 2 — Lock down storage buckets (RLS migration)
+Docs: https://supabase.com/docs/guides/platform/upgrading
 
-Add policies on `storage.objects` for both buckets:
+## After the upgrade
 
-**Blogs bucket** (featured images displayed publicly on blog pages):
-- SELECT: public (anyone can read — needed for `<img src>` to work)
-- INSERT / UPDATE / DELETE: admin only via `has_role(auth.uid(), 'admin')`
+Once you confirm the upgrade is complete, I can:
+- Re-run the security scan to verify `SUPA_vulnerable_postgres_version` clears
+- Mark the finding as fixed
 
-**Photos bucket** (no public consumer in current code):
-- SELECT / INSERT / UPDATE / DELETE: admin only
+## Why I can't do this for you
 
-```sql
--- Blogs: public read, admin write
-create policy "Public can read Blogs"
-on storage.objects for select to public
-using (bucket_id = 'Blogs');
+Lovable's tools can run SQL migrations, deploy edge functions, and modify storage policies — but cluster-level operations like Postgres major/minor version upgrades are gated behind the Supabase dashboard and require the project owner's explicit confirmation (since they involve a maintenance window).
 
-create policy "Admins can upload to Blogs"
-on storage.objects for insert to authenticated
-with check (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+## Recommended next step
 
-create policy "Admins can update Blogs"
-on storage.objects for update to authenticated
-using (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'))
-with check (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+After you trigger and confirm the upgrade, ping me and I'll verify + mark the finding fixed. While we're at it, the two remaining findings are both in-codebase fixes I can handle:
 
-create policy "Admins can delete from Blogs"
-on storage.objects for delete to authenticated
-using (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+- `edge_function_errors` — sanitize error responses in `sync-to-airtable`
+- `SUPA_rls_policy_always_true` — find and tighten the offending policy
 
--- Photos: admin-only across all operations
-create policy "Admins can read Photos"
-on storage.objects for select to authenticated
-using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
-
-create policy "Admins can upload to Photos"
-on storage.objects for insert to authenticated
-with check (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
-
-create policy "Admins can update Photos"
-on storage.objects for update to authenticated
-using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'))
-with check (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
-
-create policy "Admins can delete from Photos"
-on storage.objects for delete to authenticated
-using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
-```
-
-### Why public SELECT on Blogs is safe
-The bucket holds blog featured images that are already meant to be displayed to every visitor on `/blog`. Without public SELECT, signed URLs would be required for every `<img>` — invasive and unnecessary for content already public by design. Write operations remain admin-locked.
-
-### Notes
-- The bucket itself stays private (no anonymous listing of all objects); only direct object reads are allowed.
-- If you'd rather make the `Blogs` bucket fully public instead, say so and I'll flip it via `update storage.buckets set public = true where id = 'Blogs'` instead of adding a SELECT policy.
-- This will mark the `storage_no_rls_policies` finding as fixed.
-
-### Files Touched
-- New migration: storage RLS policies for `Blogs` and `Photos`
+Want me to tackle those in the same follow-up?
 
