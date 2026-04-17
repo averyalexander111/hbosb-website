@@ -30,7 +30,7 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const { data: posts, isLoading } = useQuery({
+  const { data: posts, isLoading, error: postsError } = useQuery({
     queryKey: ["blog-posts", searchTerm, selectedTag],
     queryFn: async () => {
       let query = supabase
@@ -49,10 +49,13 @@ const Blog = () => {
       }
 
       const { data, error } = await query;
+      console.log("[Blog] posts query →", { data, error });
       if (error) throw error;
       return data as BlogPost[];
     },
   });
+
+  console.log("[Blog] render state →", { isLoading, postsError, postsCount: posts?.length });
 
   // Get all unique tags
   const { data: allTags } = useQuery({
