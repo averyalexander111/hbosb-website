@@ -146,7 +146,7 @@ const BlogPost = () => {
       <HeartbeatNavbar />
       
       <Helmet>
-        <title>{post.seo_title || post.title} | BaySignal AI Blog</title>
+        <title>{post.seo_title || post.title} | The Pulse — Heartbeat of South Bay</title>
         <meta name="description" content={post.meta_description || post.excerpt} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />

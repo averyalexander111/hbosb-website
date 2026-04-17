@@ -37,7 +37,7 @@ const BlogAdmin = () => {
     slug: "",
     content: "",
     excerpt: "",
-    author: "BaySignal AI Team",
+    author: "Heartbeat of South Bay Team",
     status: "draft" as "draft" | "published" | "archived",
     tags: "",
     featured_image: "",
@@ -146,7 +146,7 @@ const BlogAdmin = () => {
       slug: "",
       content: "",
       excerpt: "",
-      author: "BaySignal AI Team",
+      author: "Heartbeat of South Bay Team",
       status: "draft" as "draft" | "published" | "archived",
       tags: "",
       featured_image: "",
@@ -206,7 +206,7 @@ const BlogAdmin = () => {
   return (
     <>
       <Helmet>
-        <title>Blog Admin - BaySignal AI</title>
+        <title>Blog Admin — Heartbeat of South Bay</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
