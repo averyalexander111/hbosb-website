@@ -85,10 +85,10 @@ const Blog = () => {
   return (
     <>
       <SEOHead 
-        title="Blog - BaySignal AI | Digital Marketing Insights & Tips"
-        description="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team."
-        ogTitle="Blog - BaySignal AI | Digital Marketing Insights & Tips"
-        ogDescription="Stay updated with the latest digital marketing insights, SEO tips, and AI automation strategies from BaySignal AI's expert team."
+        title="The Pulse — AI Revenue Insights | Heartbeat of South Bay"
+        description="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
+        ogTitle="The Pulse — AI Revenue Insights | Heartbeat of South Bay"
+        ogDescription="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
         canonicalUrl={`${window.location.origin}/blog`}
       />
 
