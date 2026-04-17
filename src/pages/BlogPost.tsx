@@ -44,6 +44,9 @@ const BlogPost = () => {
       return data as BlogPost;
     },
     enabled: !!slug,
+    staleTime: 0,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: true,
   });
 
   const { data: relatedPosts } = useQuery({
@@ -64,6 +67,9 @@ const BlogPost = () => {
       return data;
     },
     enabled: !!post,
+    staleTime: 0,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: true,
   });
 
   const formatDate = (dateString: string) => {
