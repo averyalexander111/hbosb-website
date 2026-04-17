@@ -74,6 +74,40 @@ const BlogPost = () => {
     });
   };
 
+  // Build BlogPosting JSON-LD schema for Google rich results
+  const blogPostingSchema = useMemo(() => {
+    if (!post) return null;
+    const origin = window.location.origin;
+    const schema: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.meta_description || post.excerpt,
+      datePublished: post.published_at,
+      dateModified: post.published_at,
+      author: {
+        "@type": "Person",
+        name: post.author,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Heartbeat of South Bay",
+        logo: {
+          "@type": "ImageObject",
+          url: `${origin}/lovable-uploads/8a3ccb7e-983a-4e89-8910-236ab612f1c3.png`,
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${origin}/blog/${post.slug}`,
+      },
+    };
+    if (post.featured_image) {
+      schema.image = post.featured_image;
+    }
+    return schema;
+  }, [post]);
+
   // Sanitize HTML content to prevent XSS attacks
   const sanitizedContent = useMemo(() => {
     if (!post?.content) return '';
@@ -158,6 +192,11 @@ const BlogPost = () => {
           <meta key={tag} property="article:tag" content={tag} />
         ))}
         <link rel="canonical" href={`${window.location.origin}/blog/${post.slug}`} />
+        {blogPostingSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(blogPostingSchema)}
+          </script>
+        )}
       </Helmet>
 
       <article className="min-h-screen bg-background pt-24">
