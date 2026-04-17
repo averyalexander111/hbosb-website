@@ -28,10 +28,17 @@ interface BlogPost {
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const { data: posts, isLoading, error: postsError } = useQuery({
-    queryKey: ["blog-posts", searchTerm, selectedTag],
+  // Debounce search input so typing doesn't thrash the query
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedSearchTerm(searchTerm), 300);
+    return () => clearTimeout(t);
+  }, [searchTerm]);
+
+  const { data: posts, isLoading, error: postsError, refetch } = useQuery({
+    queryKey: ["blog-posts", debouncedSearchTerm, selectedTag],
     queryFn: async () => {
       let query = supabase
         .from("blog_posts")
@@ -40,8 +47,8 @@ const Blog = () => {
         .lte("published_at", new Date().toISOString())
         .order("published_at", { ascending: false });
 
-      if (searchTerm) {
-        query = query.or(`title.ilike.%${searchTerm}%,excerpt.ilike.%${searchTerm}%`);
+      if (debouncedSearchTerm) {
+        query = query.or(`title.ilike.%${debouncedSearchTerm}%,excerpt.ilike.%${debouncedSearchTerm}%`);
       }
 
       if (selectedTag) {
@@ -52,9 +59,9 @@ const Blog = () => {
       if (error) throw error;
       return data as BlogPost[];
     },
-    staleTime: 0,
-    refetchOnMount: "always",
-    refetchOnWindowFocus: true,
+    staleTime: 60_000,
+    retry: 2,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 4000),
   });
 
   // Get all unique tags
@@ -76,9 +83,9 @@ const Blog = () => {
       
       return Array.from(uniqueTags).sort();
     },
-    staleTime: 0,
-    refetchOnMount: "always",
-    refetchOnWindowFocus: true,
+    staleTime: 60_000,
+    retry: 2,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 4000),
   });
 
   const formatDate = (dateString: string) => {
@@ -174,7 +181,8 @@ const Blog = () => {
             ) : postsError ? (
               <div className="text-center py-16">
                 <h3 className="text-2xl font-semibold text-foreground mb-4">Unable to load blog posts</h3>
-                <p className="text-muted-foreground">Please refresh the page and try again.</p>
+                <p className="text-muted-foreground mb-6">There was a problem fetching the latest posts.</p>
+                <Button onClick={() => refetch()}>Try Again</Button>
               </div>
             ) : posts && posts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

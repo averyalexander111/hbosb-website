@@ -38,15 +38,15 @@ const BlogPost = () => {
         .eq("slug", slug)
         .eq("status", "published")
         .lte("published_at", new Date().toISOString())
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
-      return data as BlogPost;
+      return data as BlogPost | null;
     },
     enabled: !!slug,
-    staleTime: 0,
-    refetchOnMount: "always",
-    refetchOnWindowFocus: true,
+    staleTime: 60_000,
+    retry: 2,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 4000),
   });
 
   const { data: relatedPosts } = useQuery({
@@ -67,9 +67,9 @@ const BlogPost = () => {
       return data;
     },
     enabled: !!post,
-    staleTime: 0,
-    refetchOnMount: "always",
-    refetchOnWindowFocus: true,
+    staleTime: 60_000,
+    retry: 2,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 4000),
   });
 
   const formatDate = (dateString: string) => {
