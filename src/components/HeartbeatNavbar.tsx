@@ -20,7 +20,6 @@ const HeartbeatNavbar = () => {
     { to: "/roi", label: "ROI Calculator" },
     { to: "/about", label: "About Us" },
     { to: "/contact", label: "Contact" },
-    { to: "/blog", label: "Blog" },
   ];
 
   return (
