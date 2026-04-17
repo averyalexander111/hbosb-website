@@ -1,53 +1,77 @@
 
 
-## What I checked
+The user wants two things:
+1. Verify byline + tab titles on `/blog` and the post page (verification only — done previously, just needs hard refresh)
+2. Fix the security finding: private `Photos` and `Blogs` buckets have no RLS policies on `storage.objects`
 
-I just loaded the live published site `https://heartbeatofsouthbay.com/blog` in the browser and confirmed:
+Item 1 is just a manual hard-refresh on the user's end — I can confirm what they should see.
 
-- The post **is visible** — it shows as a card directly under "The Pulse" hero
-- Title shown: **"Leveraging AI for Smarter Customer Segmentation"**
-- Date: October 3, 2025 — Author: BaySignal AI Team
-- Tags chips above the card: AI, Customer Segmentation, Digital Marketing, Machine Learning, Marketing, Predictive Analytics
-- Network: `GET /rest/v1/blog_posts?status=eq.published…` returns 200
-- Database: row exists, `status=published`, `published_at=2025-10-04`, `slug=leveraging-ai-for-smarter-customer-segmentation`
-- No "No blog posts yet" empty state on the page
+Item 2 is the real work. The fix is to add RLS policies on `storage.objects` scoped to each bucket. Since `Blogs` holds blog featured images that need to render publicly on `/blog` and `/blog/:slug`, public SELECT is required (or the bucket should be flipped to public). `Photos` appears unused in code — I'll restrict it to admin-only across the board.
 
-So the post **is technically live and rendering correctly**.
+## Plan
 
-## Why it might still feel "not visible" to you
+### Part 1 — Verification (you do this)
+Hard-refresh:
+- `/blog` → byline should read "Heartbeat of South Bay Team", tab title "The Pulse — AI Revenue Insights | Heartbeat of South Bay"
+- `/blog/leveraging-ai-for-smarter-customer-segmentation` → tab title ends with "| The Pulse — Heartbeat of South Bay"
 
-Two likely explanations:
+### Part 2 — Lock down storage buckets (RLS migration)
 
-1. **Browser cache / stale tab** — earlier renders of the page (before the post was published) may have been cached. A hard refresh (Ctrl/Cmd+Shift+R) on `/blog` will pull the latest.
-2. **Author byline says "BaySignal AI Team"** — this is the wrong brand and may have made the card look like a placeholder rather than your real post. The post was created with `author = "BaySignal AI Team"` (the default from BlogAdmin), and the same brand still appears in:
-   - `BlogAdmin.tsx` default author + page title
-   - `BlogPost.tsx` `<title>` template (`| BaySignal AI Blog`)
+Add policies on `storage.objects` for both buckets:
 
-## Proposed fix (one approval, four small edits)
+**Blogs bucket** (featured images displayed publicly on blog pages):
+- SELECT: public (anyone can read — needed for `<img src>` to work)
+- INSERT / UPDATE / DELETE: admin only via `has_role(auth.uid(), 'admin')`
 
-### 1. Update the existing post's author in the database
-SQL update to rename the author on the live post:
+**Photos bucket** (no public consumer in current code):
+- SELECT / INSERT / UPDATE / DELETE: admin only
+
+```sql
+-- Blogs: public read, admin write
+create policy "Public can read Blogs"
+on storage.objects for select to public
+using (bucket_id = 'Blogs');
+
+create policy "Admins can upload to Blogs"
+on storage.objects for insert to authenticated
+with check (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+
+create policy "Admins can update Blogs"
+on storage.objects for update to authenticated
+using (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'))
+with check (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+
+create policy "Admins can delete from Blogs"
+on storage.objects for delete to authenticated
+using (bucket_id = 'Blogs' and public.has_role(auth.uid(), 'admin'));
+
+-- Photos: admin-only across all operations
+create policy "Admins can read Photos"
+on storage.objects for select to authenticated
+using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
+
+create policy "Admins can upload to Photos"
+on storage.objects for insert to authenticated
+with check (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
+
+create policy "Admins can update Photos"
+on storage.objects for update to authenticated
+using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'))
+with check (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
+
+create policy "Admins can delete from Photos"
+on storage.objects for delete to authenticated
+using (bucket_id = 'Photos' and public.has_role(auth.uid(), 'admin'));
 ```
-UPDATE public.blog_posts
-SET author = 'Heartbeat of South Bay Team', updated_at = now()
-WHERE slug = 'leveraging-ai-for-smarter-customer-segmentation';
-```
 
-### 2. `src/pages/BlogAdmin.tsx`
-- Change default `author: "BaySignal AI Team"` → `"Heartbeat of South Bay Team"` (lines 40 and 149)
-- Change `<title>Blog Admin - BaySignal AI</title>` → `Blog Admin — Heartbeat of South Bay` (line 209)
+### Why public SELECT on Blogs is safe
+The bucket holds blog featured images that are already meant to be displayed to every visitor on `/blog`. Without public SELECT, signed URLs would be required for every `<img>` — invasive and unnecessary for content already public by design. Write operations remain admin-locked.
 
-### 3. `src/pages/BlogPost.tsx`
-- Change `<title>{post.seo_title || post.title} | BaySignal AI Blog</title>` → `… | The Pulse — Heartbeat of South Bay` (line 149)
+### Notes
+- The bucket itself stays private (no anonymous listing of all objects); only direct object reads are allowed.
+- If you'd rather make the `Blogs` bucket fully public instead, say so and I'll flip it via `update storage.buckets set public = true where id = 'Blogs'` instead of adding a SELECT policy.
+- This will mark the `storage_no_rls_policies` finding as fixed.
 
-### 4. Verification
-- Hard-refresh `/blog` and confirm the card shows the new author
-- Open `/blog/leveraging-ai-for-smarter-customer-segmentation` and confirm tab title is correct
-
-### Files touched
-- DB migration: `blog_posts` row update (one row)
-- `src/pages/BlogAdmin.tsx` (3 lines)
-- `src/pages/BlogPost.tsx` (1 line)
-
-No changes needed to `Blog.tsx` (already correct after the previous fix) or to RLS policies (already permitting public reads of published posts).
+### Files Touched
+- New migration: storage RLS policies for `Blogs` and `Photos`
 
