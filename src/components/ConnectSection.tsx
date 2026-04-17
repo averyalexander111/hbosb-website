@@ -14,16 +14,21 @@ const ConnectSection = React.memo(() => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Connect with Us
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Learn how we can help your business thrive in today's competitive
-              digital landscape. At{" "}
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              Learn how we can help your business capture, respond to, and
+              convert more opportunities.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              At{" "}
               <span className="whitespace-nowrap">
                 Heartbeat of South&nbsp;Bay
               </span>
-              , we design Custom AI Ops tailored to your workflows, improving
-              client intake, follow ups, and reporting. The result is a stronger
-              online presence, smoother operations, and sustainable growth backed
-              by measurable ROI.
+              , we design custom AI systems tailored to your workflows,
+              improving client intake, follow-up, and reporting.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              The result is faster response times, smoother operations, and
+              sustainable growth backed by measurable ROI.
             </p>
           </div>
 
