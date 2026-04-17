@@ -49,13 +49,13 @@ const Blog = () => {
       }
 
       const { data, error } = await query;
-      console.log("[Blog] posts query →", { data, error });
       if (error) throw error;
       return data as BlogPost[];
     },
+    staleTime: 0,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: true,
   });
-
-  console.log("[Blog] render state →", { isLoading, postsError, postsCount: posts?.length });
 
   // Get all unique tags
   const { data: allTags } = useQuery({
@@ -64,7 +64,8 @@ const Blog = () => {
       const { data, error } = await supabase
         .from("blog_posts")
         .select("tags")
-        .eq("status", "published");
+        .eq("status", "published")
+        .lte("published_at", new Date().toISOString());
       
       if (error) throw error;
       
@@ -75,6 +76,9 @@ const Blog = () => {
       
       return Array.from(uniqueTags).sort();
     },
+    staleTime: 0,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: true,
   });
 
   const formatDate = (dateString: string) => {
@@ -166,6 +170,11 @@ const Blog = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            ) : postsError ? (
+              <div className="text-center py-16">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Unable to load blog posts</h3>
+                <p className="text-muted-foreground">Please refresh the page and try again.</p>
               </div>
             ) : posts && posts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

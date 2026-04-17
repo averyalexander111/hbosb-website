@@ -77,6 +77,10 @@ const BlogAdmin = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-tags"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-post"] });
+      queryClient.invalidateQueries({ queryKey: ["related-posts"] });
       toast.success("Blog post created successfully!");
       resetForm();
     },
@@ -105,6 +109,10 @@ const BlogAdmin = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-tags"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-post"] });
+      queryClient.invalidateQueries({ queryKey: ["related-posts"] });
       toast.success("Blog post updated successfully!");
       resetForm();
     },
@@ -124,6 +132,10 @@ const BlogAdmin = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-tags"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-post"] });
+      queryClient.invalidateQueries({ queryKey: ["related-posts"] });
       toast.success("Blog post deleted successfully!");
     },
     onError: (error) => {
