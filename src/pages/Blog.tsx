@@ -101,7 +101,7 @@ const Blog = () => {
 
         {/* Search and Filter */}
         <AnimatedSection>
-        <section className="pt-12 pb-8 px-4">
+        <section className="pt-6 pb-4 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
               <div className="relative flex-1">
@@ -144,7 +144,7 @@ const Blog = () => {
         </AnimatedSection>
 
         {/* Blog Posts */}
-        <section className="pb-16 px-4">
+        <section className="pt-2 pb-16 px-4">
           <div className="max-w-6xl mx-auto">
             {isLoading ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
