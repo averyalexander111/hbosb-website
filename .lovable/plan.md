@@ -1,40 +1,29 @@
 
-The blog post exists in Supabase and is `published` with `published_at` in the past, so the `/blog` query should return it. Most likely cause of "missing": React Query is caching an empty result from earlier, OR the user is viewing a stale build. Let me verify by checking the live blog page.
+What I found
 
-Actually, since I can't execute in plan mode, here's the diagnostic plan:
+The post is already on the Blog page. It is the only published post and appears as the first card directly below:
+1. the “The Pulse” hero
+2. the search box
+3. the tag chips row (“AI”, “Customer Segmentation”, etc.)
 
-## Diagnose & Fix Blog Post Display
+Post details:
+- Title: Leveraging AI for Smarter Customer Segmentation
+- Blog listing URL: `/blog`
+- Direct post URL: `/blog/leveraging-ai-for-smarter-customer-segmentation`
 
-### Investigation
-The post **"Leveraging AI for Smarter Customer Segmentation"** exists with:
-- `status: published`
-- `published_at: 2025-10-04` (in the past)
-- `slug: leveraging-ai-for-smarter-customer-segmentation`
+Why it may seem missing
 
-The query in `src/pages/Blog.tsx` should return it. If it's not appearing, likely causes:
-1. **Stale React Query cache** (5min staleTime) — unlikely after a refresh
-2. **Browser cache** showing an old build
-3. **Anon RLS access issue** — but the policy `Anyone can view published blog posts` allows public SELECT where `status = 'published'`
+This does not look like a Supabase or routing problem:
+- The `blog_posts` table contains the post with `status = published`
+- The `/blog` page query returns it successfully
+- I confirmed it renders on preview, published, and custom-domain versions of the site
 
-### Plan
+Most likely issue:
+- The blog page has a tall hero plus search/filter spacing above the cards
+- On shorter viewports, the first post can sit low enough that it feels “not there” until you scroll
 
-1. Open `/blog` in the live preview and check:
-   - Network tab for the Supabase REST request to `blog_posts`
-   - Console for errors
-   - Whether the post card actually renders
-
-2. If the request succeeds but returns `[]`, inspect the filter. The current query uses `.lte("published_at", new Date().toISOString())` — this should pass for a 2025-10-04 timestamp.
-
-3. If the request returns the post but it doesn't render, the issue is in the rendering logic.
-
-4. If the request fails (RLS / 401), confirm anon role policy.
-
-5. Apply the corresponding fix:
-   - **Cache issue** → add `refetchOnMount: 'always'` to the query
-   - **Render issue** → fix conditional in JSX
-   - **RLS issue** → verify/recreate policy via migration
-
-### Files Likely Touched
-- `src/pages/Blog.tsx` (only if a code fix is needed)
-
-No DB changes anticipated unless RLS is the culprit.
+If you want this fixed so it is immediately obvious on the page, I would make this UI adjustment:
+1. Reduce the vertical space above the post grid on `src/pages/Blog.tsx`
+2. Pull the first card higher so it appears sooner on load
+3. Optionally turn the latest post into a featured top card above the grid
+4. Re-verify the page in the preview after the layout change
