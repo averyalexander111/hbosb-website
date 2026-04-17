@@ -45,20 +45,25 @@ const ContactForm = React.memo(({
 
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("HBOSB Contact Form").insert({
-        full_name: formData.full_name.trim(),
-        email_address: formData.email_address.trim(),
-        phone_number: formData.phone_number.trim(),
-        message: formData.message.trim(),
-        area_of_interest: areaOfInterest,
-        sms_consent: smsConsent,
+      // Route through edge function for server-side zod validation + Airtable sync
+      const { data, error } = await supabase.functions.invoke("submit-contact-form", {
+        body: {
+          full_name: formData.full_name.trim(),
+          email_address: formData.email_address.trim(),
+          phone_number: formData.phone_number.trim(),
+          message: formData.message.trim(),
+          area_of_interest: areaOfInterest,
+          sms_consent: smsConsent,
+        },
       });
-      if (error) throw error;
+
+      if (error || !data?.success) {
+        throw new Error(data?.error || error?.message || "Submission failed");
+      }
 
       toast.success("Thank you! Your message has been sent successfully.");
       setFormData({ full_name: "", email_address: "", phone_number: "", message: "" });
       setSmsConsent(false);
-      
     } catch {
       toast.error("Something went wrong. Please try again later.");
     } finally {
