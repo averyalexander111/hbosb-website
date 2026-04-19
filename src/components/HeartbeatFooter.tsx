@@ -31,6 +31,7 @@ const HeartbeatFooter = () => {
               { to: "/leads", label: "Lead Conversion System" },
               { to: "/roi", label: "ROI Calculator" },
               { to: "/about", label: "About Us" },
+              { to: "/blog", label: "Blog" },
               { to: "/contact", label: "Contact" },
             ].map((link) => (
               <Link
