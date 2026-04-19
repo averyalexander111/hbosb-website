@@ -99,9 +99,9 @@ const Blog = () => {
   return (
     <>
       <SEOHead 
-        title="The Pulse — AI Revenue Insights | Heartbeat of South Bay"
+        title="The Pulse — AI Revenue Systems Blog | Heartbeat of South Bay"
         description="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
-        ogTitle="The Pulse — AI Revenue Insights | Heartbeat of South Bay"
+        ogTitle="The Pulse — AI Revenue Systems Blog | Heartbeat of South Bay"
         ogDescription="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
         canonicalUrl={`${window.location.origin}/blog`}
       />
