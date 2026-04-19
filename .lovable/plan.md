@@ -1,26 +1,17 @@
 
 
-## Supabase Connection: Healthy ✅
+## Plan
 
-I ran four checks against the live Supabase project (`gdmjszxcqqfwhkxxoqlp`):
+Restore the "Blog" link in both global navigation surfaces, matching the original position (between "About Us" and "Contact" per the standardized navigation order).
 
-| Check | Result |
-|---|---|
-| Direct DB query (`blog_posts` count) | 1 total, 1 published |
-| Latest published post | "Leveraging AI for Smarter Customer Segmentation" (Oct 4, 2025) |
-| Database linter | No issues |
-| Anonymous REST API call (same key the frontend uses) | **HTTP 200 in 0.78s**, returned the published post correctly |
+### Files
 
-The connection between the frontend's anon key and Supabase is working. RLS allows anonymous reads of published posts as expected, and the row exists.
+1. **`src/components/HeartbeatNavbar.tsx`** — add `{ to: "/blog", label: "Blog" }` back into the `links` array, positioned between `/about` and `/contact`. Renders in both desktop and mobile menus automatically.
 
-## What this means for the earlier blog issue
+2. **`src/components/HeartbeatFooter.tsx`** — add `{ to: "/blog", label: "Blog" }` back into the inline links array in the Navigation column, in the same position.
 
-Since the API itself is fine, if `/blog` is still misbehaving for you specifically, the cause is on the client side (browser cache, the GoHighLevel tracking script on the production domain, or a network condition) — **not** the Supabase connection.
+### Not changing
 
-## No code changes needed
-
-Connection is healthy, schema is clean, no linter warnings, no plan to action. If you want to take the next step on the blog page itself, the useful follow-ups would be:
-
-- Re-enable the Blog link in nav/footer now that we've confirmed the backend is fine, then test on the live custom domain.
-- Or, isolate the production-domain failure by temporarily disabling the GoHighLevel script in `index.html` and reloading `/blog` on `heartbeatofsouthbay.com`.
+- Routes are already intact in `src/App.tsx`.
+- No memory update needed — this restores the standard navigation structure already documented in `mem://features/navigation-structure`.
 
