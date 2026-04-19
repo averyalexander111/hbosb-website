@@ -1,17 +1,21 @@
 
 
+The user is on `/blog` and noticed the browser tab title doesn't include "Blog". Looking at `Blog.tsx`, `SEOHead` is called with `title="The Pulse — AI Revenue Insights | Heartbeat of South Bay"` — so "Blog" literally isn't in the `<title>`. "The Pulse" is the brand name for the blog, but for SEO + user clarity in tabs/search results, including "Blog" is standard.
+
 ## Plan
 
-Restore the "Blog" link in both global navigation surfaces, matching the original position (between "About Us" and "Contact" per the standardized navigation order).
+Update the `<title>` (and matching OG/Twitter titles) in `src/pages/Blog.tsx` to include the word "Blog".
 
-### Files
+### Change
 
-1. **`src/components/HeartbeatNavbar.tsx`** — add `{ to: "/blog", label: "Blog" }` back into the `links` array, positioned between `/about` and `/contact`. Renders in both desktop and mobile menus automatically.
+In `src/pages/Blog.tsx`, update the `SEOHead` props:
 
-2. **`src/components/HeartbeatFooter.tsx`** — add `{ to: "/blog", label: "Blog" }` back into the inline links array in the Navigation column, in the same position.
+- `title`: `"The Pulse — AI Revenue Systems Blog | Heartbeat of South Bay"`
+- `ogTitle`: same as above
+- `ogDescription` / `description`: unchanged
 
 ### Not changing
 
-- Routes are already intact in `src/App.tsx`.
-- No memory update needed — this restores the standard navigation structure already documented in `mem://features/navigation-structure`.
+- `BlogPost.tsx` already appends the post title; no change needed there unless you want "Blog" added to individual post titles too (let me know).
+- No memory update — this is a copy tweak, not a new convention.
 
