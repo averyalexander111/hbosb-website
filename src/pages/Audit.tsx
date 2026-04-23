@@ -627,7 +627,7 @@ const Audit = () => {
                 <div className="mx-auto max-w-5xl">
                   <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
                     <div className="max-w-3xl">
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Audit complete</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Assessment complete</p>
                       <h1 className="mt-4 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl">
                         {blueprint.headline}
                       </h1>
