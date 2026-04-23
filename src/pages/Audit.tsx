@@ -530,13 +530,13 @@ const Audit = () => {
                     <div className="flex items-start gap-3">
                       <Bot className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                        The goal is to reveal the highest-leverage automation, not to score perfection.
+                        The goal is to reveal the highest-leverage system to build first, not to score perfection.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Layers3 className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                        Your answers feed the recommendations and the booking handoff on the results screen.
+                        Your answers shape the recommendations and the clear next step on the results screen.
                       </p>
                     </div>
                   </div>
