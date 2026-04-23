@@ -1,25 +1,70 @@
 
 
-## Plan: Update assessment hero copy (fold-in structure)
+## Plan: Polish remaining assessment subpage copy
 
-Update the `SubpageHero` props passed from `src/pages/Audit.tsx` so the intro view leads with the punchier hook and folds the "slipping through the cracks" line into the subtitle.
+Three tiers of edits to `src/pages/Audit.tsx`. All copy-only — no layout, styling, or logic changes.
 
-### Change in `src/pages/Audit.tsx`
+---
 
-Locate the `<SubpageHero />` usage on the intro view and update its props to:
+### Tier 1 — Critical (dev copy leak)
 
-- **title:** `You're getting leads. But not all of them are turning into business.`
-- **subtitle:** `Find where they're slipping through the cracks. Answer a few quick questions and get a clear breakdown of your response speed, follow-up gaps, and the fastest way to fix them.`
+**Results view, intro paragraph above the action plan**
 
-### Notes
+Current text reads like an internal note:
+> "This mirrors the source form's intent, but it now lives inside the main site..."
 
-- `SubpageHero` already renders only `title` and `subtitle`, so no component changes are needed.
-- The longer title (two sentences) still fits the existing `text-4xl sm:text-5xl md:text-6xl` styling. On mobile the second sentence wraps naturally — acceptable since the rhythm of "problem → consequence" reads well on two lines.
-- No changes to layout, animations, downstream form copy, or any other view (questions / processing / results).
-- Aligns with vocabulary preferences: avoids "automation," uses concrete language.
+Replace with:
+> "A focused first 90 days based on what your answers revealed."
+
+---
+
+### Tier 2 — Recommended polish
+
+**a) "What you get" section (intro view)**
+
+Tighten and remove defensive framing. Swap "automation" → "system" per brand vocabulary.
+
+- Replace any "automation" mentions with "AI systems" or "system."
+- Trim hedging phrases ("we'll make sure," "designed to," etc.) to direct statements.
+
+**b) Questions view, left-panel subhead**
+
+Currently reads as an internal label. Replace with a benefit-led line, e.g.:
+> "A few quick questions. Clear answers on where revenue is leaking."
+
+**c) Brand vocabulary sweep**
+
+Find any remaining instances of "automation" / "automate" across the four views (intro, questions, processing, results) and swap to "system" / "AI systems" wording. Aligns with the existing memory rule (avoid "AI automation").
+
+---
+
+### Tier 3 — Optional refinements
+
+**a) Trust-point titles (intro view)**
+
+If the three trust points use generic titles ("Fast," "Personalized," "Actionable"), tighten to outcome-led phrasing (e.g., "Built around your business," "Designed for action").
+
+**b) Processing view copy**
+
+Make the loading messages feel less like UI placeholder ("Analyzing your responses…") and more like a confidence-builder ("Mapping your revenue gaps…", "Building your 90-day plan…").
+
+**c) Results CTA wording**
+
+Confirm the booking CTA reads as a clear next step (e.g., "Book your strategy call") rather than generic "Get started" / "Continue."
+
+---
+
+### Approach
+
+1. Read the full `src/pages/Audit.tsx` to confirm exact current strings for each tier.
+2. Apply Tier 1 edit unconditionally.
+3. Apply Tier 2 edits with the wording above (or close variants matching surrounding tone).
+4. Apply Tier 3 only where the current copy is noticeably weak — skip if already strong.
 
 ### Out of scope
 
-- No edits to the question content, results copy, or CTAs.
-- No styling changes to `SubpageHero`.
+- No changes to question content, scoring, or pillar logic.
+- No changes to `SubpageHero` props (already updated).
+- No layout, animation, or component structure changes.
+- No edits to other pages.
 
