@@ -324,7 +324,7 @@ const Audit = () => {
                           key={stat.label}
                           className="rounded-2xl border border-navy-foreground/10 bg-white/5 p-5 backdrop-blur"
                         >
-                          <p className="text-xs uppercase tracking-[0.2em] text-navy-foreground/45">{stat.label}</p>
+                          <p className="text-xs uppercase tracking-[0.2em] text-navy-foreground/65">{stat.label}</p>
                           <p className="mt-2 text-xl font-semibold text-navy-foreground">{stat.value}</p>
                         </div>
                       ))}
@@ -340,14 +340,14 @@ const Audit = () => {
                     <div className="mb-8">
                       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
                       <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
-                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/60">
+                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/75">
                         We'll use this so the assessment feels personalized and the follow-up is tied to the right business.
                       </p>
                     </div>
 
                     <form onSubmit={startAudit} className="space-y-5">
                       <div className="space-y-2">
-                        <Label htmlFor="audit_name" className="text-navy-foreground/80">
+                        <Label htmlFor="audit_name" className="text-navy-foreground/90">
                           Full name
                         </Label>
                         <Input
@@ -356,11 +356,11 @@ const Audit = () => {
                           value={leadInfo.name}
                           onChange={(event) => handleLeadInfoChange("name", event.target.value)}
                           placeholder="Your full name"
-                          className="h-12 rounded-xl border-white/15 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/35"
+                          className="h-12 rounded-xl border-white/25 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/55"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="audit_email" className="text-navy-foreground/80">
+                        <Label htmlFor="audit_email" className="text-navy-foreground/90">
                           Email
                         </Label>
                         <Input
@@ -370,11 +370,11 @@ const Audit = () => {
                           value={leadInfo.email}
                           onChange={(event) => handleLeadInfoChange("email", event.target.value)}
                           placeholder="you@company.com"
-                          className="h-12 rounded-xl border-white/15 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/35"
+                          className="h-12 rounded-xl border-white/25 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/55"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="audit_phone" className="text-navy-foreground/80">
+                        <Label htmlFor="audit_phone" className="text-navy-foreground/90">
                           Phone
                         </Label>
                         <Input
@@ -384,7 +384,7 @@ const Audit = () => {
                           value={leadInfo.phone}
                           onChange={(event) => handleLeadInfoChange("phone", event.target.value)}
                           placeholder="(555) 123-4567"
-                          className="h-12 rounded-xl border-white/15 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/35"
+                          className="h-12 rounded-xl border-white/25 bg-white/10 text-navy-foreground placeholder:text-navy-foreground/55"
                         />
                       </div>
 
@@ -442,13 +442,13 @@ const Audit = () => {
                   </p>
 
                   <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/65">
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/80">
                     Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. We are mapping where your current workflow is helping
                     and where the next system should remove friction.
                   </p>
 
                   <div className="mt-10">
-                    <div className="flex items-center justify-between text-sm text-navy-foreground/60">
+                    <div className="flex items-center justify-between text-sm text-navy-foreground/75">
                       <span>Progress</span>
                       <span>{Math.round(progress)}%</span>
                     </div>
@@ -464,19 +464,19 @@ const Audit = () => {
                   <div className="mt-12 space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6">
                     <div className="flex items-start gap-3">
                       <Target className="mt-0.5 h-5 w-5 text-primary" />
-                      <p className="text-sm leading-relaxed text-navy-foreground/75">
+                      <p className="text-sm leading-relaxed text-navy-foreground/85">
                         Focus on how things actually work today, not the ideal version.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Bot className="mt-0.5 h-5 w-5 text-primary" />
-                      <p className="text-sm leading-relaxed text-navy-foreground/75">
+                      <p className="text-sm leading-relaxed text-navy-foreground/85">
                         The goal is to reveal the highest-leverage automation, not to score perfection.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Layers3 className="mt-0.5 h-5 w-5 text-primary" />
-                      <p className="text-sm leading-relaxed text-navy-foreground/75">
+                      <p className="text-sm leading-relaxed text-navy-foreground/85">
                         Your answers feed the recommendations and the booking handoff on the results screen.
                       </p>
                     </div>
@@ -597,12 +597,12 @@ const Audit = () => {
                 />
               </div>
               <h2 className="mt-8 text-3xl font-bold">Mapping your assessment results...</h2>
-              <p className="mt-3 text-base leading-relaxed text-navy-foreground/65">
+              <p className="mt-3 text-base leading-relaxed text-navy-foreground/80">
                 We are turning your answers into a recommended rollout, a priority order, and the booking handoff.
               </p>
 
               <div className="mx-auto mt-10 max-w-md text-left">
-                <div className="mb-3 flex items-center justify-between text-sm text-navy-foreground/65">
+                <div className="mb-3 flex items-center justify-between text-sm text-navy-foreground/80">
                   <span>Processing</span>
                   <span>{processingProgress}%</span>
                 </div>
@@ -631,11 +631,11 @@ const Audit = () => {
                       <h1 className="mt-4 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl">
                         {blueprint.headline}
                       </h1>
-                      <p className="mt-5 text-lg leading-relaxed text-navy-foreground/70">{blueprint.summary}</p>
+                      <p className="mt-5 text-lg leading-relaxed text-navy-foreground/85">{blueprint.summary}</p>
                     </div>
 
                     <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur sm:min-w-[320px]">
-                      <p className="text-sm uppercase tracking-[0.18em] text-navy-foreground/45">Readiness score</p>
+                      <p className="text-sm uppercase tracking-[0.18em] text-navy-foreground/65">Readiness score</p>
                       <div className="mt-3 flex items-end gap-3">
                         <span className="text-5xl font-extrabold text-navy-foreground">
                           {leadData.auditResult.readinessPercentage}%
@@ -644,7 +644,7 @@ const Audit = () => {
                           {leadData.auditResult.level}
                         </span>
                       </div>
-                      <p className="mt-4 text-sm leading-relaxed text-navy-foreground/65">
+                      <p className="mt-4 text-sm leading-relaxed text-navy-foreground/80">
                         {leadData.auditResult.recommendation}
                       </p>
                     </div>
@@ -742,7 +742,7 @@ const Audit = () => {
                   <h2 className="mt-3 text-3xl font-bold text-navy-foreground sm:text-4xl">
                     A practical 90-day implementation sequence
                   </h2>
-                  <p className="mt-4 text-lg text-navy-foreground/65">
+                  <p className="mt-4 text-lg text-navy-foreground/80">
                     This mirrors the source form's intent, but it now lives inside the main site and uses the site's visual system.
                   </p>
                 </div>
@@ -757,7 +757,7 @@ const Audit = () => {
                         {index + 1}
                       </div>
                       <h3 className="text-xl font-semibold text-navy-foreground">{step.title}</h3>
-                      <p className="mt-4 leading-relaxed text-navy-foreground/68">{step.body}</p>
+                      <p className="mt-4 leading-relaxed text-navy-foreground/85">{step.body}</p>
                     </div>
                   ))}
                 </div>
