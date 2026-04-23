@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const HeartbeatNavbar = () => {
+const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const showSolid = forceSolid || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
