@@ -389,7 +389,7 @@ const Audit = () => {
                       </div>
 
                       <Button type="submit" size="lg" className="mt-2 h-14 w-full rounded-xl text-base">
-                        Start the audit
+                        Start the assessment
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </form>
