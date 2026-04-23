@@ -339,9 +339,9 @@ const Audit = () => {
                   >
                     <div className="mb-8">
                       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
-                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your audit</h2>
+                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
                       <p className="mt-2 text-sm leading-relaxed text-navy-foreground/60">
-                        We'll use this so the audit feels personalized and the follow-up is tied to the right business.
+                        We'll use this so the assessment feels personalized and the follow-up is tied to the right business.
                       </p>
                     </div>
 
