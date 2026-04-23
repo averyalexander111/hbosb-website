@@ -503,8 +503,7 @@ const Audit = () => {
 
                   <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
                   <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/80">
-                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. We are mapping where your current workflow is helping
-                    and where the next system should remove friction.
+                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few quick questions, clear answers on where revenue is leaking and what to fix first.
                   </p>
 
                   <div className="mt-10">
