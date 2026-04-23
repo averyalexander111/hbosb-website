@@ -324,7 +324,7 @@ const Audit = () => {
                           key={stat.label}
                           className="rounded-2xl border border-navy-foreground/10 bg-white/5 p-5 backdrop-blur"
                         >
-                          <p className="text-xs uppercase tracking-[0.2em] text-navy-foreground/45">{stat.label}</p>
+                          <p className="text-xs uppercase tracking-[0.2em] text-navy-foreground/65">{stat.label}</p>
                           <p className="mt-2 text-xl font-semibold text-navy-foreground">{stat.value}</p>
                         </div>
                       ))}
