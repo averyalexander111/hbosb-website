@@ -1,38 +1,50 @@
 
 
-## Security Finding Review: `user_roles_self_escalation`
+## Plan: Improve text legibility across the assessment form
 
-### Verdict: Largely a false positive, with one real hardening opportunity
+The page has a few low-contrast spots — mostly on the dark navy panels — where text drops below readable contrast. Tighten those without changing the visual design.
 
-I reviewed the live RLS policies on `user_roles` against the warning. Here's what's actually true:
+### Changes in `src/pages/Audit.tsx`
 
-| Concern in finding | Actual status |
-|---|---|
-| "Non-admin can insert their own admin role" | **Not exploitable.** The INSERT policy's `WITH CHECK` is `has_role(auth.uid(), 'admin')`. Postgres evaluates this before the row is written. A non-admin's check returns `false` → insert is rejected. There is no race window — `WITH CHECK` is atomic per row. |
-| "Race condition on has_role" | **Not exploitable.** `has_role` is `STABLE SECURITY DEFINER` and reads committed state. A user can't insert a row, then have that same row satisfy their own check — the check runs first. |
-| "Enumeration of admin accounts" | **Not exploitable as stated.** The "Users can view their own roles" policy filters `user_id = auth.uid()`, so an authenticated user only ever sees their own rows. They cannot list other users' roles. |
-| "Bootstrap: no admin can ever be created via the policy" | **True, but by design.** The first admin must be seeded via SQL migration (already done). |
+**Intro form (dark navy glass card)**
+- Form input placeholders: `placeholder:text-navy-foreground/35` → `placeholder:text-navy-foreground/55` (3 inputs: name, email, phone, lines 359, 373, 387). 35% on navy is effectively invisible.
+- Input background `bg-white/10` → `bg-white/[0.08]` stays, but bump border `border-white/15` → `border-white/25` so fields have a clearer edge.
+- Helper copy under "Begin your assessment" (line 343): `text-navy-foreground/60` → `text-navy-foreground/75`.
+- Stat label eyebrows (line 327): `text-navy-foreground/45` → `text-navy-foreground/65`.
+- Field labels (lines 350, 363, 377): `text-navy-foreground/80` → `text-navy-foreground/90` for stronger label/field hierarchy.
 
-The scanner is flagging a theoretical pattern (`has_role` reads the table it gates), but the current policy set closes the actual attack paths.
+**Questions screen (dark navy left rail)**
+- Subhead under pillar headline (line 445): `text-navy-foreground/65` → `text-navy-foreground/80`.
+- Progress row "Progress / %" (line 451): `text-navy-foreground/60` → `text-navy-foreground/75`.
+- Three tip rows (lines 467, 473, 479): `text-navy-foreground/75` → `text-navy-foreground/85`.
 
-### What to do
+**Processing screen**
+- Subhead (line 600): `text-navy-foreground/65` → `text-navy-foreground/80`.
+- Progress row labels (line 605): `text-navy-foreground/65` → `text-navy-foreground/80`.
 
-**Recommended: mark the finding as resolved with an explanation** — no code changes needed. The policies as written are safe.
+**Results hero (dark navy)**
+- Hero summary (line 634): `text-navy-foreground/70` → `text-navy-foreground/85`.
+- Readiness card label (line 638): `text-navy-foreground/45` → `text-navy-foreground/65`.
+- Readiness recommendation copy (line 647): `text-navy-foreground/65` → `text-navy-foreground/80`.
 
-**Optional defense-in-depth (only if you want extra hardening):**
+**Recommended rollout (dark navy section)**
+- Section subhead (line 745): `text-navy-foreground/65` → `text-navy-foreground/80`.
+- Action plan body copy (line 760): `text-navy-foreground/68` → `text-navy-foreground/85`.
 
-1. Make `has_role` explicitly skip rows authored in the same transaction by adding `SET row_security = off` (already implicit in `SECURITY DEFINER`, but documented intent). No functional change.
-2. Add a redundant `WITH CHECK` clause on INSERT that also blocks self-promotion: `WITH CHECK (has_role(auth.uid(), 'admin') AND user_id <> auth.uid())`. This prevents an admin from accidentally adding the `admin` role to themselves a second time, but it also prevents the legitimate case of an admin granting another admin… which is fine since the seed admin is created via migration.
+**Light card areas**
+- Already meet contrast — no changes to question card, "What stands out", or booking card.
 
-Honestly, neither is needed. The current model is the standard Supabase pattern recommended in your own system instructions.
+### Why these specific values
 
-### Plan
+WCAG AA needs ~4.5:1 for body text. On `--navy` (220 50% 8%), `navy-foreground` (210 40% 96%) at:
+- 35% opacity → ~2.0:1 (fail)
+- 65% opacity → ~4.4:1 (borderline)
+- 75–85% opacity → 5.5–7:1 (pass)
 
-1. Call `security--manage_security_finding` with `operation: "mark_as_fixed"`, `internal_id: "user_roles_self_escalation"`, `scanner_name: "supabase_lov"`, and an explanation citing:
-   - INSERT WITH CHECK blocks non-admin escalation atomically (no race).
-   - SELECT policy `user_id = auth.uid()` prevents cross-user enumeration.
-   - First admin is seeded via migration, not via the policy path.
-2. No code or migration changes.
+Bumping body copy to 80–85% and small labels to 65%+ brings everything into AA range while preserving the soft-on-dark aesthetic.
 
-If you'd rather apply the optional hardening (option 2 above) before dismissing, say the word and I'll add a migration. Otherwise approving this plan dismisses the finding.
+### Out of scope
+
+- Visual layout, colors, animations, and component structure stay identical.
+- No changes to the chart, results cards on light bg, or the booking iframe.
 
