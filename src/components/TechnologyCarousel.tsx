@@ -37,7 +37,7 @@ const TechnologyCarousel = React.memo(() => {
         <Carousel
           opts={{ align: "start", loop: true }}
           plugins={[
-            Autoplay({ stopOnInteraction: false, stopOnMouseEnter: false }),
+            Autoplay({ stopOnInteraction: false, stopOnMouseEnter: false }) as any,
           ]}
           className="w-full"
         >

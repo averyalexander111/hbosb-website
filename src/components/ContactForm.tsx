@@ -111,7 +111,7 @@ const ContactForm = React.memo(({
       return;
     }
 
-    if (!e.currentTarget.reportValidity()) {
+    if (!(e.currentTarget as HTMLFormElement).reportValidity()) {
       return;
     }
 
