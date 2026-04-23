@@ -467,8 +467,7 @@ const Audit = () => {
                     A cleaner starting point than a generic quiz
                   </h2>
                   <p className="mt-4 text-lg text-muted-foreground">
-                    The questions are tuned around lead conversion, systems, and operational bottlenecks so the output points
-                    toward a real implementation path.
+                    The questions are tuned around lead conversion, systems, and operational bottlenecks, so the recommendations point toward a real implementation path.
                   </p>
                 </div>
 
