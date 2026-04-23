@@ -127,7 +127,7 @@ const AILeadResponseSystem = () => {
             className="mt-10"
           >
             <Link
-              to="/audit"
+              to="/assessment"
               className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
               Book an AI Revenue System Assessment
@@ -522,7 +522,7 @@ const AILeadResponseSystem = () => {
                 Not sure where to start? We'll map it out.
               </p>
               <Link
-                to="/audit"
+                to="/assessment"
                 className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Book an AI Revenue System Assessment

@@ -46,7 +46,7 @@ const FinalCTASection = () => {
             </ul>
 
             <Link
-              to="/audit"
+              to="/assessment"
               className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
               Start Your AI Revenue System Assessment
