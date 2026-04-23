@@ -279,10 +279,10 @@ const Audit = () => {
   return (
     <>
       <SEOHead
-        title="AI Revenue Audit | Heartbeat of South Bay"
-        description="Take the Heartbeat of South Bay AI revenue audit to uncover where leads, follow-up, and operations are leaking revenue."
-        ogTitle="AI Revenue Audit | Heartbeat of South Bay"
-        ogDescription="Get a practical audit of your lead handling, systems, and automation readiness."
+        title="AI Revenue Assessment | Heartbeat of South Bay"
+        description="Take the Heartbeat of South Bay AI revenue assessment to uncover where leads, follow-up, and operations are leaking revenue."
+        ogTitle="AI Revenue Assessment | Heartbeat of South Bay"
+        ogDescription="Get a practical assessment of your lead handling, systems, and automation readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
       />
       <HeartbeatNavbar />
