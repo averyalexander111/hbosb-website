@@ -77,7 +77,7 @@ const trustPoints = [
   {
     icon: ShieldCheck,
     title: "Built for real operations",
-    description: "Recommendations are grounded in your team's process, tooling, and comfort level with automation.",
+    description: "Recommendations are grounded in your team's process, tooling, and comfort level with new systems.",
   },
 ];
 
