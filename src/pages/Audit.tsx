@@ -279,10 +279,10 @@ const Audit = () => {
   return (
     <>
       <SEOHead
-        title="AI Revenue Audit | Heartbeat of South Bay"
-        description="Take the Heartbeat of South Bay AI revenue audit to uncover where leads, follow-up, and operations are leaking revenue."
-        ogTitle="AI Revenue Audit | Heartbeat of South Bay"
-        ogDescription="Get a practical audit of your lead handling, systems, and automation readiness."
+        title="AI Revenue Assessment | Heartbeat of South Bay"
+        description="Take the Heartbeat of South Bay AI revenue assessment to uncover where leads, follow-up, and operations are leaking revenue."
+        ogTitle="AI Revenue Assessment | Heartbeat of South Bay"
+        ogDescription="Get a practical assessment of your lead handling, systems, and automation readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
       />
       <HeartbeatNavbar />
@@ -308,15 +308,14 @@ const Audit = () => {
                   <div className="max-w-3xl">
                     <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-navy-foreground/90">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      AI Revenue Audit
+                      AI Revenue Assessment
                     </span>
                     <h1 className="mt-6 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl md:text-6xl">
                       Find the gaps in your lead handling before they cost you more business.
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-foreground/70">
-                      This audit brings the form from your other project into the main Heartbeat site, but styled to match
-                      the current brand. Answer a few questions and we will map the fastest path to better response speed,
-                      stronger follow-up, and cleaner automation.
+                      Answer a few questions and we'll map the fastest path to better response speed, stronger follow-up, and
+                      cleaner automation.
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -340,9 +339,9 @@ const Audit = () => {
                   >
                     <div className="mb-8">
                       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
-                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your audit</h2>
+                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
                       <p className="mt-2 text-sm leading-relaxed text-navy-foreground/60">
-                        We'll use this so the audit feels personalized and the follow-up is tied to the right business.
+                        We'll use this so the assessment feels personalized and the follow-up is tied to the right business.
                       </p>
                     </div>
 
@@ -390,7 +389,7 @@ const Audit = () => {
                       </div>
 
                       <Button type="submit" size="lg" className="mt-2 h-14 w-full rounded-xl text-base">
-                        Start the audit
+                        Start the assessment
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </form>
@@ -442,7 +441,7 @@ const Audit = () => {
                     {question.pillar}
                   </p>
 
-                  <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Audit in progress."}</h2>
+                  <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
                   <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/65">
                     Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. We are mapping where your current workflow is helping
                     and where the next system should remove friction.
@@ -597,7 +596,7 @@ const Audit = () => {
                   className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary border-t-transparent"
                 />
               </div>
-              <h2 className="mt-8 text-3xl font-bold">Mapping your audit results...</h2>
+              <h2 className="mt-8 text-3xl font-bold">Mapping your assessment results...</h2>
               <p className="mt-3 text-base leading-relaxed text-navy-foreground/65">
                 We are turning your answers into a recommended rollout, a priority order, and the booking handoff.
               </p>
@@ -628,7 +627,7 @@ const Audit = () => {
                 <div className="mx-auto max-w-5xl">
                   <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
                     <div className="max-w-3xl">
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Audit complete</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Assessment complete</p>
                       <h1 className="mt-4 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl">
                         {blueprint.headline}
                       </h1>
@@ -799,7 +798,7 @@ const Audit = () => {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Button asChild size="lg" className="rounded-xl">
                         <a href={AUDIT_BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                          Book the audit review
+                          Book the assessment review
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -823,7 +822,7 @@ const Audit = () => {
                         <div>
                           <h2 className="text-xl font-semibold text-foreground">Schedule your strategy session</h2>
                           <p className="text-sm text-muted-foreground">
-                            Use the calendar below to book the next step from this audit.
+                            Use the calendar below to book the next step from this assessment.
                           </p>
                         </div>
                         <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
@@ -835,7 +834,7 @@ const Audit = () => {
                       <div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
                         <iframe
                           src={`${AUDIT_BOOKING_URL}?embed=true`}
-                          title="Heartbeat audit booking"
+                          title="Heartbeat assessment booking"
                           className="min-h-[720px] w-full"
                         />
                       </div>
