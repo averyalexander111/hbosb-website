@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -484,16 +484,14 @@ const Audit = () => {
                 </div>
 
                 <div>
-                  <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                      key={question.id}
-                      custom={direction}
-                      initial={{ opacity: 0, y: direction > 0 ? 24 : -24, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: direction > 0 ? -24 : 24, scale: 0.98 }}
-                      transition={{ duration: 0.28, ease: "easeOut" }}
-                      className="rounded-[2rem] border border-border/80 bg-card p-6 shadow-elegant sm:p-10"
-                    >
+                  <motion.div
+                    key={question.id}
+                    custom={direction}
+                    initial={{ opacity: 0, y: direction > 0 ? 24 : -24, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                    className="rounded-[2rem] border border-border/80 bg-card p-6 shadow-elegant sm:p-10"
+                  >
                       <div className="mb-8 flex items-center justify-between gap-4">
                         <div className="rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                           Question {currentStep + 1}
@@ -561,8 +559,7 @@ const Audit = () => {
                           </form>
                         )}
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
+                  </motion.div>
 
                   <div className="mt-6 flex items-center justify-between">
                     <button
