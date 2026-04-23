@@ -361,11 +361,11 @@ const Audit = () => {
                       AI Revenue Assessment
                     </span>
                     <h1 className="mt-6 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl md:text-6xl">
-                      Find the gaps in your lead handling before they cost you more business.
+                      You're getting leads. But not all of them are turning into business.
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-foreground/70">
-                      Answer a few questions and we'll map the fastest path to better response speed, stronger follow-up, and
-                      cleaner automation.
+                      Find where they're slipping through the cracks. Answer a few quick questions and get a clear breakdown of
+                      your response speed, follow-up gaps, and the fastest way to fix them.
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-3">
