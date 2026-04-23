@@ -77,7 +77,7 @@ const trustPoints = [
   {
     icon: ShieldCheck,
     title: "Built for real operations",
-    description: "Recommendations are grounded in your team's process, tooling, and comfort level with automation.",
+    description: "Recommendations are grounded in your team's process, tooling, and comfort level with new systems.",
   },
 ];
 
@@ -86,7 +86,7 @@ const pillarHeadlines: Record<string, string> = {
   "People & Culture": "Assess team readiness.",
   "Lead Revenue & Handling": "Find the conversion leak.",
   "Data & Systems": "Inspect the data foundation.",
-  "Tools & Security": "Check the automation stack.",
+  "Tools & Security": "Check the systems stack.",
   "Processes & Operations": "Tighten execution.",
 };
 
@@ -332,7 +332,7 @@ const Audit = () => {
         title="AI Revenue Assessment | Heartbeat of South Bay"
         description="Take the Heartbeat of South Bay AI revenue assessment to uncover where leads, follow-up, and operations are leaking revenue."
         ogTitle="AI Revenue Assessment | Heartbeat of South Bay"
-        ogDescription="Get a practical assessment of your lead handling, systems, and automation readiness."
+        ogDescription="Get a practical assessment of your lead handling, systems, and AI readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
       />
       <HeartbeatNavbar forceSolid={view !== "intro"} />
@@ -391,7 +391,7 @@ const Audit = () => {
                       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
                       <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
                       <p className="mt-2 text-sm leading-relaxed text-navy-foreground/75">
-                        We'll use this so the assessment feels personalized and the follow-up is tied to the right business.
+                        Your details keep the assessment personalized and the follow-up tied to the right business.
                       </p>
                     </div>
 
@@ -467,8 +467,7 @@ const Audit = () => {
                     A cleaner starting point than a generic quiz
                   </h2>
                   <p className="mt-4 text-lg text-muted-foreground">
-                    The questions are tuned around lead conversion, systems, and operational bottlenecks so the output points
-                    toward a real implementation path.
+                    The questions are tuned around lead conversion, systems, and operational bottlenecks, so the recommendations point toward a real implementation path.
                   </p>
                 </div>
 
@@ -504,8 +503,7 @@ const Audit = () => {
 
                   <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
                   <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/80">
-                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. We are mapping where your current workflow is helping
-                    and where the next system should remove friction.
+                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few quick questions, clear answers on where revenue is leaking and what to fix first.
                   </p>
 
                   <div className="mt-10">
@@ -532,13 +530,13 @@ const Audit = () => {
                     <div className="flex items-start gap-3">
                       <Bot className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                        The goal is to reveal the highest-leverage automation, not to score perfection.
+                        The goal is to reveal the highest-leverage system to build first, not to score perfection.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Layers3 className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                        Your answers feed the recommendations and the booking handoff on the results screen.
+                        Your answers shape the recommendations and the clear next step on the results screen.
                       </p>
                     </div>
                   </div>
@@ -655,9 +653,9 @@ const Audit = () => {
                   className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary border-t-transparent"
                 />
               </div>
-              <h2 className="mt-8 text-3xl font-bold">Mapping your assessment results...</h2>
+              <h2 className="mt-8 text-3xl font-bold">Mapping your revenue gaps...</h2>
               <p className="mt-3 text-base leading-relaxed text-navy-foreground/80">
-                We are turning your answers into a recommended rollout, a priority order, and the booking handoff.
+                Turning your answers into a priority order, a recommended rollout, and your clear next step.
               </p>
 
               <div className="mx-auto mt-10 max-w-md text-left">
@@ -802,7 +800,7 @@ const Audit = () => {
                     A practical 90-day implementation sequence
                   </h2>
                   <p className="mt-4 text-lg text-navy-foreground/80">
-                    This mirrors the source form's intent, but it now lives inside the main site and uses the site's visual system.
+                    A focused first 90 days based on what your answers revealed.
                   </p>
                 </div>
 
