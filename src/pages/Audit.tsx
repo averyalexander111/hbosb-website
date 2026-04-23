@@ -285,7 +285,7 @@ const Audit = () => {
         ogDescription="Get a practical assessment of your lead handling, systems, and automation readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
       />
-      <HeartbeatNavbar />
+      <HeartbeatNavbar forceSolid={view !== "intro"} />
 
       <main className="bg-background min-h-screen">
         {view === "intro" && (

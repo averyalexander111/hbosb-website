@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const HeartbeatNavbar = () => {
+const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const showSolid = forceSolid || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,7 +27,7 @@ const HeartbeatNavbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
+        showSolid
           ? "bg-navy/90 backdrop-blur-md border-b border-navy-foreground/10 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
