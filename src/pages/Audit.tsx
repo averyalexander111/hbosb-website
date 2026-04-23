@@ -798,7 +798,7 @@ const Audit = () => {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Button asChild size="lg" className="rounded-xl">
                         <a href={AUDIT_BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                          Book the audit review
+                          Book the assessment review
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -822,7 +822,7 @@ const Audit = () => {
                         <div>
                           <h2 className="text-xl font-semibold text-foreground">Schedule your strategy session</h2>
                           <p className="text-sm text-muted-foreground">
-                            Use the calendar below to book the next step from this audit.
+                            Use the calendar below to book the next step from this assessment.
                           </p>
                         </div>
                         <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
@@ -834,7 +834,7 @@ const Audit = () => {
                       <div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
                         <iframe
                           src={`${AUDIT_BOOKING_URL}?embed=true`}
-                          title="Heartbeat audit booking"
+                          title="Heartbeat assessment booking"
                           className="min-h-[720px] w-full"
                         />
                       </div>
