@@ -308,7 +308,7 @@ const Audit = () => {
                   <div className="max-w-3xl">
                     <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-navy-foreground/90">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      AI Revenue Audit
+                      AI Revenue Assessment
                     </span>
                     <h1 className="mt-6 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl md:text-6xl">
                       Find the gaps in your lead handling before they cost you more business.
