@@ -7,6 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  PHONE_INPUT_PATTERN,
+  PHONE_VALIDATION_MESSAGE,
+  sanitizeEmailInput,
+  sanitizePhoneInput,
+  validateLeadContactInfo,
+} from "@/lib/leadValidation";
 import { toast } from "sonner";
 
 const DEFAULT_CONTACT_WEBHOOK_URL =
@@ -99,12 +106,26 @@ const ContactForm = React.memo(({
       return;
     }
 
+    if (!e.currentTarget.reportValidity()) {
+      return;
+    }
+
+    const validatedContactInfo = validateLeadContactInfo({
+      email: formData.email_address,
+      phone: formData.phone_number,
+    });
+
+    if (!validatedContactInfo.isValid) {
+      toast.error(validatedContactInfo.error);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const payload: ContactSubmissionPayload = {
         full_name: formData.full_name.trim(),
-        email_address: formData.email_address.trim(),
-        phone_number: formData.phone_number.trim(),
+        email_address: validatedContactInfo.email,
+        phone_number: validatedContactInfo.phone,
         message: formData.message.trim(),
         area_of_interest: areaOfInterest,
         sms_consent: smsConsent,
@@ -181,9 +202,11 @@ const ContactForm = React.memo(({
                 placeholder="your@email.com"
                 value={formData.email_address}
                 onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, email_address: e.target.value }))
+                  setFormData((prev) => ({ ...prev, email_address: sanitizeEmailInput(e.target.value) }))
                 }
                 maxLength={255}
+                autoComplete="email"
+                inputMode="email"
                 required
                 className="rounded-lg bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40 shadow-sm transition-shadow focus:shadow-md"
               />
@@ -201,9 +224,13 @@ const ContactForm = React.memo(({
               placeholder="(555) 123-4567"
               value={formData.phone_number}
               onChange={(e) =>
-                setFormData((prev) => ({ ...prev, phone_number: e.target.value }))
+                setFormData((prev) => ({ ...prev, phone_number: sanitizePhoneInput(e.target.value) }))
               }
               maxLength={20}
+              autoComplete="tel"
+              inputMode="tel"
+              pattern={PHONE_INPUT_PATTERN}
+              title={PHONE_VALIDATION_MESSAGE}
               required
               className="rounded-lg bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40 shadow-sm transition-shadow focus:shadow-md"
             />

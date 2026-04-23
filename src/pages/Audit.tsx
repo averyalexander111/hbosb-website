@@ -33,6 +33,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  PHONE_INPUT_PATTERN,
+  PHONE_VALIDATION_MESSAGE,
+  sanitizeEmailInput,
+  sanitizePhoneInput,
+  validateLeadContactInfo,
+} from "@/lib/leadValidation";
+import {
   AUDIT_BOOKING_URL,
   AUDIT_QUESTIONS,
   buildAuditBlueprint,
@@ -44,6 +51,7 @@ import {
   type AuditLeadInfo,
   type AuditResponse,
 } from "@/lib/audit";
+import { toast } from "sonner";
 
 type AuditView = "intro" | "questions" | "processing" | "results";
 
@@ -162,16 +170,46 @@ const Audit = () => {
   }, [blueprint, leadData, view]);
 
   const handleLeadInfoChange = (field: keyof AuditLeadInfo, value: string) => {
-    setLeadInfo((current) => ({ ...current, [field]: value }));
+    let nextValue = value;
+
+    if (field === "email") {
+      nextValue = sanitizeEmailInput(value);
+    }
+
+    if (field === "phone") {
+      nextValue = sanitizePhoneInput(value);
+    }
+
+    setLeadInfo((current) => ({ ...current, [field]: nextValue }));
   };
 
   const startAudit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const trimmedName = leadInfo.name.trim();
+    if (!trimmedName || !leadInfo.email.trim() || !leadInfo.phone.trim()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    if (!event.currentTarget.reportValidity()) {
+      return;
+    }
+
+    const validatedContactInfo = validateLeadContactInfo({
+      email: leadInfo.email,
+      phone: leadInfo.phone,
+    });
+
+    if (!validatedContactInfo.isValid) {
+      toast.error(validatedContactInfo.error);
+      return;
+    }
+
     const trimmedLeadInfo = {
-      name: leadInfo.name.trim(),
-      email: leadInfo.email.trim(),
-      phone: leadInfo.phone.trim(),
+      name: trimmedName,
+      email: validatedContactInfo.email,
+      phone: validatedContactInfo.phone,
     };
 
     setLeadInfo(trimmedLeadInfo);
@@ -353,6 +391,8 @@ const Audit = () => {
                         <Input
                           id="audit_name"
                           required
+                          maxLength={100}
+                          autoComplete="name"
                           value={leadInfo.name}
                           onChange={(event) => handleLeadInfoChange("name", event.target.value)}
                           placeholder="Your full name"
@@ -367,6 +407,9 @@ const Audit = () => {
                           id="audit_email"
                           type="email"
                           required
+                          maxLength={255}
+                          autoComplete="email"
+                          inputMode="email"
                           value={leadInfo.email}
                           onChange={(event) => handleLeadInfoChange("email", event.target.value)}
                           placeholder="you@company.com"
@@ -381,6 +424,11 @@ const Audit = () => {
                           id="audit_phone"
                           type="tel"
                           required
+                          maxLength={20}
+                          autoComplete="tel"
+                          inputMode="tel"
+                          pattern={PHONE_INPUT_PATTERN}
+                          title={PHONE_VALIDATION_MESSAGE}
                           value={leadInfo.phone}
                           onChange={(event) => handleLeadInfoChange("phone", event.target.value)}
                           placeholder="(555) 123-4567"
