@@ -86,7 +86,7 @@ const pillarHeadlines: Record<string, string> = {
   "People & Culture": "Assess team readiness.",
   "Lead Revenue & Handling": "Find the conversion leak.",
   "Data & Systems": "Inspect the data foundation.",
-  "Tools & Security": "Check the automation stack.",
+  "Tools & Security": "Check the systems stack.",
   "Processes & Operations": "Tighten execution.",
 };
 
