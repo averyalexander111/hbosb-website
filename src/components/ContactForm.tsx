@@ -9,11 +9,67 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
+const DEFAULT_CONTACT_WEBHOOK_URL =
+  "https://n8n.srv1035849.hstgr.cloud/webhook/9f28ea66-de6e-4810-bc3a-78d401b205a3";
+
 interface ContactFormProps {
   areaOfInterest?: string;
   formIdPrefix?: string;
   showHeadline?: boolean;
 }
+
+interface ContactSubmissionPayload {
+  full_name: string;
+  email_address: string;
+  phone_number: string;
+  message: string;
+  area_of_interest: string;
+  sms_consent: boolean;
+}
+
+const getContactWebhookUrl = () =>
+  import.meta.env.VITE_CONTACT_WEBHOOK_URL?.trim() || DEFAULT_CONTACT_WEBHOOK_URL;
+
+const shouldUseDirectContactWebhook = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const isProductionHost =
+    window.location.hostname === "heartbeatofsouthbay.com" ||
+    window.location.hostname === "www.heartbeatofsouthbay.com";
+
+  return isProductionHost && window.location.pathname === "/contact";
+};
+
+const submitToContactWebhook = async (payload: ContactSubmissionPayload) => {
+  const response = await fetch(getContactWebhookUrl(), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      event: "contact_form_submission",
+      timestamp: new Date().toISOString(),
+      source: `${window.location.origin}/contact`,
+      ...payload,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Webhook submission failed");
+  }
+};
+
+const submitToEdgeFunction = async (payload: ContactSubmissionPayload) => {
+  const { data, error } = await supabase.functions.invoke("submit-contact-form", {
+    body: payload,
+  });
+
+  if (error || !data?.success) {
+    throw new Error(data?.error || error?.message || "Submission failed");
+  }
+};
 
 const ContactForm = React.memo(({
   areaOfInterest = "General Inquiry",
@@ -45,20 +101,24 @@ const ContactForm = React.memo(({
 
     setIsSubmitting(true);
     try {
-      // Route through edge function for server-side zod validation + Airtable sync
-      const { data, error } = await supabase.functions.invoke("submit-contact-form", {
-        body: {
-          full_name: formData.full_name.trim(),
-          email_address: formData.email_address.trim(),
-          phone_number: formData.phone_number.trim(),
-          message: formData.message.trim(),
-          area_of_interest: areaOfInterest,
-          sms_consent: smsConsent,
-        },
-      });
+      const payload: ContactSubmissionPayload = {
+        full_name: formData.full_name.trim(),
+        email_address: formData.email_address.trim(),
+        phone_number: formData.phone_number.trim(),
+        message: formData.message.trim(),
+        area_of_interest: areaOfInterest,
+        sms_consent: smsConsent,
+      };
 
-      if (error || !data?.success) {
-        throw new Error(data?.error || error?.message || "Submission failed");
+      if (shouldUseDirectContactWebhook()) {
+        await submitToContactWebhook(payload);
+
+        // Preserve the existing Supabase/Airtable path when available, but don't block the lead if it fails.
+        void submitToEdgeFunction(payload).catch((error) => {
+          console.error("Secondary contact sync failed:", error);
+        });
+      } else {
+        await submitToEdgeFunction(payload);
       }
 
       toast.success("Thank you! Your message has been sent successfully.");

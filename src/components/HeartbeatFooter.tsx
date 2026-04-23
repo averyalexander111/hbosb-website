@@ -46,7 +46,7 @@ const HeartbeatFooter = () => {
               to="/audit"
               className="text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
             >
-              Audit
+              Assessment
             </Link>
           </div>
 
