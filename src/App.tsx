@@ -75,7 +75,8 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/leads" element={<AILeadResponseSystem />} />
               <Route path="/roi" element={<ROICalculatorPage />} />
-              <Route path="/audit" element={<Audit />} />
+              <Route path="/assessment" element={<Audit />} />
+              <Route path="/audit" element={<Navigate to="/assessment" replace />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

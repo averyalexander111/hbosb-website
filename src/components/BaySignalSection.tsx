@@ -210,7 +210,7 @@ const BaySignalSection = React.memo(() => {
                 animation: wave 12s linear infinite; }
             `
           }} />
-          <Link to="/audit">
+          <Link to="/assessment">
             <button className="wave-button">
               <span>Start My Assessment</span>
               <div className="wave"></div>

@@ -54,7 +54,7 @@ const HeartbeatNavbar = () => {
               </Link>
             ))}
             <Link
-              to="/audit"
+              to="/assessment"
               className="text-sm font-semibold rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:brightness-110 transition-all"
             >
               Assessment
@@ -86,7 +86,7 @@ const HeartbeatNavbar = () => {
                 </Link>
               ))}
               <Link
-                to="/audit"
+                to="/assessment"
                 className="mt-2 text-center text-sm font-semibold rounded-lg bg-primary px-4 py-2.5 text-primary-foreground"
                 onClick={() => setIsMenuOpen(false)}
               >
