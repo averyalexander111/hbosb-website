@@ -391,7 +391,7 @@ const Audit = () => {
                       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
                       <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
                       <p className="mt-2 text-sm leading-relaxed text-navy-foreground/75">
-                        We'll use this so the assessment feels personalized and the follow-up is tied to the right business.
+                        Your details keep the assessment personalized and the follow-up tied to the right business.
                       </p>
                     </div>
 
