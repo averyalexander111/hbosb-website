@@ -27,7 +27,7 @@ const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
+        showSolid
           ? "bg-navy/90 backdrop-blur-md border-b border-navy-foreground/10 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
