@@ -596,7 +596,7 @@ const Audit = () => {
                   className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary border-t-transparent"
                 />
               </div>
-              <h2 className="mt-8 text-3xl font-bold">Mapping your audit results...</h2>
+              <h2 className="mt-8 text-3xl font-bold">Mapping your assessment results...</h2>
               <p className="mt-3 text-base leading-relaxed text-navy-foreground/65">
                 We are turning your answers into a recommended rollout, a priority order, and the booking handoff.
               </p>
