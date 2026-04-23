@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -82,15 +83,13 @@ const ImplementationSection = () => {
             <p className="text-sm text-navy-foreground/60 mb-8">
               Schedule an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
             </p>
-            <a
-              href="https://audit.heartbeatofsouthbay.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/audit"
               className="group inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
               Start AI Revenue System Assessment
               <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

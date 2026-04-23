@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const bullets = [
   "Where automation could save time",
@@ -44,15 +45,13 @@ const FinalCTASection = () => {
               ))}
             </ul>
 
-            <a
-              href="https://audit.heartbeatofsouthbay.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/audit"
               className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
               Start Your AI Revenue System Assessment
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <p className="mt-4 text-sm text-navy-foreground/40">
               Identify where AI systems can create the biggest impact in your business.
             </p>

@@ -126,15 +126,13 @@ const AILeadResponseSystem = () => {
             variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.2 } } }}
             className="mt-10"
           >
-            <a
-              href="https://audit.heartbeatofsouthbay.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/audit"
               className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
               Book an AI Revenue System Assessment
               <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
-            </a>
+            </Link>
             <p className="mt-4">
               <a
                 href="https://cal.com/hbosb/lead-system-install"
@@ -523,15 +521,13 @@ const AILeadResponseSystem = () => {
               <p className="text-sm text-muted-foreground mb-6">
                 Not sure where to start? We'll map it out.
               </p>
-              <a
-                href="https://audit.heartbeatofsouthbay.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/audit"
                 className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Book an AI Revenue System Assessment
                 <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-              </a>
+              </Link>
             </motion.div>
 
             {/* Option 2 — Installation */}

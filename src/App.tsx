@@ -19,6 +19,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ROICalculatorPage = lazy(() => import("./pages/ROICalculatorPage"));
 const AILeadResponseSystem = lazy(() => import("./pages/AILeadResponseSystem"));
+const Audit = lazy(() => import("./pages/Audit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Import AdminGuard (not lazy loaded)
@@ -74,6 +75,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/leads" element={<AILeadResponseSystem />} />
               <Route path="/roi" element={<ROICalculatorPage />} />
+              <Route path="/audit" element={<Audit />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

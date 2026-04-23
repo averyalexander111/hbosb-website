@@ -53,14 +53,12 @@ const HeartbeatNavbar = () => {
                 {l.label}
               </Link>
             ))}
-            <a
-              href="https://audit.heartbeatofsouthbay.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/audit"
               className="text-sm font-semibold rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:brightness-110 transition-all"
             >
-              Assessment
-            </a>
+              Audit
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -87,15 +85,13 @@ const HeartbeatNavbar = () => {
                   {l.label}
                 </Link>
               ))}
-              <a
-                href="https://audit.heartbeatofsouthbay.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/audit"
                 className="mt-2 text-center text-sm font-semibold rounded-lg bg-primary px-4 py-2.5 text-primary-foreground"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Assessment
-              </a>
+                Audit
+              </Link>
             </div>
           </div>
         )}

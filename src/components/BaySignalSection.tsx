@@ -1,6 +1,7 @@
 import React from "react";
 import { Phone, Calendar, BarChart3, Clock, TrendingUp, Users, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: {},
@@ -209,12 +210,12 @@ const BaySignalSection = React.memo(() => {
                 animation: wave 12s linear infinite; }
             `
           }} />
-          <a href="https://audit.heartbeatofsouthbay.com/" target="_blank" rel="noopener noreferrer">
+          <Link to="/audit">
             <button className="wave-button">
               <span>Start My Assessment</span>
               <div className="wave"></div>
             </button>
-          </a>
+          </Link>
           <p className="mt-6 text-sm text-muted-foreground">Complimentary. Get your fastest first win.</p>
         </motion.div>
       </div>
