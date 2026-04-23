@@ -314,9 +314,8 @@ const Audit = () => {
                       Find the gaps in your lead handling before they cost you more business.
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-foreground/70">
-                      This audit brings the form from your other project into the main Heartbeat site, but styled to match
-                      the current brand. Answer a few questions and we will map the fastest path to better response speed,
-                      stronger follow-up, and cleaner automation.
+                      Answer a few questions and we'll map the fastest path to better response speed, stronger follow-up, and
+                      cleaner automation.
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-3">
