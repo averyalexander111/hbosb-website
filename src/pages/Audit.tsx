@@ -33,6 +33,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  hasMinimumWords,
+  MINIMUM_WORD_VALIDATION_MESSAGE,
   PHONE_INPUT_PATTERN,
   PHONE_VALIDATION_MESSAGE,
   sanitizeEmailInput,
@@ -206,6 +208,11 @@ const Audit = () => {
       return;
     }
 
+    if (!hasMinimumWords(trimmedName)) {
+      toast.error(`Name: ${MINIMUM_WORD_VALIDATION_MESSAGE}`);
+      return;
+    }
+
     const trimmedLeadInfo = {
       name: trimmedName,
       email: validatedContactInfo.email,
@@ -274,6 +281,11 @@ const Audit = () => {
 
     const trimmedValue = textValue.trim();
     if (!trimmedValue) {
+      return;
+    }
+
+    if (!hasMinimumWords(trimmedValue)) {
+      toast.error(MINIMUM_WORD_VALIDATION_MESSAGE);
       return;
     }
 
@@ -391,6 +403,7 @@ const Audit = () => {
                         <Input
                           id="audit_name"
                           required
+                          minLength={2}
                           maxLength={100}
                           autoComplete="name"
                           value={leadInfo.name}
@@ -589,6 +602,7 @@ const Audit = () => {
                             <Textarea
                               required
                               autoFocus
+                              minLength={2}
                               value={textValue}
                               onChange={(event) => setTextValue(event.target.value)}
                               placeholder={question.placeholder}

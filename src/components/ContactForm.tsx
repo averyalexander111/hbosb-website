@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import {
+  hasMinimumWords,
+  MINIMUM_WORD_VALIDATION_MESSAGE,
   PHONE_INPUT_PATTERN,
   PHONE_VALIDATION_MESSAGE,
   sanitizeEmailInput,
@@ -96,11 +98,14 @@ const ContactForm = React.memo(({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const trimmedName = formData.full_name.trim();
+    const trimmedMessage = formData.message.trim();
+
     if (
-      !formData.full_name.trim() ||
+      !trimmedName ||
       !formData.email_address.trim() ||
       !formData.phone_number.trim() ||
-      !formData.message.trim()
+      !trimmedMessage
     ) {
       toast.error("Please fill in all required fields.");
       return;
@@ -120,13 +125,23 @@ const ContactForm = React.memo(({
       return;
     }
 
+    if (!hasMinimumWords(trimmedName)) {
+      toast.error(`Name: ${MINIMUM_WORD_VALIDATION_MESSAGE}`);
+      return;
+    }
+
+    if (!hasMinimumWords(trimmedMessage)) {
+      toast.error(`Message: ${MINIMUM_WORD_VALIDATION_MESSAGE}`);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const payload: ContactSubmissionPayload = {
-        full_name: formData.full_name.trim(),
+        full_name: trimmedName,
         email_address: validatedContactInfo.email,
         phone_number: validatedContactInfo.phone,
-        message: formData.message.trim(),
+        message: trimmedMessage,
         area_of_interest: areaOfInterest,
         sms_consent: smsConsent,
       };
@@ -187,6 +202,7 @@ const ContactForm = React.memo(({
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, full_name: e.target.value }))
                 }
+                minLength={2}
                 maxLength={100}
                 required
                 className="rounded-lg bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40 shadow-sm transition-shadow focus:shadow-md"
@@ -249,6 +265,7 @@ const ContactForm = React.memo(({
                 setFormData((prev) => ({ ...prev, message: e.target.value }))
               }
               maxLength={1000}
+              minLength={2}
               rows={4}
               required
               className="rounded-lg bg-white/10 border-white/20 text-navy-foreground placeholder:text-navy-foreground/40 shadow-sm transition-shadow focus:shadow-md"

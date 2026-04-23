@@ -1,4 +1,5 @@
 const EMAIL_ADDRESS_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const WORD_REGEX = /[A-Za-z0-9]+(?:['-][A-Za-z0-9]+)*/g;
 
 export const PHONE_INPUT_PATTERN =
   String.raw`^(?:\+[1-9]\d{7,14}|(?:1[-.\s]?)?(?:\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4})$`;
@@ -6,6 +7,7 @@ export const PHONE_INPUT_PATTERN =
 export const EMAIL_VALIDATION_MESSAGE = "Please enter a valid email address.";
 export const PHONE_VALIDATION_MESSAGE =
   "Please enter a valid US phone number, or use +country code for international numbers.";
+export const MINIMUM_WORD_VALIDATION_MESSAGE = "Please enter at least one word.";
 
 export const sanitizeEmailInput = (value: string) => value.replace(/\s+/g, "").toLowerCase();
 
@@ -73,3 +75,8 @@ export const validateLeadContactInfo = (contact: { email: string; phone: string 
     phone,
   };
 };
+
+export const getMeaningfulWordCount = (value: string) =>
+  (value.match(WORD_REGEX) || []).filter((word) => word.replace(/['-]/g, "").length >= 2).length;
+
+export const hasMinimumWords = (value: string, minimumWords = 1) => getMeaningfulWordCount(value) >= minimumWords;
