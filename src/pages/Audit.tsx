@@ -800,7 +800,7 @@ const Audit = () => {
                     A practical 90-day implementation sequence
                   </h2>
                   <p className="mt-4 text-lg text-navy-foreground/80">
-                    This mirrors the source form's intent, but it now lives inside the main site and uses the site's visual system.
+                    A focused first 90 days based on what your answers revealed.
                   </p>
                 </div>
 
