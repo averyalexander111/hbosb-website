@@ -1,70 +1,72 @@
+## Plan: Replace assessment booking iframe with Cal.com inline embed
 
+Swap the `<iframe>` in the Results view of `/assessment` for the official Cal.com inline embed, and update the booking URL from `hbosb/heartbeat-audit` to `hbosb/assessment`. Mirror the existing embed pattern already used on `src/pages/Contact.tsx` for consistency. No layout, copy, or styling changes.
 
-## Plan: Polish remaining assessment subpage copy
+### Files
 
-Three tiers of edits to `src/pages/Audit.tsx`. All copy-only — no layout, styling, or logic changes.
+**1. `src/lib/audit.ts`**
+- Update the booking URL constant:
+  - From: `https://cal.com/hbosb/heartbeat-audit`
+  - To:   `https://cal.com/hbosb/assessment`
+- This automatically updates the "Book the assessment review" button in `Audit.tsx` (line 857), which already references `AUDIT_BOOKING_URL`.
 
----
+**2. `src/pages/Audit.tsx`**
 
-### Tier 1 — Critical (dev copy leak)
+a) Add a `useEffect` in the `Audit` component (alongside existing hooks) that injects the Cal.com loader script into `document.head` and initializes the `assessment` namespace. Pattern copied from `Contact.tsx` (lines 12–70), adapted with:
+- `scriptId`: `cal-embed-script-assessment`
+- Namespace: `assessment`
+- `elementOrSelector`: `#my-cal-inline-assessment`
+- `calLink`: `hbosb/assessment`
+- Same `cssVarsPerTheme` brand colors (`#4a91c4` light / `#fafafa` dark)
+- Cleanup function removes the script on unmount
 
-**Results view, intro paragraph above the action plan**
+The effect should only execute when the results view is mounted. Simplest approach: gate the effect body on `view === "results"` (or whichever state flag drives the results render) so the script isn't injected on the intro/questions/processing views. Cleanup still removes the script on unmount.
 
-Current text reads like an internal note:
-> "This mirrors the source form's intent, but it now lives inside the main site..."
+b) Replace the iframe block (lines 891–897):
 
-Replace with:
-> "A focused first 90 days based on what your answers revealed."
+```tsx
+<div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
+  <iframe
+    src={`${AUDIT_BOOKING_URL}?embed=true`}
+    title="Heartbeat assessment booking"
+    className="min-h-[720px] w-full"
+  />
+</div>
+```
 
----
+with the inline embed mount node:
 
-### Tier 2 — Recommended polish
+```tsx
+<div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
+  <div
+    id="my-cal-inline-assessment"
+    className="w-full min-h-[760px] lg:min-h-[820px]"
+    style={{ height: "100%" }}
+  />
+</div>
+```
 
-**a) "What you get" section (intro view)**
+Notes on the mount node:
+- Uses Tailwind `min-h-[760px]` (mobile) / `lg:min-h-[820px]` (desktop) to satisfy the 700–900px requirement while staying responsive.
+- Outer card already has `overflow-hidden`, and the mount div uses `w-full` with no explicit `overflow:scroll`, so we avoid the double scrollbar that the raw embed snippet's `overflow:scroll` would cause. Cal's own widget handles internal scrolling.
+- Keeps the existing rounded white container so visual styling is unchanged.
 
-Tighten and remove defensive framing. Swap "automation" → "system" per brand vocabulary.
-
-- Replace any "automation" mentions with "AI systems" or "system."
-- Trim hedging phrases ("we'll make sure," "designed to," etc.) to direct statements.
-
-**b) Questions view, left-panel subhead**
-
-Currently reads as an internal label. Replace with a benefit-led line, e.g.:
-> "A few quick questions. Clear answers on where revenue is leaking."
-
-**c) Brand vocabulary sweep**
-
-Find any remaining instances of "automation" / "automate" across the four views (intro, questions, processing, results) and swap to "system" / "AI systems" wording. Aligns with the existing memory rule (avoid "AI automation").
-
----
-
-### Tier 3 — Optional refinements
-
-**a) Trust-point titles (intro view)**
-
-If the three trust points use generic titles ("Fast," "Personalized," "Actionable"), tighten to outcome-led phrasing (e.g., "Built around your business," "Designed for action").
-
-**b) Processing view copy**
-
-Make the loading messages feel less like UI placeholder ("Analyzing your responses…") and more like a confidence-builder ("Mapping your revenue gaps…", "Building your 90-day plan…").
-
-**c) Results CTA wording**
-
-Confirm the booking CTA reads as a clear next step (e.g., "Book your strategy call") rather than generic "Get started" / "Continue."
-
----
-
-### Approach
-
-1. Read the full `src/pages/Audit.tsx` to confirm exact current strings for each tier.
-2. Apply Tier 1 edit unconditionally.
-3. Apply Tier 2 edits with the wording above (or close variants matching surrounding tone).
-4. Apply Tier 3 only where the current copy is noticeably weak — skip if already strong.
+c) No changes to surrounding copy:
+- "Schedule your strategy session" heading stays.
+- "Use the calendar below to book the next step from this assessment." subhead stays — already reinforces this is the post-assessment review booking.
+- "Next step" badge stays.
+- "Book the assessment review" button stays (now points to the new URL via the constant).
+- "Best next move" callout stays.
 
 ### Out of scope
 
-- No changes to question content, scoring, or pillar logic.
-- No changes to `SubpageHero` props (already updated).
-- No layout, animation, or component structure changes.
-- No edits to other pages.
+- No copy changes anywhere on the page.
+- No changes to layout grid, card styling, spacing, or section structure.
+- No changes to other Cal.com links elsewhere in the app (`/contact`, `/leads`, `30min`, etc.).
+- No analytics or new dependencies.
 
+### Verification after implementation
+
+- `/assessment` → complete the flow → on results view, the Cal embed renders inline (no iframe), shows the `hbosb/assessment` event, and the primary button links to `https://cal.com/hbosb/assessment`.
+- Resize to mobile width (≤640px): embed remains usable, no horizontal overflow, no double scrollbars.
+- Navigating away from `/assessment` removes the injected script (cleanup).
