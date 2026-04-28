@@ -518,7 +518,7 @@ const AILeadResponseSystem = () => {
             {/* Option 1 — Assessment */}
             <motion.div
               variants={scaleIn}
-              className="group relative p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
+              className="group relative flex flex-col p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
