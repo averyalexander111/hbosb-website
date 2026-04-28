@@ -951,10 +951,9 @@ const Audit = () => {
                       </div>
 
                       <div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
-                        <iframe
-                          src={`${AUDIT_BOOKING_URL}?embed=true`}
-                          title="Heartbeat assessment booking"
-                          className="min-h-[720px] w-full"
+                        <div
+                          id="my-cal-inline-assessment"
+                          className="w-full min-h-[760px] lg:min-h-[820px]"
                         />
                       </div>
                     </div>
