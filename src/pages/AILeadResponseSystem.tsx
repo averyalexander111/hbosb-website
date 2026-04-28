@@ -518,7 +518,7 @@ const AILeadResponseSystem = () => {
             {/* Option 1 — Assessment */}
             <motion.div
               variants={scaleIn}
-              className="group relative p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
+              className="group relative flex flex-col p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
@@ -538,7 +538,7 @@ const AILeadResponseSystem = () => {
 
               <Link
                 to="/assessment"
-                className="group/btn inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group/btn mt-auto inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Book an AI Revenue System Assessment
                 <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
@@ -548,7 +548,7 @@ const AILeadResponseSystem = () => {
             {/* Option 2 — Installation */}
             <motion.div
               variants={scaleIn}
-              className="group relative p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
+              className="group relative flex flex-col p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
@@ -570,7 +570,7 @@ const AILeadResponseSystem = () => {
                 href="https://cal.com/hbosb/lead-system-install"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/btn inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group/btn mt-auto inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Start Your AI Lead System Installation
                 <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
