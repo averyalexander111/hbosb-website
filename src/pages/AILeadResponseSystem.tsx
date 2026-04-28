@@ -18,6 +18,8 @@ import {
   Database,
   Repeat,
   CheckCircle2,
+  Compass,
+  Rocket,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
@@ -511,41 +513,67 @@ const AILeadResponseSystem = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
+            className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto"
           >
             {/* Option 1 — Assessment */}
             <motion.div
               variants={scaleIn}
-              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+              className="group relative p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
             >
-              <p className="text-sm text-muted-foreground mb-6">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/10 group-hover:ring-primary/30 transition-[box-shadow] duration-300 mb-5">
+                <Compass className="w-6 h-6" />
+              </div>
+
+              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-2">
+                Option 1 · Plan
+              </p>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Get your assessment
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                 Not sure where to start? We'll map it out.
               </p>
+
               <Link
                 to="/assessment"
-                className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group/btn inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Book an AI Revenue System Assessment
-                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
               </Link>
             </motion.div>
 
             {/* Option 2 — Installation */}
             <motion.div
               variants={scaleIn}
-              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+              className="group relative p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
             >
-              <p className="text-sm text-muted-foreground mb-6">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/10 group-hover:ring-primary/30 transition-[box-shadow] duration-300 mb-5">
+                <Rocket className="w-6 h-6" />
+              </div>
+
+              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-2">
+                Option 2 · Install
+              </p>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Install your system
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                 Ready to move? We'll build it with you.
               </p>
+
               <a
                 href="https://cal.com/hbosb/lead-system-install"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group/btn inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Start Your AI Lead System Installation
-                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
               </a>
             </motion.div>
           </motion.div>
