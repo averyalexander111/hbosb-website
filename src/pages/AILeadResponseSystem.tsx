@@ -538,7 +538,7 @@ const AILeadResponseSystem = () => {
 
               <Link
                 to="/assessment"
-                className="group/btn inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                className="group/btn mt-auto inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
               >
                 Book an AI Revenue System Assessment
                 <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
