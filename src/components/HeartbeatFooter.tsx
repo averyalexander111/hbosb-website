@@ -25,29 +25,27 @@ const HeartbeatFooter = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-            {[
-              { to: "/", label: "Home" },
-              { to: "/leads", label: "Lead Conversion System" },
-              { to: "/roi", label: "ROI Calculator" },
-              { to: "/about", label: "About Us" },
-              { to: "/blog", label: "Blog" },
-              { to: "/contact", label: "Contact" },
-            ].map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              to="/assessment"
-              className="text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
-            >
-              Assessment
-            </Link>
+          <div>
+            <h4 className="font-semibold text-navy-foreground mb-4">Navigate</h4>
+            <nav className="flex flex-col gap-3 text-sm">
+              {[
+                { to: "/", label: "Home" },
+                { to: "/leads", label: "Lead Conversion System" },
+                { to: "/roi", label: "ROI Calculator" },
+                { to: "/about", label: "About Us" },
+                { to: "/blog", label: "Blog" },
+                { to: "/contact", label: "Contact" },
+                { to: "/assessment", label: "Assessment" },
+              ].map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="self-start text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           {/* Social */}

@@ -1,23 +1,29 @@
-## Plan: Keep email on a single line in the Get in Touch section
+## Plan: Align footer navigation links cleanly
 
-The email `info@heartbeatofsouthbay.com` currently wraps onto two lines in the contact grid (rendered by `src/components/ConnectSection.tsx`, used at the bottom of every page). The cause is the `break-all` class on the paragraph, which forces breaks inside the email string.
+The footer's nav links currently use `flex flex-wrap gap-x-6 gap-y-3`, which produces an uneven, ragged wrap (e.g. "Home · Lead Conversion System · ROI Calculator" on row 1, "About Us · Blog · Contact · Assessment" on row 2 at most desktop widths, and unpredictable wrapping on tablet). The "Assessment" link is also rendered separately from the array, creating an inconsistent code path.
 
-### Change
+### Change in `src/components/HeartbeatFooter.tsx`
 
-In `src/components/ConnectSection.tsx`, line 67, swap the email paragraph's classes:
+1. **Merge `Assessment` into the link array** so all seven links live in one map. (The standalone `<Link to="/assessment">` block is removed; `{ to: "/assessment", label: "Assessment" }` becomes the last entry.)
 
-- Remove `break-all`.
-- Add `whitespace-nowrap` so the address can't wrap.
-- Drop the font size one step on small screens (`text-xs sm:text-sm`) so the full address fits inside the narrow column on mobile/tablet without overflowing. At `sm` and up the column is wide enough for the existing `text-sm` size.
+2. **Switch the nav container from wrap-row to a clean vertical column** with a small heading, so every link sits left-aligned with consistent spacing — matching the premium footer pattern of the rest of the site.
 
-Final classes: `text-muted-foreground text-xs sm:text-sm whitespace-nowrap`.
+   - Container classes change from:
+     `flex flex-wrap gap-x-6 gap-y-3 text-sm`
+     to:
+     `flex flex-col gap-3 text-sm`
+   - Add a small section label above the links: an `<h4>` with `text-navy-foreground font-semibold mb-2` reading **"Navigate"**, mirroring the implicit structure of the Brand and Social columns.
 
-### Why this is safe
+3. **Keep each link's existing styling intact** — same text color, same animated underline on hover, same routes.
 
-- Only the email paragraph changes — phone, hours, and social blocks are untouched.
-- `whitespace-nowrap` prevents wrapping; the slight font-size reduction on mobile keeps it from overflowing the column at the smallest widths.
-- No layout, grid, padding, color, or copy changes elsewhere.
+### Result by breakpoint
+
+- **Desktop / tablet (md+):** The footer remains a 3-column grid (Brand · Navigate · Social). The middle column becomes a tidy vertical list of 7 links, perfectly aligned, no ragged wrap.
+- **Mobile (<md):** The grid stacks vertically as before; the nav links also stack vertically with even spacing — visually identical pattern to the rest of the footer.
 
 ### Out of scope
 
-- No changes to other sections, the footer component, or any other pages.
+- No copy changes to link labels or routes.
+- No changes to the brand block, social icons, copyright row, or legal links.
+- No color, font, or animation changes to individual links.
+- No edits to `ConnectSection` or any other component.
