@@ -1,23 +1,23 @@
-## Plan: Fix tablet button alignment in the dual-CTA cards
+## Plan: Keep email on a single line in the Get in Touch section
 
-On tablet (sm breakpoint, where the two cards sit side-by-side in a 2-column grid), Option 1's button label "Book an AI Revenue System Assessment" wraps to two lines while Option 2's "Start Your AI Lead System Installation" stays on one line. Because each card sizes to its own content, the buttons end up at different vertical positions even though the cards themselves stretch to equal height (CSS Grid default).
+The email `info@heartbeatofsouthbay.com` currently wraps onto two lines in the contact grid (rendered by `src/components/ConnectSection.tsx`, used at the bottom of every page). The cause is the `break-all` class on the paragraph, which forces breaks inside the email string.
 
-### Fix
+### Change
 
-In `src/pages/AILeadResponseSystem.tsx`, make each card a vertical flex container and push the CTA button to the bottom so both buttons align regardless of label wrapping.
+In `src/components/ConnectSection.tsx`, line 67, swap the email paragraph's classes:
 
-Two minimal class changes per card (lines ~521 and ~551):
-- Add `flex flex-col` to the card wrapper.
-- Add `mt-auto` to the `<Link>` (Option 1, line ~541) and `<a>` (Option 2, line ~573).
+- Remove `break-all`.
+- Add `whitespace-nowrap` so the address can't wrap.
+- Drop the font size one step on small screens (`text-xs sm:text-sm`) so the full address fits inside the narrow column on mobile/tablet without overflowing. At `sm` and up the column is wide enough for the existing `text-sm` size.
 
-### Why this is safe for desktop and mobile
+Final classes: `text-muted-foreground text-xs sm:text-sm whitespace-nowrap`.
 
-- **Mobile (single column):** Cards stack vertically and each is only as tall as its own content. `mt-auto` on the button has no extra space to absorb (card height = content height), so the visible spacing between the paragraph and the button remains exactly the existing `mb-8` on the paragraph. No visual change.
-- **Desktop (lg and up):** Both button labels fit on a single line at `max-w-3xl` widths, so the cards already have matching content heights. `mt-auto` again has no slack to consume. No visual change.
-- **Tablet (sm to md):** Option 1's button wraps, making its content taller. Grid stretches both cards to the taller height; `mt-auto` now pushes Option 2's button down to match Option 1's button position. Buttons align.
+### Why this is safe
+
+- Only the email paragraph changes — phone, hours, and social blocks are untouched.
+- `whitespace-nowrap` prevents wrapping; the slight font-size reduction on mobile keeps it from overflowing the column at the smallest widths.
+- No layout, grid, padding, color, or copy changes elsewhere.
 
 ### Out of scope
 
-- No copy, color, padding, icon, or animation changes.
-- No grid, gap, or container width changes.
-- No edits to other components or pages.
+- No changes to other sections, the footer component, or any other pages.
