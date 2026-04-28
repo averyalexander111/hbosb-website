@@ -1,72 +1,53 @@
-## Plan: Replace assessment booking iframe with Cal.com inline embed
+## Plan: Polish the "Start with a plan or install your system" cards
 
-Swap the `<iframe>` in the Results view of `/assessment` for the official Cal.com inline embed, and update the booking URL from `hbosb/heartbeat-audit` to `hbosb/assessment`. Mirror the existing embed pattern already used on `src/pages/Contact.tsx` for consistency. No layout, copy, or styling changes.
+Upgrade the two CTA cards in `src/pages/AILeadResponseSystem.tsx` (lines ~509–551) so they feel intentional and premium instead of flat boxes with a subtitle and a button. Copy, section background, heading, animations, and links stay exactly as they are.
 
-### Files
+### Visual changes per card
 
-**1. `src/lib/audit.ts`**
-- Update the booking URL constant:
-  - From: `https://cal.com/hbosb/heartbeat-audit`
-  - To:   `https://cal.com/hbosb/assessment`
-- This automatically updates the "Book the assessment review" button in `Audit.tsx` (line 857), which already references `AUDIT_BOOKING_URL`.
+Each card gets a clearer hierarchy and a distinct identity while staying visually balanced as a pair:
 
-**2. `src/pages/Audit.tsx`**
+1. **Icon badge at the top** — a circular tinted badge containing a Lucide icon.
+   - Card 1 (Assessment): `Compass` icon — "map it out".
+   - Card 2 (Installation): `Rocket` icon — "ready to move / build it".
+   - Badge: `w-12 h-12 rounded-xl bg-primary/10 text-primary`, centered, with subtle ring on hover.
 
-a) Add a `useEffect` in the `Audit` component (alongside existing hooks) that injects the Cal.com loader script into `document.head` and initializes the `assessment` namespace. Pattern copied from `Contact.tsx` (lines 12–70), adapted with:
-- `scriptId`: `cal-embed-script-assessment`
-- Namespace: `assessment`
-- `elementOrSelector`: `#my-cal-inline-assessment`
-- `calLink`: `hbosb/assessment`
-- Same `cssVarsPerTheme` brand colors (`#4a91c4` light / `#fafafa` dark)
-- Cleanup function removes the script on unmount
+2. **Eyebrow label** above the title (small uppercase tag):
+   - Card 1: `Option 1 · Plan`
+   - Card 2: `Option 2 · Install`
+   - Style: `text-xs font-semibold tracking-[0.15em] uppercase text-primary`.
 
-The effect should only execute when the results view is mounted. Simplest approach: gate the effect body on `view === "results"` (or whichever state flag drives the results render) so the script isn't injected on the intro/questions/processing views. Cleanup still removes the script on unmount.
+3. **Card title** (new, derived from existing button labels — does not change button copy):
+   - Card 1: "Get your assessment"
+   - Card 2: "Install your system"
+   - Style: `text-xl font-semibold text-foreground`.
 
-b) Replace the iframe block (lines 891–897):
+4. **Existing tagline** (unchanged copy) demoted slightly to a supporting paragraph under the title with consistent line-height.
 
-```tsx
-<div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
-  <iframe
-    src={`${AUDIT_BOOKING_URL}?embed=true`}
-    title="Heartbeat assessment booking"
-    className="min-h-[720px] w-full"
-  />
-</div>
-```
+5. **Existing CTA button** preserved verbatim (label, link, `border-glow-spin`, hover behavior). Button becomes `w-full` so both cards have a strong, even base.
 
-with the inline embed mount node:
+6. **Card chrome upgrade**:
+   - Replace flat `bg-card border border-border` with a layered look:
+     - `bg-card/80 backdrop-blur-sm`
+     - `border border-border/60`
+     - `rounded-2xl`
+     - Soft top accent bar: a 1px gradient line `bg-gradient-to-r from-transparent via-primary/40 to-transparent` at the top inside edge.
+     - Subtle inner glow on hover via `hover:border-primary/40` and existing `hover:shadow-elegant-hover hover:-translate-y-1`.
+   - Increase internal padding to `p-8 sm:p-10`, switch text alignment to `text-left` for a more editorial feel (icon + eyebrow + title left-aligned; button full-width below).
 
-```tsx
-<div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
-  <div
-    id="my-cal-inline-assessment"
-    className="w-full min-h-[760px] lg:min-h-[820px]"
-    style={{ height: "100%" }}
-  />
-</div>
-```
+7. **Grid spacing**: bump gap from `gap-6` to `gap-6 lg:gap-8` and widen container slightly (`max-w-3xl` instead of `max-w-2xl`) so cards breathe at desktop without dominating the section.
 
-Notes on the mount node:
-- Uses Tailwind `min-h-[760px]` (mobile) / `lg:min-h-[820px]` (desktop) to satisfy the 700–900px requirement while staying responsive.
-- Outer card already has `overflow-hidden`, and the mount div uses `w-full` with no explicit `overflow:scroll`, so we avoid the double scrollbar that the raw embed snippet's `overflow:scroll` would cause. Cal's own widget handles internal scrolling.
-- Keeps the existing rounded white container so visual styling is unchanged.
-
-c) No changes to surrounding copy:
-- "Schedule your strategy session" heading stays.
-- "Use the calendar below to book the next step from this assessment." subhead stays — already reinforces this is the post-assessment review booking.
-- "Next step" badge stays.
-- "Book the assessment review" button stays (now points to the new URL via the constant).
-- "Best next move" callout stays.
+8. **Section heading support**: keep the existing accent bar + `section-title`. Add a single supporting line under the title (using existing muted style) — only if it strengthens hierarchy. **Decision: skip** to honor the "no new copy" preference; rely on card eyebrows for context.
 
 ### Out of scope
 
-- No copy changes anywhere on the page.
-- No changes to layout grid, card styling, spacing, or section structure.
-- No changes to other Cal.com links elsewhere in the app (`/contact`, `/leads`, `30min`, etc.).
-- No analytics or new dependencies.
+- No copy changes to: the section heading, the two existing taglines, or the two button labels.
+- No changes to links, animation variants (`fadeUp`, `stagger`, `scaleIn`), section background, or surrounding sections.
+- No changes to other pages or shared components.
 
-### Verification after implementation
+### Technical notes
 
-- `/assessment` → complete the flow → on results view, the Cal embed renders inline (no iframe), shows the `hbosb/assessment` event, and the primary button links to `https://cal.com/hbosb/assessment`.
-- Resize to mobile width (≤640px): embed remains usable, no horizontal overflow, no double scrollbars.
-- Navigating away from `/assessment` removes the injected script (cleanup).
+- File touched: `src/pages/AILeadResponseSystem.tsx` only.
+- Add `Compass` and `Rocket` to the existing `lucide-react` import (already used for `ArrowRight`).
+- Keep `motion.div` wrappers and existing `variants={scaleIn}` intact; only the inner card markup changes.
+- Continue using brand tokens (`primary`, `card`, `border`, `foreground`, `muted-foreground`) — no hardcoded colors.
+- Respect existing animation guidance: keep `transition-[box-shadow,transform]` (no `transition-all`).
