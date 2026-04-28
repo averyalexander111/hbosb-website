@@ -1,29 +1,30 @@
-## Plan: Align footer navigation links cleanly
+## Plan: Make footer nav a horizontal wrapping row
 
-The footer's nav links currently use `flex flex-wrap gap-x-6 gap-y-3`, which produces an uneven, ragged wrap (e.g. "Home · Lead Conversion System · ROI Calculator" on row 1, "About Us · Blog · Contact · Assessment" on row 2 at most desktop widths, and unpredictable wrapping on tablet). The "Assessment" link is also rendered separately from the array, creating an inconsistent code path.
+Remove the "Navigate" heading and reflow the seven nav links as a horizontal row that wraps to a second line when space runs out.
 
-### Change in `src/components/HeartbeatFooter.tsx`
+### Changes in `src/components/HeartbeatFooter.tsx`
 
-1. **Merge `Assessment` into the link array** so all seven links live in one map. (The standalone `<Link to="/assessment">` block is removed; `{ to: "/assessment", label: "Assessment" }` becomes the last entry.)
+1. **Restructure the top of the footer** from a single 3-column grid (Brand · Navigate · Social) into two stacked rows:
 
-2. **Switch the nav container from wrap-row to a clean vertical column** with a small heading, so every link sits left-aligned with consistent spacing — matching the premium footer pattern of the rest of the site.
+   - **Row 1 — Brand + Social.** A 2-column grid on `md+` (`md:grid-cols-2`) with Brand on the left and Social on the right (`md:justify-end`). On mobile they stack as before.
+   - **Row 2 — Navigation.** A full-width horizontal row of links centered under Row 1, separated from Row 1 by a thin divider (`border-t border-navy-foreground/10`) and the existing vertical rhythm (`mt-10 pt-8`).
 
-   - Container classes change from:
-     `flex flex-wrap gap-x-6 gap-y-3 text-sm`
-     to:
-     `flex flex-col gap-3 text-sm`
-   - Add a small section label above the links: an `<h4>` with `text-navy-foreground font-semibold mb-2` reading **"Navigate"**, mirroring the implicit structure of the Brand and Social columns.
+2. **Remove the "Navigate" `<h4>`** entirely.
 
-3. **Keep each link's existing styling intact** — same text color, same animated underline on hover, same routes.
+3. **Convert the nav container** from `flex flex-col` to a centered, wrapping row:
+   - Classes: `flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-3 text-sm`
+   - Each `<Link>` keeps its existing color and animated underline; only `self-start` is removed (no longer needed).
 
-### Result by breakpoint
+4. **Keep the bottom row unchanged** (copyright + Terms / Privacy).
 
-- **Desktop / tablet (md+):** The footer remains a 3-column grid (Brand · Navigate · Social). The middle column becomes a tidy vertical list of 7 links, perfectly aligned, no ragged wrap.
-- **Mobile (<md):** The grid stacks vertically as before; the nav links also stack vertically with even spacing — visually identical pattern to the rest of the footer.
+### Behavior by breakpoint
+
+- **Desktop (lg+):** All seven links fit comfortably on a single centered line.
+- **Tablet (md):** Links wrap to two centered rows naturally if needed; the longer "Lead Conversion System" still sits inline with neighbors thanks to the consistent `gap-x` spacing.
+- **Mobile (<md):** Brand and Social stack; nav wraps across as many centered rows as needed (typically 3) with even spacing — no ragged left-aligned column.
 
 ### Out of scope
 
-- No copy changes to link labels or routes.
-- No changes to the brand block, social icons, copyright row, or legal links.
-- No color, font, or animation changes to individual links.
-- No edits to `ConnectSection` or any other component.
+- No copy, route, color, or hover-animation changes to individual links.
+- No edits to the Connect section, brand block content, social icons, or legal row.
+- No changes to other components or pages.
