@@ -6,7 +6,7 @@ const HeartbeatFooter = () => {
   return (
     <footer className="py-16 bg-navy border-t border-navy-foreground/8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-14 items-start">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -22,30 +22,6 @@ const HeartbeatFooter = () => {
             <p className="text-sm text-navy-foreground/60 whitespace-nowrap">
               AI Systems for Modern Businesses.
             </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="font-semibold text-navy-foreground mb-4">Navigate</h4>
-            <nav className="flex flex-col gap-3 text-sm">
-              {[
-                { to: "/", label: "Home" },
-                { to: "/leads", label: "Lead Conversion System" },
-                { to: "/roi", label: "ROI Calculator" },
-                { to: "/about", label: "About Us" },
-                { to: "/blog", label: "Blog" },
-                { to: "/contact", label: "Contact" },
-                { to: "/assessment", label: "Assessment" },
-              ].map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="self-start text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
           </div>
 
           {/* Social */}
@@ -81,6 +57,27 @@ const HeartbeatFooter = () => {
             </a>
           </div>
         </div>
+
+        {/* Navigation */}
+        <nav className="mt-10 pt-8 border-t border-navy-foreground/10 flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-3 text-sm">
+          {[
+            { to: "/", label: "Home" },
+            { to: "/leads", label: "Lead Conversion System" },
+            { to: "/roi", label: "ROI Calculator" },
+            { to: "/about", label: "About Us" },
+            { to: "/blog", label: "Blog" },
+            { to: "/contact", label: "Contact" },
+            { to: "/assessment", label: "Assessment" },
+          ].map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="text-navy-foreground/60 hover:text-navy-foreground relative after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 after:h-px after:bg-navy-foreground/40 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
         <div className="mt-12 pt-8 border-t border-navy-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-navy-foreground/40">
