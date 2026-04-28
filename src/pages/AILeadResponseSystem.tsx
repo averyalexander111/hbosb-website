@@ -18,6 +18,8 @@ import {
   Database,
   Repeat,
   CheckCircle2,
+  Compass,
+  Rocket,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
