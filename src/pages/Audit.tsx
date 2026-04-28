@@ -171,6 +171,68 @@ const Audit = () => {
     };
   }, [blueprint, leadData, view]);
 
+  useEffect(() => {
+    if (view !== "results") return;
+
+    const scriptId = "cal-embed-script-assessment";
+    if (document.getElementById(scriptId)) return;
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.type = "text/javascript";
+    script.innerHTML = `
+      (function (C, A, L) {
+        let p = function (a, ar) { a.q.push(ar); };
+        let d = C.document;
+        C.Cal = C.Cal || function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () { p(api, arguments); };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+
+      Cal("init", "assessment", { origin: "https://app.cal.com" });
+
+      Cal.ns["assessment"]("inline", {
+        elementOrSelector: "#my-cal-inline-assessment",
+        config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
+        calLink: "hbosb/assessment",
+      });
+
+      Cal.ns["assessment"]("ui", {
+        "cssVarsPerTheme": {
+          "light": { "cal-brand": "#4a91c4" },
+          "dark": { "cal-brand": "#fafafa" }
+        },
+        "hideEventTypeDetails": false,
+        "layout": "month_view"
+      });
+    `;
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById(scriptId);
+      if (el) el.remove();
+    };
+  }, [view]);
+
   const handleLeadInfoChange = (field: keyof AuditLeadInfo, value: string) => {
     let nextValue = value;
 
@@ -889,10 +951,9 @@ const Audit = () => {
                       </div>
 
                       <div className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-white">
-                        <iframe
-                          src={`${AUDIT_BOOKING_URL}?embed=true`}
-                          title="Heartbeat assessment booking"
-                          className="min-h-[720px] w-full"
+                        <div
+                          id="my-cal-inline-assessment"
+                          className="w-full min-h-[760px] lg:min-h-[820px]"
                         />
                       </div>
                     </div>

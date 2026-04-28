@@ -1,4 +1,4 @@
-export const AUDIT_BOOKING_URL = "https://cal.com/hbosb/heartbeat-audit";
+export const AUDIT_BOOKING_URL = "https://cal.com/hbosb/assessment";
 
 export const AUDIT_PILLARS = {
   STRATEGY: "Strategy & Context",
