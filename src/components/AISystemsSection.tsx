@@ -69,11 +69,8 @@ const AISystemsSection = () => {
             <h3 className="text-2xl md:text-4xl font-bold text-navy-foreground mb-4">
               See Which System Fits Your Business
             </h3>
-            <p className="text-base md:text-lg text-navy-foreground/70 mb-4 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-2xl mx-auto leading-relaxed">
               Every business has different gaps in lead capture, follow-up, and customer communication. If your website, forms, phone process, CRM, or review follow-up is causing leads to slip through the cracks, we help identify the weak point and build the right system around it.
-            </p>
-            <p className="text-sm text-navy-foreground/50 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Depending on the business, this may include missed-call response, website form capture, CRM tracking, automated follow-up, customer updates, review request workflows, and reporting.
             </p>
             <Link
               to="/assessment"
