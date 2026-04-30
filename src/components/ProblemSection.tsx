@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { PhoneOff, Clock, CalendarX, Snail, Star } from "lucide-react";
+import { PhoneOff, Clock, Inbox, MessageSquareOff, Layers } from "lucide-react";
 
 const problems = [
-  { icon: PhoneOff, title: "Missed Inquiries", desc: "Potential customers reach out and never receive a response." },
-  { icon: Clock, title: "Inconsistent Follow-Ups", desc: "Leads are not contacted consistently, causing lost opportunities." },
-  { icon: CalendarX, title: "Manual Scheduling", desc: "Time is lost going back and forth trying to book appointments." },
-  { icon: Snail, title: "Slow Response Times", desc: "Delayed replies push potential customers toward competitors." },
-  { icon: Star, title: "Low Review Volume", desc: "Satisfied customers leave without sharing their experience." },
+  { icon: PhoneOff, title: "Missed Calls", desc: "Inquiries come in by phone and never get a callback." },
+  { icon: Clock, title: "Slow Response Times", desc: "Prospects move on before anyone gets back to them." },
+  { icon: Inbox, title: "Unanswered Forms", desc: "Website and Google Business Profile leads sit untouched." },
+  { icon: MessageSquareOff, title: "No Follow-Up Process", desc: "Leads receive one reply, then go quiet." },
+  { icon: Layers, title: "Scattered Communication", desc: "Conversations live in too many places to track." },
 ];
 
 const ProblemSection = () => {
@@ -22,14 +22,13 @@ const ProblemSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
-            Most businesses don't have a lead problem — they have a follow-up and conversion problem.
+            Most businesses do not have a lead problem. They have a follow-up and conversion problem.
           </p>
           <h2 className="section-title text-foreground">
-            Most Businesses Are Losing Opportunities Every Day
+            Where Service Businesses Quietly Lose Revenue
           </h2>
           <p className="section-subtitle mx-auto">
-            Small breakdowns in response time, follow-up, and organization lead to missed revenue.
-            AI systems fix these gaps by capturing, responding to, and converting opportunities automatically.
+            Calls get missed, forms go unanswered, follow-up is inconsistent, and customer communication ends up scattered across phone, email, text, and CRM. AI systems close those gaps.
           </p>
         </motion.div>
 
@@ -68,7 +67,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-10"
         >
-          These are not isolated issues — they are systemic problems that reduce how many opportunities turn into customers.
+          These gaps are predictable, and they are exactly what an AI revenue system is built to fix.
         </motion.p>
       </div>
     </section>

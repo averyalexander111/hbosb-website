@@ -4,9 +4,9 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const bullets = [
-  "Where automation could save time",
-  "Where AI could increase revenue",
-  "What systems would improve operations",
+  "Where calls, forms, and inquiries are being missed",
+  "Where follow-up and communication are breaking down",
+  "What system would have the biggest impact on revenue",
 ];
 
 const FinalCTASection = () => {
@@ -26,11 +26,10 @@ const FinalCTASection = () => {
               When businesses operate smarter, they grow stronger.
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-navy-foreground mb-4">
-              Let's Explore What AI Could Fix In Your Business
+              See Where Leads Are Slipping Through the Cracks
             </h2>
             <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">
-              Identify where your business is losing opportunities and how AI
-              systems can improve your lead capture, follow-up, and conversion process.
+              Book a focused assessment to review how your business captures inquiries, follows up, and manages opportunities. You will leave with clear next steps, whether you need a simple missed-call system or a more complete AI revenue system.
             </p>
 
             <ul className="mb-10 space-y-3 text-left max-w-md mx-auto">
@@ -49,7 +48,7 @@ const FinalCTASection = () => {
               to="/assessment"
               className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
-              Start Your AI Revenue System Assessment
+              Book Your AI Opportunity Assessment
               <ArrowRight className="w-5 h-5" />
             </Link>
             <p className="mt-4 text-sm text-navy-foreground/40">
