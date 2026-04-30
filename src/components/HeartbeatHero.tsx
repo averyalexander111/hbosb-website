@@ -91,7 +91,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
-            AI Revenue Systems That Help You Capture, Follow Up With, and Convert More Leads
+            AI Revenue Systems for Modern Businesses
           </motion.h1>
 
           <motion.p
@@ -100,7 +100,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            Heartbeat of South&nbsp;Bay builds AI-powered systems that help service businesses respond faster, organize every inquiry, and follow up consistently, so fewer opportunities fall through the cracks.
+            We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
           </motion.p>
 
           <motion.p
@@ -109,7 +109,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
-            From first inquiry to booked appointment, every step of your pipeline stays organized and on time.
+            From instant conversion to outbound reactivation — every step of your pipeline, handled by intelligent systems.
           </motion.p>
 
           {/* Benefit pills */}
@@ -121,8 +121,8 @@ const HeartbeatHero = () => {
           >
             {[
               { icon: Zap, label: "Capture every lead" },
-              { icon: Bot, label: "Respond faster" },
-              { icon: TrendingUp, label: "Follow up consistently" },
+              { icon: Bot, label: "Automate follow-up" },
+              { icon: TrendingUp, label: "Grow revenue" },
             ].map((item) => (
               <span
                 key={item.label}
@@ -161,7 +161,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-6 text-sm text-navy-foreground/40"
           >
-            Complimentary assessment. No commitment required.
+            Complimentary assessment · No commitment required
           </motion.p>
         </div>
       </div>

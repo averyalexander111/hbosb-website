@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Magnet, Zap, Send, Workflow, MessageCircle, Star } from "lucide-react";
+import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing } from "lucide-react";
 
 const services = [
-  { icon: Magnet, title: "Lead Capture", desc: "Capture calls, forms, and inquiries before they disappear." },
-  { icon: Zap, title: "Instant Response", desc: "Respond quickly when prospects are most ready to act." },
-  { icon: Send, title: "Follow-Up Engine", desc: "Keep leads moving with consistent follow-up after the first touch." },
-  { icon: Workflow, title: "CRM and Pipeline Tracking", desc: "Organize every opportunity from first contact to next step." },
-  { icon: MessageCircle, title: "Customer Communication", desc: "Help customers stay informed before, during, and after the job." },
-  { icon: Star, title: "Reviews and Retention", desc: "Turn completed jobs into stronger trust and future opportunities." },
+  { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
+  { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads and move them toward action." },
+  { icon: Mic, title: "AI Voice Assistants", desc: "24/7 AI-powered communication that responds, qualifies, and routes leads instantly." },
+  { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow systems connecting your tools to eliminate bottlenecks and accelerate output." },
+  { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights that tie directly to revenue outcomes." },
+  { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "AI-powered systems that proactively reach out to new and existing leads to generate conversations and book appointments." },
 ];
 
 const AISystemsSection = () => {
@@ -22,9 +22,9 @@ const AISystemsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground">Built Around the Way Your Business Already Gets Leads</h2>
+          <h2 className="section-title text-foreground">AI Systems We Build</h2>
           <p className="section-subtitle mx-auto">
-            Whether leads come from your website, phone calls, Google Business Profile, paid ads, referrals, or repeat customers, the system helps you respond faster, stay organized, and follow up with the right message at the right time.
+            Purpose-built systems designed to improve how your business captures, follows up with, and converts opportunities.
           </p>
         </motion.div>
 

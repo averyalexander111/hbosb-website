@@ -6,27 +6,27 @@ const stages = [
   {
     icon: Radar,
     title: "Capture",
-    desc: "Pull every call, form, and inquiry into one place automatically.",
+    desc: "Smart forms, AI chat, and intake systems ensure no opportunity is missed.",
   },
   {
     icon: Mail,
     title: "Follow Up",
-    desc: "Reach prospects quickly with consistent SMS and email touches.",
+    desc: "Automated SMS and email sequences keep prospects engaged.",
   },
   {
     icon: Handshake,
     title: "Convert",
-    desc: "Move qualified leads into booked appointments without manual chasing.",
+    desc: "CRM pipelines and scheduling automation turn prospects into customers.",
   },
   {
     icon: Heart,
     title: "Retain",
-    desc: "Stay in touch after the job with updates and review requests.",
+    desc: "Review generation and retention campaigns keep clients coming back.",
   },
   {
     icon: BarChart3,
     title: "Optimize",
-    desc: "See what is working with clear reporting on response and conversion.",
+    desc: "Dashboards and reporting provide insights for continuous improvement.",
   },
 ];
 
@@ -45,13 +45,14 @@ const AIOperatingSystem = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
-            One connected system, not a stack of disconnected tools.
+            Our systems are designed to improve how your business generates and converts revenue.
           </p>
           <h2 className="section-title text-navy-foreground">
             The Heartbeat AI Operating System
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
-            A connected system that strengthens every stage of how your business captures, follows up with, and converts leads. Depending on the business, this may include missed-call response, website form capture, CRM tracking, automated follow-up, customer updates, review request workflows, and reporting.
+            A complete system infrastructure that strengthens every stage of
+            the customer journey.
           </p>
         </motion.div>
 
@@ -87,16 +88,6 @@ const AIOperatingSystem = () => {
             </React.Fragment>
           ))}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center text-sm text-navy-foreground/50 max-w-3xl mx-auto mt-12"
-        >
-          If your website, forms, phone process, CRM, or review follow-up is causing leads to slip through the cracks, we help identify the weak point and build the right system around it.
-        </motion.p>
       </div>
     </section>
   );

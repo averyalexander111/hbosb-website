@@ -4,10 +4,10 @@ import { Zap, MessageSquare, BarChart3, CalendarCheck, ArrowRight } from "lucide
 import { Link } from "react-router-dom";
 
 const features = [
-  { icon: Zap, title: "Instant Lead Response", desc: "Reach every inquiry the moment it comes in." },
-  { icon: MessageSquare, title: "Automated SMS and Email Follow-Up", desc: "Stay top of mind with consistent, personalized touches." },
-  { icon: BarChart3, title: "Lead Tracking Pipeline", desc: "Keep every opportunity organized from first contact to close." },
-  { icon: CalendarCheck, title: "Appointment Booking", desc: "Let qualified leads book directly into your calendar." },
+  { icon: Zap, title: "Instant Lead Response", desc: "Capture and respond to every inquiry the moment it comes in." },
+  { icon: MessageSquare, title: "Automated SMS & Email Follow-Up", desc: "Nurture leads automatically with personalized messages." },
+  { icon: BarChart3, title: "Lead Tracking Pipeline", desc: "Organize every lead into a structured, visual pipeline." },
+  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Let qualified leads book directly into your calendar." },
 ];
 
 const AILeadResponseSection = () => {
@@ -35,7 +35,7 @@ const AILeadResponseSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary mb-6 border border-primary/20">
-            AI Lead Conversion
+            AI-Powered Lead Recovery
           </div>
           <h2 className="section-title text-foreground font-display">
             Never Miss Another{" "}
@@ -44,13 +44,13 @@ const AILeadResponseSection = () => {
             </span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Most businesses do not lose leads. They lose them in the follow-up.
+            Most businesses don't lose leads — they lose them in the follow-up.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            We build AI-powered systems that respond instantly, follow up consistently, and move prospects toward a booked appointment.
+            We build AI-powered lead conversion systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            Every step from first inquiry to scheduled call stays organized and on time.
+            From first inquiry to scheduled call, every step is handled by AI — so your team can focus on closing.
           </p>
         </motion.div>
 
