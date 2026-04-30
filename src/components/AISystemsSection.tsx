@@ -67,7 +67,7 @@ const AISystemsSection = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
             <h3 className="text-2xl md:text-4xl font-bold text-navy-foreground mb-4">
-              See Which System Fits Your Business
+              Find the Gaps in Your Lead System
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-2xl mx-auto leading-relaxed">
               Every business has different gaps in lead capture, follow-up, and customer communication. If your website, forms, phone process, CRM, or review follow-up is causing leads to slip through the cracks, we help identify the weak point and build the right system around it.
