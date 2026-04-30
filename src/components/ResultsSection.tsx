@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "30%", label: "Reduction in missed appointments through automated reminders" },
-  { value: "22%", label: "Improvement in client retention with consistent follow-up" },
-  { value: "18%", label: "Increase in booking conversion from faster response times" },
+  { value: "30%", label: "Faster response times across calls, forms, and inquiries" },
+  { value: "22%", label: "Improvement in follow-up consistency and pipeline organization" },
+  { value: "18%", label: "Increase in booked appointments from leads you already generate" },
 ];
 
 const ResultsSection = () => {
@@ -21,7 +21,7 @@ const ResultsSection = () => {
           className="text-center mb-14"
         >
           <h2 className="section-title text-navy-foreground">
-            How AI Systems Improve Business Performance
+            What Changes When the System Is in Place
           </h2>
         </motion.div>
 
@@ -52,7 +52,7 @@ const ResultsSection = () => {
           className="mt-14 max-w-2xl mx-auto text-center"
         >
           <blockquote className="text-lg italic text-navy-foreground/60">
-            "Heartbeat of South Bay helped us automate our follow-up process and respond to leads faster. We started seeing more consistent bookings and fewer missed opportunities."
+            "Heartbeat of South&nbsp;Bay helped us respond to leads faster and stay consistent with follow-up. We see more booked appointments and far fewer missed opportunities."
           </blockquote>
           <p className="mt-4 text-sm text-navy-foreground/40">— Client</p>
         </motion.div>
