@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing } from "lucide-react";
+import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
@@ -54,6 +55,34 @@ const AISystemsSection = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 md:mt-16 max-w-5xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
+        >
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 text-center">
+            <h3 className="text-2xl md:text-4xl font-bold text-navy-foreground mb-4">
+              See Which System Fits Your Business
+            </h3>
+            <p className="text-base md:text-lg text-navy-foreground/70 mb-4 max-w-2xl mx-auto leading-relaxed">
+              Every business has different gaps in lead capture, follow-up, and customer communication. If your website, forms, phone process, CRM, or review follow-up is causing leads to slip through the cracks, we help identify the weak point and build the right system around it.
+            </p>
+            <p className="text-sm text-navy-foreground/50 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Depending on the business, this may include missed-call response, website form capture, CRM tracking, automated follow-up, customer updates, review request workflows, and reporting.
+            </p>
+            <Link
+              to="/assessment"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+            >
+              Start AI Revenue System Assessment
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
