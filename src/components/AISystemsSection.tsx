@@ -62,14 +62,14 @@ const AISystemsSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="mt-12 md:mt-16 max-w-6xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
+          className="mt-12 md:mt-16 max-w-5xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
             <h3 className="text-2xl md:text-4xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 max-w-5xl mx-auto leading-tight">
               Every Lead Needs a Clear Path to Conversion
             </h3>
-            <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[1000px] mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[880px] mx-auto leading-relaxed">
               Your leads may come from phone calls, forms, landing pages, reviews, or multiple listings. We connect the right systems around that flow, including missed-call response, call handling support, outbound follow-up, review communication, CRM pipelines, and website or landing page support when needed.
             </p>
             <Link
