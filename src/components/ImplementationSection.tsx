@@ -35,9 +35,9 @@ const ImplementationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl md:max-w-5xl mx-auto mb-14"
+          className="text-center max-w-3xl lg:max-w-5xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground md:!text-4xl lg:!text-5xl md:whitespace-nowrap">
+          <h2 className="section-title text-foreground lg:whitespace-nowrap">
             How We Build and Implement AI Systems
           </h2>
           <p className="section-subtitle mx-auto mt-4">
