@@ -34,7 +34,7 @@ const features = [
   {
     icon: Calendar,
     title: "Automated Scheduling & Follow-Ups",
-    desc: "Books appointments, sends quotes, and follows up with reminders — so nothing falls through the cracks.",
+    desc: "Books appointments, sends quotes, and follows up with reminders. Nothing falls through the cracks.",
   },
   {
     icon: BarChart3,

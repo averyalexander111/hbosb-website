@@ -60,10 +60,10 @@ const steps = [
 
 const features = [
   { icon: Zap, title: "Lead Capture Form or Landing Page", desc: "Designed to convert visitors into qualified leads for your business." },
-  { icon: MessageSquare, title: "Instant SMS Response System", desc: "Every new inquiry gets an immediate text reply — automatically." },
+  { icon: MessageSquare, title: "Instant SMS Response System", desc: "Every new inquiry gets an immediate text reply, automatically." },
   { icon: Mail, title: "Automated Follow-Up Sequences", desc: "SMS and email follow-ups that nurture leads without manual effort." },
   { icon: BarChart3, title: "CRM Pipeline Setup", desc: "Organized stages so you always know where every lead stands." },
-  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Leads schedule directly into your calendar — no back and forth." },
+  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Leads schedule directly into your calendar. No back and forth." },
   { icon: Monitor, title: "Automation Monitoring", desc: "Ongoing oversight to ensure every workflow runs reliably." },
 ];
 
@@ -356,7 +356,7 @@ const AILeadResponseSystem = () => {
           >
             <h2 className="section-title text-foreground">Investment</h2>
             <p className="section-subtitle mx-auto max-w-3xl">
-              A one-time setup investment and a simple monthly hosting plan — designed to pay for itself from day one.
+              A one-time setup investment and a simple monthly hosting plan. Designed to pay for itself from day one.
             </p>
           </motion.div>
 

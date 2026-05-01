@@ -77,7 +77,7 @@ const ImplementationSection = () => {
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
-            <h3 className="text-2xl md:text-4xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 leading-tight lg:whitespace-nowrap">
+            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 leading-tight md:whitespace-nowrap">
               See What This Looks Like for Your Business
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[720px] mx-auto leading-relaxed">

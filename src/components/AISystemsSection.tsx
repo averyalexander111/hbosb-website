@@ -66,7 +66,7 @@ const AISystemsSection = () => {
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
-            <h3 className="text-2xl md:text-4xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 max-w-5xl mx-auto leading-tight">
+            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 max-w-5xl mx-auto leading-tight md:whitespace-nowrap">
               Every Lead Needs a Clear Path to Conversion
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[880px] mx-auto leading-relaxed">
