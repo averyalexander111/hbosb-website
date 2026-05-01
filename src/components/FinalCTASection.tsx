@@ -21,12 +21,12 @@ const FinalCTASection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl md:max-w-5xl mx-auto text-center"
         >
           <p className="text-primary font-medium mb-3">
             When businesses operate smarter, they grow stronger.
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-foreground mb-4 md:whitespace-nowrap">
             Let's Explore What AI Could Fix In Your Business
           </h2>
           <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">
