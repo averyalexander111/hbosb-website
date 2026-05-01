@@ -12,7 +12,7 @@ const features = [
 
 const AILeadResponseSection = () => {
   return (
-    <section className="py-28 bg-background relative overflow-hidden">
+    <section className="py-20 bg-background relative overflow-hidden">
       {/* Decorative glow orbs */}
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/6 w-[300px] h-[300px] bg-primary/3 rounded-full blur-3xl pointer-events-none" />
@@ -35,7 +35,7 @@ const AILeadResponseSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary mb-6 border border-primary/20">
-            AI-Powered Lead Recovery
+            AI Lead Conversion
           </div>
           <h2 className="section-title text-foreground font-display">
             Never Miss Another{" "}
@@ -47,10 +47,7 @@ const AILeadResponseSection = () => {
             Most businesses don't lose leads — they lose them in the follow-up.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            We build AI-powered lead conversion systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground">
-            From first inquiry to scheduled call, every step is handled by AI — so your team can focus on closing.
+            We build AI systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.
           </p>
         </motion.div>
 
@@ -71,7 +68,7 @@ const AILeadResponseSection = () => {
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
               }}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-1 transition-all duration-300"
+              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300"
             >
               <span className="absolute top-4 right-5 text-xs font-semibold text-muted-foreground/40 group-hover:text-primary/30 transition-colors">
                 {String(index + 1).padStart(2, "0")}
