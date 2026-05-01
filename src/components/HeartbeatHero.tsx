@@ -143,7 +143,7 @@ const HeartbeatHero = () => {
           >
             <Link
               to="/assessment"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
+              className="inline-flex items-center justify-center text-center rounded-lg bg-primary px-5 sm:px-8 py-3.5 sm:py-4 text-sm font-semibold leading-snug text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
               Start Your AI Revenue System Assessment
             </Link>
