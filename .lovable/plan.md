@@ -1,30 +1,39 @@
-# Make Final CTA section full-width like the Results section
+## Problem
 
-## Issue
-The "Let's Explore What AI Could Fix In Your Business" block is currently a `max-w-3xl` navy **card** floating on the light `bg-background` section. The "How AI Systems Improve Business Performance" section, by contrast, is a **full-width** navy section that spans the entire viewport.
+Tablet (~768–1024px) shows horizontal scroll because several headlines and kickers were given `md:whitespace-nowrap`, forcing long text onto one line at a width where it doesn't fit. Tailwind's `md:` starts at 768px (tablet), but these strings only fit cleanly at `lg:` (≥1024px, desktop).
 
-The user wants the Final CTA to match that full-bleed navy treatment.
+## Fix
 
-## Change
+Change every recently added `md:whitespace-nowrap` to `lg:whitespace-nowrap`. Tablet will be allowed to wrap to a second line (which is fine per your note); desktop keeps the clean single line.
 
-**File: `src/components/FinalCTASection.tsx`**
+Also revert the paired tablet font-size shrinking (e.g. `md:!text-4xl`, `md:text-3xl`) where it was added solely to support nowrap on tablet — tablet can now use its natural size.
 
-Restructure to mirror `ResultsSection`:
+## Files & changes
 
-1. Change the `<section>` background from `bg-background` → `bg-navy relative overflow-hidden`.
-2. Remove the inner navy card wrapper (`bg-navy rounded-3xl p-10 md:p-14 ... border ...`) and the `max-w-3xl` constraint on it.
-3. Keep the existing decorative primary blur orb, but move it to the section level (centered, large, behind content) — matching the subtle gradient/orb feel of `ResultsSection`.
-4. Wrap content in the standard `container mx-auto px-4 sm:px-6 lg:px-8 relative z-10` pattern used by `ResultsSection`.
-5. Keep all copy, bullets, button, and the framer-motion entrance animation — only the wrapper/background changes.
-6. Inner content block keeps a `max-w-3xl mx-auto text-center` to preserve readable line length for the headline/paragraph/bullets/button.
+**`src/components/AIOperatingSystem.tsx`**
+- Kicker (line 47): `md:whitespace-nowrap` → `lg:whitespace-nowrap`
+- H2 (line 50): `md:!text-4xl lg:!text-5xl md:whitespace-nowrap` → `lg:whitespace-nowrap` (drop forced size overrides; let `section-title` scale normally)
+- Subtitle (line 53): `md:max-w-none md:whitespace-nowrap` → `lg:max-w-none lg:whitespace-nowrap`
 
-## Visual result
-- Section becomes full-bleed navy, edge-to-edge (same width as the Results section).
-- No more rounded card outline; content sits directly on the navy background.
-- All text, bullets, and CTA button remain unchanged in copy, color, and styling.
-- Maintains the alternating dark-to-light section rhythm (it already came after a light section).
+**`src/components/ImplementationSection.tsx`**
+- Wrapper (line 38): `max-w-3xl md:max-w-5xl` → `max-w-3xl lg:max-w-5xl`
+- H2 (line 40): `md:!text-4xl lg:!text-5xl md:whitespace-nowrap` → `lg:whitespace-nowrap`
+- Inner card H3 (line 80): `md:whitespace-nowrap` → `lg:whitespace-nowrap`
+
+**`src/components/AISystemsSection.tsx`**
+- H3 (line 69): `md:whitespace-nowrap` → `lg:whitespace-nowrap`
+
+**`src/components/FinalCTASection.tsx`**
+- Wrapper (line 24): `max-w-3xl md:max-w-5xl` → `max-w-3xl lg:max-w-5xl`
+- H2 (line 29): `md:whitespace-nowrap` → `lg:whitespace-nowrap`
+
+**`src/components/ProblemSection.tsx`**
+- Kicker (line 24): `md:whitespace-nowrap` → `lg:whitespace-nowrap` (and keep the smaller font scale so it stays one line on desktop)
 
 ## Out of scope
-- No copy changes.
-- No button style changes.
-- No changes to other sections.
+
+- The `whitespace-nowrap` usages on `HeartbeatFooter`, `ConnectSection`, `AboutUs`, and the shadcn `tabs`/`button` primitives are short strings (brand name, phone) that aren't causing overflow — leaving them as-is.
+
+## Memory update
+
+Update `mem://style/copy-voice` and the index Core line to clarify: "Don't wrap headlines on **desktop** when they cleanly fit one line. Use `lg:whitespace-nowrap`, not `md:`, since tablet (768–1024px) is too narrow for most headlines."
