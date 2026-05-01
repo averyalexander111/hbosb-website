@@ -62,7 +62,7 @@ const AISystemsSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="mt-12 md:mt-16 mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
+          className="mt-12 md:mt-16 max-w-5xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
