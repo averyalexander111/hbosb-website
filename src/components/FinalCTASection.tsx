@@ -26,7 +26,7 @@ const FinalCTASection = () => {
           <p className="text-primary font-medium mb-3">
             When businesses operate smarter, they grow stronger.
           </p>
-          <h2 className="text-3xl md:text-[2rem] lg:text-[2.5rem] font-bold text-navy-foreground mb-4 md:whitespace-nowrap">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-foreground mb-4">
             Let's Explore What AI Could Fix In Your Business
           </h2>
           <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">

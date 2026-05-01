@@ -24,7 +24,7 @@ const ProblemSection = () => {
           <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
             Most businesses don't have a lead problem. They have a follow-up and conversion problem.
           </p>
-          <h2 className="text-3xl md:text-[2rem] lg:text-5xl font-bold tracking-tight text-foreground md:whitespace-nowrap">
+          <h2 className="section-title text-foreground">
             Most Businesses Are Losing Opportunities Every Day
           </h2>
           <p className="section-subtitle mx-auto">
