@@ -47,7 +47,7 @@ const AIOperatingSystem = () => {
           <p className="text-[11px] sm:text-xs md:text-sm font-medium text-primary uppercase tracking-wider mb-4 md:whitespace-nowrap">
             Our systems are designed to improve how your business generates and converts revenue.
           </p>
-          <h2 className="section-title text-navy-foreground">
+          <h2 className="section-title text-navy-foreground md:!text-4xl lg:!text-5xl md:whitespace-nowrap">
             The Heartbeat AI Operating System
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
