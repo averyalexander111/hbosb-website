@@ -43,14 +43,16 @@ const ProblemSection = () => {
           }}
           className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
         >
-          {problems.map((item) => (
+          {problems.map((item, i) => (
             <motion.div
               key={item.title}
               variants={{
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
               }}
-              className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-[box-shadow] duration-300"
+              className={`flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-[box-shadow] duration-300 ${
+                i === problems.length - 1 ? "sm:col-span-2 sm:max-w-sm sm:mx-auto sm:w-full lg:col-span-1 lg:max-w-none" : ""
+              }`}
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <item.icon className="w-6 h-6 text-primary" />
