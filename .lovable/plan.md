@@ -1,30 +1,61 @@
-# Make Final CTA section full-width like the Results section
+## Goal
 
-## Issue
-The "Let's Explore What AI Could Fix In Your Business" block is currently a `max-w-3xl` navy **card** floating on the light `bg-background` section. The "How AI Systems Improve Business Performance" section, by contrast, is a **full-width** navy section that spans the entire viewport.
+Prevent four headlines from wrapping to a second line on tablet/desktop where they cleanly fit on one line. Mobile keeps wrapping (it must).
 
-The user wants the Final CTA to match that full-bleed navy treatment.
+## Identified wrapping headlines (at ~833px tablet)
 
-## Change
+1. **FinalCTASection.tsx** — "Let's Explore What AI Could Fix In Your Business" (wraps "Business" to line 2)
+2. **ImplementationSection.tsx** — "How We Build and Implement AI Systems" (wraps "Systems" to line 2)
+3. **AIOperatingSystem.tsx** — "The Heartbeat AI Operating System" (wraps "System" to line 2)
+4. **ProblemSection.tsx** — "Most Businesses Are Losing Opportunities Every Day" (likely wrapping; long line)
 
-**File: `src/components/FinalCTASection.tsx`**
+## Approach
 
-Restructure to mirror `ResultsSection`:
+Apply the same pattern already established for `AISystemsSection` and the previous `ImplementationSection` CTA fix:
+- Reduce the tablet (`md:`) size one notch
+- Restore desktop (`lg:`) size to a comfortable large value
+- Add `md:whitespace-nowrap` so the headline stays on one line at tablet and desktop
+- Mobile size unchanged (still wraps gracefully on phones)
 
-1. Change the `<section>` background from `bg-background` → `bg-navy relative overflow-hidden`.
-2. Remove the inner navy card wrapper (`bg-navy rounded-3xl p-10 md:p-14 ... border ...`) and the `max-w-3xl` constraint on it.
-3. Keep the existing decorative primary blur orb, but move it to the section level (centered, large, behind content) — matching the subtle gradient/orb feel of `ResultsSection`.
-4. Wrap content in the standard `container mx-auto px-4 sm:px-6 lg:px-8 relative z-10` pattern used by `ResultsSection`.
-5. Keep all copy, bullets, button, and the framer-motion entrance animation — only the wrapper/background changes.
-6. Inner content block keeps a `max-w-3xl mx-auto text-center` to preserve readable line length for the headline/paragraph/bullets/button.
+## Changes
 
-## Visual result
-- Section becomes full-bleed navy, edge-to-edge (same width as the Results section).
-- No more rounded card outline; content sits directly on the navy background.
-- All text, bullets, and CTA button remain unchanged in copy, color, and styling.
-- Maintains the alternating dark-to-light section rhythm (it already came after a light section).
+### 1. `src/components/FinalCTASection.tsx` (line 29)
+Current:
+```
+className="text-3xl md:text-4xl font-bold text-navy-foreground mb-4"
+```
+New:
+```
+className="text-3xl md:text-[2rem] lg:text-[2.5rem] font-bold text-navy-foreground mb-4 md:whitespace-nowrap"
+```
 
-## Out of scope
-- No copy changes.
-- No button style changes.
-- No changes to other sections.
+### 2. `src/components/ImplementationSection.tsx` (lines 40–42)
+Replace the `<h2 className="section-title text-foreground">` with an explicit class so we can control the tablet behavior on this specific headline (without changing the global `section-title` utility):
+```
+<h2 className="text-3xl md:text-[2rem] lg:text-5xl font-bold tracking-tight text-foreground md:whitespace-nowrap">
+  How We Build and Implement AI Systems
+</h2>
+```
+
+### 3. `src/components/AIOperatingSystem.tsx` (lines 50–52)
+Same treatment, on a navy background:
+```
+<h2 className="text-3xl md:text-[2rem] lg:text-5xl font-bold tracking-tight text-navy-foreground md:whitespace-nowrap">
+  The Heartbeat AI Operating System
+</h2>
+```
+
+### 4. `src/components/ProblemSection.tsx` (lines 27–29)
+```
+<h2 className="text-3xl md:text-[2rem] lg:text-5xl font-bold tracking-tight text-foreground md:whitespace-nowrap">
+  Most Businesses Are Losing Opportunities Every Day
+</h2>
+```
+
+## Notes
+
+- I am intentionally not modifying the global `section-title` class in `index.css` because other H2s on the site already fit cleanly. Per-section overrides are safer.
+- Mobile (<768px) still wraps because `md:whitespace-nowrap` only activates from tablet up.
+- No copy changes; layout-only.
+
+Approve and I'll apply all four edits.
