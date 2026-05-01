@@ -21,7 +21,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
+          <p className="text-[11px] sm:text-xs md:text-sm font-medium text-primary uppercase tracking-wider mb-4 md:whitespace-nowrap">
             Most businesses don't have a lead problem. They have a follow-up and conversion problem.
           </p>
           <h2 className="section-title text-foreground">
