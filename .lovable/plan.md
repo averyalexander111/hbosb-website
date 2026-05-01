@@ -1,21 +1,14 @@
-# Normalize CTA button heights
+# Normalize "Start AI Revenue System Assessment" button height in ImplementationSection
 
 ## Issue
-Two primary CTAs are taller than the site-standard primary button:
-
-- `AILeadResponseSection` ("Learn How the AI Lead Conversion System Works") uses `py-4.5` — taller than every other CTA.
-- `AISystemsSection` ("Start AI Revenue System Assessment") currently uses `py-4` already, but visually reads taller because of `gap-2` + `text-base` combined with the surrounding card spacing — it actually matches `FinalCTASection` exactly. On re-check, it is already consistent.
-
-The site-standard primary CTA pattern (used in `FinalCTASection`) is:
-`px-10 py-4 text-base font-semibold rounded-lg border-glow-spin`
+The CTA button inside the "See What This Looks Like for Your Business" card uses `py-4.5`, making it taller than the site-standard primary CTA height (`py-4`).
 
 ## Change
 
-**File: `src/components/AILeadResponseSection.tsx`** (line 98)
-- Change `py-4.5` → `py-4` so its height matches `FinalCTASection` and `AISystemsSection`.
+**File: `src/components/ImplementationSection.tsx`** (line 88)
+- Change `py-4.5` → `py-4` on the "Start AI Revenue System Assessment" button.
 
-**File: `src/components/AISystemsSection.tsx`** (line 77)
-- No change needed — already `py-4` and matches the standard. Leave as-is.
+No other classes, copy, layout, or styling changes.
 
 ## Result
-Both CTAs render at the same height as the "Start Your AI Revenue System Assessment" button in the final CTA section, giving a single consistent primary-button height across the site. No color, width, font, or layout changes.
+Button height matches the standard primary CTA used in `FinalCTASection`, `AISystemsSection`, and `AILeadResponseSection`.
