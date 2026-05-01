@@ -37,7 +37,7 @@ const ImplementationSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground">
+          <h2 className="section-title text-foreground md:!text-4xl lg:!text-5xl md:whitespace-nowrap">
             How We Build and Implement AI Systems
           </h2>
           <p className="section-subtitle mx-auto mt-4">
