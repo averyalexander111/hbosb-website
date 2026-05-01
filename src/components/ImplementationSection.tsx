@@ -73,14 +73,14 @@ const ImplementationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 max-w-2xl mx-auto bg-navy rounded-2xl p-8 md:p-10 relative overflow-hidden border border-navy-foreground/10"
+          className="mt-16 max-w-5xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
-            <h3 className="text-xl font-semibold text-navy-foreground mb-3">
+            <h3 className="text-2xl md:text-4xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 max-w-3xl mx-auto leading-tight">
               See What This Looks Like for Your Business
             </h3>
-            <p className="text-sm text-navy-foreground/60 mb-8">
+            <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[720px] mx-auto leading-relaxed">
               Schedule an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
             </p>
             <Link
