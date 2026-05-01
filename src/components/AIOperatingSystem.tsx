@@ -44,13 +44,13 @@ const AIOperatingSystem = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-[11px] sm:text-xs md:text-sm font-medium text-primary uppercase tracking-wider mb-4 md:whitespace-nowrap">
+          <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 lg:whitespace-nowrap">
             Our systems are designed to improve how your business generates and converts revenue.
           </p>
-          <h2 className="section-title text-navy-foreground md:!text-4xl lg:!text-5xl md:whitespace-nowrap">
+          <h2 className="section-title text-navy-foreground lg:whitespace-nowrap">
             The Heartbeat AI Operating System
           </h2>
-          <p className="mt-4 text-base md:text-lg text-navy-foreground/60 max-w-2xl mx-auto md:max-w-none md:whitespace-nowrap">
+          <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto lg:max-w-none lg:whitespace-nowrap">
             A complete system infrastructure that strengthens every stage of the customer journey.
           </p>
         </motion.div>
