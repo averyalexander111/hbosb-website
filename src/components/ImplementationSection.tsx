@@ -35,9 +35,9 @@ const ImplementationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl md:max-w-5xl mx-auto mb-14"
+          className="text-center max-w-3xl lg:max-w-5xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground md:!text-4xl lg:!text-5xl md:whitespace-nowrap">
+          <h2 className="section-title text-foreground lg:whitespace-nowrap">
             How We Build and Implement AI Systems
           </h2>
           <p className="section-subtitle mx-auto mt-4">
@@ -77,7 +77,7 @@ const ImplementationSection = () => {
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
-            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 leading-tight md:whitespace-nowrap">
+            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 leading-tight lg:whitespace-nowrap">
               See What This Looks Like for Your Business
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[720px] mx-auto leading-relaxed">
