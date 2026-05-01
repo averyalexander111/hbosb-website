@@ -22,7 +22,7 @@ const ProblemSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
-            Most businesses don't have a lead problem — they have a follow-up and conversion problem.
+            Most businesses don't have a lead problem. They have a follow-up and conversion problem.
           </p>
           <h2 className="section-title text-foreground">
             Most Businesses Are Losing Opportunities Every Day
@@ -70,7 +70,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-10"
         >
-          These are not isolated issues — they are systemic problems that reduce how many opportunities turn into customers.
+          These are not isolated issues. They are systemic problems that reduce how many opportunities turn into customers.
         </motion.p>
       </div>
     </section>

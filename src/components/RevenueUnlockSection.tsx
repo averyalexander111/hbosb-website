@@ -12,12 +12,12 @@ const RevenueUnlockSection = React.memo(() => {
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               Every no-show, ghosted lead, or drop-off is money left on the table. BaySignal AI's 
               plug-and-play automations re-engage quiet clients, trigger smart follow-ups, and surface 
-              fresh, targeted leads—all without a single line of code.
+              fresh, targeted leads. All without a single line of code.
             </p>
             <p className="text-lg text-gray-700 mb-8">
               👉 <strong>Built for service businesses</strong> (coaches, clinics, salons, advisors), 
               BaySignal AI scales your client outreach, automates routine work, and fuels sustainable 
-              growth—no extra hires required.
+              growth. No extra hires required.
             </p>
             
             {/* Complimentary Consultation Button */}

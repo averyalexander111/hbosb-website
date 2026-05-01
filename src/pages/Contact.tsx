@@ -90,7 +90,7 @@ const Contact = () => {
       <main className="bg-background">
         <SubpageHero
           title="Get in Touch"
-          subtitle="Send us a message or schedule a call — we're here to help your business grow."
+          subtitle="Send us a message or schedule a call. We're here to help your business grow."
         />
 
         {/* PRIMARY: Contact Form + Trust */}

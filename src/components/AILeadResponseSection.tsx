@@ -44,7 +44,7 @@ const AILeadResponseSection = () => {
             </span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Most businesses don't lose leads — they lose them in the follow-up.
+            Most businesses don't lose leads. They lose them in the follow-up.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
             We build AI systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.

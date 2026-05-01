@@ -79,7 +79,7 @@ const AboutUs = () => {
                 <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> is an AI consulting and automation firm that helps businesses modernize how they operate.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                We design and implement AI-powered systems that capture leads, automate customer communication, and streamline operational workflows — allowing businesses to operate more efficiently and grow with confidence.
+                We design and implement AI-powered systems that capture leads, automate customer communication, and streamline operational workflows. This allows businesses to operate more efficiently and grow with confidence.
               </p>
               <p className="text-base text-foreground/70 italic">
                 Instead of adding more tools, we build intelligent systems that work continuously in the background to support modern business operations.
@@ -221,7 +221,7 @@ const AboutUs = () => {
                     Avery combines expertise in project management, digital strategy, and AI-powered automation to design operational systems that improve how businesses capture opportunities, communicate with customers, and manage internal workflows.
                   </p>
                   <p className="text-navy-foreground/60 leading-relaxed italic">
-                    Rather than simply installing tools, Avery approaches automation through a systems-thinking mindset — integrating technology, processes, and human workflows into unified systems that operate continuously in the background.
+                    Rather than simply installing tools, Avery approaches automation through a systems-thinking mindset. He integrates technology, processes, and human workflows into unified systems that operate continuously in the background.
                   </p>
                 </div>
               </div>
