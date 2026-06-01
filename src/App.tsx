@@ -39,7 +39,7 @@ const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
     <img 
       src="/lovable-uploads/761ad773-d059-47f2-a526-d397fba4f668.png" 
-      alt="Loading..." 
+      alt="Loading site content" 
       className="w-16 h-16 animate-pulse"
     />
   </div>

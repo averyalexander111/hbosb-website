@@ -99,9 +99,9 @@ const Blog = () => {
   return (
     <>
       <SEOHead 
-        title="The Pulse — AI Revenue Systems Blog | Heartbeat of South Bay"
+        title="The Pulse | AI Revenue Blog — Heartbeat of South Bay"
         description="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
-        ogTitle="The Pulse — AI Revenue Systems Blog | Heartbeat of South Bay"
+        ogTitle="The Pulse | AI Revenue Blog — Heartbeat of South Bay"
         ogDescription="Insights on AI Revenue Systems, lead conversion, and growth strategies for service-based businesses from the Heartbeat of South Bay team."
         canonicalUrl={`${window.location.origin}/blog`}
       />
@@ -158,8 +158,9 @@ const Blog = () => {
         </AnimatedSection>
 
         {/* Blog Posts */}
-        <section className="pt-2 pb-16 px-4">
+        <section className="pt-2 pb-16 px-4" aria-labelledby="blog-latest-heading">
           <div className="max-w-6xl mx-auto">
+            <h2 id="blog-latest-heading" className="sr-only">Latest blog posts</h2>
             {isLoading ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[...Array(6)].map((_, i) => (
