@@ -61,7 +61,7 @@ const AboutUs = () => {
         description="Heartbeat of South Bay is an AI consulting and automation firm that helps businesses modernize operations with intelligent systems."
         ogTitle="About Us - Heartbeat of South Bay | AI Consulting & Automation"
         ogDescription="We design and implement AI-powered systems that capture leads, automate communication, and streamline workflows."
-        canonicalUrl={`${window.location.origin}/about-us`}
+        canonicalUrl={`${window.location.origin}/about`}
       />
       <HeartbeatNavbar />
       <main>
