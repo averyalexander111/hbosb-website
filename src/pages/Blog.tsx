@@ -231,7 +231,7 @@ const Blog = () => {
                           </div>
                         )}
                         <div className="flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
-                          Read More
+                          <span>Read “{post.title}”</span>
                           <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </CardContent>
