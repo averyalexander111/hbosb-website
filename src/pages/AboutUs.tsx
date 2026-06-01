@@ -57,7 +57,7 @@ const AboutUs = () => {
   return (
     <>
       <SEOHead
-        title="About Us - Heartbeat of South Bay | AI Consulting & Automation"
+        title="About Us | AI Consulting — Heartbeat of South Bay"
         description="Heartbeat of South Bay is an AI consulting and automation firm that helps businesses modernize operations with intelligent systems."
         ogTitle="About Us - Heartbeat of South Bay | AI Consulting & Automation"
         ogDescription="We design and implement AI-powered systems that capture leads, automate communication, and streamline workflows."

@@ -9,16 +9,20 @@ interface SEOHeadProps {
   ogType?: "website" | "article";
 }
 
+const SITE_ORIGIN = "https://heartbeatofsouthbay.com";
+const SOCIAL_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/qU9oinv2BSUqDshs9rlmSWAX37j1/social-images/social-1777348117573-HBOSB_Hyperlink.webp";
+
 const SEOHead = ({
-  title = "AI Revenue Systems for Lead Conversion | Heartbeat of South Bay",
+  title = "AI Lead Conversion Systems | Heartbeat of South Bay",
   description = "We build AI revenue systems, CRM, and high-converting websites for local brands. Get more leads, reviews, and repeat customers. Done for you. Start your AI Revenue System Assessment.",
   ogTitle,
   ogDescription,
   canonicalUrl,
   ogType = "website"
 }: SEOHeadProps) => {
-  const currentUrl = window.location.origin + window.location.pathname;
-  
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+  const currentUrl = `${SITE_ORIGIN}${pathname}`;
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -31,14 +35,14 @@ const SEOHead = ({
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:image" content="/brand/social-share.png" />
+      <meta property="og:image" content={SOCIAL_IMAGE} />
       <meta property="og:url" content={currentUrl} />
       
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle || title} />
       <meta name="twitter:description" content={ogDescription || description} />
-      <meta name="twitter:image" content="/brand/social-share.png" />
+      <meta name="twitter:image" content={SOCIAL_IMAGE} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl || currentUrl} />
