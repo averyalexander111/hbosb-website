@@ -14,7 +14,7 @@ const SOCIAL_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/q
 
 const SEOHead = ({
   title = "AI Lead Conversion Systems | Heartbeat of South Bay",
-  description = "We build AI revenue systems, CRM, and high-converting websites for local brands. Get more leads, reviews, and repeat customers. Done for you. Start your AI Revenue System Assessment.",
+  description = "AI revenue systems, CRM, and high-converting websites for local South Bay brands. More leads, reviews, and repeat customers. Done for you.",
   ogTitle,
   ogDescription,
   canonicalUrl,
