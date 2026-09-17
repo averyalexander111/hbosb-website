@@ -1,112 +1,47 @@
-# Offer Update Inspection — AI Lead Conversion System
+# Audit: AI Lead Conversion System references (read-only, no changes made)
 
-Inspection only. No code changed in this turn.
+Target public pricing: $997 one-time implementation, $1,497/month ongoing management.
 
-## F) Is this the right source project for heartbeatofsouthbay.com?
+## 1. Already aligned with the updated direction
 
-Yes. Routes (`/leads`, `/roi`, `/assessment`, `/contact`, `/blog`, `/privacy-policy`, `/terms-and-conditions`), sitemap and llms.txt all use `https://heartbeatofsouthbay.com`, phone `+1-424-488-3774`, HBOSB branding, and the live cal.com links `hbosb/assessment` and `hbosb/lead-system-install`. Published URL matches the custom domain.
+- `src/pages/AILeadResponseSystem.tsx` (/leads) — managed-service structure in place. `$997 one-time` at lines 505 and 636; `$1,497` at lines 532 and 647. No `$97/month` framing remains anywhere on this page. FAQ explicitly disclaims guarantees (line 199-200: "Does HBOSB guarantee every lead is contacted instantly?" / "No. We do not guarantee a specific response time..."), disclaims standard voice inclusion (203-204), and disclaims pilot promises (791: "not an automatic discount, a revenue guarantee, or a performance promise"). Line 164 lists "Live AI voice systems" under separately scoped items.
+- `src/components/ROICalculator.tsx` — Core/Plus/Pro presets are gone. `DEFAULT_MONTHLY_MANAGEMENT = '1497'` (line 3), `DEFAULT_ONE_TIME_IMPLEMENTATION = '997'` (line 4), disclaimer constant (line 7), "not profit" labeling (lines 276, 282). No ROI-percentage result.
+- `src/pages/ROICalculatorPage.tsx` lines 15, 21 — "estimation tool, not a forecast or guarantee".
+- `src/components/ResultsSection.tsx` — 30/22/18 stats and "— Client" testimonial removed; now Response Consistency / Follow-Up Discipline / Pipeline Visibility with qualified copy.
+- `src/components/AISystemsSection.tsx` line 9 — "AI Voice Systems (Separately Scoped)", explicitly not included in the standard system.
+- `src/components/HeartbeatHero.tsx` lines 111-112 — qualified subline; pills at 124-126 are "Improve lead capture", "Automate follow-up", "Improve pipeline visibility".
+- `index.html` line 7-8 — title "Managed AI Lead Conversion Systems…" and managed-system description; FAQ schema implementation-timing answer (~line 186) says timing is confirmed after scope review.
+- `public/llms.txt` line 10 — "$997 one-time implementation and $1,497/month ongoing system management".
 
-## A) Files that carry the offer
+## 2. Flags — live, user-visible
 
-| Area | File |
-| --- | --- |
-| /leads page (whole offer) | `src/pages/AILeadResponseSystem.tsx` (592 lines) |
-| Homepage lead section | `src/components/AILeadResponseSection.tsx` |
-| Homepage hero | `src/components/HeartbeatHero.tsx` |
-| Homepage services (voice claim) | `src/components/AISystemsSection.tsx` |
-| Homepage stats + testimonial | `src/components/ResultsSection.tsx` |
-| Homepage ladder language | `src/components/AIOperatingSystem.tsx` |
-| Homepage/global FAQ | `src/components/FAQSection.tsx` |
-| ROI tool | `src/components/ROICalculator.tsx`, `src/pages/ROICalculatorPage.tsx` |
-| Assessment funnel + booking | `src/pages/Audit.tsx`, `src/lib/audit.ts` |
-| Metadata, JSON-LD, FAQ schema | `index.html` |
-| Machine-readable summary | `public/llms.txt` |
-| Sitemap | `public/sitemap.xml` |
-| Contact booking embed | `src/pages/Contact.tsx` |
-| Legacy, unrouted | `src/components/GrowthPlansSection.tsx`, `BaySignalSection.tsx`, `RevenueUnlockSection.tsx`, `ProgramsSection.tsx`, `Hero.tsx`, `HowItWorks.tsx` |
+1. `index.html` lines 60-170 — structured data still publishes a contradicting product line: BaySignal Core $597/mo (setup $749), Plus $1,297/mo (setup $1,499), Pro $2,497/mo (setup $2,999), Launchpad $500, SiteCare $50/mo, plus an `OfferCatalog` named "BaySignal AI Plans". Nothing in the schema publishes $997/$1,497. Pro description (line 109) includes "AI Voice Agent" as an included feature. Voice-minute allowances (200/600/1,500) imply standard voice inclusion.
+2. `index.html` line 10 — keywords still include "AI voice agent for leads", "BaySignal AI", "Heartbeat Launchpad".
+3. `src/lib/audit.ts` (powers /assessment results) — line 341: "instant-response system that captures every inquiry"; line 408: "every lead gets a branded confirmation… without delay"; line 233: "If every lead was responded to immediately…"; line 145: "same process every time, for every lead"; line 227 placeholder "Every lead responded to within 5 minutes, 20% more booked calls…".
+4. Complimentary / no-commitment claims (unchanged per prior instruction, locations for 01): `HeartbeatHero.tsx:164`, `FAQSection.tsx:12`, `index.html:179`, `public/llms.txt:15`.
+5. `src/components/ProblemSection.tsx:28` — "Losing Opportunities Every Day" (absolute framing, mild).
+6. `src/components/AIOperatingSystem.tsx:54` — "strengthens every stage of the customer journey".
+7. `src/components/FAQSection.tsx:18` — "Security is built into every system we deploy".
+8. `src/pages/AboutUs.tsx:265` — "every business — regardless of size"; also contains an em dash pairing.
+9. `src/components/HeartbeatHero.tsx:104` — "capture leads, automate follow-up, and convert more opportunities into revenue" reads as outcome promise; line 154 CTA "Calculate Your Potential ROI" and nav/footer label "ROI Calculator" (`HeartbeatNavbar.tsx:21`, `HeartbeatFooter.tsx:66`) conflict with the /roi page now titled "Scenario Model".
 
-## B) Contradictions found (exact)
+## 3. Flags — legacy/unrouted (dead code, not served, but present in repo)
 
-**Pricing**
-- `AILeadResponseSystem.tsx:386` — `$97/mo` "Monthly System Hosting & Maintenance". Retired price, still public.
-- `AILeadResponseSystem.tsx:376` — `$997` labeled "System Installation / One-time setup"; wording is install-first, not scoped implementation.
-- `index.html` JSON-LD — publishes a completely different product line: BaySignal Core `$597/mo` (setup $749), Plus `$1,297/mo` (setup $1,499), Pro `$2,497/mo` (setup $2,999), Launchpad `$500`, SiteCare `$50/mo`, plus an OfferCatalog. Google can surface these prices. Nothing publishes $997/$1,497.
-- `GrowthPlansSection.tsx:73` — `Setup fee: $1,497` under a Core plan (unrouted, but the number collides with the new monthly price).
+- `src/components/GrowthPlansSection.tsx` — Core/Plus/Pro plans; line 73 "Setup fee: $1,497" under Core (directly contradicts $1,497/month); line 204 "AI Voice Agent for instant lead calls & booking"; line 311 "AI Voice Agent" comparison row; line 429 "Complimentary Consultation".
+- `src/components/BaySignalSection.tsx` — line 25 "24/7 Coverage — AI handles calls & messages around the clock"; line 32 "Answers calls, texts, and website chats instantly"; line 219 "Complimentary. Get your fastest first win."
+- `src/components/RevenueUnlockSection.tsx` lines 23, 32 — "Complimentary Consultation".
+- Other unrouted: `Hero.tsx`, `HowItWorks.tsx`, `ProgramsSection.tsx`.
 
-**Unsupported absolutes on /leads**
-- `:359` "Designed to pay for itself from day one"
-- `:409` "recovering just one additional customer per month covers the entire cost"
-- `:428` "Most businesses recover the cost with just one additional customer"
-- `:440` "This call begins your system installation. Not a sales pitch."
-- `:263` "every new inquiry is contacted instantly"
-- `:63` "Every new inquiry gets an immediate text reply"
-- `:64` "without manual effort"; `:78`, `:81` same framing
-- `:239` "If you're not first, you're invisible"
-- `:490` "This is the first system inside your AI Operating System™" (ladder language to remove)
-- `:108/:109` hero: "Turn More of Your Leads Into Booked Jobs Automatically" / "We install systems…"
-- `:122` "No ads. No extra traffic."
-- `:340` "Everything is installed and configured for your business."
-- `:436/:575` CTA "Start Your AI Lead System Installation" → cal.com/hbosb/lead-system-install (install-first path, contradicts assessment → review → confirmed scope)
-- No human-responsibilities section, no qualification/poor-fit section, no pilot language, no page-level FAQ, no usage-cost or separately-scoped list.
+## 4. Not found (clean)
 
-**Homepage**
-- `HeartbeatHero.tsx:123` "Capture every lead"; `:112` "Every step of your pipeline, handled by intelligent systems"; `:164` "Complimentary assessment · No commitment required".
-- `AILeadResponseSection.tsx:41` "Never Miss Another Lead"; `:7` "respond to every inquiry the moment it comes in"; `:9` "Organize every lead".
-- `AISystemsSection.tsx:9` "AI Voice Assistants — 24/7 AI-powered communication that responds, qualifies, and routes leads instantly" — reads as included and available.
-- `AIOperatingSystem.tsx:9` "ensure no opportunity is missed"; whole section is ladder framing.
-- `ResultsSection.tsx:5-7` — 30% / 22% / 18% presented as outcome metrics with no source; `:55` an unattributed testimonial signed "— Client".
-- `ConnectSection.tsx:31` "measurable ROI" phrased as an outcome.
+- No `$97/month` framing anywhere in `src/`, `index.html`, or `public/`.
+- No "pays for itself", "one customer covers the cost", "installation begins immediately", or "Not a sales pitch" wording remains.
+- No Core/Plus/Pro presets in the ROI calculator.
+- No route or sitemap inconsistencies observed.
 
-**"Complimentary / no commitment" locations (flag only, not changed)**
-`HeartbeatHero.tsx:164`, `FAQSection.tsx:12`, `index.html:179` (FAQ schema), `public/llms.txt:15`, `BaySignalSection.tsx:219`, `GrowthPlansSection.tsx:429`, `RevenueUnlockSection.tsx:23,32`.
+## 5. Items requiring commercial (01) decisions before any edit
 
-**ROI calculator**
-- `ROICalculator.tsx:30-43` — Core/Plus/Pro presets with monthly costs `997 / 2497 / 4997` and baked-in assumptions (recovered 20/30/40%, retention 3/5/8%, spend 4/8/12%, time savings 30/45/60%). None match the current model; 997 is presented as a *monthly* cost.
-- `:83, :262` — `profitAfterAI` labels revenue gain minus cost as "Profit After AI Cost". Revenue presented as profit.
-- `:263` ROI% up to "999%+".
-- `:99/:102` "Estimate Your ROI" / "projected monthly impact"; `ROICalculatorPage.tsx:21` "Calculate your potential ROI and see how AI can accelerate your growth". No disclaimer anywhere.
-- No separate one-time $997 field.
-
-**Other public references**
-- `index.html:8-9`, `254-257` — title/OG/Twitter still "capture leads, follow up instantly".
-- `FAQSection.tsx:13` "results in the first 30 days"; `:17` "dashboards you can access anytime"; both mirrored in `index.html` FAQ schema.
-- `llms.txt:3,5` — "capture leads, automate follow-up"; line 15 "complimentary".
-- `lib/audit.ts:341,408` — assessment result copy promises "captures every inquiry", "every lead gets a branded confirmation… without delay".
-- JSON-LD `serviceType` includes "AI Voice Systems".
-
-## C) Recommended edits vs untouched
-
-**Rewrite /leads** (`AILeadResponseSystem.tsx`) to the 13-point 08 structure: new hero + two CTAs + scope microcopy, problem section, six workflow areas with the "we do not replace the business" line, positioning section, $997 implementation scope list, $1,497 management scope list, human responsibilities, investment + usage/separately-scoped lists, qualification good/poor fit, pilot paragraph (no duration/commitment), assessment-first final CTA, page FAQ. Remove ladder line and all absolutes above.
-
-**Targeted edits elsewhere:** homepage hero pill + subline + `AILeadResponseSection` headline/copy/CTA; qualify or move the AI Voice card; qualify or remove the 30/22/18 block and unattributed quote; reword "measurable ROI" to measurement capability; replace the BaySignal/Launchpad/SiteCare JSON-LD with a single accurate Service or drop offers entirely; sync `index.html` FAQ schema to whatever FAQ ships; update title/OG/description; update `llms.txt` line 3/5 wording; soften `lib/audit.ts:341,408`.
-
-**ROI calculator:** remove Core/Plus/Pro presets, relabel to "Model a potential monthly scenario using your own assumptions", split monthly ($1,497 default) from one-time $997, rename "Profit After AI Cost" to "Revenue gain after system cost (not profit)", add a persistent disclaimer, cap or drop the 999%+ display.
-
-**Leave untouched:** navbar/footer, contact form and SMS consent, privacy/terms, blog, auth/admin, Supabase functions, design tokens and layout, sitemap URLs (no route changes), unrouted legacy components (dead code — flag only, do not resurrect).
-
-## D) Commercial inputs blocking publication (need 01)
-
-1. "Complimentary assessment · No commitment required" — not confirmed by the handoff; currently live in 8 places.
-2. Retiring $97 for existing clients — is any grandfathering language needed publicly?
-3. Pilot terms (duration, cancellation, minimum) — explicitly unresolved; nothing may be published.
-4. Whether the BaySignal/Launchpad/SiteCare price tiers in JSON-LD are still sellable offers or fully retired.
-5. Source for 30% / 22% / 18% and whether the "— Client" testimonial is real and approved.
-6. Whether $1,497 should be the ROI tool's default monthly cost publicly.
-7. Multi-Listing Lead Conversion System — is it a nameable offer yet?
-8. Sales-tax/usage allowance wording for SMS, voice, model usage.
-
-## E) Technical delivery gaps needing 05 validation
-
-The site is marketing-only. The repo contains **no** delivery system: Supabase holds only `submit-contact-form`, `audit-redirect`, `sitemap`, blog, and roles. Therefore:
-
-- **Voice intake** — no telephony, no voice provider, no call handling anywhere in code. The 24/7 voice claim is unproven; must stay separately scoped.
-- **Responder acknowledgment** — no missed-call recovery, no SMS/email responder in this project. Response-speed claims cannot be evidenced here.
-- **Request-specific escalation** — no escalation routing logic exists.
-- **Outcome tracking** — no CRM pipeline, dashboard, or outcome data model. "Dashboards you can access anytime" and "measurable ROI" are unsupported by this codebase.
-- Twilio is referenced only as a logo asset (`src/assets/twilio-logo.png`); GoHighLevel appears only as an embedded script tag.
-
-Delivery presumably lives in an external CRM/automation stack outside this repo. Marketing copy should describe managed capability in qualified terms until 05 confirms per-client architecture, cost, and compliance readiness.
-
-## Next step
-
-Confirm section D items and I will implement section C as scoped edits.
+- BaySignal / Launchpad / SiteCare schema pricing: remove, or confirm as sellable.
+- Complimentary / no-commitment assessment status.
+- Whether `/assessment` result copy (`src/lib/audit.ts`) may be requalified.
+- Whether the "ROI Calculator" nav/footer/CTA label should become "Scenario Model" for consistency.
