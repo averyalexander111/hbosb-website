@@ -142,7 +142,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
       { text: "We have rough steps but the team doesn't always follow them", score: 2 },
       { text: "Some consistency, but it depends on who's handling it", score: 3 },
       { text: "Mostly consistent - team generally follows the same process", score: 4 },
-      { text: "Fully consistent - same process every time, for every lead", score: 5 },
+      { text: "Fully consistent - a more consistent process for appropriate leads across the approved workflow", score: 5 },
     ],
   },
   {
@@ -224,13 +224,13 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
     pillar: AUDIT_PILLARS.STRATEGY,
     type: "text",
     question: "In the next 90 days, what would need to happen for this to feel like a successful investment for your business?",
-    placeholder: "e.g., Every lead responded to within 5 minutes, 20% more booked calls...",
+    placeholder: "Example goal: reduce response delays and improve follow-up consistency across approved lead sources...",
   },
   {
     id: "q14",
     pillar: AUDIT_PILLARS.STRATEGY,
     type: "scored",
-    question: "If every lead was responded to immediately and followed up consistently, what impact would that have on your business?",
+    question: "Improving response speed and follow-up consistency may help reduce preventable lead loss. How much impact would that have on your business?",
     options: [
       { text: "Small improvement", score: 2 },
       { text: "Moderate improvement", score: 3 },
@@ -338,7 +338,7 @@ export const calculateAuditResult = (responses: AuditResponse[]): AuditResult =>
 
   if (missedLeadScore <= 2 || responseSpeedScore <= 3) {
     recommendation =
-      "Your biggest opportunity is an instant-response system that captures every inquiry and starts follow-up automatically.";
+      "Your biggest opportunity is a structured lead-response system designed to help capture, route, and track approved inquiries more consistently.";
   } else if (followUpScore <= 2) {
     recommendation =
       "Your next highest-leverage move is a structured follow-up engine so warm leads do not go cold after first contact.";
@@ -405,7 +405,7 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
       body:
         leadHandlingPercent < 65
           ? `Install an intake system that responds within minutes, routes leads to the right place, and starts follow-up automatically. This directly addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}".`
-          : `Tighten the first-touch experience so every lead gets a branded confirmation, qualification step, and clear path to booking without delay.`,
+          : `Tighten the first-touch experience so eligible leads can receive an automated branded confirmation, qualification step, and clear path to booking based on the approved workflow and connected systems.`,
     },
     {
       title: "Phase 2: Build a follow-up engine",

@@ -788,7 +788,7 @@ const AILeadResponseSystem = () => {
                   In some cases, an engagement may begin as a controlled paid deployment. When that happens, we document the scope, the starting conditions, the responsibilities on each side, the success measures, and a review point.
                 </p>
                 <p>
-                  The standard public investment may still apply. A pilot is not an automatic discount, a revenue guarantee, or a performance promise.
+                  Standard public pricing applies unless HBOSB explicitly approves different terms in writing. A pilot is not an automatic discount, a revenue guarantee, or a performance promise.
                 </p>
               </div>
             </motion.div>
