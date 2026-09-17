@@ -1,9 +1,9 @@
 # Roadmap
 
-## Final homepage copy refinement (in progress, preview only)
+## Final homepage copy refinement (complete, preview only)
 - [x] Update assessment, software, and security FAQ answers and matching structured data
 - [x] Refine AI systems introduction and implementation assessment wording
-- [ ] Validate protected hero, motion, /leads, /roi, links, layouts, types, and production build
+- [x] Validate protected hero, motion, /leads, /roi, links, layouts, types, and production build
 - [x] Do not publish or deploy
 
 ## Surgical restored-homepage reconciliation (complete, preview only)
