@@ -7,22 +7,22 @@ const steps = [
   {
     num: "01",
     title: "AI Revenue System Assessment",
-    desc: "We analyze how your business currently receives and manages inquiries to identify where opportunities are being missed.",
+    desc: "We review how inquiries enter the business, how they are handled, and where gaps may exist.",
   },
   {
     num: "02",
-    title: "AI System Blueprint",
-    desc: "We design a clear implementation plan outlining workflows, integrations, and how your system will improve lead conversion.",
+    title: "Appropriate Recommendation",
+    desc: "We determine the appropriate next step based on the problem, current systems, operational complexity, and demonstrated need.",
   },
   {
     num: "03",
-    title: "Automation Implementation",
-    desc: "We build and deploy your AI system, integrating it with your existing tools and processes.",
+    title: "Approved Implementation",
+    desc: "When there is a fit, we confirm scope and build the approved system around the agreed process and supported tools.",
   },
   {
     num: "04",
-    title: "Optimization & Growth",
-    desc: "We monitor performance, refine workflows, and improve results over time as your system continues to operate.",
+    title: "Management & Improvement",
+    desc: "For managed systems, we monitor the approved environment, review available performance information, and make appropriate in-scope improvements.",
   },
 ];
 

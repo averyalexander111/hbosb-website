@@ -142,7 +142,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
       { text: "We have rough steps but the team doesn't always follow them", score: 2 },
       { text: "Some consistency, but it depends on who's handling it", score: 3 },
       { text: "Mostly consistent - team generally follows the same process", score: 4 },
-      { text: "Fully consistent - a more consistent process for appropriate leads across the approved workflow", score: 5 },
+      { text: "Fully consistent - the team follows a documented process for appropriate leads", score: 5 },
     ],
   },
   {
@@ -401,10 +401,10 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
 
   const actionPlan: AuditInsightSection[] = [
     {
-      title: "Phase 1: Capture and respond immediately",
+      title: "Phase 1: Structure intake and response",
       body:
         leadHandlingPercent < 65
-          ? `Install an intake system that responds within minutes, routes leads to the right place, and starts follow-up automatically. This directly addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}".`
+          ? `Configure an intake system that can acknowledge eligible leads, route them to the right place, and begin approved follow-up based on connected systems. This addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}".`
           : `Tighten the first-touch experience so eligible leads can receive an automated branded confirmation, qualification step, and clear path to booking based on the approved workflow and connected systems.`,
     },
     {
@@ -416,7 +416,7 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
       title: "Phase 3: Create pipeline visibility",
       body:
         successMetric
-          ? `Set the system up to track progress against your stated 90-day win: "${successMetric}". Once the workflow is running, reporting should show exactly how many leads were captured, contacted, nurtured, and converted.`
+          ? `Set the system up to track progress against your stated 90-day goal: "${successMetric}". Available reporting can help show inquiry volume, contact activity, follow-up status, and recorded outcomes supported by the connected systems.`
           : `Add simple reporting so you can see lead volume, response speed, booked calls, and conversion trends in one place.`,
     },
   ];
@@ -447,7 +447,7 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
 
   if (startingPreference.includes("complete system")) {
     recommendedSystems.push({
-      title: "Phased AI operating system roadmap",
+      title: "Phased systems implementation path",
       body:
         `You signaled interest in a broader rollout. The best path is a staged build that starts with lead handling, then expands into reporting, reactivation, and customer communication.`,
     });

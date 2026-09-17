@@ -49,6 +49,9 @@ const AILeadResponseSection = () => {
           <p className="mt-4 text-lg text-muted-foreground">
             The AI Lead Conversion System is a managed system for responding to new inquiries, recovering missed calls, following up consistently, and tracking opportunities. Your team handles the conversations and decisions.
           </p>
+          <p className="mt-4 text-base text-muted-foreground">
+            This structure can be especially useful for restoration and other high-value service businesses where timely human attention matters.
+          </p>
         </motion.div>
 
         <motion.div
