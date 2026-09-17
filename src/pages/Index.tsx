@@ -10,9 +10,7 @@ const ProblemSection = lazyWithReload(() => import("@/components/ProblemSection"
 const AIOperatingSystem = lazyWithReload(() => import("@/components/AIOperatingSystem"));
 const AISystemsSection = lazyWithReload(() => import("@/components/AISystemsSection"));
 
-const ResultsSection = lazyWithReload(() => import("@/components/ResultsSection"));
 const ImplementationSection = lazyWithReload(() => import("@/components/ImplementationSection"));
-const TechnologyCarousel = lazyWithReload(() => import("@/components/TechnologyCarousel"));
 const TestimonialsSection = lazyWithReload(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazyWithReload(() => import("@/components/FAQSection"));
 const AILeadResponseSection = lazyWithReload(() => import("@/components/AILeadResponseSection"));
@@ -28,20 +26,20 @@ const Loader = () => (
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <SEOHead />
+      <SEOHead
+        title="AI Lead Conversion Systems for Service Businesses | HBOSB"
+        description="Managed lead-response and business systems that help service businesses improve inquiry response, follow-up, handoff, and pipeline visibility."
+      />
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
+        <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
         <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
-        
-        <Suspense fallback={<Loader />}><ResultsSection /></Suspense>
         <Suspense fallback={<Loader />}><ImplementationSection /></Suspense>
-        <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
         <Suspense fallback={<Loader />}><FAQSection /></Suspense>
-        <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
         <Suspense fallback={<Loader />}><ConnectSection /></Suspense>
       </main>

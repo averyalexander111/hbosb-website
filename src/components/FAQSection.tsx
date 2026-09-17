@@ -9,13 +9,14 @@ import { motion } from "framer-motion";
 
 const FAQSection = React.memo(() => {
   const faqs = [
-    { question: "What is an AI Revenue System Assessment?", answer: "It's a complimentary analysis of your current business operations where we identify the highest-impact areas for AI systems. From lead capture and follow-up to conversion and reporting." },
+    { question: "What is an AI Revenue System Assessment?", answer: "It is a complimentary review of how inquiries enter your business, how they are handled, and where response, follow-up, handoff, or tracking gaps may exist. No purchase is required." },
     { question: "How long does implementation take?", answer: "Timing is confirmed after we review scope, required access, lead sources, integrations, and dependencies. We do not quote a fixed timeline before that review." },
-    { question: "Do I need special software to use AI automation?", answer: "No. We integrate with tools you likely already use: Google Workspace, CRMs, scheduling platforms, and more. Our job is to connect and automate, not add complexity." },
+    { question: "Is implementation included with the assessment?", answer: "No. The assessment provides initial findings and an appropriate next step. Any implementation is reviewed, scoped, and approved separately." },
     { question: "Can your systems integrate with my current tools?", answer: "Often, yes. We work with commonly used CRM, scheduling, and communication platforms. Which integrations are possible depends on what each platform supports, so we confirm compatibility during scope review before anything is promised." },
-    { question: "What types of businesses do you work with?", answer: "We work with service-based businesses, multi-location teams, healthcare practices, professional services, and high-growth companies ready to scale their operations with AI." },
+    { question: "Is the AI Lead Conversion System managed after launch?", answer: "Yes. The standard offer includes ongoing management of the approved environment after launch. The business remains responsible for sales, service, fulfillment, escalations, and human judgment." },
     { question: "How do you measure results?", answer: "We agree on the KPIs that matter to your business, then review the response, follow-up, booking, and outcome data your CRM and workflow tools make available. What can be measured depends on the supported stack and the data it exposes." },
-    { question: "What data security measures do you use?", answer: "Security is built into every system we deploy. We follow industry standards for encryption, access control, and data handling. Detailed security documentation is available under NDA." },
+    { question: "Is AI voice included in the standard system?", answer: "No. AI voice is separately scoped and considered only after architecture, cost, compliance, and delivery readiness are reviewed for the specific use case." },
+    { question: "Do you guarantee response time, conversion, revenue, or ROI?", answer: "No. Systems are designed to support a more consistent process, but results depend on the approved workflow, connected platforms, lead quality, team response, sales execution, service delivery, and other business conditions." },
   ];
 
   return (
