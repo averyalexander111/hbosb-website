@@ -6,8 +6,19 @@ const DEFAULT_ONE_TIME_IMPLEMENTATION = '997';
 const DISCLAIMER =
   'This calculator is an estimation tool. Results are based entirely on the assumptions you enter and are not a forecast, guarantee, or promise of business performance.';
 
+interface ScenarioResults {
+  modeledRevenue: number;
+  additionalRevenue: number;
+  recoveredRevenue: number;
+  savedHours: number;
+  monthlyManagementCost: number;
+  oneTimeImplementationCost: number;
+  additionalAfterManagementFee: number;
+  note: string;
+}
+
 const ROICalculator = () => {
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState<ScenarioResults | null>(null);
   const [formData, setFormData] = useState({
     monthlyManagementCost: DEFAULT_MONTHLY_MANAGEMENT,
     oneTimeImplementationCost: DEFAULT_ONE_TIME_IMPLEMENTATION,
