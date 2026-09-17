@@ -1,23 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Clock, Repeat, BarChart3 } from "lucide-react";
+import { Inbox, Bell, Repeat, Eye, Users, ChevronRight } from "lucide-react";
 
 const outcomes = [
-  {
-    icon: Clock,
-    title: "Response Consistency",
-    desc: "New inquiries enter a structured pipeline and can be acknowledged and routed through approved workflows instead of depending on who is free.",
-  },
-  {
-    icon: Repeat,
-    title: "Follow-Up Discipline",
-    desc: "Approved SMS and email workflows help appropriate leads keep moving, so follow-up does not depend on who remembers.",
-  },
-  {
-    icon: BarChart3,
-    title: "Pipeline Visibility",
-    desc: "CRM stages and lead status show what is new, active, waiting, moving, or needs human attention.",
-  },
+  { icon: Inbox, title: "Inquiry" },
+  { icon: Bell, title: "Response" },
+  { icon: Repeat, title: "Follow-Up" },
+  { icon: Eye, title: "Visibility" },
+  { icon: Users, title: "Human Action" },
 ];
 
 const ResultsSection = () => {
@@ -34,31 +24,46 @@ const ResultsSection = () => {
           className="text-center mb-14"
         >
           <h2 className="section-title text-navy-foreground">
-            How AI Systems Improve Business Performance
+             Especially Valuable When Every Inquiry Matters
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
-            The improvement is operational. Better handling of the opportunities your business already receives.
+             For restoration and other high-value service businesses, a missed call or delayed response can represent a meaningful opportunity. HBOSB helps create a more structured path from the moment an inquiry arrives to the point where the right person takes action.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-stretch gap-3 max-w-6xl mx-auto">
           {outcomes.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="text-center p-8 rounded-2xl border border-navy-foreground/10 bg-navy-light/40"
-            >
-              <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-5">
-                <item.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-navy-foreground mb-3">{item.title}</h3>
-              <p className="text-navy-foreground/70 leading-relaxed text-sm">{item.desc}</p>
-            </motion.div>
+            <React.Fragment key={item.title}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.35, delay: i * 0.09, ease: "easeOut" }}
+                className="flex-1 text-center p-6 rounded-lg border border-navy-foreground/10 bg-navy-light/40"
+              >
+                <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-navy-foreground">{item.title}</h3>
+              </motion.div>
+              {i < outcomes.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.25, delay: i * 0.09 + 0.08 }}
+                  className="flex items-center justify-center rotate-90 lg:rotate-0"
+                >
+                  <ChevronRight className="h-5 w-5 text-primary/60" />
+                </motion.div>
+              )}
+            </React.Fragment>
           ))}
         </div>
+
+        <p className="mt-10 text-center text-sm text-navy-foreground/70 max-w-4xl mx-auto leading-relaxed">
+          Whether the business handles emergency restoration, scheduled services, estimates, or another high-value customer journey, the principle is the same: Good leads need a reliable process after they arrive.
+        </p>
       </div>
     </section>
   );

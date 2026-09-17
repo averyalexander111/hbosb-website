@@ -9,7 +9,7 @@ import { lazyWithReload } from "@/lib/lazyWithReload";
 const ProblemSection = lazyWithReload(() => import("@/components/ProblemSection"));
 const AIOperatingSystem = lazyWithReload(() => import("@/components/AIOperatingSystem"));
 const AISystemsSection = lazyWithReload(() => import("@/components/AISystemsSection"));
-
+const ResultsSection = lazyWithReload(() => import("@/components/ResultsSection"));
 const ImplementationSection = lazyWithReload(() => import("@/components/ImplementationSection"));
 const TestimonialsSection = lazyWithReload(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazyWithReload(() => import("@/components/FAQSection"));
@@ -35,7 +35,7 @@ const Index = () => {
         <HeartbeatHero />
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
         <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
-        <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
+        <Suspense fallback={<Loader />}><ResultsSection /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
         <Suspense fallback={<Loader />}><ImplementationSection /></Suspense>
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
