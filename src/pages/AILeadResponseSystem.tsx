@@ -2,31 +2,36 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  AlertTriangle,
+  PhoneOff,
   Clock,
-  FolderSearch,
-  RefreshCw,
-  Zap,
-  MessageSquare,
-  Mail,
-  BarChart3,
-  CalendarCheck,
-  Monitor,
-  ArrowDown,
-  ArrowRight,
-  Send,
-  Database,
   Repeat,
+  FolderSearch,
+  EyeOff,
+  Inbox,
+  Bell,
+  PhoneIncoming,
+  MessageSquare,
+  BarChart3,
+  Users,
   CheckCircle2,
+  Minus,
+  ArrowRight,
   Compass,
-  Rocket,
+  ClipboardList,
 } from "lucide-react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
-import SubpageHero from "@/components/SubpageHero";
 import SEOHead from "@/components/SEOHead";
 import ConnectSection from "@/components/ConnectSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const IMPLEMENTATION_REVIEW_URL = "https://cal.com/hbosb/lead-system-install";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -44,45 +49,189 @@ const scaleIn = {
 };
 
 const problems = [
-  { icon: AlertTriangle, text: "Leads come in but no one responds immediately" },
-  { icon: Clock, text: "Follow-up is inconsistent or forgotten entirely" },
-  { icon: FolderSearch, text: "Opportunities are lost to faster competitors" },
-  { icon: RefreshCw, text: "No system in place to track or convert inquiries" },
+  { icon: PhoneOff, text: "A potential customer calls and no one is able to answer." },
+  { icon: Inbox, text: "A form comes in while the team is busy with work already in progress." },
+  { icon: Clock, text: "Follow-up depends on who remembers to do it." },
+  { icon: Repeat, text: "A lead is contacted once and then disappears." },
+  { icon: FolderSearch, text: "There is no clear picture of what happened after an inquiry arrived." },
 ];
 
 const steps = [
-  { icon: Send, label: "A lead submits a form" },
-  { icon: Zap, label: "They receive an instant response" },
-  { icon: Repeat, label: "Automated follow-up begins" },
-  { icon: Database, label: "The lead is tracked inside your CRM" },
-  { icon: CalendarCheck, label: "They are guided toward booking" },
+  {
+    icon: Inbox,
+    title: "New inquiries enter the system",
+    desc: "Approved lead sources connect to a structured CRM pipeline.",
+  },
+  {
+    icon: Bell,
+    title: "Response and routing begin",
+    desc: "The system can acknowledge new inquiries, trigger internal notifications, and route opportunities according to the approved workflow.",
+  },
+  {
+    icon: PhoneIncoming,
+    title: "Missed calls can trigger recovery",
+    desc: "Applies only when missed-call recovery is part of the approved implementation.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Follow-up continues consistently",
+    desc: "Approved SMS and email workflows can help appropriate leads keep moving.",
+  },
+  {
+    icon: BarChart3,
+    title: "Opportunities stay visible",
+    desc: "CRM stages and lead-status tracking show what is new, active, waiting, moving, or needs human attention.",
+  },
+  {
+    icon: Users,
+    title: "People handle the parts that require people",
+    desc: "Business-specific conversations, sales decisions, escalations, customer service, fulfillment, and judgment stay with your team.",
+  },
 ];
 
-const features = [
-  { icon: Zap, title: "Lead Capture Form or Landing Page", desc: "Designed to convert visitors into qualified leads for your business." },
-  { icon: MessageSquare, title: "Instant SMS Response System", desc: "Every new inquiry gets an immediate text reply, automatically." },
-  { icon: Mail, title: "Automated Follow-Up Sequences", desc: "SMS and email follow-ups that nurture leads without manual effort." },
-  { icon: BarChart3, title: "CRM Pipeline Setup", desc: "Organized stages so you always know where every lead stands." },
-  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Leads schedule directly into your calendar. No back and forth." },
-  { icon: Monitor, title: "Automation Monitoring", desc: "Ongoing oversight to ensure every workflow runs reliably." },
+const implementationScope = [
+  "One business location",
+  "One primary CRM pipeline",
+  "Up to three approved inbound lead sources",
+  "One booking or scheduling destination",
+  "Up to two external integrations beyond HBOSB's standard CRM and automation stack",
+  "Up to three core workflow families: new-inquiry response, missed-call recovery, and follow-up / booking movement",
+  "One lead-capture form or simple landing-page intake when required",
+  "Approved SMS and email follow-up workflows",
+  "Internal notifications",
+  "One escalation path",
+  "CRM stages and basic lead-status visibility",
+  "Workflow configuration and testing",
+  "System launch",
+  "One operational handoff and training session",
 ];
 
-const monthlyIncludes = [
-  "System monitoring",
-  "Automation maintenance",
-  "Workflow reliability",
-  "Updates and improvements",
+const managementScope = [
+  "Monitoring included workflows and integrations",
+  "Troubleshooting and repairing HBOSB-managed configuration",
+  "Maintaining existing automations as supported platforms change",
+  "Reviewing available lead-response, follow-up, booking, and outcome data",
+  "Identifying practical opportunities for improvement",
+  "One formal system and performance review each month",
+  "Up to two minor modifications per month within the existing system",
 ];
 
-const conversionBullets = [
-  "Instantly responds to every new inquiry",
-  "Follows up automatically (SMS + email)",
-  "Organizes leads into a structured pipeline",
-  "Moves prospects toward booking without manual effort",
+const clientResponsibilities = [
+  "Providing the access required to build and manage the system",
+  "Providing accurate hours, services, and booking rules",
+  "Approving messaging and escalation rules",
+  "Maintaining a responsible internal point of contact",
+  "Responding to opportunities that require human attention",
+  "Making sales and customer decisions",
+  "Fulfilling the service that is sold",
+  "Maintaining the capacity to serve the work that comes in",
+  "Informing HBOSB of material changes to process, personnel, or lead sources",
 ];
 
+const compactScope = [
+  "One location",
+  "One primary CRM pipeline",
+  "Up to three approved inbound lead sources",
+  "One booking destination",
+  "Up to two external integrations",
+  "Up to three core workflow families",
+];
 
+const usageCosts = [
+  "SMS and MMS",
+  "Phone numbers",
+  "Voice usage",
+  "AI and model usage",
+  "Transcription",
+  "Premium software features",
+  "External subscriptions",
+  "Data and enrichment services",
+  "Other usage-based services",
+];
 
+const separatelyScoped = [
+  "Additional locations",
+  "Material multi-listing configurations",
+  "More than three inbound lead sources",
+  "Additional integrations",
+  "CRM migrations",
+  "Extensive custom CRM development",
+  "Custom API development",
+  "Advanced dashboards or business intelligence",
+  "Large outbound or reactivation campaigns",
+  "Major website development",
+  "New workflow families",
+  "Live AI voice systems",
+  "After-hours human dispatch",
+  "Material redesign of a client business process",
+];
+
+const goodFit = [
+  "The business receives consistent inbound calls or form inquiries",
+  "Response speed meaningfully affects whether the work is won",
+  "Calls are sometimes missed or follow-up is inconsistent",
+  "Leads arrive through more than one entry point",
+  "A customer is worth enough that better handling matters",
+  "The owner wants clearer visibility in a CRM",
+  "The team has the capacity to serve additional work",
+  "The team is willing to follow an agreed process",
+];
+
+const poorFit = [
+  "There is little inbound demand today",
+  "Recovering additional leads would have limited economic value",
+  "There is no capacity to handle more work",
+  "The expectation is that automation will replace the sales or service team",
+  "The team is unwilling to respond to opportunities that require human attention",
+  "The business needs staffed emergency dispatch or continuous human answering as a standard part of the service",
+];
+
+const faqs = [
+  {
+    q: "What does the system actually do?",
+    a: "It gives your business a managed structure for handling inbound inquiries. Approved lead sources feed a CRM pipeline, the system can acknowledge new inquiries and notify the right people, approved SMS and email workflows support consistent follow-up, missed-call recovery can run where it is part of the implementation, and lead status stays visible so opportunities are not lost between steps.",
+  },
+  {
+    q: "Does this replace my staff?",
+    a: "No. The system supports how inquiries are handled. Sales conversations, customer decisions, escalations, customer service, and fulfillment remain with your team.",
+  },
+  {
+    q: "Does HBOSB guarantee every lead is contacted instantly?",
+    a: "No. We do not guarantee a specific response time or a specific conversion outcome. The system is designed to make response and follow-up more consistent than a manual process, within the workflows that are approved and the platforms that support them.",
+  },
+  {
+    q: "Does the standard system include 24/7 AI voice answering?",
+    a: "No. Live AI voice is not part of the standard AI Lead Conversion System at this time. It may only be reviewed and scoped separately once HBOSB has confirmed the architecture, cost, compliance requirements, and delivery readiness for the specific use case.",
+  },
+  {
+    q: "Does HBOSB provide human emergency dispatch?",
+    a: "No. The system does not provide staffed emergency dispatch or continuous human answering.",
+  },
+  {
+    q: "What does the $1,497 monthly management include?",
+    a: "Monitoring of the included workflows and integrations, troubleshooting and repair of HBOSB-managed configuration, maintaining existing automations as supported platforms change, reviewing available response, follow-up, booking and outcome data, identifying practical improvements, one formal system and performance review each month, and up to two minor modifications per month within the existing system.",
+  },
+  {
+    q: "What counts as a minor modification?",
+    a: "A refinement inside the system that already exists: message wording, timing, routing, fields, or a small workflow adjustment. Unused modifications do not roll over. A new workflow, new location, new integration, new business process, or a materially expanded or redesigned system is scoped separately.",
+  },
+  {
+    q: "Are software and usage charges included?",
+    a: "Not automatically. Third-party software and usage-based charges are separate unless a written proposal includes a stated allowance. Examples include SMS and MMS, phone numbers, voice usage, AI and model usage, transcription, premium software features, external subscriptions, and data or enrichment services.",
+  },
+  {
+    q: "We have several locations or Google Business Profile listings. Does that change anything?",
+    a: "Yes. Multiple locations or materially multi-listing setups require additional review and may call for a separate Multi-Listing Lead Conversion System review rather than the standard implementation.",
+  },
+  {
+    q: "How long does implementation take?",
+    a: "Timing is confirmed after we review scope, required access, lead sources, integrations, and dependencies. We do not quote a fixed timeline before that review.",
+  },
+  {
+    q: "Can we begin with a pilot?",
+    a: "Some engagements may be structured as a controlled paid deployment. A pilot documents scope, starting conditions, responsibilities, success measures, and a review point. It is not an automatic price change or an outcome promise.",
+  },
+];
 
 /* Reusable navy section background with blur orbs */
 const NavySectionBg = () => (
@@ -97,492 +246,641 @@ const AILeadResponseSystem = () => {
   return (
     <div className="min-h-screen">
       <main className="bg-background">
-      <SEOHead
-        title="AI Lead Conversion System | Heartbeat of South Bay"
-        description="Discover how our AI Lead Conversion System captures inquiries, responds instantly, and converts leads into booked appointments so no opportunity is missed."
-      />
-      <HeartbeatNavbar />
+        <SEOHead
+          title="AI Lead Conversion System | Heartbeat of South Bay"
+          description="A managed lead-response system for service businesses: structured intake, approved follow-up workflows, missed-call recovery, and CRM visibility."
+        />
+        <HeartbeatNavbar />
 
-      {/* Hero */}
-      <SubpageHero
-        title="Turn More of Your Leads Into Booked Jobs Automatically"
-        subtitle="We install systems that respond instantly, follow up automatically, and help you convert more of your existing leads into paying customers."
-      />
+        {/* Hero — navy */}
+        <section className="relative overflow-hidden bg-navy pt-32 pb-20 md:pt-40 md:pb-24">
+          <NavySectionBg />
+          <div
+            className="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style={{
+              backgroundImage: `linear-gradient(hsl(var(--navy-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--navy-foreground)) 1px, transparent 1px)`,
+              backgroundSize: "60px 60px",
+            }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
 
-      {/* Hero description + CTA */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-lg text-muted-foreground leading-relaxed"
-          >
-            No ads. No extra traffic. Just better conversion from the leads you already have.
-          </motion.p>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: 0.2 } } }}
-            className="mt-10"
-          >
-            <Link
-              to="/assessment"
-              className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="max-w-4xl mx-auto text-center"
             >
-              Book an AI Revenue System Assessment
-              <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
-            </Link>
-            <p className="mt-4">
-              <a
-                href="https://cal.com/hbosb/lead-system-install"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+              <motion.div variants={fadeUp}>
+                <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                  AI Lead Conversion System
+                </span>
+              </motion.div>
+
+              <motion.h1
+                variants={fadeUp}
+                className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
               >
-                Already getting leads? Skip the assessment and install your system →
-              </a>
-            </p>
-          </motion.div>
-        </div>
-      </section>
+                Your Leads Shouldn't Depend on Someone Remembering to Follow Up
+              </motion.h1>
 
-      {/* The Solution — Process Diagram */}
-      <section
-        className="pt-28 pb-20 bg-background relative overflow-hidden"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-foreground">How the AI Lead Conversion System Works</h2>
-          </motion.div>
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 text-lg text-navy-foreground/70 leading-relaxed max-w-3xl mx-auto"
+              >
+                When inquiries come in, slow response, missed calls, inconsistent follow-up, and poor pipeline visibility can turn real opportunities into lost business. The AI Lead Conversion System gives service businesses a managed system for responding to new inquiries, recovering missed calls, following up consistently, tracking opportunities, and guiding prospects toward the appropriate next step.
+              </motion.p>
 
-          <div className="relative">
-            {/* Animated vertical connector line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-px flex items-stretch">
+              <motion.p
+                variants={fadeUp}
+                className="mt-4 text-base text-navy-foreground/50 leading-relaxed max-w-3xl mx-auto"
+              >
+                No new ad campaign required. Start by improving how the opportunities you already generate are handled.
+              </motion.p>
+
               <motion.div
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="w-full origin-top bg-gradient-to-b from-primary/40 via-primary/20 to-primary/5"
-              />
-            </div>
-
-            <div className="space-y-12">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: i * 0.15 }}
-                  className={`relative flex items-center gap-6 md:gap-10 ${
-                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                variants={fadeUp}
+                className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link
+                  to="/assessment"
+                  className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
                 >
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block flex-1" />
+                  Start Your AI Revenue System Assessment
+                  <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href={IMPLEMENTATION_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-center rounded-lg border border-navy-foreground/20 px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-navy-foreground hover:bg-navy-foreground/5 transition-colors duration-200"
+                >
+                  Request an Implementation Review
+                </a>
+              </motion.div>
 
-                  {/* Glowing node on the timeline */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
-                    <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
-                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-primary/40 animate-ping" />
+              <motion.p variants={fadeUp} className="mt-6 text-sm text-navy-foreground/40">
+                We review your current lead flow and confirm scope before implementation begins.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Problem */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center max-w-3xl mx-auto mb-12"
+            >
+              <h2 className="section-title text-foreground">
+                Leads Can Slip Through the Cracks Even When Demand Is Already There
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+            >
+              {problems.map((item) => (
+                <motion.div
+                  key={item.text}
+                  variants={scaleIn}
+                  className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-[box-shadow] duration-300"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
-
-                  {/* Card */}
-                  <div className="flex-1 ml-14 md:ml-0">
-                    <div className="relative group p-6 rounded-2xl bg-card border border-border hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-0.5 transition-[box-shadow,transform] duration-300">
-                      {/* Large step number */}
-                      <span className="absolute -top-3 -right-2 text-7xl font-extrabold text-primary/[0.05] select-none leading-none pointer-events-none">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-
-                      <div className="flex items-center gap-4 relative z-10">
-                        <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                          <step.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <span className="font-semibold text-foreground text-lg">{step.label}</span>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
                 </motion.div>
               ))}
+            </motion.div>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center text-muted-foreground max-w-3xl mx-auto mt-10 leading-relaxed"
+            >
+              Sometimes the missing piece is a reliable system for response, follow-up, tracking, and handoff. That is what the AI Lead Conversion System is designed to improve.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* How it works — navy timeline */}
+        <section className="py-20 relative overflow-hidden bg-navy">
+          <NavySectionBg />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center mb-16"
+            >
+              <h2 className="section-title text-navy-foreground">
+                A Clearer Path From Inquiry to Next Step
+              </h2>
+            </motion.div>
+
+            <div className="relative">
+              {/* Vertical connector line */}
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-px flex items-stretch">
+                <motion.div
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className="w-full origin-top bg-gradient-to-b from-primary/40 via-primary/20 to-primary/5"
+                />
+              </div>
+
+              <div className="space-y-10">
+                {steps.map((step, i) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className={`relative flex items-center gap-6 md:gap-10 ${
+                      i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    <div className="hidden md:block flex-1" />
+
+                    <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
+                      <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
+                    </div>
+
+                    <div className="flex-1 ml-14 md:ml-0 min-w-0">
+                      <div className="relative group p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm hover:shadow-elegant-hover hover:-translate-y-0.5 transition-[box-shadow,transform] duration-300">
+                        <span className="absolute -top-3 -right-2 text-7xl font-extrabold text-primary/[0.06] select-none leading-none pointer-events-none">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-4">
+                            <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors duration-300">
+                              <step.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <h3 className="font-semibold text-navy-foreground text-base sm:text-lg">
+                              {step.title}
+                            </h3>
+                          </div>
+                          <p className="mt-3 text-sm text-navy-foreground/60 leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center text-navy-foreground/70 mt-14 leading-relaxed"
+            >
+              HBOSB manages the system around that process. We do not replace the business itself.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* Positioning */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center"
+            >
+              <h2 className="section-title text-foreground">
+                This Is Not an Ad Campaign. It Is Managed Lead-Response Infrastructure.
+              </h2>
+              <div className="mt-6 space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  The AI Lead Conversion System is designed for businesses that are already generating inquiries and need a more reliable way to respond to them, follow up with them, and keep track of them.
+                </p>
+                <p>
+                  HBOSB builds the initial system, then continues managing the approved workflows, integrations, and ongoing optimization.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Initial System Implementation + Ongoing System Management — navy */}
+        <section className="py-20 relative overflow-hidden bg-navy">
+          <NavySectionBg />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid lg:grid-cols-2 gap-6 lg:gap-8"
+            >
+              {/* Implementation */}
+              <motion.div
+                variants={scaleIn}
+                className="p-8 sm:p-10 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
+              >
+                <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground">
+                  Initial System Implementation
+                </h2>
+                <p className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">
+                  $997 <span className="text-base font-medium text-navy-foreground/60">one-time</span>
+                </p>
+                <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-navy-foreground/50">
+                  Standard scope
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {implementationScope.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-navy-foreground/70 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-sm text-navy-foreground/50 leading-relaxed">
+                  The exact implementation is confirmed before the build begins. Additional locations, new workflow families, substantial custom development, and additional integrations are scoped separately.
+                </p>
+              </motion.div>
+
+              {/* Management */}
+              <motion.div
+                variants={scaleIn}
+                className="p-8 sm:p-10 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm"
+              >
+                <h2 className="text-2xl sm:text-3xl font-bold text-navy-foreground">
+                  Ongoing System Management
+                </h2>
+                <p className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">
+                  $1,497
+                  <span className="text-base font-medium text-navy-foreground/60">/month</span>
+                </p>
+                <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-navy-foreground/50">
+                  Includes
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {managementScope.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-navy-foreground/70 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 space-y-3 text-sm text-navy-foreground/50 leading-relaxed">
+                  <p>
+                    Minor modifications are refinements inside the existing system: message wording, timing, routing, fields, or small workflow adjustments. Unused modifications do not roll over.
+                  </p>
+                  <p>
+                    A new workflow, new location, substantial redesign, new integration, new business process, or a materially expanded system is scoped separately.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Human responsibilities */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center mb-10"
+            >
+              <h2 className="section-title text-foreground">
+                The System Supports Your Team. It Does Not Replace Your Team.
+              </h2>
+              <p className="section-subtitle mx-auto mt-4">
+                HBOSB manages the approved system configuration and workflows. The business remains responsible for the parts only the business can do.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
+            >
+              {clientResponsibilities.map((item) => (
+                <motion.div
+                  key={item}
+                  variants={fadeUp}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border"
+                >
+                  <ClipboardList className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                  <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center text-muted-foreground max-w-2xl mx-auto mt-10 leading-relaxed"
+            >
+              The system can support how opportunities are handled. It cannot replace strong sales execution, customer service, fulfillment, or business operations.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* Investment — navy */}
+        <section className="py-20 relative overflow-hidden bg-navy">
+          <NavySectionBg />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center mb-12"
+            >
+              <h2 className="section-title text-navy-foreground">Investment</h2>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
+            >
+              <motion.div
+                variants={scaleIn}
+                className="p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 text-center backdrop-blur-sm"
+              >
+                <p className="text-sm font-medium text-navy-foreground/50 uppercase tracking-wider mb-3">
+                  Initial System Implementation
+                </p>
+                <p className="text-4xl font-extrabold text-navy-foreground">$997</p>
+                <p className="text-sm text-navy-foreground/50 mt-2">One-time</p>
+              </motion.div>
+              <motion.div
+                variants={scaleIn}
+                className="p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 text-center backdrop-blur-sm"
+              >
+                <p className="text-sm font-medium text-navy-foreground/50 uppercase tracking-wider mb-3">
+                  Ongoing System Management
+                </p>
+                <p className="text-4xl font-extrabold text-navy-foreground">
+                  $1,497<span className="text-lg font-normal text-navy-foreground/50">/mo</span>
+                </p>
+                <p className="text-sm text-navy-foreground/50 mt-2">Monthly</p>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="mt-12 grid md:grid-cols-3 gap-6"
+            >
+              <div className="p-6 rounded-2xl bg-navy-light/40 border border-navy-foreground/10">
+                <h3 className="font-semibold text-navy-foreground mb-3">Standard scope</h3>
+                <ul className="space-y-2">
+                  {compactScope.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-navy-foreground/60">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-navy-light/40 border border-navy-foreground/10">
+                <h3 className="font-semibold text-navy-foreground mb-3">
+                  Third-party software and usage
+                </h3>
+                <p className="text-sm text-navy-foreground/60 mb-3">
+                  Separate unless a written proposal includes a stated allowance.
+                </p>
+                <ul className="space-y-1.5">
+                  {usageCosts.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-navy-foreground/60">
+                      <Minus className="w-3 h-3 text-primary flex-shrink-0 mt-1.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-navy-light/40 border border-navy-foreground/10">
+                <h3 className="font-semibold text-navy-foreground mb-3">Scoped separately</h3>
+                <ul className="space-y-1.5">
+                  {separatelyScoped.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-navy-foreground/60">
+                      <Minus className="w-3 h-3 text-primary flex-shrink-0 mt-1.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center text-sm text-navy-foreground/50 max-w-3xl mx-auto mt-10 leading-relaxed"
+            >
+              Businesses with materially multi-location or multi-listing operations may require a separate Multi-Listing Lead Conversion System review.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* Qualification */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center max-w-3xl mx-auto mb-12"
+            >
+              <h2 className="section-title text-foreground">
+                Is the AI Lead Conversion System a Good Fit?
+              </h2>
+              <p className="section-subtitle mx-auto mt-4">
+                It is designed for businesses that already have real inbound opportunities and need those opportunities handled more reliably.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={scaleIn}
+                className="p-8 rounded-2xl bg-card border border-border"
+              >
+                <h3 className="text-lg font-semibold text-foreground mb-5">Often a good fit</h3>
+                <ul className="space-y-3">
+                  {goodFit.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={scaleIn}
+                className="p-8 rounded-2xl bg-card border border-border"
+              >
+                <h3 className="text-lg font-semibold text-foreground mb-5">Often not a good fit</h3>
+                <ul className="space-y-3">
+                  {poorFit.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <EyeOff className="w-4 h-4 text-muted-foreground/60 flex-shrink-0 mt-1" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Most Businesses Are Losing Leads — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center"
-          >
-            <h2 className="section-title text-navy-foreground">Most Businesses Are Losing Leads Without Realizing It</h2>
-            <div className="mt-6 space-y-4 text-lg text-navy-foreground/70 leading-relaxed">
-              <p>Most businesses don't have a lead problem.</p>
-              <p>They have a response problem.</p>
-              <p>The first business to respond usually wins the customer.</p>
-              <p className="font-semibold text-navy-foreground/90">If you're not first, you're invisible.</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Conversion, Not Just Response */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-10"
-          >
-            <h2 className="section-title text-foreground">
-              AI Lead{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-                Conversion
-              </span>
-              {" "}System
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              This system ensures every new inquiry is contacted instantly, followed up automatically, and guided toward a booked opportunity.
-            </p>
-            <p className="mt-3 text-lg font-semibold text-foreground">
-              This is not marketing. This is infrastructure.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="space-y-3 max-w-xl mx-auto mb-10"
-          >
-            {conversionBullets.map((item) => (
-              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">{item}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center text-muted-foreground leading-relaxed"
-          >
-            Most businesses focus on getting more leads. The real leverage comes from converting the ones you already have.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* What the System Includes — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-14"
-          >
-            <h2 className="section-title text-navy-foreground">What You Get</h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
-          >
-            {features.map((f) => (
-              <motion.div
-                key={f.title}
-                variants={scaleIn}
-                className="group p-8 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/25 transition-colors">
-                  <f.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-navy-foreground mb-2">{f.title}</h3>
-                <p className="text-sm text-navy-foreground/60 leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center text-navy-foreground/60 mt-10 text-sm"
-          >
-            Everything is installed and configured for your business.
-          </motion.p>
-        </div>
-      </section>
-
-
-
-      {/* Investment */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-14"
-          >
-            <h2 className="section-title text-foreground">Investment</h2>
-            <p className="section-subtitle mx-auto max-w-3xl">
-              A one-time setup investment and a simple monthly hosting plan. Designed to pay for itself from day one.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
-          >
-            {/* Setup */}
+        {/* Pilot — navy */}
+        <section className="py-20 relative overflow-hidden bg-navy">
+          <NavySectionBg />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
             <motion.div
-              variants={scaleIn}
-              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center"
             >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">System Installation</p>
-              <p className="text-4xl font-extrabold text-foreground">$997</p>
-              <p className="text-sm text-muted-foreground mt-2">One-time setup</p>
+              <h2 className="section-title text-navy-foreground">
+                Some Engagements May Begin as a Paid Pilot
+              </h2>
+              <div className="mt-6 space-y-4 text-lg text-navy-foreground/70 leading-relaxed">
+                <p>
+                  In some cases, an engagement may begin as a controlled paid deployment. When that happens, we document the scope, the starting conditions, the responsibilities on each side, the success measures, and a review point.
+                </p>
+                <p>
+                  The standard public investment may still apply. A pilot is not an automatic discount, a revenue guarantee, or a performance promise.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Final conversion */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+            >
+              <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
+              <h2 className="section-title text-foreground">
+                Start With the Lead Flow You Already Have
+              </h2>
+              <div className="mt-6 space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  The first step is an AI Revenue System Assessment. From there, an implementation review confirms your lead sources, workflow requirements, CRM and integrations, booking process, team responsibilities, what is standard versus separately scoped, third-party usage, and implementation requirements.
+                </p>
+                <p className="font-semibold text-foreground">
+                  Nothing is built until the scope is understood.
+                </p>
+              </div>
+
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/assessment"
+                  className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+                >
+                  Start Your AI Revenue System Assessment
+                  <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href={IMPLEMENTATION_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-center rounded-lg border border-border px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-foreground hover:bg-card transition-colors duration-200"
+                >
+                  <Compass className="w-5 h-5 flex-shrink-0 text-primary" />
+                  Request an Implementation Review
+                </a>
+              </div>
+
+              <p className="mt-6 text-sm text-muted-foreground/70">
+                Assessment first. Scope confirmed before implementation.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* FAQ — navy */}
+        <section className="py-24 bg-navy">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-center mb-14"
+            >
+              <h2 className="section-title text-navy-foreground">
+                AI Lead Conversion System FAQ
+              </h2>
             </motion.div>
 
-            {/* Monthly */}
-            <motion.div
-              variants={scaleIn}
-              className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
-            >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Monthly System Hosting & Maintenance</p>
-              <p className="text-4xl font-extrabold text-foreground">$97<span className="text-lg font-normal text-muted-foreground">/mo</span></p>
-              <ul className="mt-5 space-y-2 text-left">
-                {monthlyIncludes.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                    {item}
-                  </li>
+            <div className="max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full space-y-3">
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={faq.q}
+                    value={`item-${index}`}
+                    className="border border-navy-foreground/10 rounded-lg px-5 data-[state=open]:border-l-[3px] data-[state=open]:border-l-primary data-[state=open]:bg-primary/[0.04] transition-all duration-200"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-navy-foreground hover:text-primary transition-colors py-5">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-navy-foreground/60 leading-relaxed pb-5">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </ul>
-            </motion.div>
-          </motion.div>
+              </Accordion>
+            </div>
+          </div>
+        </section>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="mt-10 max-w-2xl mx-auto text-center"
-          >
-            <p className="text-muted-foreground leading-relaxed">
-              Includes hosting, monitoring, and ongoing system maintenance. Messaging costs (Twilio) are usage-based and billed separately.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mt-3">
-              For many businesses, recovering just one additional customer per month covers the entire cost of the system.
-            </p>
-          </motion.div>
-
-          {/* Installation CTA */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="mt-16 max-w-2xl mx-auto text-center"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Ready to install your AI Lead Conversion System?
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-2">
-              Start your system setup and get everything configured for your business.
-            </p>
-            <p className="text-sm text-muted-foreground/80 mb-8">
-              Most businesses recover the cost with just one additional customer.
-            </p>
-            <a
-              href="https://cal.com/hbosb/lead-system-install"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4.5 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
-            >
-              Start Your AI Lead System Installation
-              <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary-foreground)/0.6)]" />
-            </a>
-            <p className="mt-4 text-sm text-muted-foreground/60">
-              This call begins your system installation. Not a sales pitch.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Who This System Is For — navy */}
-      <section className="py-20 relative overflow-hidden bg-navy">
-        <NavySectionBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center mb-10"
-          >
-            <h2 className="section-title text-navy-foreground">Who This System Is For</h2>
-            <p className="section-subtitle mx-auto text-navy-foreground/60">
-              Built for businesses that already receive inquiries but lack a system to convert them.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="space-y-3 max-w-xl mx-auto mb-10"
-          >
-            {[
-              "Service businesses that receive inquiries daily",
-              "Local businesses that rely on booked appointments",
-              "Companies losing deals to slower follow-up",
-              "Teams ready to systematize their lead pipeline",
-            ].map((item) => (
-              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-sm text-navy-foreground/80">{item}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-center text-navy-foreground/60 leading-relaxed"
-          >
-            This is the first system inside your AI Operating System™. Once installed, this system becomes the foundation for more advanced automation and revenue systems.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Dual-Option Final CTA */}
-      <section className="py-28 relative overflow-hidden bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="max-w-3xl mx-auto text-center mb-12"
-          >
-            <div className="w-12 h-1 rounded-full bg-primary mx-auto mb-8" />
-            <h2 className="section-title text-foreground">
-              Start with a plan or install your system
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto"
-          >
-            {/* Option 1 — Assessment */}
-            <motion.div
-              variants={scaleIn}
-              className="group relative flex flex-col p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
-            >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/10 group-hover:ring-primary/30 transition-[box-shadow] duration-300 mb-5">
-                <Compass className="w-6 h-6" />
-              </div>
-
-              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-2">
-                Option 1 · Plan
-              </p>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Get your assessment
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                Not sure where to start? We'll map it out.
-              </p>
-
-              <Link
-                to="/assessment"
-                className="group/btn mt-auto inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
-              >
-                Book an AI Revenue System Assessment
-                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
-              </Link>
-            </motion.div>
-
-            {/* Option 2 — Installation */}
-            <motion.div
-              variants={scaleIn}
-              className="group relative flex flex-col p-8 sm:p-10 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/60 text-left hover:border-primary/40 hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform,border-color] duration-300 overflow-hidden"
-            >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary ring-1 ring-primary/10 group-hover:ring-primary/30 transition-[box-shadow] duration-300 mb-5">
-                <Rocket className="w-6 h-6" />
-              </div>
-
-              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-2">
-                Option 2 · Install
-              </p>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Install your system
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                Ready to move? We'll build it with you.
-              </p>
-
-              <a
-                href="https://cal.com/hbosb/lead-system-install"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/btn mt-auto inline-flex w-full items-center gap-2 justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
-              >
-                Start Your AI Lead System Installation
-                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-
-      <ConnectSection />
-      <HeartbeatFooter />
+        <ConnectSection />
+        <HeartbeatFooter />
       </main>
       <ScrollToTopButton />
     </div>
