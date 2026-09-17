@@ -1,32 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Radar, Mail, Handshake, Heart, BarChart3, ChevronRight } from "lucide-react";
+import { Inbox, Bell, MessageSquare, Eye, BarChart3, ChevronRight } from "lucide-react";
 
 const stages = [
   {
-    icon: Radar,
+    icon: Inbox,
     title: "Capture",
-    desc: "Structured forms, chat, and intake systems help fewer opportunities slip through.",
+    desc: "Organize appropriate inquiries as they enter.",
   },
   {
-    icon: Mail,
+    icon: Bell,
+    title: "Respond",
+    desc: "Acknowledge and route opportunities through approved workflows.",
+  },
+  {
+    icon: MessageSquare,
     title: "Follow Up",
-    desc: "Automated SMS and email sequences keep prospects engaged.",
+    desc: "Support consistent SMS, email, and missed-call recovery when included.",
   },
   {
-    icon: Handshake,
-    title: "Convert",
-    desc: "CRM pipelines and scheduling automation turn prospects into customers.",
-  },
-  {
-    icon: Heart,
-    title: "Retain",
-    desc: "Review generation and retention campaigns keep clients coming back.",
+    icon: Eye,
+    title: "Track",
+    desc: "Keep lead status and next actions visible.",
   },
   {
     icon: BarChart3,
-    title: "Optimize",
-    desc: "Dashboards and reporting provide insights for continuous improvement.",
+    title: "Improve",
+    desc: "Review available system information and refine the approved process over time.",
   },
 ];
 
@@ -45,13 +45,13 @@ const AIOperatingSystem = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 lg:whitespace-nowrap">
-            Our systems are designed to improve how your business generates and converts revenue.
+            An explanatory framework for clearer operations
           </p>
           <h2 className="section-title text-navy-foreground lg:whitespace-nowrap">
-            The Heartbeat AI Operating System
+            Where Better Systems Create Leverage
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto lg:max-w-none lg:whitespace-nowrap">
-            A complete system infrastructure that strengthens every stage of the customer journey.
+            Process, technology, and human responsibility work together across the approved lead flow.
           </p>
         </motion.div>
 
@@ -64,7 +64,7 @@ const AIOperatingSystem = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group flex-1 rounded-2xl border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 lg:hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-[border-color,box-shadow,transform] duration-300"
+                className="group flex-1 rounded-lg border border-navy-foreground/10 bg-navy-light/50 backdrop-blur-sm p-6 text-center hover:border-primary/40 lg:hover:-translate-y-0.5 hover:shadow-[0_0_25px_hsl(var(--primary)/0.12)] transition-[border-color,box-shadow,transform] duration-300"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stage.icon className="w-6 h-6 text-primary" />
@@ -77,8 +77,10 @@ const AIOperatingSystem = () => {
               {i < stages.length - 1 && (
                 <div className="hidden lg:flex items-center justify-center">
                   <motion.div
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    initial={{ opacity: 0, x: -4 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
                   >
                     <ChevronRight className="w-5 h-5 text-primary/40" />
                   </motion.div>

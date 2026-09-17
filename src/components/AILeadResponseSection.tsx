@@ -1,14 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Zap, MessageSquare, BarChart3, CalendarCheck, ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const features = [
-  { icon: Zap, title: "Structured Lead Intake", desc: "Approved lead sources feed one organized pipeline instead of scattered inboxes." },
-  { icon: MessageSquare, title: "Approved SMS & Email Follow-Up", desc: "Follow-up workflows you approve help appropriate leads keep moving." },
-  { icon: BarChart3, title: "CRM Visibility", desc: "Stages and lead status show what is new, active, waiting, or needs human attention." },
-  { icon: CalendarCheck, title: "Booking Integration", desc: "A booking destination can be connected where it fits your process." },
-];
+const scope = ["One business location", "Exact scope confirmed before build"];
 
 const AILeadResponseSection = () => {
   return (
@@ -35,19 +30,13 @@ const AILeadResponseSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary mb-6 border border-primary/20">
-            AI Lead Conversion
+            The Primary Managed System
           </div>
           <h2 className="section-title text-foreground font-display">
-            Build a More Reliable{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-              Lead-Response System
-            </span>
+            AI Lead Conversion System
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Slow response, missed calls, and inconsistent follow-up can turn real opportunities into lost business.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground">
-            The AI Lead Conversion System is a managed system for responding to new inquiries, recovering missed calls, following up consistently, and tracking opportunities. Your team handles the conversations and decisions.
+            For service businesses already generating inquiries but losing opportunities through missed calls, slow response, inconsistent follow-up, or poor pipeline visibility. HBOSB builds the focused system, connects the approved lead flow, and continues managing the approved environment after launch.
           </p>
         </motion.div>
 
@@ -59,29 +48,27 @@ const AILeadResponseSection = () => {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
+          className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
         >
-          {features.map((f, index) => (
+          {[{ label: "Initial implementation", price: "$997", suffix: "one-time" }, { label: "Ongoing system management", price: "$1,497", suffix: "/month" }].map((item) => (
             <motion.div
-              key={f.title}
+              key={item.label}
               variants={{
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
               }}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300"
+              className="p-8 rounded-lg bg-card border border-border text-center hover:border-primary/30 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.08)] hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-300"
             >
-              <span className="absolute top-4 right-5 text-xs font-semibold text-muted-foreground/40 group-hover:text-primary/30 transition-colors">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
-                <f.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{f.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-              <div className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/30 transition-all duration-300 rounded-full" />
+              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">{item.label}</p>
+              <p className="mt-3 text-4xl font-extrabold text-foreground">{item.price}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{item.suffix}</p>
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-8">
+          {scope.map((item) => <p key={item} className="flex items-center justify-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="h-4 w-4 text-primary" />{item}</p>)}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,10 +81,13 @@ const AILeadResponseSection = () => {
             to="/leads"
             className="inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
           >
-            Learn How the AI Lead Conversion System Works
+             See How the AI Lead Conversion System Works
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
+        <p className="mt-6 text-center text-sm text-muted-foreground max-w-3xl mx-auto">
+          Businesses with materially more complex multi-location or multi-listing environments may require a different implementation approach. The AI Revenue System Assessment helps determine the appropriate path.
+        </p>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Zap, TrendingUp, Bot } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FloatingNodes = () => (
@@ -38,27 +38,13 @@ const FloatingNodes = () => (
         />
       ))}
 
-      {/* Pulsing rings on main nodes */}
-      {[
-        { cx: 300, cy: 100, delay: 1 },
-        { cx: 350, cy: 350, delay: 2 },
-      ].map((node, i) => (
-        <motion.circle
-          key={`ring-${i}`}
-          cx={node.cx} cy={node.cy} r={12}
-          fill="none" stroke="hsl(var(--primary))" strokeWidth="1"
-          initial={{ scale: 0.8, opacity: 0.6 }}
-          animate={{ scale: [0.8, 1.8], opacity: [0.6, 0] }}
-          transition={{ duration: 2.5, delay: node.delay, repeat: Infinity, repeatDelay: 1 }}
-        />
-      ))}
     </svg>
   </div>
 );
 
 const HeartbeatHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-navy">
       {/* Gradient mesh background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
@@ -85,83 +71,62 @@ const HeartbeatHero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
         <div className="max-w-3xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary"
           >
-            AI Revenue Systems for Modern Businesses
+            Managed Lead Response &amp; Business Systems for Service Businesses
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
+            className="mt-5 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
+          >
+            Stop Losing Good Leads to Slow Response and Inconsistent Follow-Up
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.45, delay: 0.16, ease: "easeOut" }}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
+            Heartbeat of South&nbsp;Bay builds and manages practical systems that help service businesses respond to inquiries, recover missed opportunities, follow up consistently, and keep leads visible from first contact to next step. Especially useful for restoration and other high-value service businesses where a missed call or delayed follow-up can mean valuable work is lost.
           </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
-          >
-            Managed systems support response, follow-up, and pipeline visibility. Your team stays in charge of the conversations and decisions.
-          </motion.p>
-
-          {/* Benefit pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            {[
-              { icon: Zap, label: "Improve lead capture" },
-              { icon: Bot, label: "Automate follow-up" },
-              { icon: TrendingUp, label: "Improve pipeline visibility" },
-            ].map((item) => (
-              <span
-                key={item.label}
-                className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm text-navy-foreground/90"
-              >
-                <item.icon className="w-4 h-4 text-primary" />
-                {item.label}
-              </span>
-            ))}
-          </motion.div>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.45, delay: 0.24, ease: "easeOut" }}
+            className="mt-8 flex flex-col sm:flex-row gap-4"
           >
             <Link
               to="/assessment"
-              className="inline-flex items-center justify-center text-center rounded-lg bg-primary px-5 sm:px-8 py-3.5 sm:py-4 text-sm font-semibold leading-snug text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-5 sm:px-8 py-3.5 sm:py-4 text-sm font-semibold leading-snug text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-[transform,box-shadow] duration-300"
             >
-              Start Your AI Revenue System Assessment
+              Start Your Free AI Revenue System Assessment
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
-              to="/roi"
-              className="inline-flex items-center justify-center rounded-lg border border-navy-foreground/20 px-6 py-3.5 text-sm font-semibold text-navy-foreground hover:bg-navy-foreground/5 transition-all duration-200"
+              to="/leads"
+              className="inline-flex items-center justify-center rounded-lg border border-navy-foreground/20 px-6 py-3.5 text-sm font-semibold text-navy-foreground hover:bg-navy-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-200"
             >
-              Calculate Your Potential ROI
+              See the AI Lead Conversion System
             </Link>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.32 }}
             className="mt-6 text-sm text-navy-foreground/40"
           >
-            Complimentary assessment · No commitment required
+            Complimentary assessment. No purchase commitment required.
           </motion.p>
         </div>
       </div>

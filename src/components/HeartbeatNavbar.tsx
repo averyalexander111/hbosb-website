@@ -20,7 +20,7 @@ const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
     { to: "/leads", label: "Lead Conversion System" },
     { to: "/roi", label: "ROI Calculator" },
     { to: "/about", label: "About Us" },
-    { to: "/blog", label: "Blog" },
+    { to: "/blog", label: "Articles" },
     { to: "/contact", label: "Contact" },
   ];
 
@@ -43,28 +43,28 @@ const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
           </Link>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={handleNavClick}
-                className="text-sm text-navy-foreground/80 hover:text-navy-foreground transition-colors"
+                className="text-sm text-navy-foreground/80 hover:text-navy-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy rounded-sm transition-colors"
               >
                 {l.label}
               </Link>
             ))}
             <Link
               to="/assessment"
-              className="text-sm font-semibold rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:brightness-110 transition-all"
+              className="text-sm font-semibold rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-[filter,box-shadow]"
             >
-              Assessment
+              Free Assessment
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-navy-foreground"
+            className="lg:hidden p-2 text-navy-foreground rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -74,13 +74,13 @@ const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
 
         {/* Mobile */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div className="lg:hidden pb-4">
             <div className="flex flex-col gap-1 bg-navy-light rounded-xl p-4 mt-2 border border-navy-foreground/10">
               {links.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="px-3 py-2.5 text-sm text-navy-foreground/80 hover:text-navy-foreground rounded-lg hover:bg-navy-foreground/5 transition-colors"
+                  className="px-3 py-2.5 text-sm text-navy-foreground/80 hover:text-navy-foreground rounded-lg hover:bg-navy-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                   onClick={() => { handleNavClick(); setIsMenuOpen(false); }}
                 >
                   {l.label}
@@ -88,10 +88,10 @@ const HeartbeatNavbar = ({ forceSolid = false }: { forceSolid?: boolean }) => {
               ))}
               <Link
                 to="/assessment"
-                className="mt-2 text-center text-sm font-semibold rounded-lg bg-primary px-4 py-2.5 text-primary-foreground"
+                className="mt-2 text-center text-sm font-semibold rounded-lg bg-primary px-4 py-2.5 text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Assessment
+                Free Assessment
               </Link>
             </div>
           </div>
