@@ -13,3 +13,14 @@
 - [ ] BaySignal / Launchpad / SiteCare OfferCatalog pricing in index.html JSON-LD ($597/$1,297/$2,497/$500/$50) — unchanged, unresolved reconciliation
 - [ ] src/lib/audit.ts:341,408 assessment-result copy still uses "every inquiry" / "every lead" absolutes — outside this turn's scope
 - [ ] Unrouted legacy components still hold Core/Plus/Pro and $1,497 setup-fee language (GrowthPlansSection, BaySignalSection) — dead code, not served
+
+## Website-wide commercial and motion reconciliation (in progress, preview only)
+- [ ] Reconcile homepage hierarchy, CTA priority, claims, retired public offers, and motion
+- [ ] Update /assessment messaging without changing its form data contract; report SMS-consent gap if downstream texting is contemplated
+- [ ] Update /about positioning and founder credentials without unsupported certification claims
+- [ ] Apply only targeted /leads CTA, restoration-use-case, motion, and metadata refinements
+- [ ] Preserve /roi calculations; update only metadata and lower assessment CTA
+- [ ] Reconcile shared navigation, footer, contact copy, metadata, and structured data
+- [ ] Remove unsupported homepage technology carousel; do not infer platform support
+- [ ] Validate build, lint, JSON-LD, public claims, routes, CTAs, forms, responsive widths, accessibility, and reduced motion
+- [ ] Keep internal legacy components and Starter Website Launch terms intact; do not publish

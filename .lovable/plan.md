@@ -16,7 +16,7 @@
 ## Assessment, About, Leads, and ROI
 - Update `/assessment` intro, labels, benefit cards, trust boundary, metadata, processing/results language, and recommendation framing so it provides initial findings rather than a blueprint or fixed implementation roadmap.
 - Remove the artificial assessment processing delay and ensure reduced-motion users receive content immediately.
-- Preserve assessment submission and calendar behavior; add the project-standard optional SMS consent disclosure to the assessment lead form without making consent a condition of submission.
+- Preserve the assessment form and its data contract. Do not add SMS consent; report the absence of assessment-specific consent as a pending consideration if downstream SMS follow-up is contemplated.
 - Reconcile `/about` messaging, founder title/copy, credentials, vision, and the explanatory Capture/Respond/Follow Up/Track/Improve framework while preserving its layout and founder image.
 - Make only targeted `/leads` edits: add “Free” to assessment CTAs, update metadata, add a compact restoration/high-value-service callout, and tune the existing six-step motion for sequential, reduced-motion-safe presentation.
 - Preserve `/roi` formulas and defaults; update metadata and replace only its lower CTA with the approved scenario-to-assessment message.
