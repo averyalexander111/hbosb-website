@@ -1,11 +1,11 @@
 # Roadmap
 
-## Surgical restored-homepage reconciliation (in progress, preview only)
-- [ ] Qualify approved homepage claims without changing structure, cards, or motion
-- [ ] Reconcile four-step implementation language and assessment-generated guidance
-- [ ] Remove Launchpad and SiteCare from active structured data
-- [ ] Validate protected /leads and /roi state, active legacy references, build, and preview
-- [ ] Do not publish or deploy
+## Surgical restored-homepage reconciliation (complete, preview only)
+- [x] Qualify approved homepage claims without changing structure, cards, or motion
+- [x] Reconcile four-step implementation language and assessment-generated guidance
+- [x] Remove Launchpad and SiteCare from active structured data
+- [x] Validate protected /leads and /roi state, active legacy references, types, and preview
+- [x] Do not publish or deploy
 
 ## AI Lead Conversion System offer update (complete, not published)
 - [x] Rewrite /leads with approved 08 copy ($997 one-time, $1,497/mo)
@@ -17,6 +17,6 @@
 
 ## Flagged / blocked (needs 01)
 - [ ] "Complimentary assessment · No commitment required" claims — unchanged. Locations: src/components/HeartbeatHero.tsx:164, src/components/FAQSection.tsx:12, index.html FAQ schema, public/llms.txt line 15, src/components/BaySignalSection.tsx:219 (unrouted), src/components/GrowthPlansSection.tsx:429 (unrouted), src/components/RevenueUnlockSection.tsx:23,32 (unrouted)
-- [ ] BaySignal / Launchpad / SiteCare OfferCatalog pricing in index.html JSON-LD ($597/$1,297/$2,497/$500/$50) — unchanged, unresolved reconciliation
-- [ ] src/lib/audit.ts:341,408 assessment-result copy still uses "every inquiry" / "every lead" absolutes — outside this turn's scope
+- [x] BaySignal / Launchpad / SiteCare OfferCatalog pricing removed from active index.html structured data
+- [x] Assessment-result absolutes and immediate-response guidance requalified without changing scoring or submission behavior
 - [ ] Unrouted legacy components still hold Core/Plus/Pro and $1,497 setup-fee language (GrowthPlansSection, BaySignalSection) — dead code, not served
