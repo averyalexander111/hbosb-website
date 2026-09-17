@@ -25,7 +25,7 @@ const AISystemsSection = () => {
         >
           <h2 className="section-title text-foreground">AI Systems We Build</h2>
           <p className="section-subtitle mx-auto">
-            These are capabilities selected where appropriate for the approved scope, not six standard offers included in every system.
+            We select the right mix of capabilities for your business, with scope confirmed before implementation.
           </p>
         </motion.div>
 
