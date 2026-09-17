@@ -4,23 +4,26 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { lazyWithReload } from "@/lib/lazyWithReload";
 
-// Lazy load pages for code splitting
-const Index = lazy(() => import("./pages/Index"));
-const AboutUs = lazy(() => import("./pages/AboutUs"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
-const Auth = lazy(() => import("./pages/Auth"));
-const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Contact = lazy(() => import("./pages/Contact"));
-const ROICalculatorPage = lazy(() => import("./pages/ROICalculatorPage"));
-const AILeadResponseSystem = lazy(() => import("./pages/AILeadResponseSystem"));
-const Audit = lazy(() => import("./pages/Audit"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// Lazy load pages for code splitting.
+
+
+const Index = lazyWithReload(() => import("./pages/Index"));
+const AboutUs = lazyWithReload(() => import("./pages/AboutUs"));
+const Blog = lazyWithReload(() => import("./pages/Blog"));
+const BlogPost = lazyWithReload(() => import("./pages/BlogPost"));
+const BlogAdmin = lazyWithReload(() => import("./pages/BlogAdmin"));
+const Auth = lazyWithReload(() => import("./pages/Auth"));
+const TermsAndConditions = lazyWithReload(() => import("./pages/TermsAndConditions"));
+const PrivacyPolicy = lazyWithReload(() => import("./pages/PrivacyPolicy"));
+const Contact = lazyWithReload(() => import("./pages/Contact"));
+const ROICalculatorPage = lazyWithReload(() => import("./pages/ROICalculatorPage"));
+const AILeadResponseSystem = lazyWithReload(() => import("./pages/AILeadResponseSystem"));
+const Audit = lazyWithReload(() => import("./pages/Audit"));
+const NotFound = lazyWithReload(() => import("./pages/NotFound"));
 
 // Import AdminGuard (not lazy loaded)
 import AdminGuard from "./components/AdminGuard";

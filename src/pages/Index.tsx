@@ -1,22 +1,23 @@
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatHero from "@/components/HeartbeatHero";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { lazyWithReload } from "@/lib/lazyWithReload";
 
-const ProblemSection = lazy(() => import("@/components/ProblemSection"));
-const AIOperatingSystem = lazy(() => import("@/components/AIOperatingSystem"));
-const AISystemsSection = lazy(() => import("@/components/AISystemsSection"));
+const ProblemSection = lazyWithReload(() => import("@/components/ProblemSection"));
+const AIOperatingSystem = lazyWithReload(() => import("@/components/AIOperatingSystem"));
+const AISystemsSection = lazyWithReload(() => import("@/components/AISystemsSection"));
 
-const ResultsSection = lazy(() => import("@/components/ResultsSection"));
-const ImplementationSection = lazy(() => import("@/components/ImplementationSection"));
-const TechnologyCarousel = lazy(() => import("@/components/TechnologyCarousel"));
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-const FAQSection = lazy(() => import("@/components/FAQSection"));
-const AILeadResponseSection = lazy(() => import("@/components/AILeadResponseSection"));
-const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
-const ConnectSection = lazy(() => import("@/components/ConnectSection"));
+const ResultsSection = lazyWithReload(() => import("@/components/ResultsSection"));
+const ImplementationSection = lazyWithReload(() => import("@/components/ImplementationSection"));
+const TechnologyCarousel = lazyWithReload(() => import("@/components/TechnologyCarousel"));
+const TestimonialsSection = lazyWithReload(() => import("@/components/TestimonialsSection"));
+const FAQSection = lazyWithReload(() => import("@/components/FAQSection"));
+const AILeadResponseSection = lazyWithReload(() => import("@/components/AILeadResponseSection"));
+const FinalCTASection = lazyWithReload(() => import("@/components/FinalCTASection"));
+const ConnectSection = lazyWithReload(() => import("@/components/ConnectSection"));
 
 const Loader = () => (
   <div className="py-8 flex justify-center">
