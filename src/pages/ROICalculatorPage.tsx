@@ -11,14 +11,14 @@ const ROICalculatorPage = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="ROI Calculator | Heartbeat of South Bay"
-        description="Calculate the return on investment for AI automation and CRM solutions for your local business."
+        title="Scenario Model | Heartbeat of South Bay"
+        description="Model a potential monthly scenario for an AI Lead Conversion System using your own assumptions. An estimation tool, not a forecast or guarantee."
       />
       <HeartbeatNavbar />
       <main>
         <SubpageHero
-          title="ROI Calculator"
-          subtitle="Calculate your potential ROI and see how AI can accelerate your growth."
+          title="Scenario Model"
+          subtitle="Model a potential monthly scenario using your own assumptions. This is an estimation tool, not a forecast or guarantee."
         />
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-muted rounded-lg h-32 w-full max-w-4xl"></div></div>}>
           <ROICalculator />

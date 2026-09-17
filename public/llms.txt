@@ -1,14 +1,14 @@
 # Heartbeat of South Bay
 
-> AI Revenue Systems for service-based businesses: capture leads, automate follow-up, and convert more opportunities into customers.
+> Managed AI Revenue Systems for service-based businesses: structured lead intake, approved follow-up workflows, missed-call recovery where scoped, and CRM visibility.
 
-Heartbeat of South Bay builds AI-powered systems — lead capture, instant follow-up, CRM integration, and reporting — for local service businesses. Based in the South Bay (Los Angeles), serving the United States.
+Heartbeat of South Bay builds and manages AI systems — lead intake, approved follow-up workflows, CRM integration, and reporting — for local service businesses. Based in the South Bay (Los Angeles), serving the United States.
 
 ## Pages
 
 - [Home](/): Overview of AI Revenue Systems and how we help service businesses grow.
-- [Lead Conversion System](/leads): Our flagship AI system for capturing and converting leads.
-- [ROI Calculator](/roi): Estimate the return on investment from an AI Revenue System.
+- [Lead Conversion System](/leads): Managed lead-response infrastructure. $997 one-time implementation and $1,497/month ongoing system management.
+- [ROI Calculator](/roi): Model a potential monthly scenario using your own assumptions. An estimation tool, not a forecast.
 - [About Us](/about): Founder story, philosophy, and credentials.
 - [Blog — The Pulse](/blog): Insights on AI Revenue Systems, lead conversion, and growth strategies.
 - [Contact](/contact): Get in touch by message, phone, or email.
