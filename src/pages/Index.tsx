@@ -7,7 +7,6 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { lazyWithReload } from "@/lib/lazyWithReload";
 
 const ProblemSection = lazyWithReload(() => import("@/components/ProblemSection"));
-const AIOperatingSystem = lazyWithReload(() => import("@/components/AIOperatingSystem"));
 const AISystemsSection = lazyWithReload(() => import("@/components/AISystemsSection"));
 const ResultsSection = lazyWithReload(() => import("@/components/ResultsSection"));
 const ImplementationSection = lazyWithReload(() => import("@/components/ImplementationSection"));
