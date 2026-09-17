@@ -12,23 +12,10 @@ const ConnectSection = React.memo(() => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Connect with Us
+              Tell Us Where the Process Is Breaking Down
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
-              Learn how we can help your business capture, respond to, and
-              convert more opportunities.
-            </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
-              At{" "}
-              <span className="whitespace-nowrap">
-                Heartbeat of South&nbsp;Bay
-              </span>
-              , we design custom AI systems tailored to your workflows,
-              improving client intake, follow-up, and reporting.
-            </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              The goal is more consistent response, smoother operations, and
-              clearer operating visibility into how your system is performing.
+              Whether the issue is missed calls, slow response, inconsistent follow-up, poor lead visibility, or a disconnected workflow, tell us what is happening now. HBOSB will help determine whether the appropriate next step is the free AI Revenue System Assessment, the AI Lead Conversion System, or another approved implementation pathway.
             </p>
           </div>
 

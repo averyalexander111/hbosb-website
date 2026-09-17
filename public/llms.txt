@@ -1,18 +1,18 @@
 # Heartbeat of South Bay
 
-> Managed AI Revenue Systems for service-based businesses: structured lead intake, approved follow-up workflows, missed-call recovery where scoped, and CRM visibility.
+> Managed lead-response and business systems for service businesses, with structured inquiry handling, approved follow-up workflows, handoff, and pipeline visibility.
 
-Heartbeat of South Bay builds and manages AI systems — lead intake, approved follow-up workflows, CRM integration, and reporting — for local service businesses. Based in the South Bay (Los Angeles), serving the United States.
+Heartbeat of South Bay designs, implements, and manages practical systems that help service businesses improve how inquiries are handled after they arrive. Standard public pricing for the AI Lead Conversion System is $997 one-time implementation and $1,497/month ongoing system management. Exact scope is confirmed before implementation. AI voice is not standard inclusion and is separately scoped.
 
 ## Pages
 
-- [Home](/): Overview of AI Revenue Systems and how we help service businesses grow.
-- [Lead Conversion System](/leads): Managed lead-response infrastructure. $997 one-time implementation and $1,497/month ongoing system management.
-- [ROI Calculator](/roi): Model a potential monthly scenario using your own assumptions. An estimation tool, not a forecast.
-- [About Us](/about): Founder story, philosophy, and credentials.
-- [Blog — The Pulse](/blog): Insights on AI Revenue Systems, lead conversion, and growth strategies.
-- [Contact](/contact): Get in touch by message, phone, or email.
-- [Assessment](/assessment): Request a complimentary AI Revenue System Assessment.
+- [Home](/): Overview of managed lead response and practical business systems.
+- [AI Lead Conversion System](/leads): The primary managed offer for one business location, with exact scope confirmed before build.
+- [Business Impact Scenario Calculator](/roi): A user-controlled estimation tool, not a forecast, guarantee, or promise of performance.
+- [Free AI Revenue System Assessment](/assessment): Focused questions, initial findings, and an optional review. Complimentary, with no purchase commitment.
+- [About Heartbeat of South Bay](/about): Process-first approach, founder story, and credentials.
+- [Articles](/blog): Insights on lead conversion, business systems, and practical AI.
+- [Contact](/contact): Contact Heartbeat of South Bay by message, phone, or email.
 
 ## Optional
 

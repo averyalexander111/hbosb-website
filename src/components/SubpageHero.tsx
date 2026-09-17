@@ -31,18 +31,18 @@ const SubpageHero = ({ title, subtitle }: SubpageHeroProps) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-navy-foreground"
           >
             {title}
           </motion.h1>
           {subtitle && (
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
+              transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
               className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl mx-auto"
             >
               {subtitle}

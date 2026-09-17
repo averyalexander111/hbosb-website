@@ -1,13 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const bullets = [
-  "Where automation could save time",
-  "Where AI could increase revenue",
-  "What systems would improve operations",
-];
 
 const FinalCTASection = () => {
   return (
@@ -24,37 +18,24 @@ const FinalCTASection = () => {
           className="max-w-3xl lg:max-w-5xl mx-auto text-center"
         >
           <p className="text-primary font-medium mb-3">
-            When businesses operate smarter, they grow stronger.
+            Start with the process
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-foreground mb-4 lg:whitespace-nowrap">
-            Let's Explore What AI Could Fix In Your Business
+            Find the Gaps Before Building the System
           </h2>
           <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">
-            Identify where your business is losing opportunities and how AI
-            systems can improve your lead capture, follow-up, and conversion process.
+            The free AI Revenue System Assessment helps identify likely response, follow-up, lead-tracking, and workflow gaps. If HBOSB appears to be the right fit, the next step is an optional review and an appropriate recommendation.
           </p>
-
-          <ul className="mb-10 space-y-3 text-left max-w-md mx-auto">
-            {bullets.map((b) => (
-              <li
-                key={b}
-                className="flex items-center gap-3 text-navy-foreground/80"
-              >
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-sm">{b}</span>
-              </li>
-            ))}
-          </ul>
 
           <Link
             to="/assessment"
             className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
           >
-            Start Your AI Revenue System Assessment
+            Start Your Free AI Revenue System Assessment
             <ArrowRight className="w-5 h-5" />
           </Link>
           <p className="mt-4 text-sm text-navy-foreground/40">
-            Identify where AI systems can create the biggest impact in your business.
+            Complimentary. No purchase commitment required.
           </p>
         </motion.div>
       </div>
