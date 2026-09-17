@@ -16,7 +16,7 @@ const stages = [
   {
     icon: Handshake,
     title: "Convert",
-    desc: "CRM pipelines and scheduling automation turn prospects into customers.",
+    desc: "CRM pipelines and scheduling workflows help appropriate prospects reach the right person or next step.",
   },
   {
     icon: Heart,
@@ -48,7 +48,7 @@ const AIOperatingSystem = () => {
             Our systems are designed to improve how your business generates and converts revenue.
           </p>
           <h2 className="section-title text-navy-foreground lg:whitespace-nowrap">
-            The Heartbeat AI Operating System
+            Where Better Systems Create Leverage
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto lg:max-w-none lg:whitespace-nowrap">
             A complete system infrastructure that strengthens every stage of the customer journey.

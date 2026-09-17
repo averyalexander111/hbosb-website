@@ -1,5 +1,12 @@
 # Roadmap
 
+## Surgical restored-homepage reconciliation (in progress, preview only)
+- [ ] Qualify approved homepage claims without changing structure, cards, or motion
+- [ ] Reconcile four-step implementation language and assessment-generated guidance
+- [ ] Remove Launchpad and SiteCare from active structured data
+- [ ] Validate protected /leads and /roi state, active legacy references, build, and preview
+- [ ] Do not publish or deploy
+
 ## AI Lead Conversion System offer update (complete, not published)
 - [x] Rewrite /leads with approved 08 copy ($997 one-time, $1,497/mo)
 - [x] Homepage alignment: HeartbeatHero, AILeadResponseSection, AISystemsSection, AIOperatingSystem, ResultsSection, FAQSection, ConnectSection

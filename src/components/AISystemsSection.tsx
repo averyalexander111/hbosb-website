@@ -4,12 +4,12 @@ import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing, ArrowRight } fro
 import { Link } from "react-router-dom";
 
 const services = [
-  { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
+  { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that help organize appropriate visitor inquiries." },
   { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads and move them toward action." },
   { icon: Mic, title: "AI Voice Systems (Separately Scoped)", desc: "Voice intake and call handling require a separate review of architecture, cost, compliance, and delivery readiness. Not included in the standard AI Lead Conversion System." },
   { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow systems connecting your tools to eliminate bottlenecks and accelerate output." },
-  { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights that tie directly to revenue outcomes." },
-  { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "AI-powered systems that proactively reach out to new and existing leads to generate conversations and book appointments." },
+  { icon: LineChart, title: "Analytics & Reporting", desc: "Available system data can support performance reviews and practical operational improvements." },
+  { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "When separately approved and supported, outbound workflows can help re-engage appropriate new and existing leads." },
 ];
 
 const AISystemsSection = () => {
@@ -25,7 +25,7 @@ const AISystemsSection = () => {
         >
           <h2 className="section-title text-foreground">AI Systems We Build</h2>
           <p className="section-subtitle mx-auto">
-            Purpose-built systems designed to improve how your business captures, follows up with, and converts opportunities.
+            These are capabilities selected where appropriate for the approved scope, not six standard offers included in every system.
           </p>
         </motion.div>
 

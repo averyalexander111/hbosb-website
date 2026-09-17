@@ -29,7 +29,7 @@ const ProblemSection = () => {
           </h2>
           <p className="section-subtitle mx-auto">
             Small breakdowns in response time, follow-up, and organization lead to missed revenue.
-            AI systems fix these gaps by capturing, responding to, and converting opportunities automatically.
+            Well-designed systems can support more consistent intake, response, follow-up, and visibility while people remain responsible for customer decisions.
           </p>
         </motion.div>
 
