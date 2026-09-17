@@ -247,7 +247,7 @@ const AILeadResponseSystem = () => {
     <div className="min-h-screen">
       <main className="bg-background">
         <SEOHead
-          title="AI Lead Conversion System | Heartbeat of South Bay"
+          title="Managed AI Lead Conversion System | Heartbeat of South Bay"
           description="A managed lead-response system for service businesses: structured intake, approved follow-up workflows, missed-call recovery, and CRM visibility."
         />
         <HeartbeatNavbar />
@@ -306,7 +306,7 @@ const AILeadResponseSystem = () => {
                   to="/assessment"
                   className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
                 >
-                  Start Your AI Revenue System Assessment
+                  Start Your Free AI Revenue System Assessment
                   <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <a
@@ -322,6 +322,23 @@ const AILeadResponseSystem = () => {
               <motion.p variants={fadeUp} className="mt-6 text-sm text-navy-foreground/40">
                 We review your current lead flow and confirm scope before implementation begins.
               </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              className="rounded-lg border border-primary/20 bg-card p-6 md:p-8 text-center"
+            >
+              <h2 className="text-xl md:text-2xl font-bold text-foreground">Especially Useful When Each Inquiry Has Meaningful Value</h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Restoration and other high-value service businesses can benefit from a clearer process after a call or form arrives. The system supports response, follow-up, visibility, and handoff while the team remains responsible for customer conversations, decisions, and service delivery.
+              </p>
             </motion.div>
           </div>
         </section>
@@ -822,7 +839,7 @@ const AILeadResponseSystem = () => {
                   to="/assessment"
                   className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
                 >
-                  Start Your AI Revenue System Assessment
+                  Start Your Free AI Revenue System Assessment
                   <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <a

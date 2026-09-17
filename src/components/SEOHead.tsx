@@ -13,8 +13,8 @@ const SITE_ORIGIN = "https://heartbeatofsouthbay.com";
 const SOCIAL_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/qU9oinv2BSUqDshs9rlmSWAX37j1/social-images/social-1777348117573-HBOSB_Hyperlink.webp";
 
 const SEOHead = ({
-  title = "AI Lead Conversion Systems | Heartbeat of South Bay",
-  description = "AI revenue systems, CRM, and high-converting websites for local South Bay brands. More leads, reviews, and repeat customers. Done for you.",
+  title = "AI Lead Conversion Systems for Service Businesses | HBOSB",
+  description = "Managed lead-response and business systems that help service businesses improve inquiry response, follow-up, handoff, and pipeline visibility.",
   ogTitle,
   ogDescription,
   canonicalUrl,
