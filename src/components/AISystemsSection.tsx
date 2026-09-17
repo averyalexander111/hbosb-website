@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const services = [
   { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
   { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads and move them toward action." },
-  { icon: Mic, title: "AI Voice Assistants", desc: "24/7 AI-powered communication that responds, qualifies, and routes leads instantly." },
+  { icon: Mic, title: "AI Voice Systems (Separately Scoped)", desc: "Voice intake and call handling require a separate review of architecture, cost, compliance, and delivery readiness. Not included in the standard AI Lead Conversion System." },
   { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow systems connecting your tools to eliminate bottlenecks and accelerate output." },
   { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights that tie directly to revenue outcomes." },
   { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "AI-powered systems that proactively reach out to new and existing leads to generate conversations and book appointments." },

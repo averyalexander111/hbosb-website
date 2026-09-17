@@ -109,7 +109,7 @@ const HeartbeatHero = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
-            From instant conversion to outbound reactivation. Every step of your pipeline, handled by intelligent systems.
+            Managed systems support response, follow-up, and pipeline visibility. Your team stays in charge of the conversations and decisions.
           </motion.p>
 
           {/* Benefit pills */}
@@ -120,9 +120,9 @@ const HeartbeatHero = () => {
             className="mt-8 flex flex-wrap gap-3"
           >
             {[
-              { icon: Zap, label: "Capture every lead" },
+              { icon: Zap, label: "Improve lead capture" },
               { icon: Bot, label: "Automate follow-up" },
-              { icon: TrendingUp, label: "Grow revenue" },
+              { icon: TrendingUp, label: "Improve pipeline visibility" },
             ].map((item) => (
               <span
                 key={item.label}
