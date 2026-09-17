@@ -4,10 +4,10 @@ import { Zap, MessageSquare, BarChart3, CalendarCheck, ArrowRight } from "lucide
 import { Link } from "react-router-dom";
 
 const features = [
-  { icon: Zap, title: "Instant Lead Response", desc: "Capture and respond to every inquiry the moment it comes in." },
-  { icon: MessageSquare, title: "Automated SMS & Email Follow-Up", desc: "Nurture leads automatically with personalized messages." },
-  { icon: BarChart3, title: "Lead Tracking Pipeline", desc: "Organize every lead into a structured, visual pipeline." },
-  { icon: CalendarCheck, title: "Appointment Booking Integration", desc: "Let qualified leads book directly into your calendar." },
+  { icon: Zap, title: "Structured Lead Intake", desc: "Approved lead sources feed one organized pipeline instead of scattered inboxes." },
+  { icon: MessageSquare, title: "Approved SMS & Email Follow-Up", desc: "Follow-up workflows you approve help appropriate leads keep moving." },
+  { icon: BarChart3, title: "CRM Visibility", desc: "Stages and lead status show what is new, active, waiting, or needs human attention." },
+  { icon: CalendarCheck, title: "Booking Integration", desc: "A booking destination can be connected where it fits your process." },
 ];
 
 const AILeadResponseSection = () => {
@@ -38,16 +38,16 @@ const AILeadResponseSection = () => {
             AI Lead Conversion
           </div>
           <h2 className="section-title text-foreground font-display">
-            Never Miss Another{" "}
+            Build a More Reliable{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-              Lead
+              Lead-Response System
             </span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Most businesses don't lose leads. They lose them in the follow-up.
+            Slow response, missed calls, and inconsistent follow-up can turn real opportunities into lost business.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            We build AI systems that respond instantly, follow up automatically, and move prospects toward a booked appointment.
+            The AI Lead Conversion System is a managed system for responding to new inquiries, recovering missed calls, following up consistently, and tracking opportunities. Your team handles the conversations and decisions.
           </p>
         </motion.div>
 
