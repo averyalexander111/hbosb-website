@@ -9,13 +9,13 @@ import { motion } from "framer-motion";
 
 const FAQSection = React.memo(() => {
   const faqs = [
-    { question: "What is an AI Revenue System Assessment?", answer: "It's a complimentary analysis of your current business operations where we identify the highest-impact areas for AI systems. From lead capture and follow-up to conversion and reporting." },
+    { question: "What is an AI Revenue System Assessment?", answer: "It’s a complimentary review of how your business receives, responds to, follows up with, and tracks inquiries. We identify likely gaps and recommend an appropriate next step. There is no purchase commitment." },
     { question: "How long does implementation take?", answer: "Timing is confirmed after we review scope, required access, lead sources, integrations, and dependencies. We do not quote a fixed timeline before that review." },
-    { question: "Do I need special software to use AI automation?", answer: "No. We integrate with tools you likely already use: Google Workspace, CRMs, scheduling platforms, and more. Our job is to connect and automate, not add complexity." },
+    { question: "Do I need special software to use AI automation?", answer: "We can often work with tools your business already uses, including CRM, scheduling, and communication platforms. We confirm compatibility and identify any additional software, subscriptions, or usage costs during scope review." },
     { question: "Can your systems integrate with my current tools?", answer: "Often, yes. We work with commonly used CRM, scheduling, and communication platforms. Which integrations are possible depends on what each platform supports, so we confirm compatibility during scope review before anything is promised." },
     { question: "What types of businesses do you work with?", answer: "We work with service-based businesses, multi-location teams, healthcare practices, professional services, and high-growth companies ready to scale their operations with AI." },
     { question: "How do you measure results?", answer: "We agree on the KPIs that matter to your business, then review the response, follow-up, booking, and outcome data your CRM and workflow tools make available. What can be measured depends on the supported stack and the data it exposes." },
-    { question: "What data security measures do you use?", answer: "Security is built into every system we deploy. We follow industry standards for encryption, access control, and data handling. Detailed security documentation is available under NDA." },
+    { question: "What data security measures do you use?", answer: "HBOSB follows least-privilege principles for sensitive technical access and avoids placing passwords, API secrets, private keys, authentication tokens, or sensitive client credentials in ordinary documentation. Additional security or compliance requirements are reviewed for the specific implementation." },
   ];
 
   return (
