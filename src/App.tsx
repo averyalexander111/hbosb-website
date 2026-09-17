@@ -7,20 +7,36 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Suspense, lazy } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
-// Lazy load pages for code splitting
-const Index = lazy(() => import("./pages/Index"));
-const AboutUs = lazy(() => import("./pages/AboutUs"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
-const Auth = lazy(() => import("./pages/Auth"));
-const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Contact = lazy(() => import("./pages/Contact"));
-const ROICalculatorPage = lazy(() => import("./pages/ROICalculatorPage"));
-const AILeadResponseSystem = lazy(() => import("./pages/AILeadResponseSystem"));
-const Audit = lazy(() => import("./pages/Audit"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// Lazy load pages for code splitting.
+// If a stale build is cached, chunk URLs 404 - reload once to pick up the new build.
+const lazyWithReload = <T extends { default: React.ComponentType<any> }>(
+  factory: () => Promise<T>
+) =>
+  lazy(() =>
+    factory().catch((error) => {
+      const key = "chunk-reload";
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+        return new Promise<T>(() => {});
+      }
+      throw error;
+    })
+  );
+
+const Index = lazyWithReload(() => import("./pages/Index"));
+const AboutUs = lazyWithReload(() => import("./pages/AboutUs"));
+const Blog = lazyWithReload(() => import("./pages/Blog"));
+const BlogPost = lazyWithReload(() => import("./pages/BlogPost"));
+const BlogAdmin = lazyWithReload(() => import("./pages/BlogAdmin"));
+const Auth = lazyWithReload(() => import("./pages/Auth"));
+const TermsAndConditions = lazyWithReload(() => import("./pages/TermsAndConditions"));
+const PrivacyPolicy = lazyWithReload(() => import("./pages/PrivacyPolicy"));
+const Contact = lazyWithReload(() => import("./pages/Contact"));
+const ROICalculatorPage = lazyWithReload(() => import("./pages/ROICalculatorPage"));
+const AILeadResponseSystem = lazyWithReload(() => import("./pages/AILeadResponseSystem"));
+const Audit = lazyWithReload(() => import("./pages/Audit"));
+const NotFound = lazyWithReload(() => import("./pages/NotFound"));
 
 // Import AdminGuard (not lazy loaded)
 import AdminGuard from "./components/AdminGuard";
