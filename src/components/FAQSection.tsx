@@ -23,10 +23,10 @@ const FAQSection = React.memo(() => {
     <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="section-title text-navy-foreground">

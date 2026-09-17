@@ -24,7 +24,7 @@ const ResultsSection = () => {
           className="text-center mb-14"
         >
           <h2 className="section-title text-navy-foreground">
-             Especially Valuable When Every Inquiry Matters
+             Especially Valuable When Each Inquiry Has Meaningful Value
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
              For restoration and other high-value service businesses, a missed call or delayed response can represent a meaningful opportunity. HBOSB helps create a more structured path from the moment an inquiry arrives to the point where the right person takes action.
