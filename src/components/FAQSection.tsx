@@ -10,11 +10,11 @@ import { motion } from "framer-motion";
 const FAQSection = React.memo(() => {
   const faqs = [
     { question: "What is an AI Revenue System Assessment?", answer: "It's a complimentary analysis of your current business operations where we identify the highest-impact areas for AI systems. From lead capture and follow-up to conversion and reporting." },
-    { question: "How long does implementation take?", answer: "Most implementations take 2–6 weeks depending on complexity. We start with quick wins that deliver results in the first 30 days while building out your complete system." },
+    { question: "How long does implementation take?", answer: "Timing is confirmed after we review scope, required access, lead sources, integrations, and dependencies. We do not quote a fixed timeline before that review." },
     { question: "Do I need special software to use AI automation?", answer: "No. We integrate with tools you likely already use: Google Workspace, CRMs, scheduling platforms, and more. Our job is to connect and automate, not add complexity." },
     { question: "Can your systems integrate with my current tools?", answer: "Absolutely. We specialize in connecting disparate tools into a unified system. Whether you use Salesforce, HubSpot, Calendly, or custom software, we build bridges between them." },
     { question: "What types of businesses do you work with?", answer: "We work with service-based businesses, multi-location teams, healthcare practices, professional services, and high-growth companies ready to scale their operations with AI." },
-    { question: "How do you measure results?", answer: "We set clear KPIs from day one — response time, conversion rates, no-show rates, review volume — and track them through dashboards you can access anytime." },
+    { question: "How do you measure results?", answer: "We agree on the KPIs that matter to your business, then review the response, follow-up, booking, and outcome data your CRM and workflow tools make available. What can be measured depends on the supported stack and the data it exposes." },
     { question: "What data security measures do you use?", answer: "Security is built into every system we deploy. We follow industry standards for encryption, access control, and data handling. Detailed security documentation is available under NDA." },
   ];
 

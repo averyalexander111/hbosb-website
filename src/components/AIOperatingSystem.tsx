@@ -6,7 +6,7 @@ const stages = [
   {
     icon: Radar,
     title: "Capture",
-    desc: "Smart forms, AI chat, and intake systems ensure no opportunity is missed.",
+    desc: "Structured forms, chat, and intake systems help fewer opportunities slip through.",
   },
   {
     icon: Mail,
