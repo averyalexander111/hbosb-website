@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 
+const DEFAULT_MONTHLY_MANAGEMENT = '1497';
+const DEFAULT_ONE_TIME_IMPLEMENTATION = '997';
+
+const DISCLAIMER =
+  'This calculator is an estimation tool. Results are based entirely on the assumptions you enter and are not a forecast, guarantee, or promise of business performance.';
+
 const ROICalculator = () => {
   const [results, setResults] = useState<any>(null);
   const [formData, setFormData] = useState({
-    preset: '',
-    aiCost: '',
+    monthlyManagementCost: DEFAULT_MONTHLY_MANAGEMENT,
+    oneTimeImplementationCost: DEFAULT_ONE_TIME_IMPLEMENTATION,
     currentRevenue: '',
     monthlyCustomers: '',
     averageSpend: '',
@@ -22,50 +28,16 @@ const ROICalculator = () => {
   };
 
   const money = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-  const pct = (n: number) => n.toLocaleString(undefined, { maximumFractionDigits: 1 }) + '%';
 
-  const handlePresetChange = (preset: string) => {
-    if (!preset) return;
-
-    const presets: any = {
-      core: {
-        aiCost: 997, monthlyCustomers: 200, averageSpend: 50, adminHours: 6,
-        missedCalls: 30, recoveredPct: 20, retentionIncrease: 3, spendIncrease: 4, timeSavings: 30
-      },
-      plus: {
-        aiCost: 2497, monthlyCustomers: 350, averageSpend: 60, adminHours: 10,
-        missedCalls: 50, recoveredPct: 30, retentionIncrease: 5, spendIncrease: 8, timeSavings: 45
-      },
-      pro: {
-        aiCost: 4997, monthlyCustomers: 600, averageSpend: 80, adminHours: 14,
-        missedCalls: 80, recoveredPct: 40, retentionIncrease: 8, spendIncrease: 12, timeSavings: 60
-      }
-    };
-
-    const d = presets[preset];
-    setFormData({
-      ...formData,
-      preset,
-      aiCost: d.aiCost.toString(),
-      monthlyCustomers: d.monthlyCustomers.toString(),
-      averageSpend: d.averageSpend.toString(),
-      adminHours: d.adminHours.toString(),
-      missedCalls: d.missedCalls.toString(),
-      recoveredPct: d.recoveredPct.toString(),
-      retentionIncrease: d.retentionIncrease.toString(),
-      spendIncrease: d.spendIncrease.toString(),
-      timeSavings: d.timeSavings.toString(),
-      currentRevenue: ''
-    });
-  };
-
-  const calculateROI = () => {
+  const calculateScenario = () => {
     const currentRevenueInput = val(formData.currentRevenue);
     const monthlyCustomers = val(formData.monthlyCustomers);
     const averageSpend = val(formData.averageSpend);
     const baselineRevenue = currentRevenueInput > 0 ? currentRevenueInput : (monthlyCustomers * averageSpend);
 
-    const aiCost = val(formData.aiCost);
+    const monthlyManagementCost = val(formData.monthlyManagementCost);
+    const oneTimeImplementationCost = val(formData.oneTimeImplementationCost);
+
     const missedCalls = val(formData.missedCalls);
     const recoveredPct = val(formData.recoveredPct) / 100;
     const retentionIncrease = val(formData.retentionIncrease) / 100;
@@ -78,15 +50,25 @@ const ROICalculator = () => {
     const spendLift = baselineRevenue * spendIncrease;
     const recoveredRevenue = missedCalls * averageSpend * recoveredPct;
 
-    const projectedRevenue = baselineRevenue + retentionLift + spendLift + recoveredRevenue;
-    const revenueGain = projectedRevenue - baselineRevenue;
-    const profitAfterAI = revenueGain - aiCost;
-    const roi = aiCost > 0 ? (profitAfterAI / aiCost) * 100 : (revenueGain > 0 ? 999 : 0);
+    const modeledRevenue = baselineRevenue + retentionLift + spendLift + recoveredRevenue;
+    const additionalRevenue = modeledRevenue - baselineRevenue;
+    const additionalAfterManagementFee = additionalRevenue - monthlyManagementCost;
 
-    const assumedBaseline = currentRevenueInput > 0 ? 'Using your current revenue.' : 'Baseline = customers × average spend.';
-    const note = `${assumedBaseline} Recovered revenue = missed calls × avg spend × recovered %.`;
+    const assumedBaseline = currentRevenueInput > 0
+      ? 'Baseline uses the current monthly revenue you entered.'
+      : 'Baseline = monthly customers × average spend.';
+    const note = `${assumedBaseline} Modeled recovered revenue = missed calls × average spend × your assumed recovered %. Every figure above comes from the assumptions you entered.`;
 
-    setResults({ projectedRevenue, revenueGain, recoveredRevenue, savedHours, profitAfterAI, roi, note });
+    setResults({
+      modeledRevenue,
+      additionalRevenue,
+      recoveredRevenue,
+      savedHours,
+      monthlyManagementCost,
+      oneTimeImplementationCost,
+      additionalAfterManagementFee,
+      note
+    });
   };
 
   const inputClasses = "w-full mb-3 px-3 py-2.5 text-base text-navy-foreground/90 bg-white/10 border border-white/20 rounded-md outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-navy-foreground/30";
@@ -96,46 +78,56 @@ const ROICalculator = () => {
     <section className="bg-background px-4 py-10 md:pt-10 md:pb-14">
       <div className="bg-navy border border-navy-foreground/10 rounded-xl max-w-[900px] mx-auto text-navy-foreground/85 p-5 sm:p-6 md:p-8 w-full">
         <h2 className="font-display text-2xl sm:text-[30px] font-semibold mb-2 text-navy-foreground">
-          Estimate Your ROI
+          Model a Potential Monthly Scenario Using Your Own Assumptions
         </h2>
-        <p className="mb-5 text-sm sm:text-base text-navy-foreground/50">
-          Select a plan preset or enter your own numbers, then calculate your projected monthly impact.
+        <p className="mb-4 text-sm sm:text-base text-navy-foreground/50">
+          Enter your own numbers to model a monthly scenario. Nothing is pre-filled except the current published system costs.
         </p>
 
+        <div className="mb-6 rounded-lg border border-primary/25 bg-primary/[0.06] p-4">
+          <p className="text-xs sm:text-sm text-navy-foreground/70 leading-relaxed">{DISCLAIMER}</p>
+        </div>
+
         <div className="flex flex-col">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-navy-foreground/45">
+            System costs
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Plan Preset</label>
-              <select
-                value={formData.preset}
-                onChange={(e) => {
-                  setFormData({ ...formData, preset: e.target.value });
-                  handlePresetChange(e.target.value);
-                }}
+              <label className={labelClasses} htmlFor="roi-monthly-cost">Monthly System Management ($ / month)</label>
+              <input
+                id="roi-monthly-cost"
+                type="number"
+                value={formData.monthlyManagementCost}
+                onChange={(e) => setFormData({ ...formData, monthlyManagementCost: e.target.value })}
+                placeholder="1497"
                 className={inputClasses}
-              >
-                <option value="">— Choose (optional) —</option>
-                <option value="core">Core (typical)</option>
-                <option value="plus">Plus (typical)</option>
-                <option value="pro">Pro (typical)</option>
-              </select>
+              />
             </div>
             <div>
-              <label className={labelClasses}>AI Solution Cost / Month ($)</label>
+              <label className={labelClasses} htmlFor="roi-onetime-cost">One-Time Implementation ($, separate)</label>
               <input
+                id="roi-onetime-cost"
                 type="number"
-                value={formData.aiCost}
-                onChange={(e) => setFormData({ ...formData, aiCost: e.target.value })}
-                placeholder="e.g., 997"
+                value={formData.oneTimeImplementationCost}
+                onChange={(e) => setFormData({ ...formData, oneTimeImplementationCost: e.target.value })}
+                placeholder="997"
                 className={inputClasses}
               />
             </div>
           </div>
+          <p className="mb-5 text-xs text-navy-foreground/40">
+            The one-time implementation cost is shown separately and is not included in the monthly figures below.
+          </p>
 
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-navy-foreground/45">
+            Your business inputs
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Current Monthly Revenue ($)</label>
+              <label className={labelClasses} htmlFor="roi-current-revenue">Current Monthly Revenue ($)</label>
               <input
+                id="roi-current-revenue"
                 type="number"
                 value={formData.currentRevenue}
                 onChange={(e) => setFormData({ ...formData, currentRevenue: e.target.value })}
@@ -144,12 +136,13 @@ const ROICalculator = () => {
               />
             </div>
             <div>
-              <label className={labelClasses}>Avg Monthly Customers</label>
+              <label className={labelClasses} htmlFor="roi-customers">Average Monthly Customers</label>
               <input
+                id="roi-customers"
                 type="number"
                 value={formData.monthlyCustomers}
                 onChange={(e) => setFormData({ ...formData, monthlyCustomers: e.target.value })}
-                placeholder="e.g., 200"
+                placeholder="Your number"
                 className={inputClasses}
               />
             </div>
@@ -157,22 +150,24 @@ const ROICalculator = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Avg Spend per Customer ($)</label>
+              <label className={labelClasses} htmlFor="roi-spend">Average Spend per Customer ($)</label>
               <input
+                id="roi-spend"
                 type="number"
                 value={formData.averageSpend}
                 onChange={(e) => setFormData({ ...formData, averageSpend: e.target.value })}
-                placeholder="e.g., 50"
+                placeholder="Your number"
                 className={inputClasses}
               />
             </div>
             <div>
-              <label className={labelClasses}>Admin Hours / Week</label>
+              <label className={labelClasses} htmlFor="roi-admin-hours">Admin Hours per Week</label>
               <input
+                id="roi-admin-hours"
                 type="number"
                 value={formData.adminHours}
                 onChange={(e) => setFormData({ ...formData, adminHours: e.target.value })}
-                placeholder="e.g., 10"
+                placeholder="Your number"
                 className={inputClasses}
               />
             </div>
@@ -180,22 +175,24 @@ const ROICalculator = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Missed Calls per Month</label>
+              <label className={labelClasses} htmlFor="roi-missed-calls">Missed Calls per Month</label>
               <input
+                id="roi-missed-calls"
                 type="number"
                 value={formData.missedCalls}
                 onChange={(e) => setFormData({ ...formData, missedCalls: e.target.value })}
-                placeholder="e.g., 50"
+                placeholder="Your number"
                 className={inputClasses}
               />
             </div>
             <div>
-              <label className={labelClasses}>Recovered % via Automation (%)</label>
+              <label className={labelClasses} htmlFor="roi-recovered">Assumed recovered missed-call % (your assumption)</label>
               <input
+                id="roi-recovered"
                 type="number"
                 value={formData.recoveredPct}
                 onChange={(e) => setFormData({ ...formData, recoveredPct: e.target.value })}
-                placeholder="e.g., 25"
+                placeholder="Your assumption"
                 className={inputClasses}
               />
             </div>
@@ -203,22 +200,24 @@ const ROICalculator = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Retention Increase (%)</label>
+              <label className={labelClasses} htmlFor="roi-retention">Assumed retention increase % (your assumption)</label>
               <input
+                id="roi-retention"
                 type="number"
                 value={formData.retentionIncrease}
                 onChange={(e) => setFormData({ ...formData, retentionIncrease: e.target.value })}
-                placeholder="e.g., 5"
+                placeholder="Your assumption"
                 className={inputClasses}
               />
             </div>
             <div>
-              <label className={labelClasses}>Revenue per Customer Increase (%)</label>
+              <label className={labelClasses} htmlFor="roi-spend-increase">Assumed revenue-per-customer increase % (your assumption)</label>
               <input
+                id="roi-spend-increase"
                 type="number"
                 value={formData.spendIncrease}
                 onChange={(e) => setFormData({ ...formData, spendIncrease: e.target.value })}
-                placeholder="e.g., 8"
+                placeholder="Your assumption"
                 className={inputClasses}
               />
             </div>
@@ -226,12 +225,13 @@ const ROICalculator = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
             <div>
-              <label className={labelClasses}>Time Savings from Automation (%)</label>
+              <label className={labelClasses} htmlFor="roi-time-savings">Assumed time savings % (your assumption)</label>
               <input
+                id="roi-time-savings"
                 type="number"
                 value={formData.timeSavings}
                 onChange={(e) => setFormData({ ...formData, timeSavings: e.target.value })}
-                placeholder="e.g., 40"
+                placeholder="Your assumption"
                 className={inputClasses}
               />
             </div>
@@ -239,30 +239,37 @@ const ROICalculator = () => {
           </div>
 
           <button
-            onClick={calculateROI}
+            onClick={calculateScenario}
             className="mt-2 px-6 py-3 text-base font-bold bg-primary text-primary-foreground rounded-lg cursor-pointer hover:brightness-95 active:scale-[0.98] transition-all"
           >
-            Calculate ROI
+            Model This Scenario
           </button>
           <p className="text-xs text-navy-foreground/40 mt-2">
-            Tip: If "Current Revenue" is blank, baseline = customers × average spend.
+            If "Current Monthly Revenue" is blank, baseline = monthly customers × average spend.
           </p>
         </div>
 
         {results && (
           <div className="mt-5 p-4 sm:p-5 rounded-xl bg-navy-light text-navy-foreground">
             <h3 className="text-lg sm:text-xl font-semibold mb-3 text-navy-foreground">
-              ROI Calculator Results
+              Your Modeled Scenario
             </h3>
             <div className="space-y-1.5 text-sm sm:text-base">
-              <p><strong>Projected Monthly Revenue:</strong> {isFinite(results.projectedRevenue) ? money(results.projectedRevenue) : '—'}</p>
-              <p><strong>Revenue Gain vs. Current:</strong> {isFinite(results.revenueGain) ? money(results.revenueGain) : '—'}</p>
-              <p><strong>Recovered Revenue from Missed Calls:</strong> {isFinite(results.recoveredRevenue) ? money(results.recoveredRevenue) : '—'}</p>
-              <p><strong>Admin Hours Saved (Weekly):</strong> {isFinite(results.savedHours) ? results.savedHours.toFixed(1) + ' hrs' : '—'}</p>
-              <p><strong>Profit After AI Cost:</strong> {isFinite(results.profitAfterAI) ? money(results.profitAfterAI) : '—'}</p>
-              <p><strong>ROI %:</strong> {isFinite(results.roi) ? (results.roi > 999 ? '999%+' : pct(results.roi)) : '—'}</p>
+              <p><strong>Modeled monthly revenue:</strong> {isFinite(results.modeledRevenue) ? money(results.modeledRevenue) : '—'}</p>
+              <p><strong>Modeled additional monthly revenue:</strong> {isFinite(results.additionalRevenue) ? money(results.additionalRevenue) : '—'}</p>
+              <p><strong>Modeled recovered revenue from missed calls:</strong> {isFinite(results.recoveredRevenue) ? money(results.recoveredRevenue) : '—'}</p>
+              <p><strong>Modeled weekly admin hours potentially saved:</strong> {isFinite(results.savedHours) ? results.savedHours.toFixed(1) + ' hrs' : '—'}</p>
+              <p><strong>Monthly system management fee:</strong> {isFinite(results.monthlyManagementCost) ? money(results.monthlyManagementCost) : '—'}</p>
+              <p><strong>One-time implementation cost (separate):</strong> {isFinite(results.oneTimeImplementationCost) ? money(results.oneTimeImplementationCost) : '—'}</p>
+              <p>
+                <strong>Modeled additional monthly revenue after monthly management fee (not profit):</strong>{' '}
+                {isFinite(results.additionalAfterManagementFee) ? money(results.additionalAfterManagementFee) : '—'}
+              </p>
             </div>
             <p className="text-xs text-navy-foreground/50 mt-3">{results.note}</p>
+            <p className="text-xs text-navy-foreground/50 mt-2">
+              These figures are revenue estimates, not profit. They exclude your cost of delivering the work, third-party software and usage charges, taxes, and any other business expense. {DISCLAIMER}
+            </p>
           </div>
         )}
       </div>

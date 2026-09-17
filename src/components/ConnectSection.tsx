@@ -27,8 +27,8 @@ const ConnectSection = React.memo(() => {
               improving client intake, follow-up, and reporting.
             </p>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              The result is faster response times, smoother operations, and
-              sustainable growth backed by measurable ROI.
+              The goal is more consistent response, smoother operations, and
+              clearer operating visibility into how your system is performing.
             </p>
           </div>
 
