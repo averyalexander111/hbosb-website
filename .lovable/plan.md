@@ -1,38 +1,78 @@
-# Plan: HBOSB Commercial Messaging and Motion Reconciliation
+# Plan: Surgical HBOSB Homepage Commercial Reconciliation
 
-## Scope and safeguards
-- Keep this preview-only. Preserve the current `/leads` offer boundaries and `/roi` user-driven calculations.
-- Keep the complimentary assessment promise, current contact details, legal routes, SMS disclosures, and stable public routes.
-- Do not create public Starter Website Launch promotion, new offer tiers, delivery guarantees, or unsupported technical claims.
-- Treat delivery capacity, monitoring, performance-data availability, and AI voice readiness as operational validation items. The website repository cannot prove those services are production-ready.
+## Verified minimum corrections
 
-## Homepage and shared experience
-- Reorder the homepage around the approved journey: hero, lead-handling problem, primary managed system, lead-flow explanation, capabilities, engagement steps, testimonials, FAQ, final assessment CTA, contact, footer.
-- Rewrite the hero, problem, managed-system, process, capability, engagement, FAQ, final CTA, contact, navigation, and footer copy to the approved language and CTA hierarchy.
-- Present the AI Lead Conversion System as the primary managed offer with `$997` implementation and `$1,497/month` management. Keep Multi-Listing and broader work as assessment-led boundaries, not peer products.
-- Remove the unsupported technology-logo carousel from the homepage rather than imply unverified platform support.
-- Keep authentic testimonials unchanged.
+1. **`src/components/ProblemSection.tsx` — needed**
+   - Replace only the sentence claiming AI systems automatically capture, respond to, and convert opportunities.
+   - Use qualified process-support language.
+   - Preserve the heading, all five cards, layout, styling, and motion.
 
-## Assessment, About, Leads, and ROI
-- Update `/assessment` intro, labels, benefit cards, trust boundary, metadata, processing/results language, and recommendation framing so it provides initial findings rather than a blueprint or fixed implementation roadmap.
-- Remove the artificial assessment processing delay and ensure reduced-motion users receive content immediately.
-- Preserve assessment submission and calendar behavior; add the project-standard optional SMS consent disclosure to the assessment lead form without making consent a condition of submission.
-- Reconcile `/about` messaging, founder title/copy, credentials, vision, and the explanatory Capture/Respond/Follow Up/Track/Improve framework while preserving its layout and founder image.
-- Make only targeted `/leads` edits: add “Free” to assessment CTAs, update metadata, add a compact restoration/high-value-service callout, and tune the existing six-step motion for sequential, reduced-motion-safe presentation.
-- Preserve `/roi` formulas and defaults; update metadata and replace only its lower CTA with the approved scenario-to-assessment message.
+2. **`src/components/AIOperatingSystem.tsx` — needed**
+   - Preserve the complete five-stage pipeline, icons, connectors, animations, and section placement.
+   - Change the product-like heading “The Heartbeat AI Operating System” to “Where Better Systems Create Leverage.”
+   - Qualify the Convert-stage sentence so CRM and scheduling support an approved next step rather than turning prospects into customers automatically.
+   - Keep all other stage detail unless a directly conflicting claim requires a small wording correction.
 
-## Claims, metadata, and retired public offers
-- Remove active public references to BaySignal, Heartbeat Launchpad/LaunchPad, SiteCare, Starter Website Launch promotion, named AI Operating System/AI System Blueprint products, old package language, and unsupported guarantee/instant/automatic-conversion claims.
-- Remove Launchpad and SiteCare service entries from root structured data because they are retired public terminology in this brief; do not alter their internal source materials or commercial terms.
-- Update page titles/descriptions and homepage FAQ structured data to match the revised visible positioning. Preserve canonical paths and social images.
-- Leave unrouted internal legacy components and internal pricing/scope records unchanged unless they are imported into an active public route. Report them as hidden legacy code.
+3. **`src/components/AISystemsSection.tsx` — needed**
+   - Preserve all six capability cards, the lower explanatory panel, layout, and motion.
+   - Clarify in the section introduction that capabilities are selected where appropriate and are not six standard offers.
+   - Keep AI Voice explicitly separately scoped and outside the standard system.
+   - Qualify “convert visitors into leads,” “tie directly to revenue outcomes,” and outbound/reactivation “generate conversations and book appointments.”
+   - Keep outbound/reactivation as a capability, with scope-dependent wording.
 
-## Motion, accessibility, and responsive behavior
-- Standardize entrance and card motion to short fade/y transitions, once per viewport, with restrained stagger and no delayed CTA access.
-- Make process motion sequential and explanatory only. Add reduced-motion fallbacks for Framer Motion, CSS glow effects, carousels, and intersection-based reveals.
-- Preserve visible focus states and verify accordion keyboard behavior, forms, pricing, CTAs, and navigation across 320, 375, 430, 768, 1024, 1280, and 1440 widths.
+4. **`src/components/AILeadResponseSection.tsx` — needed**
+   - Add one restrained sentence connecting the managed lead-response system to restoration and other high-value service businesses.
+   - Preserve the component structure, cards, CTA, styling, and motion.
 
-## Validation and reporting
-- Run the existing typecheck equivalent, build, and lint; validate JSON-LD and scan active public code for retired terminology, old pricing, unsupported claims, and Starter Website promotion.
-- Browser-test `/`, `/leads`, `/assessment`, `/about`, `/roi`, `/contact`, assessment and implementation-review destinations, calculator outputs, forms, navigation, overflow, console errors, and reduced-motion rendering.
-- Report verified behavior separately from pending operational checks: standard delivery envelope, stack support, pass-through billing, monitoring/alerts, monthly performance data, AI voice readiness, assessment downstream routing, contact response-time claim, and configured hours.
+5. **`src/components/ImplementationSection.tsx` — needed**
+   - Preserve the four-step layout and animation.
+   - Replace only the current sequence with: AI Revenue System Assessment → Appropriate Recommendation → Approved Implementation → Management & Improvement.
+   - Keep the free assessment distinct from the paid Business Systems Audit & AI Blueprint.
+
+6. **`index.html` — needed**
+   - Remove only the active public Heartbeat Launchpad and Heartbeat SiteCare `Service` schema entries, including their public prices and the embedded BaySignal reference.
+   - Preserve the valid ProfessionalService and FAQ structured data, canonical site signals, analytics, social image, and unrelated metadata.
+   - Validate the remaining JSON-LD after removal.
+
+7. **`src/lib/audit.ts` — needed**
+   - Preserve question IDs, scores, calculation logic, webhook payload shape, and submission behavior.
+   - Correct the malformed q6 high-score option.
+   - Requalify only the generated guidance that says “respond immediately,” “responds within minutes,” reports “exactly how many” converted, or names a “Phased AI operating system roadmap.”
+   - Keep results framed as assessment guidance, not guaranteed performance or a standard blueprint deliverable.
+
+8. **`/leads` and `/roi` — validation only**
+   - Confirm `/leads` retains `$997` one-time implementation, `$1,497/month` management, single-location scope, separately scoped multi-location work, and standard AI voice exclusion.
+   - Confirm `/roi` retains defaults `1497` and `997`, blank user-controlled business assumptions, disclaimer, revenue-not-profit labels, and no Core/Plus/Pro presets.
+   - Make no edits unless validation exposes a restored contradiction.
+
+9. **Active/shared legacy search — needed as final gate**
+   - Re-scan imported public code and machine-readable content for Starter Website Launch promotion, Launchpad, SiteCare, BaySignal, `$97` Lead Conversion pricing, standard-step “AI System Blueprint,” and unsupported guarantee/instant/automatic-conversion claims.
+   - Ignore unrouted legacy components and preserve their internal records and terms.
+   - No dedicated Starter Website Launch route exists in the current route table; no route action is planned.
+
+## Additional targeted metadata correction
+
+- **`src/components/SEOHead.tsx` — needed**
+  - Align only the homepage default title/description with the current managed lead-response positioning so client-rendered metadata does not restore “high-converting websites,” outcome promises, or “Done for you” language.
+  - Preserve canonical behavior, social image, and per-route overrides.
+
+## Explicitly preserved untouched
+
+- **Homepage hero:** exact H1, structure, typography, background/effects, entrance animation, capability pills, CTA layout/styling, assessment CTA, and ROI calculator secondary action.
+- **Homepage architecture:** current section order, section count, capability depth, diagrams, explanatory detail, Results section, technology carousel, testimonials, FAQ, final CTA, contact section, navigation, and footer.
+- **Motion system:** no new lead-flow animation, no new hero sequence, no broad motion rewrite, and no removal of current animations.
+- **Technology carousel:** retained in this pass; no logo-support claims will be expanded. Its platform support remains an operational validation item.
+- **`/leads`:** commercial wording, pricing, scope, service envelope, pilot boundaries, human responsibilities, voice boundary, CTAs, and motion unless a validation-only contradiction appears.
+- **`/roi`:** formulas, defaults, fields, assumptions, results, disclaimer, visual structure, hero action, and route label unless a real defect is found.
+- **Assessment form:** existing fields, data contract, question IDs, scoring, webhook events, and functionality. No SMS-consent field will be added. Existing contact-form SMS consent remains unchanged.
+- **Internal material:** dead/unrouted legacy components, Starter Website Launch records/terms, sales materials, and historical pricing are not deleted or rewritten.
+- **No unrelated cleanup:** no About-page rewrite, navigation relabeling, footer rewrite, section reordering, capability removal, or broad claim/style pass.
+
+## Technical validation and QA
+
+- Run TypeScript checking, production build, lint, and JSON-LD parsing; fix only issues caused by this work.
+- Browser-check `/`, `/leads`, `/assessment`, and `/roi` at representative mobile, tablet, and desktop widths for rendering, overflow, console errors, and CTA destinations.
+- Verify homepage lazy-loaded sections still load after the recent chunk-reload fix.
+- Report, without changing commercial copy, operational items the website repository cannot prove: delivery capacity for the published service envelope, monitoring/failure alerts, supported stack, monthly performance-data availability, separate-scope AI voice readiness, and downstream assessment routing.
+- Report assessment-specific SMS consent as a pending compliance consideration only if downstream SMS follow-up is contemplated. Preserve the current contact-form consent implementation.
+- Keep all work preview-only. Do not publish or deploy.
