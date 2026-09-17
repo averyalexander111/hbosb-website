@@ -58,26 +58,26 @@ import { toast } from "sonner";
 type AuditView = "intro" | "questions" | "processing" | "results";
 
 const heroStats = [
-  { label: "Completion Time", value: "4 to 5 minutes" },
-  { label: "Outcome", value: "Initial findings" },
-  { label: "Next Step", value: "Optional review" },
+  { label: "Completion Time", value: "4-5 min" },
+  { label: "Outcome", value: "Priority roadmap" },
+  { label: "Next Step", value: "Strategy call" },
 ];
 
 const trustPoints = [
   {
     icon: Clock3,
-    title: "Identify likely lead-handling gaps",
-    description: "Surface where response, follow-up, handoff, or tracking may be inconsistent.",
+    title: "Pinpoint revenue leaks",
+    description: "We surface where lead response, follow-up, and handoff are costing you real opportunities.",
   },
   {
     icon: Workflow,
-    title: "See a practical next step",
-    description: "Receive an initial recommendation based on the information provided.",
+    title: "See the right system first",
+    description: "Instead of guessing, you get a practical first build based on your business and current workflow maturity.",
   },
   {
     icon: ShieldCheck,
-    title: "Grounded in real operations",
-    description: "The assessment considers the team, process, and systems already involved.",
+    title: "Built for real operations",
+    description: "Recommendations are grounded in your team's process, tooling, and comfort level with new systems.",
   },
 ];
 
@@ -154,9 +154,21 @@ const Audit = () => {
 
     setProcessingProgress(18);
 
+    const intervalId = window.setInterval(() => {
+      setProcessingProgress((current) => (current >= 92 ? current : current + 6));
+    }, 110);
+
     void submitAuditCompletion(leadData, blueprint);
-    setProcessingProgress(100);
-    setView("results");
+
+    const timeoutId = window.setTimeout(() => {
+      setProcessingProgress(100);
+      setView("results");
+    }, 1600);
+
+    return () => {
+      window.clearInterval(intervalId);
+      window.clearTimeout(timeoutId);
+    };
   }, [blueprint, leadData, view]);
 
   useEffect(() => {
@@ -379,10 +391,10 @@ const Audit = () => {
   return (
     <>
       <SEOHead
-        title="Free AI Revenue System Assessment | HBOSB"
-        description="Answer focused questions about lead response, follow-up, handoff, and visibility. Receive initial findings and a practical next step."
-        ogTitle="Free AI Revenue System Assessment | HBOSB"
-        ogDescription="Find likely lead-handling gaps and receive initial findings with no purchase commitment."
+        title="AI Revenue Assessment | Heartbeat of South Bay"
+        description="Take the Heartbeat of South Bay AI revenue assessment to uncover where leads, follow-up, and operations are leaking revenue."
+        ogTitle="AI Revenue Assessment | Heartbeat of South Bay"
+        ogDescription="Get a practical assessment of your lead handling, systems, and AI readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
       />
       <HeartbeatNavbar forceSolid={view !== "intro"} />
@@ -408,13 +420,14 @@ const Audit = () => {
                   <div className="max-w-3xl">
                     <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-navy-foreground/90">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      AI Revenue System Assessment
+                      AI Revenue Assessment
                     </span>
                     <h1 className="mt-6 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl md:text-6xl">
-                      Find Where Good Leads Are Slipping Through the Cracks
+                      You're getting leads. But not all of them are turning into business.
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-foreground/70">
-                      Answer a few focused questions about how inquiries enter your business, how quickly they are handled, what happens after the first response, and how opportunities are tracked. You will receive initial findings and a practical next step based on the information you provide.
+                      Find where they're slipping through the cracks. Answer a few quick questions and get a clear breakdown of
+                      your response speed, follow-up gaps, and the fastest way to fix them.
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -437,10 +450,10 @@ const Audit = () => {
                     className="rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur-xl sm:p-8"
                   >
                     <div className="mb-8">
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start With Your Details</p>
-                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your free assessment</h2>
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Start with your details</p>
+                      <h2 className="mt-3 text-2xl font-bold text-navy-foreground">Begin your assessment</h2>
                       <p className="mt-2 text-sm leading-relaxed text-navy-foreground/75">
-                        Your details help keep the assessment and any requested follow-up connected to the correct business.
+                        Your details keep the assessment personalized and the follow-up tied to the right business.
                       </p>
                     </div>
 
@@ -503,9 +516,6 @@ const Audit = () => {
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </form>
-                      <p className="mt-5 text-center text-xs text-navy-foreground/55">
-                        Complimentary assessment. No purchase commitment required.
-                      </p>
                   </motion.div>
                 </div>
               </div>
@@ -516,15 +526,12 @@ const Audit = () => {
                 <div className="mx-auto mb-14 max-w-3xl text-center">
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">What you get</p>
                   <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
-                     A More Useful Starting Point Than a Generic Quiz
+                    A cleaner starting point than a generic quiz
                   </h2>
                   <p className="mt-4 text-lg text-muted-foreground">
-                     The questions focus on lead response, follow-up, handoff, pipeline visibility, and operational bottlenecks.
+                    The questions are tuned around lead conversion, systems, and operational bottlenecks, so the recommendations point toward a real implementation path.
                   </p>
                 </div>
-                <p className="mt-8 text-center text-sm text-muted-foreground">
-                  This is a focused lead-conversion assessment. It is not a full business-systems audit, implementation plan, or AI blueprint.
-                </p>
 
                 <div className="grid gap-6 lg:grid-cols-3">
                   {trustPoints.map((point) => (
@@ -558,7 +565,7 @@ const Audit = () => {
 
                   <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
                   <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/80">
-                        Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few focused questions about the current lead-handling process.
+                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few quick questions, clear answers on where revenue is leaking and what to fix first.
                   </p>
 
                   <div className="mt-10">
@@ -585,13 +592,13 @@ const Audit = () => {
                     <div className="flex items-start gap-3">
                       <Bot className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                         The goal is to identify likely gaps and a practical next step, not to score perfection.
+                        The goal is to reveal the highest-leverage system to build first, not to score perfection.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <Layers3 className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                         Your answers shape the initial findings and optional next step on the results screen.
+                        Your answers shape the recommendations and the clear next step on the results screen.
                       </p>
                     </div>
                   </div>
@@ -710,7 +717,7 @@ const Audit = () => {
               </div>
               <h2 className="mt-8 text-3xl font-bold">Mapping your revenue gaps...</h2>
               <p className="mt-3 text-base leading-relaxed text-navy-foreground/80">
-                 Turning your answers into initial findings and a practical next step.
+                Turning your answers into a priority order, a recommended rollout, and your clear next step.
               </p>
 
               <div className="mx-auto mt-10 max-w-md text-left">
@@ -850,12 +857,12 @@ const Audit = () => {
             <section className="bg-navy py-20">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto mb-14 max-w-3xl text-center">
-                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Initial recommendation</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Recommended rollout</p>
                   <h2 className="mt-3 text-3xl font-bold text-navy-foreground sm:text-4xl">
-                     A practical sequence for review
+                    A practical 90-day implementation sequence
                   </h2>
                   <p className="mt-4 text-lg text-navy-foreground/80">
-                     These initial steps are based on your answers. Any implementation scope is reviewed and approved separately.
+                    A focused first 90 days based on what your answers revealed.
                   </p>
                 </div>
 
@@ -886,7 +893,7 @@ const Audit = () => {
                       </div>
                       <div>
                         <h2 className="text-xl font-semibold text-foreground">Systems to start with</h2>
-                         <p className="text-sm text-muted-foreground">Potential system directions to discuss during an optional review.</p>
+                        <p className="text-sm text-muted-foreground">The first systems most likely to create movement.</p>
                       </div>
                     </div>
 
@@ -902,14 +909,15 @@ const Audit = () => {
                     <div className="mt-8 rounded-3xl border border-primary/15 bg-primary/[0.06] p-5">
                       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Best next move</p>
                       <p className="mt-3 leading-relaxed text-foreground/85">
-                         If you would like to continue, book an optional review. We will use your answers to discuss fit and determine an appropriate recommendation. Nothing is approved for implementation by completing this assessment.
+                        Book the strategy session while this context is fresh. We'll use your answers to decide what gets built
+                        first and how ambitious the rollout should be.
                       </p>
                     </div>
 
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Button asChild size="lg" className="rounded-xl">
                         <a href={AUDIT_BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                           Book an optional assessment review
+                          Book the assessment review
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -931,7 +939,7 @@ const Audit = () => {
                     <div className="rounded-[1.5rem] border border-border/70 bg-background p-5">
                       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                         <div>
-                           <h2 className="text-xl font-semibold text-foreground">Schedule an optional review</h2>
+                          <h2 className="text-xl font-semibold text-foreground">Schedule your strategy session</h2>
                           <p className="text-sm text-muted-foreground">
                             Use the calendar below to book the next step from this assessment.
                           </p>

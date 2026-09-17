@@ -19,8 +19,8 @@ const HeartbeatFooter = () => {
                 Heartbeat of South&nbsp;Bay
               </span>
             </div>
-            <p className="text-sm text-navy-foreground/60 max-w-md">
-              Managed lead-response and business systems for service businesses.
+            <p className="text-sm text-navy-foreground/60 whitespace-nowrap">
+              AI Systems for Modern Businesses.
             </p>
           </div>
 
@@ -65,9 +65,9 @@ const HeartbeatFooter = () => {
             { to: "/leads", label: "Lead Conversion System" },
             { to: "/roi", label: "ROI Calculator" },
             { to: "/about", label: "About Us" },
-            { to: "/blog", label: "Articles" },
+            { to: "/blog", label: "Blog" },
             { to: "/contact", label: "Contact" },
-            { to: "/assessment", label: "Free Assessment" },
+            { to: "/assessment", label: "Assessment" },
           ].map((link) => (
             <Link
               key={link.to}

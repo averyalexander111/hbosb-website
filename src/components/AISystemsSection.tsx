@@ -1,15 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ClipboardList, PhoneOff, Send, Workflow, LineChart, Route, CalendarCheck } from "lucide-react";
+import { Magnet, Send, Mic, Workflow, LineChart, PhoneOutgoing, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
-  { icon: ClipboardList, title: "Lead Capture & Intake", desc: "Forms and intake workflows that organize new inquiries." },
-  { icon: PhoneOff, title: "Missed-Call Recovery", desc: "Structured response workflows that help reduce opportunities being forgotten after a missed call." },
-  { icon: Send, title: "SMS & Email Follow-Up", desc: "Approved communication sequences that support consistent follow-up." },
-  { icon: LineChart, title: "CRM & Pipeline Visibility", desc: "Clear stages and lead tracking so opportunities remain visible." },
-  { icon: CalendarCheck, title: "Booking & Lead Routing", desc: "Workflows that move appropriate inquiries toward the right person or next step." },
-  { icon: Workflow, title: "Workflow Automation & Integrations", desc: "Connections between systems involved in the customer journey." },
-  { icon: Route, title: "Reporting & Optimization", desc: "Available system data used to review performance and identify practical improvements." },
+  { icon: Magnet, title: "AI Lead Capture", desc: "Smart intake forms and AI chat systems that convert visitors into leads." },
+  { icon: Send, title: "Automated Follow-Ups", desc: "Email and SMS workflows that nurture leads and move them toward action." },
+  { icon: Mic, title: "AI Voice Systems (Separately Scoped)", desc: "Voice intake and call handling require a separate review of architecture, cost, compliance, and delivery readiness. Not included in the standard AI Lead Conversion System." },
+  { icon: Workflow, title: "Automation Infrastructure", desc: "Workflow systems connecting your tools to eliminate bottlenecks and accelerate output." },
+  { icon: LineChart, title: "Analytics & Reporting", desc: "Performance dashboards and insights that tie directly to revenue outcomes." },
+  { icon: PhoneOutgoing, title: "AI Outbound & Lead Reactivation", desc: "AI-powered systems that proactively reach out to new and existing leads to generate conversations and book appointments." },
 ];
 
 const AISystemsSection = () => {
@@ -23,9 +23,9 @@ const AISystemsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground">Capabilities We Bring Into the Right System</h2>
+          <h2 className="section-title text-foreground">AI Systems We Build</h2>
           <p className="section-subtitle mx-auto">
-            Every business does not need every capability. HBOSB uses the components that solve the demonstrated operational problem and fit the approved implementation.
+            Purpose-built systems designed to improve how your business captures, follows up with, and converts opportunities.
           </p>
         </motion.div>
 
@@ -37,7 +37,7 @@ const AISystemsSection = () => {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
         >
           {services.map((s) => (
             <motion.div
@@ -46,7 +46,7 @@ const AISystemsSection = () => {
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
               }}
-              className="group p-8 rounded-lg bg-card border border-border hover:shadow-elegant-hover hover:-translate-y-0.5 transition-[box-shadow,transform] duration-300"
+              className="group p-8 rounded-2xl bg-card border border-border hover:shadow-elegant-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <s.icon className="w-6 h-6 text-primary" />
@@ -58,20 +58,27 @@ const AISystemsSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="mt-10 max-w-4xl mx-auto bg-navy rounded-lg p-6 md:p-8 relative overflow-hidden border border-navy-foreground/10"
+          className="mt-12 md:mt-16 max-w-5xl mx-auto bg-navy rounded-3xl p-8 md:p-12 relative overflow-hidden border border-navy-foreground/10"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center">
-            <h3 className="text-xl md:text-2xl font-bold text-navy-foreground mb-3">
-              AI Voice
+            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-navy-foreground mb-5 max-w-5xl mx-auto leading-tight lg:whitespace-nowrap">
+              Every Lead Needs a Clear Path to Conversion
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[880px] mx-auto leading-relaxed">
-              AI voice can be evaluated when it fits the use case. It is separately scoped and is not a standard inclusion in the AI Lead Conversion System.
+              Your leads may come from phone calls, forms, landing pages, reviews, or multiple listings. We connect the right systems around that flow, including missed-call response, call handling support, outbound follow-up, review communication, CRM pipelines, and website or landing page support when needed.
             </p>
+            <Link
+              to="/assessment"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
+            >
+              Start AI Revenue System Assessment
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </motion.div>
       </div>

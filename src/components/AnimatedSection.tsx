@@ -14,15 +14,10 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
     const el = ref.current;
     if (!el) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          window.setTimeout(() => setIsVisible(true), delay);
+          setTimeout(() => setIsVisible(true), delay);
           observer.unobserve(el);
         }
       },

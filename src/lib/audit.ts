@@ -154,7 +154,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
       { text: "Very often", score: 1 },
       { text: "Occasionally", score: 2 },
       { text: "Rarely", score: 4 },
-      { text: "Almost never - our process is consistently followed", score: 5 },
+      { text: "Never - all leads are responded to", score: 5 },
     ],
   },
   {
@@ -178,7 +178,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
       { text: "We respond manually when available", score: 1 },
       { text: "We respond, but timing is inconsistent", score: 2 },
       { text: "We have a basic follow-up process in place", score: 3 },
-      { text: "Eligible inquiries receive a prompt response through our established process", score: 5 },
+      { text: "Leads are automatically responded to immediately", score: 5 },
     ],
   },
   {
@@ -234,8 +234,8 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
     options: [
       { text: "Small improvement", score: 2 },
       { text: "Moderate improvement", score: 3 },
-      { text: "Meaningful improvement", score: 4 },
-      { text: "Major operational improvement", score: 5 },
+      { text: "Significant growth", score: 4 },
+      { text: "Game-changing", score: 5 },
     ],
   },
   {
@@ -244,7 +244,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
     type: "scored",
     question: "How would you prefer to get started?",
     options: [
-      { text: "Start with one focused system addressing the clearest gap", score: 4 },
+      { text: "Start with one high-impact system to generate results quickly", score: 4 },
       { text: "Build a more complete system across multiple areas", score: 5 },
       { text: "Not sure - recommend what would have the biggest impact", score: 3 },
     ],
@@ -334,17 +334,17 @@ export const calculateAuditResult = (responses: AuditResponse[]): AuditResult =>
   const responseSpeedScore = getAnswerScore(responses, "q8");
   const followUpScore = getAnswerScore(responses, "q10");
 
-  let recommendation = "Your assessment points to an opportunity to review response speed and follow-up consistency.";
+  let recommendation = "Your audit points to a strong case for tightening response speed and follow-up.";
 
   if (missedLeadScore <= 2 || responseSpeedScore <= 3) {
     recommendation =
       "Your biggest opportunity is a structured lead-response system designed to help capture, route, and track approved inquiries more consistently.";
   } else if (followUpScore <= 2) {
     recommendation =
-      "A practical next step is reviewing whether a structured follow-up workflow fits the gaps shown in your answers.";
+      "Your next highest-leverage move is a structured follow-up engine so warm leads do not go cold after first contact.";
   } else if (level === "High") {
     recommendation =
-      "Your answers suggest a workable foundation. An optional review can determine whether targeted automation or reporting improvements are appropriate.";
+      "You already have a strong foundation. The best next move is layering smarter automation and reporting on top of what is working.";
   }
 
   return {
@@ -378,18 +378,18 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
 
   const primaryLeak =
     leadHandlingPercent < 65
-      ? `Lead handling appears to be the clearest process gap. New inquiries are being worked at "${responseSpeed || "an inconsistent pace"}" and follow-up is currently "${followUpDepth || "not clearly defined"}".`
-      : `Your answers suggest a workable operational foundation, with possible room to improve response consistency, follow-up, and visibility for ${businessName}.`;
+      ? `Lead handling is the clearest revenue leak. New inquiries are being worked at "${responseSpeed || "an inconsistent pace"}" and follow-up is currently "${followUpDepth || "not clearly defined"}".`
+      : `Your operational foundation is decent, but there is still room to tighten response speed, automation depth, and reporting so ${businessName} converts more of the demand it already has.`;
 
   const dataConstraint =
     dataPercent < 60
       ? `Customer information currently lives in "${dataLocation || "multiple disconnected places"}", which makes automation harder and limits visibility across the pipeline.`
-      : `Your data foundation appears workable. An optional review can determine whether better orchestration or targeted automation is appropriate.`;
+      : `Your data foundation is workable, which means the next gain likely comes from better orchestration and stronger automations.`;
 
   const rolloutGuidance =
     toolsPercent < 60
       ? `Because your current automation stack is "${automationLevel || "still fairly manual"}" and team AI comfort is "${aiComfort || "still developing"}", the safest rollout is a human-in-the-loop system that improves speed without overwhelming the team.`
-      : `Because your team already has some comfort with automation, a review may identify appropriate multi-step workflows or reporting improvements.`;
+      : `Because your team already has some comfort with automation, you can move faster into multi-step workflows and reporting.`;
 
   const keyFindings = [
     primaryLeak,
@@ -401,23 +401,23 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
 
   const actionPlan: AuditInsightSection[] = [
     {
-      title: "Step 1: Review intake and response",
+      title: "Phase 1: Capture and respond immediately",
       body:
         leadHandlingPercent < 65
-          ? `Review an intake workflow that can acknowledge eligible inquiries, route them appropriately, and support approved follow-up. This addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}" without assuming a guaranteed response time.`
-          : `Review the first-touch experience so eligible leads can receive an approved confirmation and appropriate next step based on the connected systems.`,
+          ? `Install an intake system that responds within minutes, routes leads to the right place, and starts follow-up automatically. This directly addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}".`
+          : `Tighten the first-touch experience so eligible leads can receive an automated branded confirmation, qualification step, and clear path to booking based on the approved workflow and connected systems.`,
     },
     {
-      title: "Step 2: Review follow-up consistency",
+      title: "Phase 2: Build a follow-up engine",
       body:
-        `Based on your current depth of "${followUpDepth || "limited follow-up"}", review whether an approved, repeatable sequence across supported channels could make follow-up more consistent.`,
+        `Turn follow-up into a system instead of a memory test. Based on your current depth of "${followUpDepth || "limited follow-up"}", the goal is a repeatable multi-touch sequence across text and email that keeps opportunities warm until they book or opt out.`,
     },
     {
-      title: "Step 3: Review pipeline visibility",
+      title: "Phase 3: Create pipeline visibility",
       body:
         successMetric
-          ? `Use your stated goal, "${successMetric}", as context for deciding which available lead-status and workflow information would be useful to review.`
-          : `Identify which available lead volume, response, follow-up, booking, and outcome information would improve visibility.`,
+          ? `Set the system up to track progress against your stated 90-day win: "${successMetric}". Once the workflow is running, reporting should show exactly how many leads were captured, contacted, nurtured, and converted.`
+          : `Add simple reporting so you can see lead volume, response speed, booked calls, and conversion trends in one place.`,
     },
   ];
 
@@ -426,7 +426,7 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
   recommendedSystems.push({
     title: "AI lead response workflow",
     body:
-      `This may be an appropriate fit for ${businessName}. A scope review would confirm whether approved intake, routing, follow-up, and visibility workflows address the demonstrated gaps.`,
+      `This is the highest-leverage fit for ${businessName}. It shortens response time, closes the gap between inquiry and action, and creates a better first impression without adding headcount.`,
   });
 
   if (dataPercent < 60) {
@@ -447,18 +447,18 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
 
   if (startingPreference.includes("complete system")) {
     recommendedSystems.push({
-      title: "Broader systems review",
+      title: "Phased AI operating system roadmap",
       body:
-        `You signaled interest in broader operational work. That need should be reviewed separately from the focused AI Lead Conversion System before any implementation is recommended.`,
+        `You signaled interest in a broader rollout. The best path is a staged build that starts with lead handling, then expands into reporting, reactivation, and customer communication.`,
     });
   }
 
   return {
-    headline: `Initial findings for ${businessName}`,
+    headline: `${leadData.auditResult.readinessPercentage}% readiness for ${businessName}`,
     summary:
       businessSummary
-        ? `${businessName} serves ${businessSummary.toLowerCase()} Your answers indicate areas to review across response, follow-up, handoff, and lead visibility.`
-        : `${businessName} may have opportunities to improve response speed, follow-up consistency, and visibility across the lead pipeline.`,
+        ? `${businessName} serves ${businessSummary.toLowerCase()} The strongest opportunity right now is to turn incoming demand into a more predictable system for response, follow-up, and conversion.`
+        : `${businessName} has a clear opportunity to improve response speed, follow-up consistency, and visibility across the revenue pipeline.`,
     keyFindings,
     actionPlan,
     recommendedSystems,
