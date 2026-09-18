@@ -26,3 +26,9 @@
 - [x] BaySignal / Launchpad / SiteCare OfferCatalog pricing removed from active index.html structured data
 - [x] Assessment-result absolutes and immediate-response guidance requalified without changing scoring or submission behavior
 - [ ] Unrouted legacy components still hold Core/Plus/Pro and $1,497 setup-fee language (GrowthPlansSection, BaySignalSection) — dead code, not served
+
+## Production lead-routing cleanup (preview only, not published)
+- [x] Remove GHL/LeadConnector external-tracking script from index.html
+- [x] ContactForm: direct n8n webhook on both production hostnames regardless of pathname
+- [x] Remove secondary Supabase edge-function submission from production branch (non-production fallback kept)
+- [x] Validation: TypeScript, build, isolated diff, assessment files untouched
