@@ -28,7 +28,7 @@
 - [ ] Unrouted legacy components still hold Core/Plus/Pro and $1,497 setup-fee language (GrowthPlansSection, BaySignalSection) — dead code, not served
 
 ## Production lead-routing cleanup (preview only, not published)
-- [x] Remove GHL/LeadConnector external-tracking script from index.html
+- [x] Remove the GoHighLevel tracking script from index.html
 - [x] ContactForm: direct n8n webhook on both production hostnames regardless of pathname
 - [x] Remove secondary Supabase edge-function submission from production branch (non-production fallback kept)
 - [x] Validation: TypeScript, build, isolated diff, assessment files untouched
