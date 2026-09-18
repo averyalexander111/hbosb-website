@@ -1,78 +1,64 @@
-# Plan: Surgical HBOSB Homepage Commercial Reconciliation
+# GoHighLevel external-form capture + contact submission consolidation
 
-## Verified minimum corrections
+Read-only findings, plus the minimal change to make when approved. Nothing was edited.
 
-1. **`src/components/ProblemSection.tsx` — needed**
-   - Replace only the sentence claiming AI systems automatically capture, respond to, and convert opportunities.
-   - Use qualified process-support language.
-   - Preserve the heading, all five cards, layout, styling, and motion.
+## 1) Does GHL tracking / external-form capture code exist?
 
-2. **`src/components/AIOperatingSystem.tsx` — needed**
-   - Preserve the complete five-stage pipeline, icons, connectors, animations, and section placement.
-   - Change the product-like heading “The Heartbeat AI Operating System” to “Where Better Systems Create Leverage.”
-   - Qualify the Convert-stage sentence so CRM and scheduling support an approved next step rather than turning prospects into customers automatically.
-   - Keep all other stage detail unless a directly conflicting claim requires a small wording correction.
+Yes. One script, one location:
 
-3. **`src/components/AISystemsSection.tsx` — needed**
-   - Preserve all six capability cards, the lower explanatory panel, layout, and motion.
-   - Clarify in the section introduction that capabilities are selected where appropriate and are not six standard offers.
-   - Keep AI Voice explicitly separately scoped and outside the standard system.
-   - Qualify “convert visitors into leads,” “tie directly to revenue outcomes,” and outbound/reactivation “generate conversations and book appointments.”
-   - Keep outbound/reactivation as a capability, with scope-dependent wording.
+`index.html`, lines 171-174 (inside `<body>`):
 
-4. **`src/components/AILeadResponseSection.tsx` — needed**
-   - Add one restrained sentence connecting the managed lead-response system to restoration and other high-value service businesses.
-   - Preserve the component structure, cards, CTA, styling, and motion.
+```html
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_deddbf0ee67747858c559b21d9fb9117">
+</script>
+```
 
-5. **`src/components/ImplementationSection.tsx` — needed**
-   - Preserve the four-step layout and animation.
-   - Replace only the current sequence with: AI Revenue System Assessment → Appropriate Recommendation → Approved Implementation → Management & Improvement.
-   - Keep the free assessment distinct from the paid Business Systems Audit & AI Blueprint.
+`link.msgsndr.com` is GoHighLevel/LeadConnector. This is their external-form tracking script: it loads on every page of the site and watches native `<form>` submissions on non-GHL pages, creating a contact with `source = external_form` attributed to the page URL. Because the contact form is a React form whose fields are controlled and posted via `fetch` (not a native GHL form with mapped field names), GHL captures the submit event but not the field values. That matches the empty-name/email/phone contacts attributed to `https://heartbeatofsouthbay.com/contact`.
 
-6. **`index.html` — needed**
-   - Remove only the active public Heartbeat Launchpad and Heartbeat SiteCare `Service` schema entries, including their public prices and the embedded BaySignal reference.
-   - Preserve the valid ProfessionalService and FAQ structured data, canonical site signals, analytics, social image, and unrelated metadata.
-   - Validate the remaining JSON-LD after removal.
+No other GHL/LeadConnector asset exists anywhere in the repo. Confirmed absent: chat widget, form/survey embed, funnel pixel, conversation widget, any other `msgsndr`/`leadconnector` reference in `src`, `public`, or config. The only other third-party scripts in `index.html` are Google Analytics (`gtag`, G-FJKZ8FP5YP) and the Lovable editor script. Cal.com embeds are injected per page in `Contact.tsx` and `Audit.tsx` and are unrelated.
 
-7. **`src/lib/audit.ts` — needed**
-   - Preserve question IDs, scores, calculation logic, webhook payload shape, and submission behavior.
-   - Correct the malformed q6 high-score option.
-   - Requalify only the generated guidance that says “respond immediately,” “responds within minutes,” reports “exactly how many” converted, or names a “Phased AI operating system roadmap.”
-   - Keep results framed as assessment guidance, not guaranteed performance or a standard blueprint deliverable.
+## 2) Would removing it break any other GHL feature?
 
-8. **`/leads` and `/roi` — validation only**
-   - Confirm `/leads` retains `$997` one-time implementation, `$1,497/month` management, single-location scope, separately scoped multi-location work, and standard AI voice exclusion.
-   - Confirm `/roi` retains defaults `1497` and `997`, blank user-controlled business assumptions, disclaimer, revenue-not-profit labels, and no Core/Plus/Pro presets.
-   - Make no edits unless validation exposes a restored contradiction.
+Nothing that exists in this repo. The script's only functions are external-form capture and page-visit attribution for contacts GHL already knows (cookie-based session attribution). Removing it means:
 
-9. **Active/shared legacy search — needed as final gate**
-   - Re-scan imported public code and machine-readable content for Starter Website Launch promotion, Launchpad, SiteCare, BaySignal, `$97` Lead Conversion pricing, standard-step “AI System Blueprint,” and unsupported guarantee/instant/automatic-conversion claims.
-   - Ignore unrouted legacy components and preserve their internal records and terms.
-   - No dedicated Starter Website Launch route exists in the current route table; no route action is planned.
+- The duplicate blank `external_form` contacts stop being created.
+- GHL loses page-visit/source attribution for site visitors. The n8n path already sends its own source field, so contact source stays intact.
+- No chat widget, no booking widget, no GHL form on the site depends on it.
 
-## Additional targeted metadata correction
+Caveat outside the repo: if anything in the GHL account is configured against that tracking ID (a trigger on "external form submitted", a website-session-based workflow, or attribution reporting), it lives in GHL, not here, and should be checked in the account before removal.
 
-- **`src/components/SEOHead.tsx` — needed**
-  - Align only the homepage default title/description with the current managed lead-response positioning so client-rendered metadata does not restore “high-converting websites,” outcome promises, or “Done for you” language.
-  - Preserve canonical behavior, social image, and per-route overrides.
+## 3) Minimal ContactForm.tsx change for production
 
-## Explicitly preserved untouched
+Current logic (`src/components/ContactForm.tsx`, lines 42-52 and 149-158):
 
-- **Homepage hero:** exact H1, structure, typography, background/effects, entrance animation, capability pills, CTA layout/styling, assessment CTA, and ROI calculator secondary action.
-- **Homepage architecture:** current section order, section count, capability depth, diagrams, explanatory detail, Results section, technology carousel, testimonials, FAQ, final CTA, contact section, navigation, and footer.
-- **Motion system:** no new lead-flow animation, no new hero sequence, no broad motion rewrite, and no removal of current animations.
-- **Technology carousel:** retained in this pass; no logo-support claims will be expanded. Its platform support remains an operational validation item.
-- **`/leads`:** commercial wording, pricing, scope, service envelope, pilot boundaries, human responsibilities, voice boundary, CTAs, and motion unless a validation-only contradiction appears.
-- **`/roi`:** formulas, defaults, fields, assumptions, results, disclaimer, visual structure, hero action, and route label unless a real defect is found.
-- **Assessment form:** existing fields, data contract, question IDs, scoring, webhook events, and functionality. No SMS-consent field will be added. Existing contact-form SMS consent remains unchanged.
-- **Internal material:** dead/unrouted legacy components, Starter Website Launch records/terms, sales materials, and historical pricing are not deleted or rewritten.
-- **No unrelated cleanup:** no About-page rewrite, navigation relabeling, footer rewrite, section reordering, capability removal, or broad claim/style pass.
+- `shouldUseDirectContactWebhook()` returns true only when hostname is the production domain **and** `pathname === "/contact"`.
+- When true: posts to the n8n webhook, then also fires the Supabase edge function (`submit-contact-form` -> Supabase table + Airtable) as a non-blocking secondary write.
+- When false (homepage contact section, preview, local): posts only to the Supabase edge function, so homepage leads never reach n8n/GHL at all.
 
-## Technical validation and QA
+Minimal change, two edits, no UI/validation/payload changes:
 
-- Run TypeScript checking, production build, lint, and JSON-LD parsing; fix only issues caused by this work.
-- Browser-check `/`, `/leads`, `/assessment`, and `/roi` at representative mobile, tablet, and desktop widths for rendering, overflow, console errors, and CTA destinations.
-- Verify homepage lazy-loaded sections still load after the recent chunk-reload fix.
-- Report, without changing commercial copy, operational items the website repository cannot prove: delivery capacity for the published service envelope, monitoring/failure alerts, supported stack, monthly performance-data availability, separate-scope AI voice readiness, and downstream assessment routing.
-- Report assessment-specific SMS consent as a pending compliance consideration only if downstream SMS follow-up is contemplated. Preserve the current contact-form consent implementation.
-- Keep all work preview-only. Do not publish or deploy.
+1. Drop the pathname condition in `shouldUseDirectContactWebhook()` so it returns true for the production hostnames on any page. The homepage `ConnectSection` form and `/contact` then use the same n8n path.
+2. In `handleSubmit`, remove the secondary `void submitToEdgeFunction(payload).catch(...)` call from the direct-webhook branch, so production makes exactly one submission.
+
+The `else` branch stays as-is: non-production hosts (preview, localhost) continue to use the Supabase edge function, so testing never writes into the live GHL pipeline.
+
+One detail to confirm: `submitToContactWebhook` hardcodes `source: "${origin}/contact"`. With the homepage form now on the same path, that label becomes inaccurate. Recommended within the same change: send the actual page URL, or keep `area_of_interest` as the distinguishing field (homepage passes its own value already). Tell me which you prefer; no n8n-side mapping is changed either way.
+
+## 4) What can stay dormant without affecting live operations
+
+All of the following can remain in the repo with zero production effect once the above change ships:
+
+- `supabase/functions/submit-contact-form/index.ts` (Supabase insert + Airtable sync) — still deployed, reachable only from non-production hosts.
+- The `HBOSB Contact Form` Supabase table and the Airtable env vars — receive nothing from production traffic.
+- `submitToEdgeFunction` in `ContactForm.tsx` — kept as the non-production fallback branch.
+- `VITE_CONTACT_WEBHOOK_URL` override support (currently unset; falls back to the hardcoded n8n URL).
+
+Keeping them costs nothing and preserves a working local/preview test path. They only become live again if the hostname check changes.
+
+## Proposed change set (on approval)
+
+- `index.html`: remove the GHL external-tracking script block (lines 171-174).
+- `src/components/ContactForm.tsx`: drop the pathname condition; remove the secondary edge-function call in the production branch; optionally correct the `source` value.
+- Validate with TypeScript + production build; confirm no other file changed. Preview only, no publish.
