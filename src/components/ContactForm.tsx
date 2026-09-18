@@ -48,7 +48,7 @@ const shouldUseDirectContactWebhook = () => {
     window.location.hostname === "heartbeatofsouthbay.com" ||
     window.location.hostname === "www.heartbeatofsouthbay.com";
 
-  return isProductionHost && window.location.pathname === "/contact";
+  return isProductionHost;
 };
 
 const submitToContactWebhook = async (payload: ContactSubmissionPayload) => {
@@ -148,11 +148,6 @@ const ContactForm = React.memo(({
 
       if (shouldUseDirectContactWebhook()) {
         await submitToContactWebhook(payload);
-
-        // Preserve the existing Supabase/Airtable path when available, but don't block the lead if it fails.
-        void submitToEdgeFunction(payload).catch((error) => {
-          console.error("Secondary contact sync failed:", error);
-        });
       } else {
         await submitToEdgeFunction(payload);
       }
