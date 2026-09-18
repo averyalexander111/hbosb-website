@@ -59,20 +59,20 @@ type AuditView = "intro" | "questions" | "processing" | "results";
 
 const heroStats = [
   { label: "Completion Time", value: "4-5 min" },
-  { label: "Outcome", value: "Priority roadmap" },
-  { label: "Next Step", value: "Strategy call" },
+  { label: "Outcome", value: "Initial findings" },
+  { label: "Next Step", value: "Optional review" },
 ];
 
 const trustPoints = [
   {
     icon: Clock3,
-    title: "Pinpoint revenue leaks",
-    description: "We surface where lead response, follow-up, and handoff are costing you real opportunities.",
+    title: "Identify likely gaps",
+    description: "Your answers help highlight where lead response, follow-up, and handoff may need attention.",
   },
   {
     icon: Workflow,
-    title: "See the right system first",
-    description: "Instead of guessing, you get a practical first build based on your business and current workflow maturity.",
+    title: "Explore an appropriate next step",
+    description: "Get an initial recommendation based on the business needs and current workflows you describe.",
   },
   {
     icon: ShieldCheck,
@@ -420,14 +420,15 @@ const Audit = () => {
                   <div className="max-w-3xl">
                     <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-navy-foreground/90">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      AI Revenue Assessment
+                      AI Revenue System Assessment
                     </span>
                     <h1 className="mt-6 text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl md:text-6xl">
                       You're getting leads. But not all of them are turning into business.
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-foreground/70">
-                      Find where they're slipping through the cracks. Answer a few quick questions and get a clear breakdown of
-                      your response speed, follow-up gaps, and the fastest way to fix them.
+                      Answer a few quick questions to identify likely lead-response, follow-up, tracking, handoff, and
+                      workflow gaps. This complimentary assessment provides initial findings and an appropriate next step,
+                      with no purchase required.
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -529,7 +530,8 @@ const Audit = () => {
                     A cleaner starting point than a generic quiz
                   </h2>
                   <p className="mt-4 text-lg text-muted-foreground">
-                    The questions are tuned around lead conversion, systems, and operational bottlenecks, so the recommendations point toward a real implementation path.
+                    Your answers highlight likely gaps and areas to review. These initial findings are separate from the paid
+                    Business Systems Audit & AI Blueprint.
                   </p>
                 </div>
 
@@ -715,9 +717,9 @@ const Audit = () => {
                   className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary border-t-transparent"
                 />
               </div>
-              <h2 className="mt-8 text-3xl font-bold">Mapping your revenue gaps...</h2>
+              <h2 className="mt-8 text-3xl font-bold">Preparing your initial findings...</h2>
               <p className="mt-3 text-base leading-relaxed text-navy-foreground/80">
-                Turning your answers into a priority order, a recommended rollout, and your clear next step.
+                Organizing your answers into initial findings, areas to review, and a suggested next step.
               </p>
 
               <div className="mx-auto mt-10 max-w-md text-left">
@@ -857,12 +859,13 @@ const Audit = () => {
             <section className="bg-navy py-20">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto mb-14 max-w-3xl text-center">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Recommended rollout</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Areas to review</p>
                   <h2 className="mt-3 text-3xl font-bold text-navy-foreground sm:text-4xl">
-                    A practical 90-day implementation sequence
+                    Potential next steps based on your answers
                   </h2>
                   <p className="mt-4 text-lg text-navy-foreground/80">
-                    A focused first 90 days based on what your answers revealed.
+                    These suggestions are a starting point for review. Implementation scope and timing would be confirmed
+                    separately.
                   </p>
                 </div>
 
@@ -892,8 +895,8 @@ const Audit = () => {
                         <Bot className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <h2 className="text-xl font-semibold text-foreground">Systems to start with</h2>
-                        <p className="text-sm text-muted-foreground">The first systems most likely to create movement.</p>
+                        <h2 className="text-xl font-semibold text-foreground">Systems to consider</h2>
+                        <p className="text-sm text-muted-foreground">Potential options to review in light of your initial findings.</p>
                       </div>
                     </div>
 
@@ -907,10 +910,10 @@ const Audit = () => {
                     </div>
 
                     <div className="mt-8 rounded-3xl border border-primary/15 bg-primary/[0.06] p-5">
-                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Best next move</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Optional review</p>
                       <p className="mt-3 leading-relaxed text-foreground/85">
-                        Book the strategy session while this context is fresh. We'll use your answers to decide what gets built
-                        first and how ambitious the rollout should be.
+                        If you'd like to discuss your initial findings, book an optional assessment review. We'll review your
+                        answers, clarify likely gaps, and discuss an appropriate next step. No purchase is required.
                       </p>
                     </div>
 
@@ -939,14 +942,14 @@ const Audit = () => {
                     <div className="rounded-[1.5rem] border border-border/70 bg-background p-5">
                       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                         <div>
-                          <h2 className="text-xl font-semibold text-foreground">Schedule your strategy session</h2>
+                          <h2 className="text-xl font-semibold text-foreground">Schedule your assessment review</h2>
                           <p className="text-sm text-muted-foreground">
-                            Use the calendar below to book the next step from this assessment.
+                            Use the calendar below if you'd like an optional conversation about your initial findings.
                           </p>
                         </div>
                         <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                           <CalendarCheck2 className="h-4 w-4" />
-                          Next step
+                          Optional review
                         </span>
                       </div>
 
