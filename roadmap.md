@@ -1,5 +1,11 @@
 # Roadmap
 
+## Reduced-motion accessibility (preview only)
+- [x] Restore app-wide motion and CSS safeguards and immediate visibility for AnimatedSection
+- [x] Stop decorative hero loops and carousel auto-scroll under reduced motion only
+- [ ] Verify reduced-motion and normal-motion behavior in the preview
+- [x] Do not publish or deploy
+
 ## Final homepage copy refinement (complete, preview only)
 - [x] Update assessment, software, and security FAQ answers and matching structured data
 - [x] Refine AI systems introduction and implementation assessment wording
