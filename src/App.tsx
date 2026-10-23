@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { lazyWithReload } from "@/lib/lazyWithReload";
+import { MotionConfig } from "framer-motion";
 
 // Lazy load pages for code splitting.
 
@@ -50,6 +51,7 @@ const PageLoader = () => (
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <MotionConfig reducedMotion="user">
     <HelmetProvider>
       <TooltipProvider>
         <Toaster />
@@ -87,6 +89,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>
+    </MotionConfig>
   </QueryClientProvider>
 );
 

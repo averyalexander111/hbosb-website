@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Zap, TrendingUp, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -57,6 +57,7 @@ const FloatingNodes = () => (
 );
 
 const HeartbeatHero = () => {
+  const reducedMotion = useReducedMotion();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
       {/* Gradient mesh background */}
@@ -76,8 +77,10 @@ const HeartbeatHero = () => {
       />
 
       {/* Animated workflow nodes — hidden on mobile for performance */}
-      <div className="hidden md:block">
+      <div className="hidden md:block motion-reduce:hidden">
+        {!reducedMotion && (
         <FloatingNodes />
+        )}
       </div>
 
       {/* Bottom fade */}
