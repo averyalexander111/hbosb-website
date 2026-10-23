@@ -3,7 +3,7 @@
 ## Reduced-motion accessibility (preview only)
 - [x] Restore app-wide motion and CSS safeguards and immediate visibility for AnimatedSection
 - [x] Stop decorative hero loops and carousel auto-scroll under reduced motion only
-- [ ] Verify reduced-motion and normal-motion behavior in the preview
+- [x] Verify reduced-motion and normal-motion behavior in the preview
 - [x] Do not publish or deploy
 
 ## Final homepage copy refinement (complete, preview only)
