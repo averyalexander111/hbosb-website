@@ -14,10 +14,20 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
     const el = ref.current;
     if (!el) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const showWithoutMotion = () => {
+      if (reducedMotion.matches) setIsVisible(true);
+    };
+    if (reducedMotion.matches) {
+      setIsVisible(true);
+      return;
+    }
+
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
+          timeout = setTimeout(() => setIsVisible(true), delay);
           observer.unobserve(el);
         }
       },
@@ -25,7 +35,12 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
     );
 
     observer.observe(el);
-    return () => observer.unobserve(el);
+    reducedMotion.addEventListener("change", showWithoutMotion);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+      reducedMotion.removeEventListener("change", showWithoutMotion);
+    };
   }, [delay]);
 
   return (

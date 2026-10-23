@@ -5,11 +5,13 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-auto-scroll";
+import { useReducedMotion } from "framer-motion";
 import logoGreenGeometric from "@/assets/logo-green-geometric.png";
 import twilioLogo from "@/assets/twilio-logo.png";
 import airtableLogo from "@/assets/airtable-logo.png";
 
 const TechnologyCarousel = React.memo(() => {
+  const reducedMotion = useReducedMotion();
   const technologies = [
     { name: "Supabase logo", icon: "/lovable-uploads/bbe3fb35-d530-4ed4-955d-ea333847387a.png" },
     { name: "Gradient heart icon", icon: "/lovable-uploads/a9488bc1-c20b-4ebd-81a3-dab6badda94e.png" },
@@ -36,7 +38,7 @@ const TechnologyCarousel = React.memo(() => {
 
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[
+          plugins={reducedMotion ? [] : [
             Autoplay({ stopOnInteraction: false, stopOnMouseEnter: false }) as any,
           ]}
           className="w-full"
