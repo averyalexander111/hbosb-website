@@ -9,6 +9,9 @@ import { useReducedMotion } from "framer-motion";
 import logoGreenGeometric from "@/assets/logo-green-geometric.png";
 import twilioLogo from "@/assets/twilio-logo.png";
 import airtableLogo from "@/assets/airtable-logo.png";
+import highlevelLogo from "@/assets/highlevel-logo.svg";
+import calcomLogo from "@/assets/calcom-logo.svg";
+import stripeLogo from "@/assets/stripe-logo.svg";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
@@ -18,12 +21,15 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Network graph icon", icon: "/lovable-uploads/6df45b1f-a2c5-44fb-b9b7-a78890424d8b.png" },
     { name: "Starburst icon", icon: "/lovable-uploads/d12e40d6-2664-4b67-9258-3bd483100057.png" },
     { name: "ElevenLabs logo", icon: "/lovable-uploads/elevenlabs-icon.png" },
-    { name: "Notion logo", icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png" },
+    { name: "Make.com logo", icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png" },
     { name: "Google logo", icon: "/lovable-uploads/508bd167-4c17-4f66-9bc4-1194b4df23e9.png" },
     { name: "Green geometric logo", icon: logoGreenGeometric },
     { name: "Google Antigravity logo", icon: "/lovable-uploads/google-antigravity-icon.png" },
     { name: "Twilio logo", icon: twilioLogo },
     { name: "Airtable logo", icon: airtableLogo },
+    { name: "HighLevel logo", icon: highlevelLogo },
+    { name: "Cal.com logo", icon: calcomLogo },
+    { name: "Stripe logo", icon: stripeLogo },
   ];
 
   return (
