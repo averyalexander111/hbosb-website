@@ -27,7 +27,7 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Google Antigravity logo", icon: "/lovable-uploads/google-antigravity-icon.png" },
     { name: "Twilio logo", icon: twilioLogo },
     { name: "Airtable logo", icon: airtableLogo },
-    { name: "HighLevel logo", icon: highlevelLogo },
+    { name: "HighLevel logo", icon: highlevelLogo, className: "h-7 md:h-8 w-auto" },
     { name: "Cal.com logo", icon: calcomLogo },
     { name: "Stripe logo", icon: stripeLogo },
   ];
@@ -56,7 +56,7 @@ const TechnologyCarousel = React.memo(() => {
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="w-14 h-14 md:w-18 md:h-18 object-contain opacity-100 group-hover:scale-110 transition-transform duration-300"
+                    className={`${tech.className ?? "w-14 h-14 md:w-18 md:h-18"} object-contain opacity-100 group-hover:scale-110 transition-transform duration-300`}
                     loading="eager"
                   />
                 </div>
