@@ -1,63 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Zap, TrendingUp, Bot } from "lucide-react";
+import { Zap, TrendingUp, Bot, Pause, Play } from "lucide-react";
+import HeroNetwork from "./HeroNetwork";
 import { Link } from "react-router-dom";
-
-const FloatingNodes = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {/* Animated circuit/workflow nodes */}
-    <svg className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[500px] opacity-[0.07]" viewBox="0 0 600 500">
-      {/* Connection lines */}
-      <motion.line x1="100" y1="150" x2="300" y2="100" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="6 4"
-        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 2, delay: 0.5 }} />
-      <motion.line x1="300" y1="100" x2="500" y2="180" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="6 4"
-        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 2, delay: 1 }} />
-      <motion.line x1="150" y1="300" x2="350" y2="350" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="6 4"
-        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 2, delay: 1.5 }} />
-      <motion.line x1="350" y1="350" x2="480" y2="280" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="6 4"
-        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 2, delay: 2 }} />
-      <motion.line x1="300" y1="100" x2="350" y2="350" stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="4 6"
-        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 2, delay: 2.5 }} />
-
-      {/* Nodes */}
-      {[
-        { cx: 100, cy: 150, r: 6, delay: 0.3 },
-        { cx: 300, cy: 100, r: 8, delay: 0.8 },
-        { cx: 500, cy: 180, r: 6, delay: 1.3 },
-        { cx: 150, cy: 300, r: 5, delay: 1.8 },
-        { cx: 350, cy: 350, r: 7, delay: 2.3 },
-        { cx: 480, cy: 280, r: 5, delay: 2.8 },
-      ].map((node, i) => (
-        <motion.circle
-          key={i}
-          cx={node.cx} cy={node.cy} r={node.r}
-          fill="hsl(var(--primary))"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.8] }}
-          transition={{ duration: 0.6, delay: node.delay }}
-        />
-      ))}
-
-      {/* Pulsing rings on main nodes */}
-      {[
-        { cx: 300, cy: 100, delay: 1 },
-        { cx: 350, cy: 350, delay: 2 },
-      ].map((node, i) => (
-        <motion.circle
-          key={`ring-${i}`}
-          cx={node.cx} cy={node.cy} r={12}
-          fill="none" stroke="hsl(var(--primary))" strokeWidth="1"
-          initial={{ scale: 0.8, opacity: 0.6 }}
-          animate={{ scale: [0.8, 1.8], opacity: [0.6, 0] }}
-          transition={{ duration: 2.5, delay: node.delay, repeat: Infinity, repeatDelay: 1 }}
-        />
-      ))}
-    </svg>
-  </div>
-);
 
 const HeartbeatHero = () => {
   const reducedMotion = useReducedMotion();
+  const [paused, setPaused] = useState(false);
+  // Under reduced motion, content renders immediately without entrance movement.
+  const enter = (delay: number, y = 20) =>
+    reducedMotion
+      ? { initial: false as const }
+      : { initial: { opacity: 0, y }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, delay } };
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
       {/* Gradient mesh background */}
@@ -76,12 +30,8 @@ const HeartbeatHero = () => {
         }}
       />
 
-      {/* Animated workflow nodes — hidden on mobile for performance */}
-      <div className="hidden md:block motion-reduce:hidden">
-        {!reducedMotion && (
-        <FloatingNodes />
-        )}
-      </div>
+      {/* Decorative connected network */}
+      <HeroNetwork animate={!reducedMotion} paused={paused} />
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
@@ -89,27 +39,21 @@ const HeartbeatHero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
         <div className="max-w-3xl">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            {...enter(0)}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
             AI Revenue Systems for Modern Businesses
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            {...enter(0.15)}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
             We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
+            {...enter(0.22)}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
             Managed systems support response, follow-up, and pipeline visibility. Your team stays in charge of the conversations and decisions.
@@ -117,9 +61,7 @@ const HeartbeatHero = () => {
 
           {/* Benefit pills */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            {...enter(0.3)}
             className="mt-8 flex flex-wrap gap-3"
           >
             {[
@@ -139,9 +81,7 @@ const HeartbeatHero = () => {
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
+            {...enter(0.45)}
             className="mt-10 flex flex-col sm:flex-row gap-4"
           >
             <Link
@@ -159,15 +99,26 @@ const HeartbeatHero = () => {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            {...enter(0.6, 0)}
             className="mt-6 text-sm text-navy-foreground/40"
           >
             Complimentary assessment · No commitment required
           </motion.p>
         </div>
       </div>
+
+      {!reducedMotion && (
+        <button
+          type="button"
+          onClick={() => setPaused((p) => !p)}
+          aria-pressed={paused}
+          aria-label={paused ? "Play background animation" : "Pause background animation"}
+          className="absolute bottom-36 right-4 sm:right-6 z-20 inline-flex items-center gap-1.5 rounded-full border border-navy-foreground/15 bg-navy/60 px-3 py-1.5 text-xs text-navy-foreground/60 hover:text-navy-foreground hover:border-navy-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+        >
+          {paused ? <Play className="w-3 h-3" aria-hidden="true" /> : <Pause className="w-3 h-3" aria-hidden="true" />}
+          {paused ? "Play" : "Pause"}
+        </button>
+      )}
     </section>
   );
 };
