@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Zap, TrendingUp, Bot, Pause, Play } from "lucide-react";
 import HeroNetwork from "./HeroNetwork";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
 const subscribeReducedMotion = (onChange: () => void) => {
@@ -22,7 +23,7 @@ const HeartbeatHero = () => {
       ? { initial: false as const }
       : { initial: { opacity: 0, y }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, delay } };
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+    <section className="relative flex items-center overflow-hidden bg-navy">
       {/* Gradient mesh background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
@@ -43,9 +44,9 @@ const HeartbeatHero = () => {
       <HeroNetwork animate={!reducedMotion} paused={paused} />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-background pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pb-16 relative z-10">
         <div className="max-w-3xl">
           <motion.h1
             {...enter(0)}
@@ -117,16 +118,18 @@ const HeartbeatHero = () => {
       </div>
 
       {!reducedMotion && (
-        <button
+        <Button
           type="button"
+          variant="outline"
+          size="icon"
           onClick={() => setPaused((p) => !p)}
           aria-pressed={paused}
           aria-label={paused ? "Play background animation" : "Pause background animation"}
-          className="absolute bottom-4 right-4 sm:right-6 z-20 inline-flex items-center gap-1.5 rounded-full border border-navy-foreground/15 bg-navy/60 px-3 py-1.5 text-xs text-navy-foreground/60 hover:text-navy-foreground hover:border-navy-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+          title={paused ? "Play background animation" : "Pause background animation"}
+          className="absolute top-20 right-4 sm:right-6 lg:top-32 lg:right-[8%] z-20 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
         >
-          {paused ? <Play className="w-3 h-3" aria-hidden="true" /> : <Pause className="w-3 h-3" aria-hidden="true" />}
-          {paused ? "Play" : "Pause"}
-        </button>
+          {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
+        </Button>
       )}
     </section>
   );
