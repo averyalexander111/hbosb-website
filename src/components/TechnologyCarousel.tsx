@@ -9,9 +9,11 @@ import { useReducedMotion } from "framer-motion";
 import logoGreenGeometric from "@/assets/logo-green-geometric.png";
 import twilioLogo from "@/assets/twilio-logo.png";
 import airtableLogo from "@/assets/airtable-logo.png";
-import highlevelLogo from "@/assets/highlevel-logo.svg";
-import calcomLogo from "@/assets/calcom-logo.svg";
-import stripeLogo from "@/assets/stripe-logo.svg";
+import highlevelLogo from "@/assets/highlevel-icon.png";
+import calcomLogo from "@/assets/calcom-icon.png";
+import stripeLogo from "@/assets/stripe-icon.png";
+import higgsfieldLogo from "@/assets/higgsfield-icon.png";
+import runwayLogo from "@/assets/runway-icon.png";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
@@ -27,9 +29,11 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Google Antigravity logo", icon: "/lovable-uploads/google-antigravity-icon.png" },
     { name: "Twilio logo", icon: twilioLogo },
     { name: "Airtable logo", icon: airtableLogo },
-    { name: "HighLevel logo", icon: highlevelLogo, className: "h-7 md:h-8 w-auto" },
-    { name: "Cal.com logo", icon: calcomLogo },
-    { name: "Stripe logo", icon: stripeLogo },
+    { name: "HighLevel logo", icon: highlevelLogo, className: "w-[108px] h-[108px]" },
+    { name: "Cal.com logo", icon: calcomLogo, className: "w-[70px] h-[70px]" },
+    { name: "Stripe logo", icon: stripeLogo, className: "w-[84px] h-[84px]" },
+    { name: "Higgsfield logo", icon: higgsfieldLogo, className: "w-[70px] h-[70px]" },
+    { name: "Runway logo", icon: runwayLogo, className: "w-[164px] h-[164px]" },
   ];
 
   return (
@@ -53,12 +57,23 @@ const TechnologyCarousel = React.memo(() => {
             {[...technologies, ...technologies, ...technologies].map((tech, index) => (
               <CarouselItem key={index} className="pl-3 md:pl-5 basis-1/3 md:basis-1/4 lg:basis-1/6">
                 <div className="group flex items-center justify-center p-5">
-                  <img
-                    src={tech.icon}
-                    alt={tech.name}
-                    className={`${tech.className ?? "w-14 h-14 md:w-18 md:h-18"} object-contain opacity-100 group-hover:scale-110 transition-transform duration-300`}
-                    loading="eager"
-                  />
+                  {tech.className ? (
+                    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className={`${tech.className} absolute max-w-none object-contain opacity-100 group-hover:scale-110 transition-transform duration-300`}
+                        loading="eager"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={tech.icon}
+                      alt={tech.name}
+                      className="w-14 h-14 md:w-18 md:h-18 object-contain opacity-100 group-hover:scale-110 transition-transform duration-300"
+                      loading="eager"
+                    />
+                  )}
                 </div>
               </CarouselItem>
             ))}
