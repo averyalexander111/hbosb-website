@@ -30,12 +30,12 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Google Antigravity logo", icon: "/lovable-uploads/google-antigravity-icon.png" },
     { name: "Twilio logo", icon: twilioLogo },
     { name: "Airtable logo", icon: airtableLogo },
+    { name: "GitHub logo", icon: githubLogo, className: "w-[70px] h-[70px]" },
     { name: "HighLevel logo", icon: highlevelLogo, className: "w-[108px] h-[108px]" },
     { name: "Cal.com logo", icon: calcomLogo, className: "w-[70px] h-[70px]" },
     { name: "Stripe logo", icon: stripeLogo, className: "w-[84px] h-[84px]" },
     { name: "Higgsfield logo", icon: higgsfieldLogo, className: "w-[70px] h-[70px]" },
     { name: "Runway logo", icon: runwayLogo, className: "w-[164px] h-[164px]" },
-    { name: "GitHub logo", icon: githubLogo, className: "w-[70px] h-[70px]" },
   ];
 
   return (
