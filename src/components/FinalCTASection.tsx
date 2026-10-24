@@ -4,9 +4,9 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const bullets = [
-  "Where automation could save time",
-  "Where AI could increase revenue",
-  "What systems would improve operations",
+  "Likely response and follow-up gaps",
+  "Tracking and handoff issues",
+  "An appropriate next step",
 ];
 
 const FinalCTASection = () => {
@@ -27,11 +27,10 @@ const FinalCTASection = () => {
             When businesses operate smarter, they grow stronger.
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-foreground mb-4 lg:whitespace-nowrap">
-            Let's Explore What AI Could Fix In Your Business
+            Find the Gaps in Your Lead-Handling Process
           </h2>
           <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">
-            Identify where your business is losing opportunities and how AI
-            systems can improve your lead capture, follow-up, and conversion process.
+            The complimentary AI Revenue System Assessment helps identify likely gaps in lead response, follow-up, tracking, and handoff, with initial findings and an appropriate next step.
           </p>
 
           <ul className="mb-10 space-y-3 text-left max-w-md mx-auto">
@@ -54,7 +53,7 @@ const FinalCTASection = () => {
             <ArrowRight className="w-5 h-5" />
           </Link>
           <p className="mt-4 text-sm text-navy-foreground/40">
-            Identify where AI systems can create the biggest impact in your business.
+            Complimentary initial findings. Optional assessment review. No purchase required.
           </p>
         </motion.div>
       </div>
