@@ -85,7 +85,7 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
         ref={svgRef}
         focusable="false"
         viewBox="0 0 600 600"
-        className="absolute top-1/2 -translate-y-1/2 right-[-38%] w-[115%] max-w-none opacity-50 md:right-[-12%] md:w-[85%] md:opacity-60 lg:right-[1%] lg:w-[46%] lg:max-w-[720px] lg:opacity-100"
+        className="absolute top-1/2 -translate-y-1/2 right-[-50%] w-[125%] max-w-none opacity-80 md:right-[-12%] md:w-[85%] md:opacity-60 lg:right-[1%] lg:w-[46%] lg:max-w-[720px] lg:opacity-100"
       >
         <defs>
           <radialGradient id="hn-halo">
@@ -112,7 +112,7 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
               y1={pos[a].y}
               x2={pos[b].x}
               y2={pos[b].y}
-              strokeOpacity="0.38"
+              strokeOpacity="0.45"
             />
           ))}
         </g>
@@ -173,7 +173,7 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
       </svg>
 
       {/* Readability mask: strong behind text on small screens, light on desktop */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/55 to-transparent lg:from-navy/40 lg:via-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/45 to-transparent lg:from-navy/40 lg:via-transparent" />
     </div>
   );
 };
