@@ -108,29 +108,30 @@ const HeartbeatHero = () => {
             </Link>
           </motion.div>
 
-          <motion.div
-            {...enter(0.6, 0)}
-            className="mt-6 flex w-fit max-w-full items-center gap-4"
-          >
-            <p className="min-w-0 text-sm text-navy-foreground/60">
-              Complimentary assessment · No commitment required
-            </p>
-            {!reducedMotion && (
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                onClick={() => setPaused((p) => !p)}
-                aria-pressed={paused}
-                aria-label={paused ? "Play background animation" : "Pause background animation"}
-                title={paused ? "Play background animation" : "Pause background animation"}
-                className="shrink-0 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
-              >
-                {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
-              </Button>
-            )}
-          </motion.div>
         </div>
+
+        <motion.div
+          {...enter(0.6, 0)}
+          className="mt-6 flex w-fit sm:w-full max-w-full items-center gap-4 sm:justify-between"
+        >
+          <p className="min-w-0 text-sm text-navy-foreground/60">
+            Complimentary assessment · No commitment required
+          </p>
+          {!reducedMotion && (
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              onClick={() => setPaused((p) => !p)}
+              aria-pressed={paused}
+              aria-label={paused ? "Play background animation" : "Pause background animation"}
+              title={paused ? "Play background animation" : "Pause background animation"}
+              className="shrink-0 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
+            >
+              {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
+            </Button>
+          )}
+        </motion.div>
       </div>
     </section>
   );
