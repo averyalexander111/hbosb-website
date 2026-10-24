@@ -49,13 +49,17 @@ const connect = (indices: number[], neighbors: number, limit: number, mobile: bo
 connect(NODES.map((_, i) => i), 3, 155, false);
 connect(NODES.flatMap((n, i) => n.mobile ? [i] : []), 2, 245, true);
 const EDGES = [...edgeMap.values()];
-const SIGNALS = [{ a: 2, b: 12, offset: 0, mobile: true }, { a: 14, b: 13, offset: 3.2, mobile: false }];
-// Keep traveling lights on actual connections, even as their endpoints drift.
-SIGNALS.forEach(({ a, b, mobile }) => {
-  if (!EDGES.some((e) => e.a === Math.min(a, b) && e.b === Math.max(a, b))) {
-    EDGES.push({ a: Math.min(a, b), b: Math.max(a, b), mobile });
-  }
-});
+// Every hop follows an existing edge. Five routes arrive at the focal node.
+const SIGNALS = [
+  { route: [2, 12], offset: 0, duration: 5.6, cycle: 9.2, mobile: true },
+  { route: [21, 19, 12], offset: 2.5, duration: 6.6, cycle: 9.8, mobile: true },
+  { route: [14, 13, 12], offset: 4.9, duration: 6.1, cycle: 9.5, mobile: false },
+  { route: [3, 7, 12], offset: 7.4, duration: 6.4, cycle: 10.1, mobile: false },
+  { route: [10, 11, 12], offset: 1.2, duration: 6.8, cycle: 10.3, mobile: false },
+  { route: [4, 14, 21], offset: 6.2, duration: 6.3, cycle: 9.7, mobile: true },
+  { route: [0, 6, 7], offset: 3.7, duration: 6, cycle: 9.4, mobile: false },
+  { route: [17, 18, 22], offset: 8.3, duration: 6.5, cycle: 10, mobile: false },
+];
 const PRIMARY = "hsl(var(--primary))";
 const SIGNAL = "hsl(var(--signal))";
 const hide = (mobile?: boolean) => mobile ? undefined : "max-md:hidden";
@@ -118,12 +122,27 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
         line?.setAttribute("stroke-opacity", (0.29 + Math.max(emphasis[e.a], emphasis[e.b]) * 0.22).toFixed(3));
       });
       SIGNALS.forEach((s, i) => {
-        const cycle = ((t + s.offset) % 9.6) / 9.6;
-        const progress = Math.min(cycle / 0.36, 1);
-        const a = positions[s.a], b = positions[s.b];
-        signals[i]?.setAttribute("cx", (a.x + (b.x - a.x) * progress).toFixed(3));
-        signals[i]?.setAttribute("cy", (a.y + (b.y - a.y) * progress).toFixed(3));
-        signals[i]?.setAttribute("opacity", (cycle < 0.36 ? Math.sin(progress * Math.PI) ** 2 * 0.75 : 0).toFixed(3));
+        const elapsed = (t + s.offset) % s.cycle;
+        const progress = Math.min(elapsed / s.duration, 1);
+        const lengths = s.route.slice(1).map((node, hop) => {
+          const a = positions[s.route[hop]], b = positions[node];
+          return Math.hypot(b.x - a.x, b.y - a.y);
+        });
+        let distance = progress * lengths.reduce((sum, length) => sum + length, 0);
+        let hop = 0;
+        while (hop < lengths.length - 1 && distance > lengths[hop]) {
+          distance -= lengths[hop];
+          hop += 1;
+        }
+        const a = positions[s.route[hop]], b = positions[s.route[hop + 1]];
+        const fraction = Math.min(distance / lengths[hop], 1);
+        // Stay visible through the last segment and a 200ms arrival before fading.
+        const smooth = (value: number) => value * value * (3 - 2 * value);
+        const fadeIn = smooth(Math.min(elapsed / 0.3, 1));
+        const fadeOut = smooth(Math.max(0, Math.min((elapsed - s.duration - 0.2) / 0.55, 1)));
+        signals[i]?.setAttribute("cx", (a.x + (b.x - a.x) * fraction).toFixed(3));
+        signals[i]?.setAttribute("cy", (a.y + (b.y - a.y) * fraction).toFixed(3));
+        signals[i]?.setAttribute("opacity", (fadeIn * (1 - fadeOut) * 0.75).toFixed(3));
       });
       svg.dataset.time = t.toFixed(4);
     };
@@ -221,7 +240,7 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
           </g>
         ))}
         {animate && SIGNALS.map((s, i) => (
-          <circle key={i} data-signal={i} className={hide(s.mobile)} r="2.3" fill={SIGNAL} opacity="0" />
+          <circle key={i} data-signal={i} className={i >= 6 ? "max-lg:hidden" : hide(s.mobile)} r="2.3" fill={SIGNAL} opacity="0" />
         ))}
       </svg>
       {/* Preserve the existing text-protection mask at every breakpoint. */}
