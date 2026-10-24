@@ -15,7 +15,7 @@ import stripeLogo from "@/assets/stripe-logo.svg";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
-  const technologies = [
+  const technologies: { name: string; icon: string; className?: string }[] = [
     { name: "Supabase logo", icon: "/lovable-uploads/bbe3fb35-d530-4ed4-955d-ea333847387a.png" },
     { name: "Gradient heart icon", icon: "/lovable-uploads/a9488bc1-c20b-4ebd-81a3-dab6badda94e.png" },
     { name: "Network graph icon", icon: "/lovable-uploads/6df45b1f-a2c5-44fb-b9b7-a78890424d8b.png" },
