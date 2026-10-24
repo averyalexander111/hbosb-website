@@ -1,83 +1,191 @@
 import React, { useEffect, useRef } from "react";
 
-/**
- * Decorative connected network for the homepage hero.
- * Lightweight SVG + SMIL signals. Signals are paused via SVGSVGElement.pauseAnimations()
- * when the user pauses, when the hero is offscreen, or never rendered under reduced motion.
- */
+type MeshNode = { x: number; y: number; r: number; mobile?: boolean; focal?: boolean };
 
-type Node = { id: string; x: number; y: number; r: number; secondary?: boolean };
-
-const NODES: Node[] = [
-  { id: "A", x: 120, y: 140, r: 3 },
-  { id: "B", x: 300, y: 90, r: 3.5 },
-  { id: "C", x: 500, y: 150, r: 3.5 },
-  { id: "D", x: 560, y: 320, r: 3 },
-  { id: "E", x: 470, y: 470, r: 3.5 },
-  { id: "F", x: 280, y: 520, r: 3, secondary: true },
-  { id: "G", x: 110, y: 400, r: 3, secondary: true },
-  { id: "I", x: 200, y: 270, r: 2.5, secondary: true },
-  { id: "J", x: 430, y: 300, r: 3.5 },
-  { id: "H", x: 320, y: 300, r: 5.5 },
+// Intentionally staggered, sparse rows rather than a regular lattice.
+const NODES: MeshNode[] = [
+  { x: 120, y: 140, r: 2.5, mobile: true },
+  { x: 214, y: 113, r: 2 },
+  { x: 300, y: 90, r: 2.8, mobile: true },
+  { x: 404, y: 112, r: 2 },
+  { x: 500, y: 150, r: 2.8, mobile: true },
+  { x: 151, y: 231, r: 2 },
+  { x: 248, y: 208, r: 2.3 },
+  { x: 352, y: 192, r: 2.2 },
+  { x: 449, y: 245, r: 2.5 },
+  { x: 548, y: 244, r: 2 },
+  { x: 110, y: 400, r: 2.5 },
+  { x: 200, y: 310, r: 2.2 },
+  { x: 320, y: 300, r: 4.5, mobile: true, focal: true },
+  { x: 430, y: 330, r: 2.8, mobile: true },
+  { x: 560, y: 320, r: 2.5, mobile: true },
+  { x: 190, y: 442, r: 2 },
+  { x: 291, y: 413, r: 2.4 },
+  { x: 387, y: 427, r: 2.1 },
+  { x: 494, y: 411, r: 2.2 },
+  { x: 280, y: 520, r: 2.5, mobile: true },
+  { x: 385, y: 512, r: 2 },
+  { x: 470, y: 470, r: 2.8, mobile: true },
+  { x: 555, y: 503, r: 2 },
 ];
 
-const pos = Object.fromEntries(NODES.map((n) => [n.id, n]));
-
-const EDGES: [string, string, boolean?][] = [
-  ["A", "B"],
-  ["B", "C"],
-  ["C", "D"],
-  ["D", "E"],
-  ["E", "F", true],
-  ["F", "G", true],
-  ["G", "I", true],
-  ["I", "A", true],
-  ["I", "H", true],
-  ["H", "J"],
-  ["J", "C"],
-  ["J", "E"],
-  ["B", "H"],
-  ["H", "F", true],
-  ["J", "D"],
-];
-
-// Each signal travels from one node to another once per cycle; the target node glows on arrival.
-const SIGNALS: { from: string; to: string; begin: number; secondary?: boolean }[] = [
-  { from: "B", to: "H", begin: 0 },
-  { from: "D", to: "J", begin: 2.6, secondary: true },
-  { from: "G", to: "I", begin: 5.2, secondary: true },
-];
-const CYCLE = 7.8;
-
+type Edge = { a: number; b: number; mobile: boolean };
+const edgeMap = new Map<string, Edge>();
+const connect = (indices: number[], neighbors: number, limit: number, mobile: boolean) => {
+  indices.forEach((a) => {
+    indices.filter((b) => a !== b)
+      .map((b) => ({ b, distance: Math.hypot(NODES[a].x - NODES[b].x, NODES[a].y - NODES[b].y) }))
+      .filter(({ distance }) => distance < limit)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, neighbors)
+      .forEach(({ b }) => {
+        const lo = Math.min(a, b), hi = Math.max(a, b);
+        const key = `${lo}-${hi}`;
+        const existing = edgeMap.get(key);
+        edgeMap.set(key, { a: lo, b: hi, mobile: mobile || existing?.mobile || false });
+      });
+  });
+};
+connect(NODES.map((_, i) => i), 3, 155, false);
+connect(NODES.flatMap((n, i) => n.mobile ? [i] : []), 2, 245, true);
+const EDGES = [...edgeMap.values()];
+const SIGNALS = [{ a: 2, b: 12, offset: 0, mobile: true }, { a: 14, b: 13, offset: 3.2, mobile: false }];
+// Keep traveling lights on actual connections, even as their endpoints drift.
+SIGNALS.forEach(({ a, b, mobile }) => {
+  if (!EDGES.some((e) => e.a === Math.min(a, b) && e.b === Math.max(a, b))) {
+    EDGES.push({ a: Math.min(a, b), b: Math.max(a, b), mobile });
+  }
+});
 const PRIMARY = "hsl(var(--primary))";
 const SIGNAL = "hsl(var(--signal))";
+const hide = (mobile?: boolean) => mobile ? undefined : "max-md:hidden";
 
-interface HeroNetworkProps {
-  animate: boolean;
-  paused: boolean;
-}
+interface HeroNetworkProps { animate: boolean; paused: boolean }
 
 const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const visibleRef = useRef(true);
+  const clock = useRef(0);
+  const pauseRef = useRef(paused);
+  const syncRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    pauseRef.current = paused;
+    syncRef.current?.();
+  }, [paused]);
 
   useEffect(() => {
     const svg = svgRef.current;
-    if (!svg || !animate) return;
-    const apply = () => {
-      if (paused || !visibleRef.current) svg.pauseAnimations();
-      else svg.unpauseAnimations();
-    };
-    apply();
-    const io = new IntersectionObserver(([entry]) => {
-      visibleRef.current = entry.isIntersecting;
-      apply();
-    });
-    io.observe(svg);
-    return () => io.disconnect();
-  }, [animate, paused]);
+    const section = svg?.closest("section");
+    if (!svg || !section || !animate) {
+      clock.current = 0;
+      return;
+    }
+    const groups = Array.from(svg.querySelectorAll<SVGGElement>("[data-node]"));
+    const lines = Array.from(svg.querySelectorAll<SVGLineElement>("[data-edge]"));
+    const signals = Array.from(svg.querySelectorAll<SVGCircleElement>("[data-signal]"));
+    const phone = window.matchMedia("(max-width: 767px)");
+    const desktopPointer = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+    let visible = false, frame = 0, previous = 0;
+    let amplitude = phone.matches ? 0.45 : desktopPointer.matches ? 1 : 0.65;
+    let pointer: { x: number; y: number } | null = null;
+    const emphasis = NODES.map(() => 0);
+    const positions = NODES.map((n) => ({ x: n.x, y: n.y }));
 
-  const hide = (secondary?: boolean) => (secondary ? "max-md:hidden" : undefined);
+    const render = (delta: number) => {
+      const t = clock.current;
+      const targetAmplitude = phone.matches ? 0.45 : desktopPointer.matches ? 1 : 0.65;
+      const blend = 1 - Math.exp(-delta * 4);
+      amplitude += (targetAmplitude - amplitude) * blend;
+      NODES.forEach((n, i) => {
+        const phase = i * 2.399;
+        const period = 7 + (i % 6);
+        const dx = (Math.sin(t * Math.PI * 2 / period + phase) - Math.sin(phase)) * 4 * amplitude;
+        const dy = (Math.cos(t * Math.PI * 2 / (period + 0.7) + phase) - Math.cos(phase)) * 3.5 * amplitude;
+        positions[i].x = n.x + dx;
+        positions[i].y = n.y + dy;
+        const distance = pointer && desktopPointer.matches ? Math.hypot(pointer.x - positions[i].x, pointer.y - positions[i].y) : 200;
+        const target = Math.max(0, 1 - distance / 130) ** 2;
+        emphasis[i] += (target - emphasis[i]) * blend;
+        groups[i]?.setAttribute("transform", `translate(${dx.toFixed(3)} ${dy.toFixed(3)})`);
+        groups[i]?.setAttribute("opacity", (0.78 + emphasis[i] * 0.22).toFixed(3));
+      });
+      EDGES.forEach((e, i) => {
+        const a = positions[e.a], b = positions[e.b], line = lines[i];
+        line?.setAttribute("x1", a.x.toFixed(3));
+        line?.setAttribute("y1", a.y.toFixed(3));
+        line?.setAttribute("x2", b.x.toFixed(3));
+        line?.setAttribute("y2", b.y.toFixed(3));
+        line?.setAttribute("stroke-opacity", (0.29 + Math.max(emphasis[e.a], emphasis[e.b]) * 0.22).toFixed(3));
+      });
+      SIGNALS.forEach((s, i) => {
+        const cycle = ((t + s.offset) % 9.6) / 9.6;
+        const progress = Math.min(cycle / 0.36, 1);
+        const a = positions[s.a], b = positions[s.b];
+        signals[i]?.setAttribute("cx", (a.x + (b.x - a.x) * progress).toFixed(3));
+        signals[i]?.setAttribute("cy", (a.y + (b.y - a.y) * progress).toFixed(3));
+        signals[i]?.setAttribute("opacity", (cycle < 0.36 ? Math.sin(progress * Math.PI) ** 2 * 0.75 : 0).toFixed(3));
+      });
+      svg.dataset.time = t.toFixed(4);
+    };
+    const tick = (now: number) => {
+      frame = 0;
+      const delta = previous ? Math.min((now - previous) / 1000, 0.05) : 0;
+      previous = now;
+      clock.current += delta;
+      render(delta);
+      frame = requestAnimationFrame(tick);
+    };
+    const sync = () => {
+      const running = visible && !document.hidden && !pauseRef.current;
+      svg.dataset.running = String(running);
+      if (!running) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        previous = 0;
+      } else if (!frame) {
+        previous = 0;
+        frame = requestAnimationFrame(tick);
+      }
+    };
+    syncRef.current = sync;
+    render(0);
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); });
+    observer.observe(section);
+    const move = (event: PointerEvent) => {
+      if (!desktopPointer.matches || event.pointerType !== "mouse" || pauseRef.current || document.hidden || !visible) return;
+      const matrix = svg.getScreenCTM();
+      if (!matrix) return;
+      const point = svg.createSVGPoint();
+      point.x = event.clientX; point.y = event.clientY;
+      const local = point.matrixTransform(matrix.inverse());
+      pointer = { x: local.x, y: local.y };
+    };
+    const leave = () => { pointer = null; };
+    const mediaChange = () => { pointer = null; };
+    section.addEventListener("pointermove", move, { passive: true });
+    section.addEventListener("pointerleave", leave);
+    desktopPointer.addEventListener("change", mediaChange);
+    document.addEventListener("visibilitychange", sync);
+    sync();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      section.removeEventListener("pointermove", move);
+      section.removeEventListener("pointerleave", leave);
+      desktopPointer.removeEventListener("change", mediaChange);
+      document.removeEventListener("visibilitychange", sync);
+      syncRef.current = null;
+      groups.forEach((g) => { g.removeAttribute("transform"); g.setAttribute("opacity", "0.78"); });
+      lines.forEach((line, i) => {
+        const e = EDGES[i];
+        line.setAttribute("x1", String(NODES[e.a].x)); line.setAttribute("y1", String(NODES[e.a].y));
+        line.setAttribute("x2", String(NODES[e.b].x)); line.setAttribute("y2", String(NODES[e.b].y));
+        line.setAttribute("stroke-opacity", "0.29");
+      });
+      svg.dataset.running = "false";
+      svg.dataset.time = "0";
+    };
+  }, [animate]);
 
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none select-none">
@@ -98,81 +206,25 @@ const HeroNetwork = ({ animate, paused }: HeroNetworkProps) => {
             <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
           </radialGradient>
         </defs>
-
-        {/* Soft hub glow */}
-        <circle cx={pos.H.x} cy={pos.H.y} r="120" fill="url(#hn-hub)" />
-
-        {/* Connections */}
         <g stroke={PRIMARY} strokeWidth="1" strokeLinecap="round">
-          {EDGES.map(([a, b, secondary]) => (
-            <line
-              key={a + b}
-              className={hide(secondary)}
-              x1={pos[a].x}
-              y1={pos[a].y}
-              x2={pos[b].x}
-              y2={pos[b].y}
-              strokeOpacity="0.45"
-            />
+          {EDGES.map((e) => (
+            <line key={`${e.a}-${e.b}`} data-edge={`${e.a}-${e.b}`} className={hide(e.mobile)}
+              x1={NODES[e.a].x} y1={NODES[e.a].y} x2={NODES[e.b].x} y2={NODES[e.b].y} strokeOpacity="0.29" />
           ))}
         </g>
-
-        {/* Hub ring (static) */}
-        <circle cx={pos.H.x} cy={pos.H.y} r="15" fill="none" stroke={SIGNAL} strokeOpacity="0.35" strokeWidth="1" />
-
-        {/* Nodes */}
-        {NODES.map((n) => (
-          <g key={n.id} className={hide(n.secondary)}>
+        {NODES.map((n, i) => (
+          <g key={i} data-node={i} className={hide(n.mobile)} opacity="0.78">
+            {n.focal && <circle cx={n.x} cy={n.y} r="120" fill="url(#hn-hub)" />}
+            {n.focal && <circle cx={n.x} cy={n.y} r="15" fill="none" stroke={SIGNAL} strokeOpacity="0.35" strokeWidth="1" />}
             <circle cx={n.x} cy={n.y} r={n.r * 4} fill="url(#hn-halo)" opacity="0.7" />
-            <circle cx={n.x} cy={n.y} r={n.r} fill={n.id === "H" ? SIGNAL : PRIMARY} fillOpacity="0.95" />
+            <circle cx={n.x} cy={n.y} r={n.r} fill={n.focal || i === 8 ? SIGNAL : PRIMARY} fillOpacity="0.95" />
           </g>
         ))}
-
-        {/* Signals */}
-        {animate &&
-          SIGNALS.map((s) => {
-            const a = pos[s.from];
-            const b = pos[s.to];
-            const begin = `${s.begin}s`;
-            const dur = `${CYCLE}s`;
-            return (
-              <g key={s.from + s.to} className={hide(s.secondary)}>
-                <circle r="2.6" fill={SIGNAL} opacity="0">
-                  <animateMotion
-                    path={`M${a.x},${a.y} L${b.x},${b.y}`}
-                    dur={dur}
-                    begin={begin}
-                    repeatCount="indefinite"
-                    keyPoints="0;1;1"
-                    keyTimes="0;0.4;1"
-                    calcMode="linear"
-                  />
-                  <animate
-                    attributeName="opacity"
-                    values="0;0.9;0.9;0;0"
-                    keyTimes="0;0.06;0.36;0.42;1"
-                    dur={dur}
-                    begin={begin}
-                    repeatCount="indefinite"
-                  />
-                </circle>
-                {/* Arrival glow on the target node */}
-                <circle cx={b.x} cy={b.y} r={b.r * 4.5} fill="url(#hn-halo)" opacity="0">
-                  <animate
-                    attributeName="opacity"
-                    values="0;0;0.9;0;0"
-                    keyTimes="0;0.38;0.44;0.62;1"
-                    dur={dur}
-                    begin={begin}
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              </g>
-            );
-          })}
+        {animate && SIGNALS.map((s, i) => (
+          <circle key={i} data-signal={i} className={hide(s.mobile)} r="2.3" fill={SIGNAL} opacity="0" />
+        ))}
       </svg>
-
-      {/* Readability mask: strong behind text on small screens, light on desktop */}
+      {/* Preserve the existing text-protection mask at every breakpoint. */}
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/45 to-transparent lg:from-navy/40 lg:via-transparent" />
     </div>
   );
