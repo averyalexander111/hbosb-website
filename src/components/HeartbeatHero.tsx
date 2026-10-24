@@ -126,7 +126,7 @@ const HeartbeatHero = () => {
           aria-pressed={paused}
           aria-label={paused ? "Play background animation" : "Pause background animation"}
           title={paused ? "Play background animation" : "Pause background animation"}
-          className="absolute top-20 right-4 sm:right-6 lg:top-32 lg:right-[8%] z-20 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
+          className="absolute bottom-60 right-4 sm:bottom-20 sm:right-6 lg:right-[8%] z-20 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
         >
           {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
         </Button>
