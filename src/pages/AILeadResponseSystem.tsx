@@ -346,13 +346,13 @@ const AILeadResponseSystem = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={stagger}
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+              className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto"
             >
               {problems.map((item) => (
                 <motion.div
                   key={item.text}
                   variants={scaleIn}
-                  className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-[box-shadow] duration-300"
+                  className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border hover:shadow-elegant-hover transition-[box-shadow] duration-300 w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
                 >
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
@@ -579,13 +579,13 @@ const AILeadResponseSystem = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={stagger}
-              className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
+              className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto"
             >
               {clientResponsibilities.map((item) => (
                 <motion.div
                   key={item}
                   variants={fadeUp}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border"
+                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border w-full sm:w-[calc((100%-1rem)/2)]"
                 >
                   <ClipboardList className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
                   <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
