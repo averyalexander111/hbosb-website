@@ -14,6 +14,7 @@ import calcomLogo from "@/assets/calcom-icon.png";
 import stripeLogo from "@/assets/stripe-icon.png";
 import higgsfieldLogo from "@/assets/higgsfield-icon.png";
 import runwayLogo from "@/assets/runway-icon.png";
+import githubLogo from "@/assets/github-icon.png";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
@@ -34,6 +35,7 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Stripe logo", icon: stripeLogo, className: "w-[84px] h-[84px]" },
     { name: "Higgsfield logo", icon: higgsfieldLogo, className: "w-[70px] h-[70px]" },
     { name: "Runway logo", icon: runwayLogo, className: "w-[164px] h-[164px]" },
+    { name: "GitHub logo", icon: githubLogo, className: "w-[70px] h-[70px]" },
   ];
 
   return (
