@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import React, { useState, useSyncExternalStore } from "react";
+import { motion } from "framer-motion";
 import { Zap, TrendingUp, Bot, Pause, Play } from "lucide-react";
 import HeroNetwork from "./HeroNetwork";
 import { Link } from "react-router-dom";
 
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+const subscribeReducedMotion = (onChange: () => void) => {
+  const media = window.matchMedia(reducedMotionQuery);
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+};
+const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
+const getServerReducedMotion = () => false;
+
 const HeartbeatHero = () => {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, getServerReducedMotion);
   const [paused, setPaused] = useState(false);
   // Under reduced motion, content renders immediately without entrance movement.
   const enter = (delay: number, y = 20) =>

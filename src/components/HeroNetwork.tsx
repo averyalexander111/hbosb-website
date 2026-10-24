@@ -56,7 +56,7 @@ const SIGNALS = [
   { route: [14, 13, 12], offset: 4.9, duration: 6.1, cycle: 9.5, mobile: false },
   { route: [3, 7, 12], offset: 7.4, duration: 6.4, cycle: 10.1, mobile: false },
   { route: [10, 11, 12], offset: 1.2, duration: 6.8, cycle: 10.3, mobile: false },
-  { route: [4, 14, 21], offset: 6.2, duration: 6.3, cycle: 9.7, mobile: true },
+  { route: [0, 2], offset: 6.2, duration: 6.3, cycle: 9.7, mobile: true },
   { route: [0, 6, 7], offset: 3.7, duration: 6, cycle: 9.4, mobile: false },
   { route: [17, 18, 22], offset: 8.3, duration: 6.5, cycle: 10, mobile: false },
 ];
