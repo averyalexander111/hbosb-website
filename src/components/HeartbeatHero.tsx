@@ -44,9 +44,9 @@ const HeartbeatHero = () => {
       <HeroNetwork animate={!reducedMotion} paused={paused} />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-background pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pb-16 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 relative z-10">
         <div className="max-w-3xl">
           <motion.h1
             {...enter(0)}
@@ -108,29 +108,30 @@ const HeartbeatHero = () => {
             </Link>
           </motion.div>
 
-          <motion.p
+          <motion.div
             {...enter(0.6, 0)}
-            className="mt-6 text-sm text-navy-foreground/40"
+            className="mt-6 flex w-fit max-w-full items-center gap-4"
           >
-            Complimentary assessment · No commitment required
-          </motion.p>
+            <p className="min-w-0 text-sm text-navy-foreground/60">
+              Complimentary assessment · No commitment required
+            </p>
+            {!reducedMotion && (
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                onClick={() => setPaused((p) => !p)}
+                aria-pressed={paused}
+                aria-label={paused ? "Play background animation" : "Pause background animation"}
+                title={paused ? "Play background animation" : "Pause background animation"}
+                className="shrink-0 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
+              >
+                {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
+              </Button>
+            )}
+          </motion.div>
         </div>
       </div>
-
-      {!reducedMotion && (
-        <Button
-          type="button"
-          variant="outline"
-          size="icon"
-          onClick={() => setPaused((p) => !p)}
-          aria-pressed={paused}
-          aria-label={paused ? "Play background animation" : "Pause background animation"}
-          title={paused ? "Play background animation" : "Pause background animation"}
-          className="absolute bottom-60 right-4 sm:bottom-20 sm:right-6 lg:right-[8%] z-20 h-10 w-10 lg:h-9 lg:w-9 rounded-full border-navy-foreground/30 bg-navy/60 p-0 text-navy-foreground/80 hover:bg-navy-light hover:text-navy-foreground hover:border-navy-foreground/50 focus-visible:ring-primary focus-visible:ring-offset-navy"
-        >
-          {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
-        </Button>
-      )}
     </section>
   );
 };
