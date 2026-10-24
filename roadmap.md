@@ -1,9 +1,9 @@
 # Roadmap
 
 ## Organic hero mesh refinement (preview only)
-- [ ] Refine only the decorative network while preserving hero and /leads baseline
-- [ ] Verify geometry, pointer emphasis, lifecycle stopping, reduced motion, and responsive screenshots in Chromium and WebKit
-- [ ] Confirm isolated diff and successful automatic validation; do not publish
+- [x] Refine only the decorative network while preserving hero and /leads baseline
+- [x] Verify geometry, pointer emphasis, lifecycle stopping, reduced motion, and responsive screenshots in Chromium and WebKit
+- [x] Confirm isolated diff and successful automatic validation; do not publish
 
 ## Reduced-motion accessibility (preview only)
 - [x] Restore app-wide motion and CSS safeguards and immediate visibility for AnimatedSection
