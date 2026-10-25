@@ -44,7 +44,7 @@ const AIOperatingSystem = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-6xl mx-auto mb-16"
         >
-          <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 max-w-3xl mx-auto">
+          <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 max-w-4xl mx-auto">
             Our systems are designed to improve how your business generates and converts revenue.
           </p>
           <h2 className="section-title text-navy-foreground max-w-5xl mx-auto">
