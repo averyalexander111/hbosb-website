@@ -47,7 +47,7 @@ const philosophyStatements = [
 
 
 const credentials = [
-  { icon: Award, title: "Certified Project Manager" },
+  { icon: Award, title: "Google Project Management Professional Certificate" },
   { icon: Lightbulb, title: "Creative Entrepreneurship & Systems Design" },
   { icon: Bot, title: "AI Consulting & Automation Strategy" },
   { icon: Settings, title: "Workflow Automation & Operational Optimization" },
@@ -215,7 +215,7 @@ const AboutUs = () => {
                 </div>
                 <div className="lg:w-2/3 space-y-4">
                   <p className="text-navy-foreground/80 leading-relaxed">
-                    <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> was founded by Avery Alexander Palmer, a Certified Project Manager, Creative Entrepreneur, and AI Consultant, with a mission to help businesses modernize how they operate through intelligent systems and automation.
+                    <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> was founded by Avery Alexander Palmer, a creative entrepreneur and AI consultant who holds the Google Project Management Professional Certificate. His mission is to help businesses modernize how they operate through intelligent systems and automation.
                   </p>
                   <p className="text-navy-foreground/80 leading-relaxed">
                     Avery combines expertise in project management, digital strategy, and AI-powered automation to design operational systems that improve how businesses capture opportunities, communicate with customers, and manage internal workflows.
@@ -284,11 +284,11 @@ const AboutUs = () => {
                   Let's Explore What AI Could Fix In Your Business
                 </h2>
                 <p className="text-lg text-navy-foreground/60 mb-8 max-w-xl mx-auto">
-                  Identify where your business is losing opportunities and how AI systems can improve your lead capture, follow-up, and conversion process.
+                  The complimentary AI Revenue System Assessment helps identify likely gaps in lead response, follow-up, tracking, and handoff, with initial findings and an appropriate next step.
                 </p>
 
                 <ul className="mb-10 space-y-3 text-left max-w-md mx-auto">
-                  {["Where automation could save time", "Where AI could increase revenue", "What systems would improve operations"].map((b) => (
+                  {["Likely response and follow-up gaps", "Tracking and handoff issues", "An appropriate next step"].map((b) => (
                     <li key={b} className="flex items-center gap-3 text-navy-foreground/80">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                       <span className="text-sm">{b}</span>
@@ -304,7 +304,7 @@ const AboutUs = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <p className="mt-4 text-sm text-navy-foreground/40">
-                  Identify where AI systems can create the biggest impact in your business.
+                  Complimentary initial findings. Optional assessment review. No purchase required.
                 </p>
               </div>
             </motion.div>

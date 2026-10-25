@@ -22,10 +22,10 @@ const ProblemSection = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 lg:whitespace-nowrap">
-            Most businesses don't have a lead problem. They have a follow-up and conversion problem.
+            Existing inquiries deserve consistent response and follow-up.
           </p>
           <h2 className="section-title text-foreground">
-            Most Businesses Are Losing Opportunities Every Day
+            Where Lead-Handling Gaps Can Cost You Opportunities
           </h2>
           <p className="section-subtitle mx-auto">
             Small breakdowns in response time, follow-up, and organization lead to missed revenue.
