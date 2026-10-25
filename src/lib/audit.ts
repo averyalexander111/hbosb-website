@@ -288,8 +288,6 @@ const getAnswerText = (responses: AuditResponse[], questionId: string) => {
   return response.textResponse?.trim() || response.selectedOption?.text || "";
 };
 
-const getAnswerScore = (responses: AuditResponse[], questionId: string) =>
-  getResponse(responses, questionId)?.selectedOption?.score ?? 0;
 
 export const calculateAuditResult = (responses: AuditResponse[]): AuditResult => {
   const scoredQuestions = AUDIT_QUESTIONS.filter((question) => question.type === "scored");
@@ -330,22 +328,7 @@ export const calculateAuditResult = (responses: AuditResponse[]): AuditResult =>
     level = "Medium";
   }
 
-  const missedLeadScore = getAnswerScore(responses, "q7");
-  const responseSpeedScore = getAnswerScore(responses, "q8");
-  const followUpScore = getAnswerScore(responses, "q10");
-
-  let recommendation = "Your audit points to a strong case for tightening response speed and follow-up.";
-
-  if (missedLeadScore <= 2 || responseSpeedScore <= 3) {
-    recommendation =
-      "Your biggest opportunity is a structured lead-response system designed to help capture, route, and track approved inquiries more consistently.";
-  } else if (followUpScore <= 2) {
-    recommendation =
-      "Your next highest-leverage move is a structured follow-up engine so warm leads do not go cold after first contact.";
-  } else if (level === "High") {
-    recommendation =
-      "You already have a strong foundation. The best next move is layering smarter automation and reporting on top of what is working.";
-  }
+  const recommendation = classifyAuditRecommendation(responses).message;
 
   return {
     totalScore,
@@ -358,110 +341,192 @@ export const calculateAuditResult = (responses: AuditResponse[]): AuditResult =>
   };
 };
 
-export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => {
-  const businessName = leadData.businessName || "your business";
-  const businessSummary = getAnswerText(leadData.responses, "q1");
-  const successMetric = getAnswerText(leadData.responses, "q13");
-  const impactLevel = getAnswerText(leadData.responses, "q14");
-  const startingPreference = getAnswerText(leadData.responses, "q15");
-  const dataLocation = getAnswerText(leadData.responses, "q4");
-  const automationLevel = getAnswerText(leadData.responses, "q5");
-  const responseSpeed = getAnswerText(leadData.responses, "q8");
-  const missedLeads = getAnswerText(leadData.responses, "q7");
-  const followUpDepth = getAnswerText(leadData.responses, "q10");
-  const aiComfort = getAnswerText(leadData.responses, "q11");
-  const processConsistency = getAnswerText(leadData.responses, "q6");
+// ---------------------------------------------------------------------------
+// Recommendation classification (shared by AuditResult.recommendation and the
+// blueprint). Uses only existing structured answers. Scores are self-reported
+// readiness, not product fit, and are never used here.
+// ---------------------------------------------------------------------------
 
-  const leadHandlingPercent = leadData.auditResult.pillarPercentages[AUDIT_PILLARS.LEAD_HANDLING] ?? 0;
-  const dataPercent = leadData.auditResult.pillarPercentages[AUDIT_PILLARS.DATA] ?? 0;
-  const toolsPercent = leadData.auditResult.pillarPercentages[AUDIT_PILLARS.TOOLS] ?? 0;
+export type AuditRecommendationCategory =
+  | "potential_standard_fit"
+  | "further_discovery"
+  | "no_immediate_engagement";
 
-  const primaryLeak =
-    leadHandlingPercent < 65
-      ? `Lead handling is the clearest revenue leak. New inquiries are being worked at "${responseSpeed || "an inconsistent pace"}" and follow-up is currently "${followUpDepth || "not clearly defined"}".`
-      : `Your operational foundation is decent, but there is still room to tighten response speed, automation depth, and reporting so ${businessName} converts more of the demand it already has.`;
+export const AUDIT_RECOMMENDATION_COPY = {
+  potential_standard_fit: {
+    label: "Potential Standard Lead Conversion Fit",
+    message:
+      "Your answers suggest that responding to and following up with new inquiries may deserve closer attention. HBOSB's AI Lead Conversion System could be worth exploring if those gaps and the appropriate scope are confirmed.",
+  },
+  further_discovery: {
+    label: "Further Discovery Needed",
+    message:
+      "Your responses highlight areas worth reviewing, but they do not establish a clear solution yet. An optional assessment review can help determine whether further action makes sense.",
+  },
+  no_immediate_engagement: {
+    label: "No Immediate Engagement Indicated",
+    message:
+      "Based on your responses, there is no clear indication that a paid HBOSB service is necessary right now. You can revisit this assessment if your business needs change.",
+  },
+} as const;
 
-  const dataConstraint =
-    dataPercent < 60
-      ? `Customer information currently lives in "${dataLocation || "multiple disconnected places"}", which makes automation harder and limits visibility across the pipeline.`
-      : `Your data foundation is workable, which means the next gain likely comes from better orchestration and stronger automations.`;
+const GAP_ANSWERS: Record<string, string[]> = {
+  q7: ["Very often", "Occasionally"],
+  q8: ["Next day or later", "Same day"],
+  q9: ["We respond manually when available", "We respond, but timing is inconsistent"],
+  q10: ["We don't have a structured follow-up process", "1 time"],
+};
 
-  const rolloutGuidance =
-    toolsPercent < 60
-      ? `Because your current automation stack is "${automationLevel || "still fairly manual"}" and team AI comfort is "${aiComfort || "still developing"}", the safest rollout is a human-in-the-loop system that improves speed without overwhelming the team.`
-      : `Because your team already has some comfort with automation, you can move faster into multi-step workflows and reporting.`;
+const ADEQUATE_ANSWERS: Record<string, string> = {
+  q7: "Never - all leads are responded to",
+  q8: "Immediately (within minutes)",
+  q9: "Leads are automatically responded to immediately",
+  q10: "4-5 times",
+};
 
-  const keyFindings = [
-    primaryLeak,
-    dataConstraint,
-    processConsistency
-      ? `Operational consistency today is "${processConsistency}". That tells us the implementation should reinforce one repeatable workflow rather than add more manual choices.`
-      : "Consistency across the team will matter just as much as the tooling itself.",
-  ];
+const REQUIRED_FOR_CLASSIFICATION = ["q3", "q7", "q8", "q9", "q10", "q14"];
+const MEANINGFUL_IMPACT = ["Moderate improvement", "Significant growth", "Game-changing"];
+const LOWEST_INQUIRY_RANGE = "0-10 leads";
+const EXTREME_CONSTRAINTS = "Extreme regulations (HIPAA/Fin) & strict IT";
 
-  const actionPlan: AuditInsightSection[] = [
-    {
-      title: "Phase 1: Structure intake and response",
-      body:
-        leadHandlingPercent < 65
-          ? `Configure an intake system that can acknowledge eligible leads, route them to the right place, and begin approved follow-up based on connected systems. This addresses the missed-response pattern you reported as "${missedLeads || "inconsistent"}".`
-          : `Tighten the first-touch experience so eligible leads can receive an automated branded confirmation, qualification step, and clear path to booking based on the approved workflow and connected systems.`,
-    },
-    {
-      title: "Phase 2: Build a follow-up engine",
-      body:
-        `Turn follow-up into a system instead of a memory test. Based on your current depth of "${followUpDepth || "limited follow-up"}", the goal is a repeatable multi-touch sequence across text and email that keeps opportunities warm until they book or opt out.`,
-    },
-    {
-      title: "Phase 3: Create pipeline visibility",
-      body:
-        successMetric
-          ? `Set the system up to track progress against your stated 90-day goal: "${successMetric}". Available reporting can help show inquiry volume, contact activity, follow-up status, and recorded outcomes supported by the connected systems.`
-          : `Add simple reporting so you can see lead volume, response speed, booked calls, and conversion trends in one place.`,
-    },
-  ];
+// Explicit statements only. These never select a product; they only route to
+// further discovery because the structured questions cannot confirm them.
+const CAPACITY_CONCERN = /\b(can'?t|cannot|unable to|not able to)\s+(take|accept|handle)\s+(on\s+)?(more|new|any)\b|\b(at|no|over)\s+capacity\b|\bfully booked\b|\bbooked out\b|\bwait\s?list\b|\bnot taking (new|more)\b/i;
+const MULTI_LOCATION_MENTION = /\b(multiple|several|many|\d+)\s+(locations|listings|offices|branches|stores|sites)\b|\bmulti-?(location|listing)\b|\bfranchise/i;
+const WEBSITE_MENTION = /\bwebsite\b|\bonline presence\b|\bcontact form\b|\bweb ?site\b/i;
 
-  const recommendedSystems: AuditInsightSection[] = [];
+export interface AuditRecommendationClassification {
+  category: AuditRecommendationCategory;
+  label: string;
+  message: string;
+  gapQuestions: string[];
+  adequateQuestions: string[];
+  reasons: string[];
+}
 
-  recommendedSystems.push({
-    title: "AI lead response workflow",
-    body:
-      `This is the highest-leverage fit for ${businessName}. It shortens response time, closes the gap between inquiry and action, and creates a better first impression without adding headcount.`,
+export const classifyAuditRecommendation = (
+  responses: AuditResponse[],
+): AuditRecommendationClassification => {
+  const option = (id: string) => getResponse(responses, id)?.selectedOption?.text ?? "";
+  const freeText = [getAnswerText(responses, "q1"), getAnswerText(responses, "q13")].join(" ");
+
+  const gapQuestions = Object.keys(GAP_ANSWERS).filter((id) => GAP_ANSWERS[id].includes(option(id)));
+  const adequateQuestions = Object.keys(ADEQUATE_ANSWERS).filter((id) => ADEQUATE_ANSWERS[id] === option(id));
+
+  const reasons: string[] = [];
+  const missing = REQUIRED_FOR_CLASSIFICATION.filter((id) => !option(id));
+  if (missing.length) reasons.push(`missing:${missing.join(",")}`);
+  // Instant automatic response reported alongside a slow typical response time.
+  if (option("q9") === ADEQUATE_ANSWERS.q9 && GAP_ANSWERS.q8.includes(option("q8"))) reasons.push("contradictory:q8-q9");
+  if (option("q12") === EXTREME_CONSTRAINTS) reasons.push("constraints:q12");
+  if (CAPACITY_CONCERN.test(freeText)) reasons.push("capacity:free-text");
+  if (MULTI_LOCATION_MENTION.test(freeText)) reasons.push("multi-location:free-text");
+  if (WEBSITE_MENTION.test(freeText)) reasons.push("website:free-text");
+
+  const build = (category: AuditRecommendationCategory): AuditRecommendationClassification => ({
+    category,
+    ...AUDIT_RECOMMENDATION_COPY[category],
+    gapQuestions,
+    adequateQuestions,
+    reasons,
   });
 
-  if (dataPercent < 60) {
-    recommendedSystems.push({
-      title: "Centralized CRM and intake cleanup",
-      body:
-        `Move lead and customer data out of "${dataLocation || "scattered sources"}" into one clear operating system so automations have a reliable source of truth.`,
-    });
-  }
+  const blocking = reasons.some((reason) => reason.startsWith("missing") || reason.startsWith("contradictory"));
 
-  if (toolsPercent < 70) {
-    recommendedSystems.push({
-      title: "Human-in-the-loop follow-up automation",
-      body:
-        `Because your current automation maturity is "${automationLevel || "still developing"}", start with workflows that automate speed and consistency while keeping approvals or review steps where needed.`,
-    });
-  }
+  const clearlyAdequate =
+    !blocking &&
+    adequateQuestions.length === 4 &&
+    gapQuestions.length === 0 &&
+    option("q14") === "Small improvement";
+  if (clearlyAdequate) return build("no_immediate_engagement");
 
-  if (startingPreference.includes("complete system")) {
-    recommendedSystems.push({
-      title: "Phased systems implementation path",
-      body:
-        `You signaled interest in a broader rollout. The best path is a staged build that starts with lead handling, then expands into reporting, reactivation, and customer communication.`,
-    });
+  const potentialStandard =
+    reasons.length === 0 &&
+    gapQuestions.length >= 3 &&
+    option("q3") !== LOWEST_INQUIRY_RANGE &&
+    MEANINGFUL_IMPACT.includes(option("q14"));
+  if (potentialStandard) return build("potential_standard_fit");
+
+  return build("further_discovery");
+};
+
+const GAP_FINDING_TEXT: Record<string, (answer: string) => string> = {
+  q7: (a) => `You reported that new inquiries go without a response or proper follow-up "${a.toLowerCase()}".`,
+  q8: (a) => `You reported that your typical response time to new leads is "${a.toLowerCase()}".`,
+  q9: (a) => `You described what happens after someone contacts you as: "${a}".`,
+  q10: (a) => `You reported your typical follow-up as: "${a}".`,
+};
+
+export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => {
+  const businessName = leadData.businessName || "your business";
+  const responses = leadData.responses;
+  const classification = classifyAuditRecommendation(responses);
+  const answer = (id: string) => getAnswerText(responses, id);
+
+  const keyFindings: string[] = [];
+  classification.gapQuestions.forEach((id) => keyFindings.push(GAP_FINDING_TEXT[id](answer(id))));
+  if (classification.adequateQuestions.length) {
+    keyFindings.push(
+      `${classification.adequateQuestions.length} of 4 lead-handling answers describe consistent handling, for example: "${answer(classification.adequateQuestions[0])}".`,
+    );
   }
+  const inquiries = answer("q3");
+  if (inquiries === LOWEST_INQUIRY_RANGE) {
+    keyFindings.push(`You reported "${inquiries}" per month. At that range, whether improved lead handling would make a meaningful difference is unclear without more detail.`);
+  } else if (inquiries) {
+    keyFindings.push(`You reported roughly "${inquiries}" per month. This is a self-reported range, not an estimate of value.`);
+  }
+  const r = classification.reasons;
+  if (r.some((x) => x.startsWith("missing"))) keyFindings.push("Some answers needed for an initial recommendation were not provided.");
+  if (r.includes("contradictory:q8-q9")) keyFindings.push("Your answers about response timing point in different directions, so they would need clarifying.");
+  if (r.includes("constraints:q12")) keyFindings.push("You indicated strict industry rules or IT restrictions. Any approach would first need to be reviewed against those requirements.");
+  if (r.includes("capacity:free-text")) keyFindings.push("Your notes mention limits on taking new work. That would need to be understood before considering more inquiry volume or follow-up.");
+  if (r.includes("multi-location:free-text")) keyFindings.push("Your notes mention multiple locations or listings. This assessment cannot evaluate that setup, so it would need a conversation.");
+  if (r.includes("website:free-text")) keyFindings.push("Your notes mention your website or online presence. This assessment does not evaluate websites, so that would need a separate look.");
+  if (!keyFindings.length) keyFindings.push("Your answers did not point to a specific area that stands out.");
+
+  const goal = answer("q13");
+  const actionPlans: Record<AuditRecommendationCategory, AuditInsightSection[]> = {
+    potential_standard_fit: [
+      {
+        title: "Review: confirm the reported gaps",
+        body: "An optional review would check whether the response and follow-up gaps you reported happen consistently and on which lead sources.",
+      },
+      {
+        title: "Review: scope and fit",
+        body: goal
+          ? `If the gaps are confirmed, discuss whether an appropriate scope could support your stated goal: "${goal}". Nothing is committed at this stage.`
+          : "If the gaps are confirmed, discuss what an appropriate scope could include and what your team would keep handling. Nothing is committed at this stage.",
+      },
+    ],
+    further_discovery: [
+      {
+        title: "Clarify the details",
+        body: "Some of what matters for a recommendation is not captured by these questions. A short conversation can fill in those details.",
+      },
+      {
+        title: "Optional assessment review",
+        body: "If you'd like, book a review to discuss your answers. It may conclude that no further action is needed.",
+      },
+    ],
+    no_immediate_engagement: [
+      {
+        title: "Keep what is working",
+        body: "Your answers describe consistent response and follow-up. Keeping that process documented helps it hold up as your team changes.",
+      },
+      {
+        title: "Revisit if things change",
+        body: "If inquiry volume, staffing, or response times change, you can retake this assessment.",
+      },
+    ],
+  };
 
   return {
     headline: `${leadData.auditResult.readinessPercentage}% readiness for ${businessName}`,
-    summary:
-      businessSummary
-        ? `${businessName} serves ${businessSummary.toLowerCase()} The strongest opportunity right now is to turn incoming demand into a more predictable system for response, follow-up, and conversion.`
-        : `${businessName} has a clear opportunity to improve response speed, follow-up consistency, and visibility across the revenue pipeline.`,
+    summary: `Initial result: ${classification.label}. This is based only on your self-reported answers. The readiness score reflects your current processes and tools and is not a measure of fit for any service.`,
     keyFindings,
-    actionPlan,
-    recommendedSystems,
+    actionPlan: actionPlans[classification.category],
+    recommendedSystems: [{ title: classification.label, body: classification.message }],
   };
 };
 
