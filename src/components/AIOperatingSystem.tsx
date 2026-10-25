@@ -21,7 +21,7 @@ const stages = [
   {
     icon: Heart,
     title: "Retain",
-    desc: "Review generation and retention campaigns keep clients coming back.",
+    desc: "Where separately scoped, review requests and retention workflows can support ongoing customer communication.",
   },
   {
     icon: BarChart3,

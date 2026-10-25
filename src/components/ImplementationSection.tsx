@@ -81,7 +81,7 @@ const ImplementationSection = () => {
               See What This Looks Like for Your Business
             </h3>
             <p className="text-base md:text-lg text-navy-foreground/70 mb-8 max-w-[720px] mx-auto leading-relaxed">
-              Start an AI Revenue System Assessment to identify where your business is losing opportunities and how to improve lead conversion, follow-up, and automation.
+              The complimentary AI Revenue System Assessment helps identify likely gaps in lead response, follow-up, tracking, and handoff, with initial findings and an appropriate next step.
             </p>
             <Link
               to="/assessment"

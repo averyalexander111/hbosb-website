@@ -542,6 +542,17 @@ const AILeadResponseSystem = () => {
               </motion.div>
             </motion.div>
 
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="mt-10 text-center text-sm text-navy-foreground/50 leading-relaxed max-w-2xl mx-auto"
+            >
+              Management begins at documented production go-live. One initial paid monthly period is followed by month-to-month renewal.
+            </motion.p>
+
+
             <motion.div
               initial="hidden"
               whileInView="visible"

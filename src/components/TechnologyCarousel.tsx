@@ -47,7 +47,7 @@ const TechnologyCarousel = React.memo(() => {
           Built With Technology You Already Trust
         </h2>
         <p className="text-center text-navy-foreground/50 mb-14 max-w-xl mx-auto">
-          We integrate seamlessly with the tools your business already relies on.
+          We confirm compatible tools and integrations during scope review.
         </p>
 
         <Carousel
