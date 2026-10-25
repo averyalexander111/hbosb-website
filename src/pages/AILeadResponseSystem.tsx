@@ -52,39 +52,6 @@ const problems = [
   { icon: FolderSearch, text: "There is no clear picture of what happened after an inquiry arrived." },
 ];
 
-const steps = [
-  {
-    icon: Inbox,
-    title: "New inquiries enter the system",
-    desc: "Approved lead sources connect to a structured CRM pipeline.",
-  },
-  {
-    icon: Bell,
-    title: "Response and routing begin",
-    desc: "The system can acknowledge new inquiries, trigger internal notifications, and route opportunities according to the approved workflow.",
-  },
-  {
-    icon: PhoneIncoming,
-    title: "Missed calls can trigger recovery",
-    desc: "Applies only when missed-call recovery is part of the approved implementation.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Follow-up continues consistently",
-    desc: "Approved SMS and email workflows can help appropriate leads keep moving.",
-  },
-  {
-    icon: BarChart3,
-    title: "Opportunities stay visible",
-    desc: "CRM stages and lead-status tracking show what is new, active, waiting, moving, or needs human attention.",
-  },
-  {
-    icon: Users,
-    title: "People handle the parts that require people",
-    desc: "Business-specific conversations, sales decisions, escalations, customer service, fulfillment, and judgment stay with your team.",
-  },
-];
-
 const implementationScope = [
   "One business location",
   "One primary CRM pipeline",
