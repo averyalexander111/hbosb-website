@@ -51,3 +51,9 @@
 - [x] Widen the centered heading wrapper to the card row width and drop forced desktop nowrap
 - [x] Verify text-line centers over the card group at 390/890/1280/1600 on homepage and About
 - [x] Confirm single source file, natural wrapping, no clipping or horizontal overflow, build OK
+
+## Founder bio and credentials update (preview only, not published)
+- [x] Replace the three founder biography paragraphs with founder-supplied copy
+- [x] Add one secondary external text anchor to the capability statement
+- [x] Replace the four mixed expertise cards with the three confirmed credentials and rebalance the grid
+- [x] Verify 1440/390 rendering, link target/security/focus, and production build; do not publish
