@@ -1,64 +1,38 @@
-# GoHighLevel external-form capture + contact submission consolidation
+# Read-only conversion audit (no edits, nothing published)
 
-Read-only findings, plus the minimal change to make when approved. Nothing was edited.
+**Evidence basis:** current preview source only. I did not take browser screenshots, compare against the live site, start the assessment, or measure load speed this turn, so none of the findings below is "tested". Live vs preview differences are unconfirmed. The last verified publish matched preview for the final call-to-action copy only.
 
-## 1) Does GHL tracking / external-form capture code exist?
+## Findings, in priority order
 
-Yes. One script, one location:
+**1. Billing terms v1.2 are missing (Must fix)**
+`/leads` shows "$997 one-time" and "$1,497/month" (AILeadResponseSystem.tsx ~505, ~532, ~636–647). The source has no wording for when monthly billing starts (at go-live), the one first period, then month-to-month, or that there is no mandatory 3-month minimum. A search for "month-to-month", "go-live", "minimum" and "cancel" found nothing. Buyers will assume a lock-in. Fix: one sentence under the monthly card and one FAQ entry.
 
-`index.html`, lines 171-174 (inside `<body>`):
+**2. Testimonials don't match the offer and can't be traced (Must fix)**
+TestimonialsSection.tsx lists six reviews with stars, such as "Redondo Beach Barber" (4★) and Dana Mason ("for your digital marketing needs"). Erica Wilson mentions "increase your online presence". These read as past web and marketing work, not lead-conversion systems. There are no links, dates or sources. I'm not assuming they are false. But next to a $1,497/month offer they weaken trust instead of proving results. Fix: label them "Earlier client work", or link each to its source (Google or Yelp).
 
-```html
-<script
-  src="https://link.msgsndr.com/js/external-tracking.js"
-  data-tracking-id="tk_deddbf0ee67747858c559b21d9fb9117">
-</script>
-```
+**3. About page contradicts the positioning (Should fix soon)**
+AboutUs.tsx metadata reads "AI Consulting — … an AI consulting and automation firm". The founder bio says "Certified Project Manager, Creative Entrepreneur, and AI Consultant". This conflicts with the "AI Revenue Systems" positioning and the rule to avoid "automation". The "Certified Project Manager" badge (line 50) names no certifying body (for example PMP). Fix: name the credential, or soften it, and align the metadata.
 
-`link.msgsndr.com` is GoHighLevel/LeadConnector. This is their external-form tracking script: it loads on every page of the site and watches native `<form>` submissions on non-GHL pages, creating a contact with `source = external_form` attributed to the page URL. Because the contact form is a React form whose fields are controlled and posted via `fetch` (not a native GHL form with mapped field names), GHL captures the submit event but not the field values. That matches the empty-name/email/phone contacts attributed to `https://heartbeatofsouthbay.com/contact`.
+**4. Homepage is long and abstract before anything concrete (Should fix soon)**
+Order: Hero → Problem → AIOperatingSystem (5 stages) → AISystems → Results → Implementation → logo strip → Testimonials → FAQ → AILeadResponse → FinalCTA → Connect. That is twelve sections, and three framework-style sections in a row before any example. "Results" is a list of qualities ("Response Consistency", "Follow-Up Discipline", "Pipeline Visibility") rather than an example. Pricing and the concrete offer (AILeadResponseSection) only appear near the end. Fix: move AILeadResponse higher, or add one short worked example (missed call → text → booked) near the top.
 
-No other GHL/LeadConnector asset exists anywhere in the repo. Confirmed absent: chat widget, form/survey embed, funnel pixel, conversation widget, any other `msgsndr`/`leadconnector` reference in `src`, `public`, or config. The only other third-party scripts in `index.html` are Google Analytics (`gtag`, G-FJKZ8FP5YP) and the Lovable editor script. Cal.com embeds are injected per page in `Contact.tsx` and `Audit.tsx` and are unrelated.
+**5. Competing calls to action (Should fix soon)**
+The menu runs Home, Lead Conversion System, ROI Calculator, About, Blog, Contact, plus an assessment button. Visitors can choose between the assessment, the ROI calculator, a booking link and the contact form, with no clear first step. Fix: make the assessment the main action site-wide and keep the others secondary. Consider dropping Blog from the main menu.
 
-## 2) Would removing it break any other GHL feature?
+**6. Assessment effort is not stated up front (Should fix soon)**
+Before the first question, Audit.tsx requires name, email and phone (~lines 468–502), plus one more required field (~665). lib/audit.ts has 17 question ids. Asking for a phone number before any value is given, without saying the length, adds friction. Fix: state "about N questions, ~X minutes" on the start screen. Optionally make phone optional (that is a business decision).
 
-Nothing that exists in this repo. The script's only functions are external-form capture and page-visit attribution for contacts GHL already knows (cookie-based session attribution). Removing it means:
+**7. Logo strip meaning (Optional later)**
+"Built With Technology You Already Trust" shows 17 tools, including Higgsfield, Runway and GitHub. Most service-business owners won't recognise these, and they may read as partnerships. Fix: a short caption ("Tools we build with; not endorsements"), or trim to the tools a client actually touches.
 
-- The duplicate blank `external_form` contacts stop being created.
-- GHL loses page-visit/source attribution for site visitors. The n8n path already sends its own source field, so contact source stays intact.
-- No chat widget, no booking widget, no GHL form on the site depends on it.
+**Also noted:** GrowthPlansSection.tsx still holds the old $997/month and $1,497 setup pricing. It isn't on any current page, but it could be reused by mistake. The ROI page correctly says "not a forecast or guarantee". The /leads FAQ correctly avoids guaranteeing response time.
 
-Caveat outside the repo: if anything in the GHL account is configured against that tracking ID (a trigger on "external form submitted", a website-session-based workflow, or attribution reporting), it lives in GHL, not here, and should be checked in the account before removal.
+## Not checked
+- Rendered screenshots
+- Mobile readability on a real device
+- Live site differences
+- Speed / Core Web Vitals
+- Assessment screens after the start step
+- Contact page copy beyond earlier QA
 
-## 3) Minimal ContactForm.tsx change for production
-
-Current logic (`src/components/ContactForm.tsx`, lines 42-52 and 149-158):
-
-- `shouldUseDirectContactWebhook()` returns true only when hostname is the production domain **and** `pathname === "/contact"`.
-- When true: posts to the n8n webhook, then also fires the Supabase edge function (`submit-contact-form` -> Supabase table + Airtable) as a non-blocking secondary write.
-- When false (homepage contact section, preview, local): posts only to the Supabase edge function, so homepage leads never reach n8n/GHL at all.
-
-Minimal change, two edits, no UI/validation/payload changes:
-
-1. Drop the pathname condition in `shouldUseDirectContactWebhook()` so it returns true for the production hostnames on any page. The homepage `ConnectSection` form and `/contact` then use the same n8n path.
-2. In `handleSubmit`, remove the secondary `void submitToEdgeFunction(payload).catch(...)` call from the direct-webhook branch, so production makes exactly one submission.
-
-The `else` branch stays as-is: non-production hosts (preview, localhost) continue to use the Supabase edge function, so testing never writes into the live GHL pipeline.
-
-One detail to confirm: `submitToContactWebhook` hardcodes `source: "${origin}/contact"`. With the homepage form now on the same path, that label becomes inaccurate. Recommended within the same change: send the actual page URL, or keep `area_of_interest` as the distinguishing field (homepage passes its own value already). Tell me which you prefer; no n8n-side mapping is changed either way.
-
-## 4) What can stay dormant without affecting live operations
-
-All of the following can remain in the repo with zero production effect once the above change ships:
-
-- `supabase/functions/submit-contact-form/index.ts` (Supabase insert + Airtable sync) — still deployed, reachable only from non-production hosts.
-- The `HBOSB Contact Form` Supabase table and the Airtable env vars — receive nothing from production traffic.
-- `submitToEdgeFunction` in `ContactForm.tsx` — kept as the non-production fallback branch.
-- `VITE_CONTACT_WEBHOOK_URL` override support (currently unset; falls back to the hardcoded n8n URL).
-
-Keeping them costs nothing and preserves a working local/preview test path. They only become live again if the hostname check changes.
-
-## Proposed change set (on approval)
-
-- `index.html`: remove the GHL external-tracking script block (lines 171-174).
-- `src/components/ContactForm.tsx`: drop the pathname condition; remove the secondary edge-function call in the production branch; optionally correct the `source` value.
-- Validate with TypeScript + production build; confirm no other file changed. Preview only, no publish.
+If you approve, the next step is a browser pass on preview and live, with no submissions and no assessment start, to confirm these findings and close the gaps above. It would still be read-only.
