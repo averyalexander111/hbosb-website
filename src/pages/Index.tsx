@@ -16,6 +16,7 @@ const TechnologyCarousel = lazyWithReload(() => import("@/components/TechnologyC
 const TestimonialsSection = lazyWithReload(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazyWithReload(() => import("@/components/FAQSection"));
 const AILeadResponseSection = lazyWithReload(() => import("@/components/AILeadResponseSection"));
+const SystemWalkthroughSection = lazyWithReload(() => import("@/components/SystemWalkthroughSection"));
 const FinalCTASection = lazyWithReload(() => import("@/components/FinalCTASection"));
 const ConnectSection = lazyWithReload(() => import("@/components/ConnectSection"));
 
@@ -48,6 +49,7 @@ const Index = () => {
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
         <Suspense fallback={<Loader />}><FAQSection /></Suspense>
         <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
+        <Suspense fallback={<Loader />}><SystemWalkthroughSection /></Suspense>
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
         <Suspense fallback={<Loader />}><ConnectSection /></Suspense>
       </main>
