@@ -85,9 +85,9 @@ const SystemWalkthroughSection = () => (
           <li key={s.title} className="flex flex-col rounded-2xl bg-navy p-6 border border-navy-foreground/10">
             <div className="flex items-center gap-3 mb-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/20">
-                <s.icon className="h-5 w-5 text-signal" aria-hidden="true" />
+                <s.icon className="h-5 w-5 text-[hsl(var(--signal))]" aria-hidden="true" />
               </span>
-              <span className="text-sm font-semibold text-signal">Step {i + 1}</span>
+              <span className="text-sm font-semibold text-[hsl(var(--signal))]">Step {i + 1}</span>
             </div>
             <h3 className="text-lg font-semibold text-navy-foreground">{s.title}</h3>
             <p className="mt-1.5 text-sm text-navy-foreground/70 leading-relaxed">{s.desc}</p>
