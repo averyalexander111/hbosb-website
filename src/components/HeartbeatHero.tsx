@@ -52,7 +52,7 @@ const HeartbeatHero = () => {
             {...enter(0)}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
-            AI Revenue Systems for Modern Businesses
+            AI Revenue Systems Built for Service Businesses
           </motion.h1>
 
           <motion.p
