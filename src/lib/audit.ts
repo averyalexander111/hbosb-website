@@ -384,7 +384,7 @@ const ADEQUATE_ANSWERS: Record<string, string> = {
   q10: "4-5 times",
 };
 
-const REQUIRED_FOR_CLASSIFICATION = ["q3", "q7", "q8", "q9", "q10", "q14"];
+const REQUIRED_FOR_CLASSIFICATION = ["q3", "q7", "q8", "q9", "q10", "q12", "q14"];
 const MEANINGFUL_IMPACT = ["Moderate improvement", "Significant growth", "Game-changing"];
 const LOWEST_INQUIRY_RANGE = "0-10 leads";
 const EXTREME_CONSTRAINTS = "Extreme regulations (HIPAA/Fin) & strict IT";
@@ -431,18 +431,27 @@ export const classifyAuditRecommendation = (
     reasons,
   });
 
-  const blocking = reasons.some((reason) => reason.startsWith("missing") || reason.startsWith("contradictory"));
+  // A mention of multiple locations alone is not a problem signal; every other
+  // flag (missing, contradictory, strict constraints, capacity, website) is.
+  const hasConcernFlag = reasons.some((reason) => !reason.startsWith("multi-location"));
 
   const clearlyAdequate =
-    !blocking &&
-    adequateQuestions.length === 4 &&
-    gapQuestions.length === 0 &&
+    !hasConcernFlag &&
+    Object.keys(ADEQUATE_ANSWERS).every((id) => adequateQuestions.includes(id)) &&
     option("q14") === "Small improvement";
   if (clearlyAdequate) return build("no_immediate_engagement");
 
+  const hasGap = (id: string) => gapQuestions.includes(id);
+  // Corroborated gap: a missed or slow response plus a separate handling/follow-up
+  // gap, or inconsistent response timing plus no structured follow-up.
+  const corroboratedGap =
+    ((hasGap("q7") || hasGap("q8")) && (hasGap("q9") || hasGap("q10"))) ||
+    (option("q9") === "We respond, but timing is inconsistent" &&
+      option("q10") === "We don't have a structured follow-up process");
+
   const potentialStandard =
     reasons.length === 0 &&
-    gapQuestions.length >= 3 &&
+    corroboratedGap &&
     option("q3") !== LOWEST_INQUIRY_RANGE &&
     MEANINGFUL_IMPACT.includes(option("q14"));
   if (potentialStandard) return build("potential_standard_fit");
