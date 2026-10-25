@@ -392,7 +392,7 @@ const Audit = () => {
     <>
       <SEOHead
         title="AI Revenue System Assessment | Heartbeat of South Bay"
-        description="Take the Heartbeat of South Bay AI revenue assessment to uncover where leads, follow-up, and operations are leaking revenue."
+        description="Explore possible gaps in lead response, follow-up, tracking, and operations through a complimentary AI Revenue System Assessment."
         ogTitle="AI Revenue System Assessment | Heartbeat of South Bay"
         ogDescription="Get a practical assessment of your lead handling, systems, and AI readiness."
         canonicalUrl={`${window.location.origin}/assessment`}
@@ -567,7 +567,7 @@ const Audit = () => {
 
                   <h2 className="mt-8 text-3xl font-bold sm:text-4xl">{pillarHeadlines[question.pillar] || "Assessment in progress."}</h2>
                   <p className="mt-4 max-w-md text-base leading-relaxed text-navy-foreground/80">
-                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few quick questions, clear answers on where revenue is leaking and what to fix first.
+                    Step {currentStep + 1} of {AUDIT_QUESTIONS.length}. A few quick questions, initial findings and an appropriate next step based on your answers.
                   </p>
 
                   <div className="mt-10">
@@ -594,7 +594,7 @@ const Audit = () => {
                     <div className="flex items-start gap-3">
                       <Bot className="mt-0.5 h-5 w-5 text-primary" />
                       <p className="text-sm leading-relaxed text-navy-foreground/85">
-                        The goal is to reveal the highest-leverage system to build first, not to score perfection.
+                        The goal is to identify possible gaps and an appropriate next step, not to prescribe a system before the facts are clear.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
@@ -895,7 +895,7 @@ const Audit = () => {
                         <Bot className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <h2 className="text-xl font-semibold text-foreground">Systems to consider</h2>
+                        <h2 className="text-xl font-semibold text-foreground">Suggested next step</h2>
                         <p className="text-sm text-muted-foreground">Potential options to review in light of your initial findings.</p>
                       </div>
                     </div>
