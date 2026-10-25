@@ -442,14 +442,20 @@ export const classifyAuditRecommendation = (
   const q8 = option("q8");
   const q9 = option("q9");
   if (
-    (q8 === "Immediately (within minutes)" && MATERIAL_SIGNALS.q9.includes(q9)) ||
+    // A manual response can still be immediate, so only "timing is inconsistent" conflicts here.
+    (q8 === "Immediately (within minutes)" && q9 === "We respond, but timing is inconsistent") ||
     (q9 === "Leads are automatically responded to immediately" && q8 === "Next day or later")
   ) {
     flags.push("contradictory:q8-q9");
   }
   if (CAPACITY_CONCERN.test(freeText)) flags.push("capacity:free-text");
-  if (WEBSITE_MENTION.test(freeText) && PROBLEM_WORDS.test(freeText)) flags.push("website-issue:free-text");
-  if (MULTI_LISTING_MENTION.test(freeText) && PROBLEM_WORDS.test(freeText)) flags.push("multi-listing-issue:free-text");
+  // A problem word only counts when it appears in the same sentence or clause as the mention.
+  const clauses = [getAnswerText(responses, "q1"), getAnswerText(responses, "q13")].flatMap((text) =>
+    text.split(/[.!?;\n]+|,?\s+but\s+/i),
+  );
+  const clauseHasIssue = (mention: RegExp) => clauses.some((clause) => mention.test(clause) && PROBLEM_WORDS.test(clause));
+  if (clauseHasIssue(WEBSITE_MENTION)) flags.push("website-issue:free-text");
+  if (clauseHasIssue(MULTI_LISTING_MENTION)) flags.push("multi-listing-issue:free-text");
 
   const build = (category: AuditRecommendationCategory): AuditRecommendationClassification => ({
     category,
