@@ -1,5 +1,8 @@
 # Roadmap
 
+## Homepage illustrative walkthrough (preview only)
+- [ ] Add SystemWalkthroughSection after AILeadResponseSection; verify 390/890/1280; do not publish
+
 ## Organic hero mesh refinement (preview only)
 - [x] Refine only the decorative network while preserving hero and /leads baseline
 - [x] Verify geometry, pointer emphasis, lifecycle stopping, reduced motion, and responsive screenshots in Chromium and WebKit
