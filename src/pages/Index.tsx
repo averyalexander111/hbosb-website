@@ -28,7 +28,13 @@ const Loader = () => (
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <SEOHead />
+      <SEOHead
+        title="AI Revenue Systems for Service Businesses | Heartbeat of South Bay"
+        description="We build and manage AI revenue systems for service businesses, supporting lead capture, follow-up, and CRM visibility. Start with a complimentary assessment."
+        ogTitle="AI Revenue Systems Built for Service Businesses | Heartbeat of South Bay"
+        ogDescription="We build and manage AI revenue systems for service businesses, supporting lead capture, follow-up, and CRM visibility. Start with a complimentary assessment."
+        canonicalUrl="https://heartbeatofsouthbay.com/"
+      />
       <HeartbeatNavbar />
       <main>
         <HeartbeatHero />
