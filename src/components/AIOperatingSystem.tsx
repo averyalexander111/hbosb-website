@@ -57,7 +57,6 @@ const AIOperatingSystem = () => {
 
         {/* Pipeline */}
         <div className="flex flex-col lg:flex-row items-stretch gap-4 max-w-6xl mx-auto">
-
           {stages.map((stage, i) => (
             <React.Fragment key={stage.title}>
               <motion.div
