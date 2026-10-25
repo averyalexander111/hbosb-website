@@ -42,18 +42,19 @@ const AIOperatingSystem = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-6xl mx-auto mb-16"
         >
-          <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 lg:whitespace-nowrap">
+          <p className="text-xs lg:text-sm font-medium text-primary uppercase tracking-wider mb-4 max-w-3xl mx-auto">
             Our systems are designed to improve how your business generates and converts revenue.
           </p>
-          <h2 className="section-title text-navy-foreground lg:whitespace-nowrap">
+          <h2 className="section-title text-navy-foreground max-w-5xl mx-auto">
             Where Better Systems Create Leverage
           </h2>
-          <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto lg:max-w-none lg:whitespace-nowrap">
+          <p className="mt-4 text-lg text-navy-foreground/60 max-w-4xl mx-auto">
             A complete system infrastructure that strengthens every stage of the customer journey.
           </p>
         </motion.div>
+
 
         {/* Pipeline */}
         <div className="flex flex-col lg:flex-row items-stretch gap-4 max-w-6xl mx-auto">
