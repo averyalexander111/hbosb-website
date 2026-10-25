@@ -348,60 +348,79 @@ export const calculateAuditResult = (responses: AuditResponse[]): AuditResult =>
 // ---------------------------------------------------------------------------
 
 export type AuditRecommendationCategory =
-  | "potential_standard_fit"
-  | "further_discovery"
-  | "no_immediate_engagement";
+  | "potential_lead_handling_opportunity"
+  | "further_review_needed"
+  | "no_clear_immediate_need"
+  | "insufficient_evidence";
 
 export const AUDIT_RECOMMENDATION_COPY = {
-  potential_standard_fit: {
-    label: "Potential Standard Lead Conversion Fit",
+  potential_lead_handling_opportunity: {
+    label: "Potential Lead-Handling Opportunity",
     message:
-      "Your answers suggest that responding to and following up with new inquiries may deserve closer attention. HBOSB's AI Lead Conversion System could be worth exploring if those gaps and the appropriate scope are confirmed.",
+      "Your answers suggest that part of your lead-response or follow-up process may benefit from improvement. HBOSB's AI Lead Conversion System could be worth exploring, but the appropriate solution depends on confirming your business needs, operating capacity, and technical requirements.",
   },
-  further_discovery: {
-    label: "Further Discovery Needed",
+  further_review_needed: {
+    label: "Further Review Needed",
     message:
-      "Your responses highlight areas worth reviewing, but they do not establish a clear solution yet. An optional assessment review can help determine whether further action makes sense.",
+      "Your answers highlight areas worth discussing, but more information is needed before recommending a particular solution. An optional assessment review can help clarify the most useful next step.",
   },
-  no_immediate_engagement: {
-    label: "No Immediate Engagement Indicated",
+  no_clear_immediate_need: {
+    label: "No Clear Immediate Need",
     message:
-      "Based on your responses, there is no clear indication that a paid HBOSB service is necessary right now. You can revisit this assessment if your business needs change.",
+      "Based on your responses, we haven't identified a clear need for a new lead-conversion system at this time. You can continue using your existing process and revisit these findings if your needs change.",
+  },
+  insufficient_evidence: {
+    label: "Insufficient Evidence",
+    message:
+      "Your assessment provides a starting point, but the available answers aren't enough to recommend a specific system. You can review the findings and decide whether a further conversation would be useful.",
   },
 } as const;
 
-const GAP_ANSWERS: Record<string, string[]> = {
+// Self-reported answers that directly describe a material handling concern.
+// q8 "Same day" and q10 "1 time" are intentionally excluded (ambiguous alone).
+const MATERIAL_SIGNALS: Record<string, string[]> = {
+  q6: [
+    "No consistent process - everyone handles it differently",
+    "We have rough steps but the team doesn't always follow them",
+  ],
   q7: ["Very often", "Occasionally"],
-  q8: ["Next day or later", "Same day"],
+  q8: ["Next day or later"],
   q9: ["We respond manually when available", "We respond, but timing is inconsistent"],
-  q10: ["We don't have a structured follow-up process", "1 time"],
+  q10: ["We don't have a structured follow-up process"],
 };
 
-const ADEQUATE_ANSWERS: Record<string, string> = {
-  q7: "Never - all leads are responded to",
-  q8: "Immediately (within minutes)",
-  q9: "Leads are automatically responded to immediately",
-  q10: "4-5 times",
+const HEALTHY_ANSWERS: Record<string, string[]> = {
+  q6: [
+    "Mostly consistent - team generally follows the same process",
+    "Fully consistent - the team follows a documented process for appropriate leads",
+  ],
+  q7: ["Never - all leads are responded to"],
+  q8: ["Immediately (within minutes)"],
+  q9: ["Leads are automatically responded to immediately"],
+  q10: ["4-5 times"],
 };
 
-const REQUIRED_FOR_CLASSIFICATION = ["q3", "q7", "q8", "q9", "q10", "q12", "q14"];
-const MEANINGFUL_IMPACT = ["Moderate improvement", "Significant growth", "Game-changing"];
+const HANDLING_QUESTIONS = ["q6", "q7", "q8", "q9", "q10"];
 const LOWEST_INQUIRY_RANGE = "0-10 leads";
-const EXTREME_CONSTRAINTS = "Extreme regulations (HIPAA/Fin) & strict IT";
+const RESTRICTIVE_CONSTRAINTS = [
+  "Extreme regulations (HIPAA/Fin) & strict IT",
+  "Some privacy rules but no clear guidance",
+];
 
-// Explicit statements only. These never select a product; they only route to
-// further discovery because the structured questions cannot confirm them.
-const CAPACITY_CONCERN = /\b(can'?t|cannot|unable to|not able to)\s+(take|accept|handle)\s+(on\s+)?(more|new|any)\b|\b(at|no|over)\s+capacity\b|\bfully booked\b|\bbooked out\b|\bwait\s?list\b|\bnot taking (new|more)\b/i;
-const MULTI_LOCATION_MENTION = /\b(multiple|several|many|\d+)\s+(locations|listings|offices|branches|stores|sites)\b|\bmulti-?(location|listing)\b|\bfranchise/i;
-const WEBSITE_MENTION = /\bwebsite\b|\bonline presence\b|\bcontact form\b|\bweb ?site\b/i;
+// Protective free-text flags only. They can route to Further Review Needed but
+// never select a service. A bare mention (e.g. "multiple locations") is not enough.
+const CAPACITY_CONCERN = /\b(can'?t|cannot|unable to|not able to)\s+(take|accept|handle)\s+(on\s+)?(more|new|any)\b|\b(at|over)\s+capacity\b|\bno capacity\b|\bfully booked\b|\bbooked out\b|\bnot taking (new|more)\b/i;
+const WEBSITE_MENTION = /\bweb ?site\b|\bonline presence\b|\bcontact form\b|\bcontact page\b/i;
+const MULTI_LISTING_MENTION = /\b(multiple|several|many|\d+)\s+(locations|listings|offices|branches|stores|integrations)\b|\bmulti-?(location|listing)\b|\bfranchise/i;
+const PROBLEM_WORDS = /\b(problem|problems|issue|issues|broken|outdated|confusing|confused|hard|difficult|struggl\w*|messy|mess|slow|lost|losing|lose|miss|missed|missing|doesn'?t work|not working|can'?t find|chaos|chaotic|inconsistent)\b/i;
 
 export interface AuditRecommendationClassification {
   category: AuditRecommendationCategory;
   label: string;
   message: string;
-  gapQuestions: string[];
-  adequateQuestions: string[];
-  reasons: string[];
+  materialSignals: string[];
+  healthyQuestions: string[];
+  flags: string[];
 }
 
 export const classifyAuditRecommendation = (
@@ -410,56 +429,57 @@ export const classifyAuditRecommendation = (
   const option = (id: string) => getResponse(responses, id)?.selectedOption?.text ?? "";
   const freeText = [getAnswerText(responses, "q1"), getAnswerText(responses, "q13")].join(" ");
 
-  const gapQuestions = Object.keys(GAP_ANSWERS).filter((id) => GAP_ANSWERS[id].includes(option(id)));
-  const adequateQuestions = Object.keys(ADEQUATE_ANSWERS).filter((id) => ADEQUATE_ANSWERS[id] === option(id));
+  const materialSignals = HANDLING_QUESTIONS.filter((id) => MATERIAL_SIGNALS[id].includes(option(id)));
+  const healthyQuestions = HANDLING_QUESTIONS.filter((id) => HEALTHY_ANSWERS[id].includes(option(id)));
 
-  const reasons: string[] = [];
-  const missing = REQUIRED_FOR_CLASSIFICATION.filter((id) => !option(id));
-  if (missing.length) reasons.push(`missing:${missing.join(",")}`);
-  // Instant automatic response reported alongside a slow typical response time.
-  if (option("q9") === ADEQUATE_ANSWERS.q9 && GAP_ANSWERS.q8.includes(option("q8"))) reasons.push("contradictory:q8-q9");
-  if (option("q12") === EXTREME_CONSTRAINTS) reasons.push("constraints:q12");
-  if (CAPACITY_CONCERN.test(freeText)) reasons.push("capacity:free-text");
-  if (MULTI_LOCATION_MENTION.test(freeText)) reasons.push("multi-location:free-text");
-  if (WEBSITE_MENTION.test(freeText)) reasons.push("website:free-text");
+  const flags: string[] = [];
+  const missingHandling = HANDLING_QUESTIONS.filter((id) => !option(id));
+  if (missingHandling.length) flags.push(`missing:${missingHandling.join(",")}`);
+  if (!option("q3")) flags.push("missing:q3");
+  else if (option("q3") === LOWEST_INQUIRY_RANGE) flags.push("demand-unclear:q3");
+  if (!option("q12")) flags.push("missing:q12");
+  else if (RESTRICTIVE_CONSTRAINTS.includes(option("q12"))) flags.push("restrictions:q12");
+  const q8 = option("q8");
+  const q9 = option("q9");
+  if (
+    (q8 === "Immediately (within minutes)" && MATERIAL_SIGNALS.q9.includes(q9)) ||
+    (q9 === "Leads are automatically responded to immediately" && q8 === "Next day or later")
+  ) {
+    flags.push("contradictory:q8-q9");
+  }
+  if (CAPACITY_CONCERN.test(freeText)) flags.push("capacity:free-text");
+  if (WEBSITE_MENTION.test(freeText) && PROBLEM_WORDS.test(freeText)) flags.push("website-issue:free-text");
+  if (MULTI_LISTING_MENTION.test(freeText) && PROBLEM_WORDS.test(freeText)) flags.push("multi-listing-issue:free-text");
 
   const build = (category: AuditRecommendationCategory): AuditRecommendationClassification => ({
     category,
     ...AUDIT_RECOMMENDATION_COPY[category],
-    gapQuestions,
-    adequateQuestions,
-    reasons,
+    materialSignals,
+    healthyQuestions,
+    flags,
   });
 
-  // A mention of multiple locations alone is not a problem signal; every other
-  // flag (missing, contradictory, strict constraints, capacity, website) is.
-  const hasConcernFlag = reasons.some((reason) => !reason.startsWith("multi-location"));
+  const protective = flags.some((f) =>
+    ["restrictions", "contradictory", "capacity", "website-issue", "multi-listing-issue"].some((p) => f.startsWith(p)),
+  );
 
-  const clearlyAdequate =
-    !hasConcernFlag &&
-    Object.keys(ADEQUATE_ANSWERS).every((id) => adequateQuestions.includes(id)) &&
-    option("q14") === "Small improvement";
-  if (clearlyAdequate) return build("no_immediate_engagement");
+  if (materialSignals.length > 0) {
+    // A documented concern exists; route to A only when nothing needs clarifying first.
+    if (protective || flags.length > 0) return build("further_review_needed");
+    return build("potential_lead_handling_opportunity");
+  }
 
-  const hasGap = (id: string) => gapQuestions.includes(id);
-  // Corroborated gap: a missed or slow response plus a separate handling/follow-up
-  // gap, or inconsistent response timing plus no structured follow-up.
-  const corroboratedGap =
-    ((hasGap("q7") || hasGap("q8")) && (hasGap("q9") || hasGap("q10"))) ||
-    (option("q9") === "We respond, but timing is inconsistent" &&
-      option("q10") === "We don't have a structured follow-up process");
+  if (protective) return build("further_review_needed");
 
-  const potentialStandard =
-    reasons.length === 0 &&
-    corroboratedGap &&
-    option("q3") !== LOWEST_INQUIRY_RANGE &&
-    MEANINGFUL_IMPACT.includes(option("q14"));
-  if (potentialStandard) return build("potential_standard_fit");
+  const allHealthy = HANDLING_QUESTIONS.every((id) => healthyQuestions.includes(id));
+  const clarityFlags = flags.filter((f) => f !== "demand-unclear:q3");
+  if (allHealthy && clarityFlags.length === 0) return build("no_clear_immediate_need");
 
-  return build("further_discovery");
+  return build("insufficient_evidence");
 };
 
-const GAP_FINDING_TEXT: Record<string, (answer: string) => string> = {
+const MATERIAL_FINDING_TEXT: Record<string, (answer: string) => string> = {
+  q6: (a) => `You described your team's lead-handling process as: "${a}".`,
   q7: (a) => `You reported that new inquiries go without a response or proper follow-up "${a.toLowerCase()}".`,
   q8: (a) => `You reported that your typical response time to new leads is "${a.toLowerCase()}".`,
   q9: (a) => `You described what happens after someone contacts you as: "${a}".`,
@@ -471,61 +491,83 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
   const responses = leadData.responses;
   const classification = classifyAuditRecommendation(responses);
   const answer = (id: string) => getAnswerText(responses, id);
+  const flags = classification.flags;
 
   const keyFindings: string[] = [];
-  classification.gapQuestions.forEach((id) => keyFindings.push(GAP_FINDING_TEXT[id](answer(id))));
-  if (classification.adequateQuestions.length) {
+  classification.materialSignals.forEach((id) => keyFindings.push(MATERIAL_FINDING_TEXT[id](answer(id))));
+  if (classification.healthyQuestions.length) {
     keyFindings.push(
-      `${classification.adequateQuestions.length} of 4 lead-handling answers describe consistent handling, for example: "${answer(classification.adequateQuestions[0])}".`,
+      `${classification.healthyQuestions.length} of 5 lead-handling answers describe consistent handling, for example: "${answer(classification.healthyQuestions[0])}".`,
     );
   }
   const inquiries = answer("q3");
   if (inquiries === LOWEST_INQUIRY_RANGE) {
-    keyFindings.push(`You reported "${inquiries}" per month. At that range, whether improved lead handling would make a meaningful difference is unclear without more detail.`);
+    keyFindings.push(`You reported "${inquiries}" per month. That range includes zero, so current inquiry volume would need clarifying.`);
   } else if (inquiries) {
     keyFindings.push(`You reported roughly "${inquiries}" per month. This is a self-reported range, not an estimate of value.`);
   }
-  const r = classification.reasons;
-  if (r.some((x) => x.startsWith("missing"))) keyFindings.push("Some answers needed for an initial recommendation were not provided.");
-  if (r.includes("contradictory:q8-q9")) keyFindings.push("Your answers about response timing point in different directions, so they would need clarifying.");
-  if (r.includes("constraints:q12")) keyFindings.push("You indicated strict industry rules or IT restrictions. Any approach would first need to be reviewed against those requirements.");
-  if (r.includes("capacity:free-text")) keyFindings.push("Your notes mention limits on taking new work. That would need to be understood before considering more inquiry volume or follow-up.");
-  if (r.includes("multi-location:free-text")) keyFindings.push("Your notes mention multiple locations or listings. This assessment cannot evaluate that setup, so it would need a conversation.");
-  if (r.includes("website:free-text")) keyFindings.push("Your notes mention your website or online presence. This assessment does not evaluate websites, so that would need a separate look.");
+  if (flags.some((f) => f.startsWith("missing"))) keyFindings.push("Some answers relevant to an initial recommendation were not provided.");
+  if (flags.includes("contradictory:q8-q9")) keyFindings.push("Your answers about response timing point in different directions, so they would need clarifying.");
+  if (flags.includes("restrictions:q12")) keyFindings.push(`You described your rules or restrictions as: "${answer("q12")}". Any approach would first need to be reviewed against those requirements.`);
+  if (flags.includes("capacity:free-text")) keyFindings.push("Your notes mention limits on taking on more work. That would need to be understood before considering changes to inquiry handling.");
+  if (flags.includes("website-issue:free-text")) keyFindings.push("Your notes mention a concern with your website or contact experience. This assessment does not evaluate websites, so that would need a separate look.");
+  if (flags.includes("multi-listing-issue:free-text")) keyFindings.push("Your notes mention a concern involving multiple locations, listings, or integrations. This assessment cannot evaluate that setup.");
   if (!keyFindings.length) keyFindings.push("Your answers did not point to a specific area that stands out.");
 
   const goal = answer("q13");
   const actionPlans: Record<AuditRecommendationCategory, AuditInsightSection[]> = {
-    potential_standard_fit: [
+    potential_lead_handling_opportunity: [
       {
-        title: "Review: confirm the reported gaps",
-        body: "An optional review would check whether the response and follow-up gaps you reported happen consistently and on which lead sources.",
+        title: "Review the reported answers",
+        body: "An optional review would look at the lead-handling answers you flagged and whether they happen consistently, and on which lead sources.",
       },
       {
-        title: "Review: scope and fit",
+        title: "Confirm needs and requirements",
+        body: "Any solution would depend on confirming your business needs, operating capacity, and technical requirements.",
+      },
+      {
+        title: "Decide on a next step",
         body: goal
-          ? `If the gaps are confirmed, discuss whether an appropriate scope could support your stated goal: "${goal}". Nothing is committed at this stage.`
-          : "If the gaps are confirmed, discuss what an appropriate scope could include and what your team would keep handling. Nothing is committed at this stage.",
+          ? `If it seems useful, discuss whether an appropriate scope could support your stated goal: "${goal}". Nothing is committed at this stage.`
+          : "If it seems useful, discuss what an appropriate scope could include. Nothing is committed at this stage.",
       },
     ],
-    further_discovery: [
+    further_review_needed: [
       {
-        title: "Clarify the details",
-        body: "Some of what matters for a recommendation is not captured by these questions. A short conversation can fill in those details.",
+        title: "Review",
+        body: "Look over the findings above, including any points marked as needing clarification.",
       },
       {
-        title: "Optional assessment review",
-        body: "If you'd like, book a review to discuss your answers. It may conclude that no further action is needed.",
+        title: "Clarify",
+        body: "Some details that matter for a recommendation are not captured by these questions. An optional assessment review can help fill them in.",
+      },
+      {
+        title: "Decide",
+        body: "Decide whether a further conversation would be useful. It may conclude that no further action is needed.",
       },
     ],
-    no_immediate_engagement: [
+    no_clear_immediate_need: [
       {
         title: "Keep what is working",
         body: "Your answers describe consistent response and follow-up. Keeping that process documented helps it hold up as your team changes.",
       },
       {
         title: "Revisit if things change",
-        body: "If inquiry volume, staffing, or response times change, you can retake this assessment.",
+        body: "This assessment focuses on lead handling. If inquiry volume, staffing, or response times change, you can revisit these findings.",
+      },
+    ],
+    insufficient_evidence: [
+      {
+        title: "Review",
+        body: "Look over the findings above. They are based only on the answers provided.",
+      },
+      {
+        title: "Clarify",
+        body: "Some answers were missing, unclear, or did not point to a specific concern, so no particular system is suggested.",
+      },
+      {
+        title: "Decide",
+        body: "Decide whether a further conversation would be useful. It is optional.",
       },
     ],
   };
