@@ -337,86 +337,15 @@ const AILeadResponseSystem = () => {
           </div>
         </section>
 
-        {/* How it works — navy timeline */}
+        {/* How it works — navy illustrative walkthrough */}
         <section className="py-20 relative overflow-hidden bg-navy">
           <NavySectionBg />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="text-center mb-16"
-            >
-              <h2 className="section-title text-navy-foreground">
-                A Clearer Path From Inquiry to Next Step
-              </h2>
-            </motion.div>
-
-            <div className="relative">
-              {/* Vertical connector line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-px flex items-stretch">
-                <motion.div
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  className="w-full origin-top bg-gradient-to-b from-primary/40 via-primary/20 to-primary/5"
-                />
-              </div>
-
-              <div className="space-y-10">
-                {steps.map((step, i) => (
-                  <motion.div
-                    key={step.title}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className={`relative flex items-center gap-6 md:gap-10 ${
-                      i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
-                  >
-                    <div className="hidden md:block flex-1" />
-
-                    <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
-                      <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
-                    </div>
-
-                    <div className="flex-1 ml-14 md:ml-0 min-w-0">
-                      <div className="relative group p-6 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm hover:shadow-elegant-hover hover:-translate-y-0.5 transition-[box-shadow,transform] duration-300">
-                        <span className="absolute -top-3 -right-2 text-7xl font-extrabold text-primary/[0.06] select-none leading-none pointer-events-none">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="relative z-10">
-                          <div className="flex items-center gap-4">
-                            <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors duration-300">
-                              <step.icon className="w-5 h-5 text-primary" />
-                            </div>
-                            <h3 className="font-semibold text-navy-foreground text-base sm:text-lg">
-                              {step.title}
-                            </h3>
-                          </div>
-                          <p className="mt-3 text-sm text-navy-foreground/60 leading-relaxed">
-                            {step.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="text-center text-navy-foreground/70 mt-14 leading-relaxed"
-            >
-              HBOSB manages the system around that process. We do not replace the business itself.
-            </motion.p>
+          <div className="relative z-10">
+            <SystemWalkthroughSection
+              variant="navy"
+              heading="A Clearer Path From Inquiry to Next Step"
+              showScopeNotes
+            />
           </div>
         </section>
 
