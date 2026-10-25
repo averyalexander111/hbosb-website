@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Inbox, MessageSquare, Bell, ClipboardList, ArrowRight } from "lucide-react";
+import { Inbox, MessageSquare, Bell, ClipboardList, ArrowRight, PhoneIncoming, Repeat } from "lucide-react";
 
 const SampleTag = () => (
   <span className="inline-block rounded-full border border-navy-foreground/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-navy-foreground/60">
@@ -54,7 +54,7 @@ const steps = [
   {
     icon: ClipboardList,
     title: "Opportunity tracked",
-    desc: "The lead is recorded so nothing waits without an owner.",
+    desc: "The lead’s owner and next action remain visible.",
     sample: (
       <dl className="space-y-1.5">
         <Row label="Status" value="Follow-up needed" />
@@ -65,58 +65,122 @@ const steps = [
   },
 ];
 
-const SystemWalkthroughSection = () => (
-  <section className="py-20 bg-background" aria-labelledby="walkthrough-heading">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <p className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary mb-6 border border-primary/20">
-          Illustrative System Walkthrough
+const scopeNotes = [
+  {
+    icon: PhoneIncoming,
+    title: "Missed-call recovery",
+    desc: "When included in your approved implementation, missed calls can trigger a recovery workflow.",
+  },
+  {
+    icon: Repeat,
+    title: "Consistent follow-up",
+    desc: "SMS and email follow-up can help appropriate leads move toward a booking or another agreed next step. Timing and messages are approved with your team.",
+  },
+];
+
+interface SystemWalkthroughSectionProps {
+  heading?: string;
+  variant?: "light" | "navy";
+  showScopeNotes?: boolean;
+}
+
+const SystemWalkthroughSection = ({
+  heading = "See How an Inquiry Moves Through the System",
+  variant = "light",
+  showScopeNotes = false,
+}: SystemWalkthroughSectionProps) => {
+  const isNavy = variant === "navy";
+
+  return (
+    <section
+      className={isNavy ? "bg-transparent" : "py-20 bg-background"}
+      aria-labelledby="walkthrough-heading"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <p className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary mb-6 border border-primary/20">
+            Illustrative System Walkthrough
+          </p>
+          <h2
+            id="walkthrough-heading"
+            className={`section-title font-display ${isNavy ? "text-navy-foreground" : "text-foreground"}`}
+          >
+            {heading}
+          </h2>
+          <p className={`mt-5 text-lg ${isNavy ? "text-navy-foreground/70" : "text-muted-foreground"}`}>
+            Using a sample restoration-business website inquiry, here is one example of how approved intake, acknowledgment, internal notification, and lead tracking can connect.
+          </p>
+        </div>
+
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {steps.map((s, i) => (
+            <li
+              key={s.title}
+              className={`flex flex-col rounded-2xl p-6 border ${
+                isNavy
+                  ? "bg-navy-light/50 border-navy-foreground/10 backdrop-blur-sm"
+                  : "bg-navy border-navy-foreground/10"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/20">
+                  <s.icon className="h-5 w-5 text-[hsl(var(--signal))]" aria-hidden="true" />
+                </span>
+                <span className="text-sm font-semibold text-[hsl(var(--signal))]">Step {i + 1}</span>
+              </div>
+              <h3 className="text-lg font-semibold text-navy-foreground">{s.title}</h3>
+              <p className="mt-1.5 text-sm text-navy-foreground/70 leading-relaxed">{s.desc}</p>
+              <div
+                className={`mt-5 rounded-xl border border-navy-foreground/15 p-4 ${
+                  isNavy ? "bg-navy" : "bg-navy-light"
+                }`}
+              >
+                <div className="mb-2.5"><SampleTag /></div>
+                {s.sample}
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <p className={`mt-6 text-center text-sm ${isNavy ? "text-navy-foreground/60" : "text-muted-foreground"}`}>
+          Sample business and customer data. Actual workflows depend on your approved scope and connected tools.
         </p>
-        <h2 id="walkthrough-heading" className="section-title text-foreground font-display">
-          See How an Inquiry Moves Through the System
-        </h2>
-        <p className="mt-5 text-lg text-muted-foreground">
-          Using a sample restoration-business website inquiry, here is one example of how approved intake, acknowledgment, internal notification, and lead tracking can connect.
+
+        {showScopeNotes && (
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            {scopeNotes.map((n) => (
+              <div
+                key={n.title}
+                className="flex items-start gap-4 rounded-2xl bg-navy-light/50 border border-navy-foreground/10 backdrop-blur-sm p-5"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/20">
+                  <n.icon className="h-5 w-5 text-[hsl(var(--signal))]" aria-hidden="true" />
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-navy-foreground">{n.title}</h3>
+                  <p className="mt-1 text-sm text-navy-foreground/70 leading-relaxed">{n.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <p className={`mt-6 text-center text-base font-medium ${isNavy ? "text-navy-foreground" : "text-foreground"}`}>
+          Your team handles the conversations, service decisions, and customer care.
         </p>
+
+        <div className="mt-10 text-center">
+          <Link
+            to="/assessment"
+            className="inline-flex max-w-full items-center justify-center gap-2 rounded-lg bg-primary px-8 sm:px-10 py-4 text-base font-semibold text-primary-foreground text-center border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-[box-shadow] duration-300"
+          >
+            Start Your AI Revenue System Assessment
+            <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
-
-      <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-        {steps.map((s, i) => (
-          <li key={s.title} className="flex flex-col rounded-2xl bg-navy p-6 border border-navy-foreground/10">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/20">
-                <s.icon className="h-5 w-5 text-[hsl(var(--signal))]" aria-hidden="true" />
-              </span>
-              <span className="text-sm font-semibold text-[hsl(var(--signal))]">Step {i + 1}</span>
-            </div>
-            <h3 className="text-lg font-semibold text-navy-foreground">{s.title}</h3>
-            <p className="mt-1.5 text-sm text-navy-foreground/70 leading-relaxed">{s.desc}</p>
-            <div className="mt-5 rounded-xl border border-navy-foreground/15 bg-navy-light p-4">
-              <div className="mb-2.5"><SampleTag /></div>
-              {s.sample}
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      <p className="mt-6 text-center text-sm text-muted-foreground">
-        Sample business and customer data. Actual workflows depend on your approved scope and connected tools.
-      </p>
-      <p className="mt-6 text-center text-base font-medium text-foreground">
-        Your team handles the conversations, service decisions, and customer care.
-      </p>
-
-      <div className="mt-10 text-center">
-        <Link
-          to="/assessment"
-          className="inline-flex max-w-full items-center justify-center gap-2 rounded-lg bg-primary px-8 sm:px-10 py-4 text-base font-semibold text-primary-foreground text-center border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-[box-shadow] duration-300"
-        >
-          Start Your AI Revenue System Assessment
-          <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
-        </Link>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default SystemWalkthroughSection;
