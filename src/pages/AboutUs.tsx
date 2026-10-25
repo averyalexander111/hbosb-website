@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { AlertTriangle, Clock, MessageSquareOff, Wrench, Zap, MessageSquare, BarChart3, Settings, Award, Lightbulb, Bot, ArrowRight, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, Clock, MessageSquareOff, Wrench, Zap, MessageSquare, BarChart3, Settings, Award, Bot, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import HeartbeatNavbar from "@/components/HeartbeatNavbar";
 import HeartbeatFooter from "@/components/HeartbeatFooter";
@@ -48,9 +48,8 @@ const philosophyStatements = [
 
 const credentials = [
   { icon: Award, title: "Google Project Management Professional Certificate" },
-  { icon: Lightbulb, title: "Creative Entrepreneurship & Systems Design" },
-  { icon: Bot, title: "AI Consulting & Automation Strategy" },
-  { icon: Settings, title: "Workflow Automation & Operational Optimization" },
+  { icon: Bot, title: "Google AI Professional Certificate" },
+  { icon: Settings, title: "Make Foundation" },
 ];
 
 const AboutUs = () => {
@@ -215,13 +214,24 @@ const AboutUs = () => {
                 </div>
                 <div className="lg:w-2/3 space-y-4">
                   <p className="text-navy-foreground/80 leading-relaxed">
-                    <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span> was founded by Avery Alexander Palmer, a creative entrepreneur and AI consultant who holds the Google Project Management Professional Certificate. His mission is to help businesses modernize how they operate through intelligent systems and automation.
+                    <span className="whitespace-nowrap">Avery Alexander Palmer</span> is the founder of <span className="whitespace-nowrap">Heartbeat of South&nbsp;Bay</span>, a creative entrepreneur and AI systems consultant. His background brings together creative strategy, digital platforms, project management, and workflow automation.
                   </p>
                   <p className="text-navy-foreground/80 leading-relaxed">
-                    Avery combines expertise in project management, digital strategy, and AI-powered automation to design operational systems that improve how businesses capture opportunities, communicate with customers, and manage internal workflows.
+                    Through HBOSB, he applies that experience to practical business needs: responding to inquiries, organizing follow-up, improving customer communication, and coordinating the work behind delivery. His work spans CRM workflows, digital platforms, and project coordination, connecting business priorities with practical implementation.
                   </p>
                   <p className="text-navy-foreground/60 leading-relaxed italic">
-                    Rather than simply installing tools, Avery approaches automation through a systems-thinking mindset. He integrates technology, processes, and human workflows into unified systems that operate continuously in the background.
+                    His approach starts with understanding the business, improving the process, and then choosing technology that supports the work. The goal is a usable system with clear responsibilities for the people who depend on it.
+                  </p>
+                  <p className="pt-1">
+                    <a
+                      href="https://theaveryalexander.com/capability-statement"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                    >
+                      Explore Avery’s background and selected work
+                      <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                    </a>
                   </p>
                 </div>
               </div>
@@ -235,7 +245,7 @@ const AboutUs = () => {
             <motion.h2 {...fadeUp} className="section-title text-center mb-12">
               Credentials &amp; Expertise
             </motion.h2>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="grid gap-6 max-w-5xl mx-auto lg:grid-cols-3">
               {credentials.map((cred, i) => (
                 <motion.div
                   key={cred.title}
