@@ -469,7 +469,7 @@ export const buildAuditBlueprint = (leadData: AuditLeadData): AuditBlueprint => 
   classification.gapQuestions.forEach((id) => keyFindings.push(GAP_FINDING_TEXT[id](answer(id))));
   if (classification.adequateQuestions.length) {
     keyFindings.push(
-      `${classification.adequateQuestions.length} of 4 lead-handling answers describe consistent handling (for example, response time "${answer(classification.adequateQuestions[0] === "q8" ? "q8" : classification.adequateQuestions[0])}").`,
+      `${classification.adequateQuestions.length} of 4 lead-handling answers describe consistent handling, for example: "${answer(classification.adequateQuestions[0])}".`,
     );
   }
   const inquiries = answer("q3");
