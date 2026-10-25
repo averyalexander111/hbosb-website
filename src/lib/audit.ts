@@ -288,8 +288,6 @@ const getAnswerText = (responses: AuditResponse[], questionId: string) => {
   return response.textResponse?.trim() || response.selectedOption?.text || "";
 };
 
-const getAnswerScore = (responses: AuditResponse[], questionId: string) =>
-  getResponse(responses, questionId)?.selectedOption?.score ?? 0;
 
 export const calculateAuditResult = (responses: AuditResponse[]): AuditResult => {
   const scoredQuestions = AUDIT_QUESTIONS.filter((question) => question.type === "scored");
