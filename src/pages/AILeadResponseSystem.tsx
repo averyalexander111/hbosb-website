@@ -8,11 +8,6 @@ import {
   FolderSearch,
   EyeOff,
   Inbox,
-  Bell,
-  PhoneIncoming,
-  MessageSquare,
-  BarChart3,
-  Users,
   CheckCircle2,
   Minus,
   ArrowRight,
@@ -24,6 +19,7 @@ import HeartbeatFooter from "@/components/HeartbeatFooter";
 import SEOHead from "@/components/SEOHead";
 import ConnectSection from "@/components/ConnectSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import SystemWalkthroughSection from "@/components/SystemWalkthroughSection";
 import {
   Accordion,
   AccordionContent,
