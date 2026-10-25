@@ -46,3 +46,8 @@
 - [x] ContactForm: direct n8n webhook on both production hostnames regardless of pathname
 - [x] Remove secondary Supabase edge-function submission from production branch (non-production fallback kept)
 - [x] Validation: TypeScript, build, isolated diff, assessment files untouched
+
+## AI Operating System heading alignment (preview only, not published)
+- [x] Widen the centered heading wrapper to the card row width and drop forced desktop nowrap
+- [x] Verify text-line centers over the card group at 390/890/1280/1600 on homepage and About
+- [x] Confirm single source file, natural wrapping, no clipping or horizontal overflow, build OK
