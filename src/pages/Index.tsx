@@ -40,6 +40,8 @@ const Index = () => {
       <main>
         <HeartbeatHero />
         <Suspense fallback={<Loader />}><ProblemSection /></Suspense>
+        <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
+        <Suspense fallback={<Loader />}><SystemWalkthroughSection /></Suspense>
         <Suspense fallback={<Loader />}><AIOperatingSystem /></Suspense>
         <Suspense fallback={<Loader />}><AISystemsSection /></Suspense>
         
@@ -48,8 +50,6 @@ const Index = () => {
         <Suspense fallback={<Loader />}><TechnologyCarousel /></Suspense>
         <Suspense fallback={<Loader />}><TestimonialsSection /></Suspense>
         <Suspense fallback={<Loader />}><FAQSection /></Suspense>
-        <Suspense fallback={<Loader />}><AILeadResponseSection /></Suspense>
-        <Suspense fallback={<Loader />}><SystemWalkthroughSection /></Suspense>
         <Suspense fallback={<Loader />}><FinalCTASection /></Suspense>
         <Suspense fallback={<Loader />}><ConnectSection /></Suspense>
       </main>
