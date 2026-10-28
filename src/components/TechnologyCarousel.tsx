@@ -16,6 +16,7 @@ import higgsfieldLogo from "@/assets/higgsfield-icon.png";
 import runwayLogo from "@/assets/runway-icon.png";
 import githubLogo from "@/assets/github-icon.png";
 import grokBotLogo from "@/assets/grok-bot-icon.png";
+import elevenLabsLogo from "@/assets/elevenlabs-logo-new.png";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
@@ -24,7 +25,7 @@ const TechnologyCarousel = React.memo(() => {
     { name: "Gradient heart icon", icon: "/lovable-uploads/a9488bc1-c20b-4ebd-81a3-dab6badda94e.png" },
     { name: "Network graph icon", icon: "/lovable-uploads/6df45b1f-a2c5-44fb-b9b7-a78890424d8b.png" },
     { name: "Starburst icon", icon: "/lovable-uploads/d12e40d6-2664-4b67-9258-3bd483100057.png" },
-    { name: "ElevenLabs logo", icon: "/lovable-uploads/elevenlabs-icon.png" },
+    { name: "ElevenLabs logo", icon: elevenLabsLogo, className: "w-[70px] h-[70px]" },
     { name: "Make.com logo", icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png" },
     { name: "Google logo", icon: "/lovable-uploads/508bd167-4c17-4f66-9bc4-1194b4df23e9.png" },
     { name: "Grok Bot icon", icon: grokBotLogo, className: "w-[70px] h-[70px]" },
