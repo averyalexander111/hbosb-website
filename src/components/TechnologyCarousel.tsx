@@ -15,7 +15,7 @@ import stripeLogo from "@/assets/stripe-icon.png";
 import higgsfieldLogo from "@/assets/higgsfield-icon.png";
 import runwayLogo from "@/assets/runway-icon.png";
 import githubLogo from "@/assets/github-icon.png";
-import grokLogo from "@/assets/grok-icon.png";
+import grokBotLogo from "@/assets/grok-bot-icon.png";
 
 const TechnologyCarousel = React.memo(() => {
   const reducedMotion = useReducedMotion();
@@ -27,7 +27,7 @@ const TechnologyCarousel = React.memo(() => {
     { name: "ElevenLabs logo", icon: "/lovable-uploads/elevenlabs-icon.png" },
     { name: "Make.com logo", icon: "/lovable-uploads/d8d910bf-a29e-439d-975b-721cf8b16d73.png" },
     { name: "Google logo", icon: "/lovable-uploads/508bd167-4c17-4f66-9bc4-1194b4df23e9.png" },
-    { name: "Grok logo", icon: grokLogo, className: "w-[128px] h-[128px]" },
+    { name: "Grok Bot icon", icon: grokBotLogo, className: "w-[70px] h-[70px]" },
     { name: "Green geometric logo", icon: logoGreenGeometric },
     { name: "Google Antigravity logo", icon: "/lovable-uploads/google-antigravity-icon.png" },
     { name: "Twilio logo", icon: twilioLogo },
