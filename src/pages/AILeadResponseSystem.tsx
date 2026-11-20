@@ -269,7 +269,7 @@ const AILeadResponseSystem = () => {
                   to="/assessment"
                   className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
                 >
-                  Start Your AI Revenue System Assessment
+                  Start Your Free Assessment
                   <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <a
@@ -725,7 +725,7 @@ const AILeadResponseSystem = () => {
                   to="/assessment"
                   className="group inline-flex items-center justify-center gap-2 text-center rounded-lg bg-primary px-8 py-4 text-sm sm:text-base font-semibold leading-snug text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
                 >
-                  Start Your AI Revenue System Assessment
+                  Start Your Free Assessment
                   <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <a

@@ -38,7 +38,7 @@ const ImplementationSection = () => {
           className="text-center max-w-3xl lg:max-w-5xl mx-auto mb-14"
         >
           <h2 className="section-title text-foreground lg:whitespace-nowrap">
-            How We Build and Implement AI Systems
+            How We Put Your System in Place
           </h2>
           <p className="section-subtitle mx-auto mt-4">
             These results come from a structured system designed to improve how your business captures, follows up with, and converts opportunities.
@@ -87,7 +87,7 @@ const ImplementationSection = () => {
               to="/assessment"
               className="group inline-flex items-center justify-center rounded-lg bg-primary px-10 py-4 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
-              Start AI Revenue System Assessment
+              Start Your Free Assessment
               <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

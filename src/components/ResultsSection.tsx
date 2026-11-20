@@ -34,7 +34,7 @@ const ResultsSection = () => {
           className="text-center mb-14"
         >
           <h2 className="section-title text-navy-foreground">
-            How AI Systems Improve Business Performance
+            What Better Follow-Up Can Change
           </h2>
           <p className="mt-4 text-lg text-navy-foreground/60 max-w-2xl mx-auto">
             The improvement is operational. Better handling of the opportunities your business already receives.

@@ -23,7 +23,7 @@ const AISystemsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="section-title text-foreground">AI Systems We Build</h2>
+          <h2 className="section-title text-foreground">What We Can Help You Manage</h2>
           <p className="section-subtitle mx-auto">
             We select the right mix of capabilities for your business, with scope confirmed before implementation.
           </p>
@@ -76,7 +76,7 @@ const AISystemsSection = () => {
               to="/assessment"
               className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground rounded-lg text-base font-semibold border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
             >
-              Start AI Revenue System Assessment
+              Start Your Free Assessment
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

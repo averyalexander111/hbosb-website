@@ -174,7 +174,7 @@ const SystemWalkthroughSection = ({
             to="/assessment"
             className="inline-flex max-w-full items-center justify-center gap-2 rounded-lg bg-primary px-8 sm:px-10 py-4 text-base font-semibold text-primary-foreground text-center border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-[box-shadow] duration-300"
           >
-            Start Your AI Revenue System Assessment
+            Start Your Free Assessment
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
           </Link>
         </div>

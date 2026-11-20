@@ -52,21 +52,21 @@ const HeartbeatHero = () => {
             {...enter(0)}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-navy-foreground"
           >
-            AI Revenue Systems Built for Service Businesses
+            Respond faster and follow up on the leads you already have.
           </motion.h1>
 
           <motion.p
             {...enter(0.15)}
             className="mt-6 text-lg sm:text-xl text-navy-foreground/70 max-w-2xl"
           >
-            We build AI-powered systems that help service-based businesses capture leads, automate follow-up, and convert more opportunities into revenue.
+            We help service businesses respond to new inquiries, follow up after missed calls, and see which leads need attention.
           </motion.p>
 
           <motion.p
             {...enter(0.22)}
             className="mt-3 text-base sm:text-lg text-navy-foreground/50 max-w-2xl"
           >
-            Managed systems support response, follow-up, and pipeline visibility. Your team stays in charge of the conversations and decisions.
+            Your team handles the conversations and decides what happens next.
           </motion.p>
 
           {/* Benefit pills */}
@@ -98,7 +98,7 @@ const HeartbeatHero = () => {
               to="/assessment"
               className="inline-flex items-center justify-center text-center rounded-lg bg-primary px-5 sm:px-8 py-3.5 sm:py-4 text-sm font-semibold leading-snug text-primary-foreground shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-all duration-300"
             >
-              Start Your AI Revenue System Assessment
+              Start Your Free Assessment
             </Link>
             <Link
               to="/roi"

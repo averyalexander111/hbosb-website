@@ -97,7 +97,7 @@ const AILeadResponseSection = () => {
             to="/leads"
             className="inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-10 py-4 text-base font-semibold text-primary-foreground border-glow-spin hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.03] transition-[transform] duration-300"
           >
-            Learn How the AI Lead Conversion System Works
+            See How the System Works
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
