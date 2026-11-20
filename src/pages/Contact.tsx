@@ -80,9 +80,9 @@ const Contact = () => {
     <>
       <SEOHead
         title="Contact Us - Heartbeat of South Bay"
-        description="Schedule a consultation or send a message. Heartbeat of South Bay helps businesses thrive with AI automation, CRM, and digital marketing."
+        description="Contact Heartbeat of South Bay about lead response, missed calls, and follow-up for your service business."
         ogTitle="Contact Us - Heartbeat of South Bay"
-        ogDescription="Book a consultation or get in touch with Heartbeat of South Bay."
+        ogDescription="Contact Heartbeat of South Bay about lead response, missed calls, and follow-up for your service business."
         canonicalUrl={`${window.location.origin}/contact`}
       />
       <HeartbeatNavbar />

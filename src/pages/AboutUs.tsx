@@ -41,9 +41,9 @@ const AboutUs = () => {
   return (
     <>
       <SEOHead
-        title="About Us | AI Consulting — Heartbeat of South Bay"
+        title="About Heartbeat of South Bay"
         description="Heartbeat of South Bay helps service businesses improve inquiry response, follow-up, and customer communication through practical systems and ongoing management."
-        ogTitle="About Us - Heartbeat of South Bay | AI Consulting & Automation"
+        ogTitle="About Heartbeat of South Bay"
         ogDescription="Heartbeat of South Bay helps service businesses improve inquiry response, follow-up, and customer communication through practical systems and ongoing management."
         canonicalUrl={`${window.location.origin}/about`}
       />

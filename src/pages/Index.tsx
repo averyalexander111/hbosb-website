@@ -30,10 +30,10 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="AI Revenue Systems for Service Businesses | Heartbeat of South Bay"
-        description="We build and manage AI revenue systems for service businesses, supporting lead capture, follow-up, and CRM visibility. Start with a complimentary assessment."
-        ogTitle="AI Revenue Systems Built for Service Businesses | Heartbeat of South Bay"
-        ogDescription="We build and manage AI revenue systems for service businesses, supporting lead capture, follow-up, and CRM visibility. Start with a complimentary assessment."
+        title="Lead Follow-Up for Service Businesses | Heartbeat of South Bay"
+        description="Respond faster to new inquiries, follow up after missed calls, and track which leads need attention. Start with a free assessment from Heartbeat of South Bay."
+        ogTitle="Respond faster and follow up on the leads you already have."
+        ogDescription="See how Heartbeat of South Bay helps service businesses handle missed calls, follow up consistently, and keep track of each inquiry."
         canonicalUrl="https://heartbeatofsouthbay.com/"
       />
       <HeartbeatNavbar />
